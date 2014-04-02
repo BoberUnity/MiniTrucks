@@ -6373,6 +6373,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carcameras: {fileID: 1740132427}
   steer: {fileID: 1983385440}
+  buttonBrake: {fileID: 189638617}
+  buttonNitro: {fileID: 572523811}
+  pos: {fileID: 982839391}
   trucks:
   - {fileID: 100012, guid: 74b273b514fdfe54ea9599424026701a, type: 2}
   - {fileID: 100066, guid: 6b3d6fa1189e024428f61d6cafe87b9f, type: 2}
@@ -17723,6 +17726,32 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+--- !u!1 &982839390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 982839391}
+  m_Layer: 0
+  m_Name: TruckPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982839391
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982839390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &986542058
 GameObject:
   m_ObjectHideFlags: 0
@@ -32377,6 +32406,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carcameras: {fileID: 1740132427}
   steer: {fileID: 1983385440}
+  buttonBrake: {fileID: 189638617}
+  buttonNitro: {fileID: 572523811}
+  pos: {fileID: 982839391}
   trucks:
   - {fileID: 100012, guid: 74b273b514fdfe54ea9599424026701a, type: 2}
   - {fileID: 100066, guid: 6b3d6fa1189e024428f61d6cafe87b9f, type: 2}
@@ -32894,7 +32926,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862649475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.525883377, y: -.525624156, z: 0}
+  m_LocalPosition: {x: 0, y: .583941579, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1630959109}
