@@ -1,6 +1,6 @@
 [body]
 weight=4000
-weightRepartition=0.21
+weightRepartition=0.59
 centerOfMass=(0.0, -0.3, 0.1)
 inertiaFactor=1
 dragCoefficent=0.4
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=0
+clutchMaxTorque=7124
 autoClutch=True
 engageRPM=800
 disengageRPM=500
@@ -71,7 +71,7 @@ brakeFrictionTorque=6000
 handbrakeFrictionTorque=0
 
 [brakes-rearAxle]
-BrakeFrictionTorque=6000
+BrakeFrictionTorque=4000
 HandbrakeFrictionTorque=4000
 
 [brakes]

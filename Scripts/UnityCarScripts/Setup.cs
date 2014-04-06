@@ -142,10 +142,10 @@ public class Setup : MonoBehaviour {
 		}
 	}
 		
-	bool SaveToFile(string filePath){
+	public bool SaveToFile(string filePath){
 		try{
-			if (!File.Exists(filePath)) Debug.Log("UnityCar: file '" + filePath +"' not found, creating it");
-			writer = new StreamWriter(filePath);
+      if (!File.Exists(filePath)) Debug.Log("UnityCar: file '" + filePath + "' not found, creating it");
+      writer = new StreamWriter(filePath);
 			writer.Write(setupFileText);
 			writer.Close();
 			return true;
@@ -155,14 +155,19 @@ public class Setup : MonoBehaviour {
 		}
 	}
 	
-	public bool SaveSetup(){
-		bool saved=false;
+	public bool SaveSetup()
+  {
+    Debug.LogWarning("isSaved2");
+    bool saved=false;
 		message="";
 		SetComponent();
 		string mfilePath=filePath;
 		if (usePersistentDataPath==true) mfilePath=Application.persistentDataPath + "\\" + filePath;
-		if (filePath!=""){
-			if (LoadFromFile(mfilePath,false)==true){
+		if (filePath!="")
+    {
+      Debug.LogWarning("isSaved1");
+			if (LoadFromFile(mfilePath,false)==true)
+      {
 				setupFileText="";
 				savingSetup=true;
 				SaveBodyData();
@@ -180,6 +185,7 @@ public class Setup : MonoBehaviour {
 				SaveFuelTanksData();
 				SaveForceFeedBackData();
 				saved=SaveToFile(mfilePath);
+        Debug.LogWarning("isSaved");
 				if (saved==true) Debug.Log("UnityCar: setup saved succesfully in the file '"+ mfilePath+"'");
 			}
 		}

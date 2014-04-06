@@ -2,7 +2,8 @@
 
 public class ButtonTuning : MonoBehaviour 
 {
-  [SerializeField] private Drivetrain drivetrain = null;
+  public Drivetrain drivetrain = null;
+  public Setup setup = null;
 
   protected virtual void OnPress(bool isPressed)
   {
@@ -10,6 +11,13 @@ public class ButtonTuning : MonoBehaviour
     {
       drivetrain.maxPower += 1000;
       drivetrain.maxTorque += 1000;
+      if (setup != null)
+      {
+        if (setup.SaveToFile(setup.filePath))
+        {
+          setup.SaveSetup();
+        }
+      }
     }
 	}
 }
