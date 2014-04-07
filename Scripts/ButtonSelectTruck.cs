@@ -6,7 +6,8 @@ public class ButtonSelectTruck : MonoBehaviour
   [SerializeField] private Steer steer = null;
   [SerializeField] private Button2D buttonBrake = null;
   [SerializeField] private Button2D buttonNitro = null;
-  [SerializeField] private ButtonTuning buttonTuning = null;
+  [SerializeField] private ButtonTuning buttonTuningEng = null;
+  [SerializeField] private ButtonTuning buttonTuningHand = null;
   [SerializeField] private Transform pos = null;
   [SerializeField] private GameObject[] trucks = null;
   [SerializeField] private int id = 0;
@@ -26,8 +27,9 @@ public class ButtonSelectTruck : MonoBehaviour
           steer.axisCarController = aCC;
           buttonBrake.axisCarController = aCC;
           buttonNitro.axisCarController = aCC;
-          buttonTuning.drivetrain = cts.GetComponent<Drivetrain>();
-          buttonTuning.setup = cts.GetComponent<Setup>();
+          buttonTuningEng.drivetrain = cts.GetComponent<Drivetrain>();
+          buttonTuningHand.axles = cts.GetComponent<Axles>();
+          buttonTuningEng.setup = cts.GetComponent<Setup>();
         }
         else
         {
