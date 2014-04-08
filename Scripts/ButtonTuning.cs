@@ -5,7 +5,9 @@ public class ButtonTuning : MonoBehaviour
   [SerializeField] private int id = 0;//0-enhine; 1-handling; 2-brakes
   public Drivetrain drivetrain = null;
   public Axles axles = null;
+  public Axles axlesTrailer = null;
   public Setup setup = null;
+  public Setup setupTrailer = null;
 
   protected virtual void OnPress(bool isPressed)
   {

@@ -13050,7 +13050,9 @@ MonoBehaviour:
   id: 0
   drivetrain: {fileID: 0}
   axles: {fileID: 0}
+  axlesTrailer: {fileID: 0}
   setup: {fileID: 0}
+  setupTrailer: {fileID: 0}
 --- !u!114 &721319647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38170,7 +38172,9 @@ MonoBehaviour:
   id: 0
   drivetrain: {fileID: 0}
   axles: {fileID: 0}
+  axlesTrailer: {fileID: 0}
   setup: {fileID: 0}
+  setupTrailer: {fileID: 0}
 --- !u!114 &2065490088
 MonoBehaviour:
   m_ObjectHideFlags: 0

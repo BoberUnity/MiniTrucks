@@ -19,7 +19,7 @@ public class ButtonSelectTruck : MonoBehaviour
       GameObject truck = Instantiate(trucks[id], pos.position, Quaternion.identity) as GameObject;
       if (truck != null)
       {
-        CameraTarget cts = truck.GetComponentInChildren<CameraTarget>();  //Находим трейлер, на который будет нацелена камера
+        CameraTarget cts = truck.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера
         if (cts != null)
         {
           carcameras.target = cts.transform;
@@ -34,6 +34,18 @@ public class ButtonSelectTruck : MonoBehaviour
         else
         {
           Debug.LogWarning("CameraTarget was not found");
+        }
+
+        Trailer trailer = truck.GetComponentInChildren<Trailer>();  //Находим прицепа, 
+        if (trailer != null)
+        {
+          AxisCarController aCCF = trailer.GetComponent<AxisCarController>();
+          buttonTuningHand.axlesTrailer = aCCF.GetComponent<Axles>();
+          buttonTuningEng.setupTrailer = aCCF.GetComponent<Setup>();
+        }
+        else
+        {
+          Debug.LogWarning("Trailer was not found");
         }
       }
       else

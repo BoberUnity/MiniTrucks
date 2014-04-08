@@ -140,6 +140,7 @@ GameObject:
   - 114: {fileID: 11400030}
   - 54: {fileID: 5400002}
   - 114: {fileID: 11400032}
+  - 114: {fileID: 11400054}
   m_Layer: 25
   m_Name: Scania TrailerMy
   m_TagString: Trailer
@@ -1887,7 +1888,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400050}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .209999993
+  frontRearWeightRepartition: .589999974
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: 0
   enableForceFeedback: 0
@@ -1961,7 +1962,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 0
+  clutchMaxTorque: 7124
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2009,6 +2010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundVolume: {fileID: 0}
   engineThrottle: {fileID: 8300000, guid: 300cea8b51b78724e83b9bc1e375cf2b, type: 3}
   engineThrottleVolume: 1
   engineThrottlePitchFactor: 1.5
@@ -2641,6 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundVolume: {fileID: 0}
   engineThrottle: {fileID: 0}
   engineThrottleVolume: .349999994
   engineThrottlePitchFactor: 1
@@ -3682,6 +3685,17 @@ MonoBehaviour:
   markWidth: .449999988
   groundOffset: .0199999996
   minDistance: .100000001
+--- !u!114 &11400054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df4d72c31144e1488da90ea59b5dfa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!144 &14400000
 CharacterJoint:
   m_ObjectHideFlags: 1
