@@ -25,6 +25,7 @@ public class AxisCarController : CarController
   private Vector3 RelativeWaypointPosition;
   [SerializeField] private Transform[] waypoints;
   private int currentWaypoint = 0;
+  private bool on = false;
 
   public bool BrakeUsed
   {
@@ -33,12 +34,17 @@ public class AxisCarController : CarController
 
   public bool NitroUsed
   {
-    set { nitroUsed = value; }
+    set { nitroUsed = value;}
   }
 
   public float SteerUsed
   {
     set { steerUsed = value;}
+  }
+
+  public bool On
+  {
+    set { on = value;}
   }
 
 
@@ -60,10 +66,15 @@ public class AxisCarController : CarController
       }
       else
       {
-        if (nitroUsed)
-          throttleInput = 1;
+        if (on)
+        {
+          if (nitroUsed)
+            throttleInput = 1;
+          else
+            throttleInput = 0.3f;
+        }
         else
-          throttleInput = 0.3f;
+          throttleInput = 0;
         brakeInput = 0;
       }
       steerInput = steerUsed * 0.01f;//Input.GetAxisRaw(steerAxis);
@@ -131,7 +142,7 @@ public class AxisCarController : CarController
         }
       }
     }
-    else//AI
+    else
     {
       RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(waypoints[currentWaypoint].position.x, transform.position.y, waypoints[currentWaypoint].position.z));
       steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
