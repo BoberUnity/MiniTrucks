@@ -5,21 +5,16 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonChangeCar buttonNextCar   = null;
   [SerializeField] private ButtonChangeCar buttonPrevCar = null;
   [SerializeField] private ButtonChangeCar buttonSelectCar = null;
-  [SerializeField]
-  private CarCameras carcameras = null;
-  [SerializeField]
-  private Steer steer = null;
-  [SerializeField]
-  private Button2D buttonBrake = null;
-  [SerializeField]
-  private Button2D buttonNitro = null;
-  [SerializeField]
-  private ButtonTuning buttonTuningEng = null;
-  [SerializeField]
-  private ButtonTuning buttonTuningHand = null;
+  [SerializeField] private CarCameras carcameras = null;
+  [SerializeField] private Steer steer = null;
+  [SerializeField] private ButtonThrottle buttonBrake = null;
+  [SerializeField] private ButtonThrottle buttonNitro = null;
+  [SerializeField] private ButtonTuning buttonTuningEng = null;
+  [SerializeField] private ButtonTuning buttonTuningHand = null;
 
   [SerializeField] private GameObject[] cars = null;
   [SerializeField] private Transform carGaragePos = null;
+  [SerializeField] private Transform podium = null;
   [SerializeField] private Transform carLevelPos = null;
   private GameObject car = null;
   private int currentCar = 0;
@@ -30,6 +25,8 @@ public class SelectCarController : MonoBehaviour
     buttonPrevCar.Pressed += PrevCar;
     buttonSelectCar.Pressed += SelectCar;
     car = Instantiate(cars[0], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (car != null)
+      car.transform.parent = podium;
 	}
 
   private void OnDestroy()
@@ -46,6 +43,8 @@ public class SelectCarController : MonoBehaviour
     if (currentCar > cars.Length - 1)
       currentCar = 0;
     car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (car != null)
+      car.transform.parent = podium;
 	}
 
   private void PrevCar()
@@ -55,11 +54,15 @@ public class SelectCarController : MonoBehaviour
     if (currentCar < 0)
       currentCar = cars.Length - 1;
     car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (car != null)
+      car.transform.parent = podium;
   }
 
   private void SelectCar()
   {
+    car.transform.parent = null;
     car.transform.position = carLevelPos.position;
+    car.transform.rotation = carLevelPos.rotation;
     carcameras.gameObject.SetActive(true);
     gameObject.SetActive(false);
     CameraTarget cts = car.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера

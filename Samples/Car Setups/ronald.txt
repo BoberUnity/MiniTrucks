@@ -1,15 +1,15 @@
 [body]
 weight=4000
-weightRepartition=0.59
+weightRepartition=0.57
 centerOfMass=(0.0, -0.3, 0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=1500
+maxPower=2500
 maxPowerRPM=4000
-maxTorque=4000
+maxTorque=5000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=7124
+clutchMaxTorque=5892
 autoClutch=True
 engageRPM=800
 disengageRPM=500

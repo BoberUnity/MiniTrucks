@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Button2D : MonoBehaviour 
+public class ButtonThrottle : MonoBehaviour 
 {
   public AxisCarController axisCarController = null;
   [SerializeField] private int id = 0; //0-brake; 1- nitro

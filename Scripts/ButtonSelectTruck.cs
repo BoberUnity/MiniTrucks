@@ -4,8 +4,9 @@ public class ButtonSelectTruck : MonoBehaviour
 {
   [SerializeField] private CarCameras carcameras = null;
   [SerializeField] private Steer steer = null;
-  [SerializeField] private Button2D buttonBrake = null;
-  [SerializeField] private Button2D buttonNitro = null;
+  [SerializeField] private ButtonThrottle buttonBrake = null;
+  [SerializeField]
+  private ButtonThrottle buttonNitro = null;
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
   [SerializeField] private Transform pos = null;
