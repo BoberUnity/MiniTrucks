@@ -11,6 +11,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonThrottle buttonNitro = null;
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
+  [SerializeField] private Map map = null;
 
   [SerializeField] private GameObject[] cars = null;
   [SerializeField] private Transform carGaragePos = null;
@@ -77,6 +78,7 @@ public class SelectCarController : MonoBehaviour
       buttonTuningEng.drivetrain = cts.GetComponent<Drivetrain>();
       buttonTuningHand.axles = cts.GetComponent<Axles>();
       buttonTuningEng.setup = cts.GetComponent<Setup>();
+      map.Truck = cts.transform;
     }
     Trailer trailer = car.GetComponentInChildren<Trailer>();  //Находим прицепа, 
     if (trailer != null)

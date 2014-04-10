@@ -1,5 +1,5 @@
 [body]
-weight=1000
+weight=5000
 weightRepartition=0.5
 centerOfMass=(0.0, 0.0, 0.0)
 inertiaFactor=1

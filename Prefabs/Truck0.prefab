@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98921f5f3ba6574d9fd0beb5262d28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMarks: 1024
+  maxMarks: 256
   markWidth: .449999988
   groundOffset: .0199999996
   minDistance: .100000001
@@ -3681,7 +3681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98921f5f3ba6574d9fd0beb5262d28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMarks: 1024
+  maxMarks: 256
   markWidth: .449999988
   groundOffset: .0199999996
   minDistance: .100000001
