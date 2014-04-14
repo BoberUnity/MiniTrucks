@@ -11,6 +11,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonThrottle buttonNitro = null;
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
+  [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   [SerializeField] private Map map = null;
 
   [SerializeField] private GameObject[] cars = null;
@@ -64,12 +65,18 @@ public class SelectCarController : MonoBehaviour
     car.transform.parent = null;
     car.transform.position = carLevelPos.position;
     car.transform.rotation = carLevelPos.rotation;
+    
+    //car.GetComponent<CharacterJoint>().
     carcameras.gameObject.SetActive(true);
     gameObject.SetActive(false);
     CameraTarget cts = car.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера
     if (cts != null)
     {
       carcameras.target = cts.transform;
+      foreach (var butt in buttonsAddTrailer)
+      {
+        butt.TruckCar = cts.transform;
+      }
       AxisCarController aCC = cts.GetComponent<AxisCarController>();
       aCC.On = true;
       steer.axisCarController = aCC;
@@ -80,11 +87,11 @@ public class SelectCarController : MonoBehaviour
       buttonTuningEng.setup = cts.GetComponent<Setup>();
       map.Truck = cts.transform;
     }
-    Trailer trailer = car.GetComponentInChildren<Trailer>();  //Находим прицепа, 
-    if (trailer != null)
-    {
-      buttonTuningHand.axlesTrailer = trailer.GetComponent<Axles>();
-      buttonTuningEng.setupTrailer = trailer.GetComponent<Setup>();
-    }
+    //Trailer trailer = car.GetComponentInChildren<Trailer>();  //Находим прицепа, 
+    //if (trailer != null)
+    //{
+    //  buttonTuningHand.axlesTrailer = trailer.GetComponent<Axles>();
+    //  buttonTuningEng.setupTrailer = trailer.GetComponent<Setup>();
+    //}
   }
 }
