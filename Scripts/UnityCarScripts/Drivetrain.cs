@@ -233,8 +233,8 @@ public class Drivetrain : MonoBehaviour {
 	public float velo;
 	[HideInInspector]
 	bool fuel=true;
-	
-	[HideInInspector]
+
+  [HideInInspector]
 	public float RPMAt130Kmh;
 		
 	float Sqr (float x) { return x*x; }
@@ -550,9 +550,9 @@ public class Drivetrain : MonoBehaviour {
 		curveFactor=externalFactor;
 	}		
 		
-	void FixedUpdate () 
-	{		
-		if (clutch==null) {clutch= new Clutch();CalcClutchTorque();}
+	void FixedUpdate ()
+	{
+	  if (clutch==null) {clutch= new Clutch();CalcClutchTorque();}
 		
 		if (shifter==true) automatic=false;
 

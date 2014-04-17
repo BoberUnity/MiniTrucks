@@ -125,12 +125,13 @@ public abstract class CarController : MonoBehaviour {
 	                                 out int targetGear);
 
 
-	
-	void Start () {
+
+  protected virtual void Start()
+  {
 		body=rigidbody;
 		cardynamics = GetComponent<CarDynamics>();
 		drivetrain = GetComponent<Drivetrain>();
-		axles = GetComponent <Axles>();
+    axles = GetComponent <Axles>();
 		allWheels=axles.allWheels;			
 		myTransform=transform;
 	}

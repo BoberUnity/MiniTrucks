@@ -6,6 +6,7 @@
 // See README.txt for more info.
 //========================================================================================================================
 
+using System;
 using UnityEngine;
 
 public class AxisCarController : CarController
@@ -14,6 +15,7 @@ public class AxisCarController : CarController
   private bool nitroUsed = false;
   private float steerUsed = 0.5f;
   [SerializeField] private bool ai = false;
+  [SerializeField] private string way = "Way0";
 	public string throttleAxis="Throttle";
 	public string brakeAxis="Brake";
 	public string steerAxis="Horizontal";
@@ -24,6 +26,7 @@ public class AxisCarController : CarController
 	public string startEngineButton="StartEngine";
   private Vector3 RelativeWaypointPosition;
   [SerializeField] private Transform[] waypoints;
+  [SerializeField] private float[] speeds;//Max speed points
   private int currentWaypoint = 0;
   private bool on = false;
 
@@ -46,8 +49,6 @@ public class AxisCarController : CarController
   {
     set { on = value;}
   }
-
-
 
   protected override void GetInput(out float throttleInput,
                   out float brakeInput,
@@ -152,13 +153,40 @@ public class AxisCarController : CarController
         if (currentWaypoint == waypoints.Length)
           currentWaypoint = 0;
       }
-      throttleInput = 0.5f;
+      if (rigidbody.velocity.magnitude < speeds[currentWaypoint])
+        throttleInput = 0.5f;
+      else
+        throttleInput = 0.1f;
       brakeInput = 0;
       //steerInput = 0;
       handbrakeInput = 0;
       clutchInput = 0;
       startEngineInput = Input.GetButton("Fire1");
+      if (drivetrain == null)
+        Debug.LogWarning("drivetrain == null" + gameObject.name);
       targetGear = drivetrain.gear;
+    }
+  }
+
+  protected override void Start()
+  {
+    base.Start();
+    if (ai)
+    {
+      GameObject wayObject = GameObject.Find(way);
+      if (way != null)
+      {
+        Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
+        if (wayComponent != null)
+        {
+          waypoints = wayComponent.Waypoints;
+          speeds = wayComponent.MaxSpeeds;
+        }
+        else
+          Debug.LogWarning("Компонент Waypoint не найден на объекте" + way);
+      }
+      else
+        Debug.LogWarning("Путь " + way + "не найден");
     }
   }
 }
