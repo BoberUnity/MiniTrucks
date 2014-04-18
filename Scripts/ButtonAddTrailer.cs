@@ -4,6 +4,7 @@ public class ButtonAddTrailer : MonoBehaviour
 {
   [SerializeField] private GameObject trailer = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
+  [SerializeField] private RaceStart raceStart = null;
   [SerializeField] private Transform truckCar = null;
 
   public Transform TruckCar
@@ -26,6 +27,7 @@ public class ButtonAddTrailer : MonoBehaviour
         truckCar.GetComponent<CharacterJoint>().anchor = connectPosition;
       }
 	    GetComponent<UIButton>().isEnabled = false;
+	    raceStart.ExitStation();
 	  }
 	}
 }

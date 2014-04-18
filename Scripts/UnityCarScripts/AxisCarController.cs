@@ -29,6 +29,7 @@ public class AxisCarController : CarController
   [SerializeField] private float[] speeds;//Max speed points
   private int currentWaypoint = 0;
   private bool on = false;
+  public bool InStation = false;
 
   public bool BrakeUsed
   {
@@ -60,26 +61,36 @@ public class AxisCarController : CarController
   {
     if (!ai)
     {
-      if (brakeUsed)
+      handbrakeInput = 0;
+      if (InStation)
       {
+        handbrakeInput = 1;
         throttleInput = 0;
-        brakeInput = 1;
+        brakeInput = 0;
       }
       else
       {
-        if (on)
+        if (brakeUsed)
         {
-          if (nitroUsed)
-            throttleInput = 1;
-          else
-            throttleInput = 0.3f;
+          throttleInput = 0;
+          brakeInput = 1;
         }
         else
-          throttleInput = 0;
-        brakeInput = 0;
+        {
+          if (on)
+          {
+            if (nitroUsed)
+              throttleInput = 1;
+            else
+              throttleInput = 0.3f;
+          }
+          else
+            throttleInput = 0;
+          brakeInput = 0;
+        }
       }
       steerInput = steerUsed * 0.01f;//Input.GetAxisRaw(steerAxis);
-      handbrakeInput = Input.GetAxisRaw(handbrakeAxis);
+      //handbrakeInput = Input.GetAxisRaw(handbrakeAxis);
       clutchInput = Input.GetAxisRaw(clutchAxis);
       startEngineInput = Input.GetButton(startEngineButton);
 

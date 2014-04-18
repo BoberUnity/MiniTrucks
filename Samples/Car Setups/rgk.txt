@@ -76,7 +76,7 @@ HandbrakeFrictionTorque=4000
 
 [brakes]
 frontRearBrakeBalance=0.5
-frontRearHandBrakeBalance=0
+frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=truck_front

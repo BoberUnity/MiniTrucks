@@ -322,6 +322,7 @@ GameObject:
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400034}
   - 114: {fileID: 11400048}
+  - 65: {fileID: 6500004}
   m_Layer: 21
   m_Name: Traktor
   m_TagString: Car
@@ -967,6 +968,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.92999995, y: 4.75, z: .370000005}
   m_Center: {x: 0, y: .310000002, z: 0}
+--- !u!65 &6500004
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: .600000024, z: 5.80000019}
+  m_Center: {x: 0, y: -.100000001, z: .100000001}
 --- !u!65 &6500008
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1719,6 +1732,7 @@ MonoBehaviour:
   ESPMinVelocity: 35
   reverse: 0
   ai: 0
+  way: Way0
   throttleAxis: Throttle
   brakeAxis: Brake
   steerAxis: Horizontal
@@ -1728,6 +1742,8 @@ MonoBehaviour:
   shiftDownButton: ShiftDown
   startEngineButton: StartEngine
   waypoints: []
+  speeds: []
+  InStation: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
