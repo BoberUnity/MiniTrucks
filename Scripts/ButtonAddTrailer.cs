@@ -26,7 +26,6 @@ public class ButtonAddTrailer : MonoBehaviour
         truckCar.GetComponent<CharacterJoint>().connectedBody = tr.GetComponentInChildren<Rigidbody>();
         truckCar.GetComponent<CharacterJoint>().anchor = connectPosition;
       }
-	    GetComponent<UIButton>().isEnabled = false;
 	    raceStart.ExitStation();
 	  }
 	}

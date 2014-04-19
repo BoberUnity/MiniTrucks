@@ -30,6 +30,7 @@ public class AxisCarController : CarController
   private int currentWaypoint = 0;
   private bool on = false;
   public bool InStation = false;
+  [SerializeField] private float h = 0;
 
   public bool BrakeUsed
   {
@@ -64,12 +65,13 @@ public class AxisCarController : CarController
       handbrakeInput = 0;
       if (InStation)
       {
-        handbrakeInput = 1;
+        handbrakeInput = 0.3f;
         throttleInput = 0;
         brakeInput = 0;
       }
       else
       {
+        handbrakeInput = 0;
         if (brakeUsed)
         {
           throttleInput = 0;

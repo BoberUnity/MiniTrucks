@@ -363,7 +363,7 @@ GameObject:
   - 144: {fileID: 14400000}
   - 65: {fileID: 6500004}
   m_Layer: 21
-  m_Name: Traktor
+  m_Name: TraktorOpp
   m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
   inertiaFactor: 1
   frontRearWeightRepartition: .589999974
   frontRearBrakeBalance: .5
-  frontRearHandBrakeBalance: 0
+  frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
   forceFeedback: 0
   tridimensionalTire: 0

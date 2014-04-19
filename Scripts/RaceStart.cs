@@ -11,14 +11,11 @@ public class RaceStart : MonoBehaviour
   public void ExitStation()
   {
     stationPanel.enabled = false;
-    //gamePanel.gameObject.SetActive(true);
-    //gamePanel.enabled = true;
+    gamePanel.alpha = 1;
     axisCarController.InStation = false;
-    //int i = 0;
     foreach (var enemyPos in enemyiesPos)
     {
       Instantiate(enemyPref, enemyPos.position, enemyPos.rotation);
-      //i += 1;
     }
   }
   
@@ -28,7 +25,7 @@ public class RaceStart : MonoBehaviour
     {
       axisCarController = other.gameObject.GetComponent<AxisCarController>();
       axisCarController.InStation = true;
-      //gamePanel.gameObject.SetActive(false);
+      gamePanel.alpha = 0;
       stationPanel.enabled = true;
     }
   }
