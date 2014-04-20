@@ -62,7 +62,7 @@ public class AxisCarController : CarController
   {
     if (!ai)
     {
-      handbrakeInput = 0;
+      
       if (InStation)
       {
         handbrakeInput = 0.3f;
