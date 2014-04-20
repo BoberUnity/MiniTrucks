@@ -65,13 +65,15 @@ public class AxisCarController : CarController
       
       if (InStation)
       {
-        handbrakeInput = 0.3f;
+        handbrakeInput = Mathf.Min(1, h + Time.deltaTime);
+        h = handbrakeInput;
         throttleInput = 0;
         brakeInput = 0;
       }
       else
       {
         handbrakeInput = 0;
+        h = 0;
         if (brakeUsed)
         {
           throttleInput = 0;
