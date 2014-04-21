@@ -15,7 +15,7 @@ public class AxisCarController : CarController
   private bool nitroUsed = false;
   private float steerUsed = 0.5f;
   [SerializeField] private bool ai = false;
-  [SerializeField] private string way = "Way0";
+  //public string way = "Way0";
 	public string throttleAxis="Throttle";
 	public string brakeAxis="Brake";
 	public string steerAxis="Horizontal";
@@ -183,13 +183,13 @@ public class AxisCarController : CarController
     }
   }
 
-  protected override void Start()
+  /*protected override void Start()
   {
     base.Start();
     if (ai)
     {
       GameObject wayObject = GameObject.Find(way);
-      if (way != null)
+      if (wayObject != null)
       {
         Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
         if (wayComponent != null)
@@ -203,5 +203,23 @@ public class AxisCarController : CarController
       else
         Debug.LogWarning("Путь " + way + "не найден");
     }
+  }*/
+
+  public void SetWay(string wayText)
+  {
+    GameObject wayObject = GameObject.Find(wayText);
+    if (wayObject != null)
+    {
+      Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
+      if (wayComponent != null)
+      {
+        waypoints = wayComponent.Waypoints;
+        speeds = wayComponent.MaxSpeeds;
+      }
+      else
+        Debug.LogWarning("Компонент Waypoint не найден на объекте" + wayText);
+    }
+    else
+      Debug.LogWarning("Путь " + wayText + "не найден");
   }
 }
