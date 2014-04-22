@@ -6,10 +6,21 @@ public class WayFinish : MonoBehaviour
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UILabel resultLabel = null;
+  [SerializeField] private ButtonHandler buttonOk = null;
   private AxisCarController axisCarController = null;
   public int prize = 1;
   public event Action Finish;
   
+  private void Start()
+  {
+    buttonOk.Pressed += ExitFinishMenu;
+  }
+
+  private void OnDestroy()
+  {
+    buttonOk.Pressed -= ExitFinishMenu;
+  }
+
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.name == "TraktorEnemy")
@@ -19,8 +30,8 @@ public class WayFinish : MonoBehaviour
 
     if (other.gameObject.name == "Traktor")
     {
-      //axisCarController = other.gameObject.GetComponent<AxisCarController>();
-      //axisCarController.InStation = true;
+      axisCarController = other.gameObject.GetComponent<AxisCarController>();
+      axisCarController.InStation = true;
       finishPanel.enabled = true;
       gamePanel.alpha = 0;
       if (prize == 1)
@@ -33,10 +44,16 @@ public class WayFinish : MonoBehaviour
         resultLabel.text = "4-th";
       if (prize == 5)
         resultLabel.text = "5-th";
-      var handler = Finish;
-      if (handler != null)
-        Finish();
+      
     }
+  }
+
+  private void ExitFinishMenu()
+  {
+    axisCarController.InStation = false;
+    var handler = Finish;//Уничтожение соперников в ButtonAddTrailer
+    if (handler != null)
+      Finish();
   }
 
   //void OnDrawGizmos()
