@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ButtonAddTrailer : MonoBehaviour
 {
@@ -6,11 +7,25 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
   [SerializeField] private RaceStart raceStart = null;
   [SerializeField] private Transform characterPos = null;//Позиция на старте гонки
-  [SerializeField] private Transform truckCar = null;
+  [SerializeField] private string way = "Way0";
+  [SerializeField] private WayFinish wayFinish = null;
+  private Transform truckCar = null;
+  [SerializeField]
+  private GameObject[] enemies = null;
   
   public Transform TruckCar
   {
     set { truckCar = value; }
+  }
+
+  private void Start()
+  {
+    wayFinish.Finish += DestroyEnemies;
+  }
+
+  private void OnDestroy()
+  {
+    wayFinish.Finish -= DestroyEnemies;
   }
 
 	protected virtual void OnPress(bool isPressed)
@@ -29,7 +44,28 @@ public class ButtonAddTrailer : MonoBehaviour
         truckCar.GetComponent<CharacterJoint>().connectedBody = tr.GetComponentInChildren<Rigidbody>();
         truckCar.GetComponent<CharacterJoint>().anchor = connectPosition;
       }
+      Array.Resize(ref enemies, raceStart.EnemyiesPos.Length);
+	    int i = 0;
+      foreach (var enemyPos in raceStart.EnemyiesPos)//Создаем соперников
+      {
+        GameObject enemy = Instantiate(raceStart.EnemyPref, enemyPos.position, enemyPos.rotation) as GameObject;
+        if (enemy != null)
+        {
+          enemy.GetComponentInChildren<AxisCarController>().SetWay(way);
+          enemies[i] = enemy;
+          i += 1;
+        }
+        else Debug.LogWarning("opp == null");
+      }
       raceStart.ExitStation();
 	  }
 	}
+
+  private void DestroyEnemies()
+  {
+    foreach (GameObject enemy in enemies)
+    {
+      Destroy(enemy);
+    }
+  }
 }
