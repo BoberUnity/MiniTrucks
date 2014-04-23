@@ -30,30 +30,44 @@ public class WayFinish : MonoBehaviour
 
     if (other.gameObject.name == "Traktor")
     {
-      axisCarController = other.gameObject.GetComponent<AxisCarController>();
-      axisCarController.InStation = true;
-      finishPanel.enabled = true;
-      gamePanel.alpha = 0;
-      if (prize == 1)
-        resultLabel.text = "1-st";
-      if (prize == 2)
-        resultLabel.text = "2-nd";
-      if (prize == 3)
-        resultLabel.text = "3-rd";
-      if (prize == 4)
-        resultLabel.text = "4-th";
-      if (prize == 5)
-        resultLabel.text = "5-th";
-      
+      if (other.gameObject.GetComponent<CharacterJoint>() != null)
+      {
+        axisCarController = other.gameObject.GetComponent<AxisCarController>();
+        axisCarController.InStation = true;
+        finishPanel.enabled = true;
+        gamePanel.alpha = 0;
+        if (prize == 1)
+          resultLabel.text = "1-st";
+        if (prize == 2)
+          resultLabel.text = "2-nd";
+        if (prize == 3)
+          resultLabel.text = "3-rd";
+        if (prize == 4)
+          resultLabel.text = "4-th";
+        if (prize == 5)
+          resultLabel.text = "5-th";
+      }
     }
   }
 
   private void ExitFinishMenu()
   {
-    axisCarController.InStation = false;
     var handler = Finish;//Уничтожение соперников в ButtonAddTrailer
     if (handler != null)
       Finish();
+    if (axisCarController != null)//только для нужного пути
+    {
+      axisCarController.InStation = false;
+      //Удаление прицепа
+      CharacterJoint characterJoint = axisCarController.GetComponent<CharacterJoint>();
+      if (characterJoint != null)
+      {
+        Destroy(characterJoint.connectedBody.gameObject);
+        Destroy(characterJoint);
+      }
+      else Debug.LogWarning("CharacterJoint == null");
+      axisCarController = null;
+    }
   }
 
   //void OnDrawGizmos()

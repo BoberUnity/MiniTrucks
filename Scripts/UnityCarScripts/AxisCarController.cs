@@ -73,7 +73,7 @@ public class AxisCarController : CarController
       else
       {
         handbrakeInput = 0;
-        h = 0;
+        h = Mathf.Max(0, h + Time.deltaTime);
         if (brakeUsed)
         {
           throttleInput = 0;

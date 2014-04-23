@@ -11,8 +11,13 @@ public class Steer : MonoBehaviour
 	void Update ()
 	{
 	  realSteerSpeed = Mathf.Clamp(uISliderSteer.SteerRot, realSteerSpeed - Time.deltaTime*steerSpeed, realSteerSpeed + Time.deltaTime*steerSpeed);
+    if (Input.GetKey("left"))
+      realSteerSpeed = -80; 
+    if (Input.GetKey("right"))
+      realSteerSpeed = 80;
     if (axisCarController != null)
       axisCarController.SteerUsed = realSteerSpeed;
+    
 	  //rulSprite.transform.eulerAngles = new Vector3(0, 0, -(uISliderSteer.value - 0.5f) * 270);
     rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed);
 	}
