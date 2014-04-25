@@ -9,8 +9,15 @@ public class WayFinish : MonoBehaviour
   [SerializeField] private ButtonHandler buttonOk = null;
   private AxisCarController axisCarController = null;
   public int prize = 1;
+  private bool activ = false;//true, когда едет эту гонку
   public event Action Finish;
   
+  public bool Activ
+  {
+    set { activ = value; }
+    get { return activ; }
+  }
+
   private void Start()
   {
     buttonOk.Pressed += ExitFinishMenu;
@@ -23,29 +30,34 @@ public class WayFinish : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "TraktorEnemy")
+    if (activ)
     {
-      prize += 1;
-    }
-
-    if (other.gameObject.name == "Traktor")
-    {
-      if (other.gameObject.GetComponent<CharacterJoint>() != null)
+      if (other.gameObject.name == "TraktorEnemy")
       {
-        axisCarController = other.gameObject.GetComponent<AxisCarController>();
-        axisCarController.InStation = true;
-        finishPanel.enabled = true;
-        gamePanel.alpha = 0;
-        if (prize == 1)
-          resultLabel.text = "1-st";
-        if (prize == 2)
-          resultLabel.text = "2-nd";
-        if (prize == 3)
-          resultLabel.text = "3-rd";
-        if (prize == 4)
-          resultLabel.text = "4-th";
-        if (prize == 5)
-          resultLabel.text = "5-th";
+        prize += 1;
+      }
+
+      if (other.gameObject.name == "Traktor")
+      {
+        if (other.gameObject.GetComponent<CharacterJoint>() != null)
+        {
+          axisCarController = other.gameObject.GetComponent<AxisCarController>();
+          axisCarController.InStation = true;
+          finishPanel.enabled = true;
+          gamePanel.alpha = 0;
+          activ = false;
+          if (prize == 1)
+            resultLabel.text = "1-st";
+          if (prize == 2)
+            resultLabel.text = "2-nd";
+          if (prize == 3)
+            resultLabel.text = "3-rd";
+          if (prize == 4)
+            resultLabel.text = "4-th";
+          if (prize == 5)
+            resultLabel.text = "5-th";
+          prize = 0;
+        }
       }
     }
   }

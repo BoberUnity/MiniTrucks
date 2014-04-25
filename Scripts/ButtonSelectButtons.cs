@@ -12,7 +12,7 @@ public class ButtonSelectButtons : MonoBehaviour
       foreach (var db in disableButtons)
       {
         db.gameObject.SetActive(false);
-        db.isEnabled = true;
+        db.isEnabled = false;
       }
       foreach (var eb in enableButtons)
       {

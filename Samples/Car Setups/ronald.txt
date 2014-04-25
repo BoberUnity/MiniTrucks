@@ -72,7 +72,7 @@ handbrakeFrictionTorque=0
 
 [brakes-rearAxle]
 BrakeFrictionTorque=4000
-HandbrakeFrictionTorque=2000
+HandbrakeFrictionTorque=500
 
 [brakes]
 frontRearBrakeBalance=0.5

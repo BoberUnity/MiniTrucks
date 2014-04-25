@@ -10,7 +10,7 @@ public class ButtonChangePanel : MonoBehaviour
   {
     if (!isPressed)
     {
-      if (animation != null)
+      if (disabledPanel.animation != null)
       {
         disabledPanel.animation.Play();
         StartCoroutine(ChangePanel(disabledPanel.animation.clip.length));
@@ -18,8 +18,9 @@ public class ButtonChangePanel : MonoBehaviour
       else//Панель паузы
       {
         StartCoroutine(ChangePanel(0));
+        disabledPanel.alpha = 0;
       }
-      UIButton[] disableButtons = GetComponentsInChildren<UIButton>();
+      UIButton[] disableButtons = disabledPanel.GetComponentsInChildren<UIButton>();
       foreach (var db in disableButtons)
       {
         db.isEnabled = false;
@@ -30,10 +31,12 @@ public class ButtonChangePanel : MonoBehaviour
   private IEnumerator ChangePanel(float time)
   {
     yield return new WaitForSeconds(time);
-    disabledPanel.enabled = false;
-    enabledPanel.enabled = true;
+    //disabledPanel.enabled = false;
+    //enabledPanel.enabled = true;
+    //enabledPanel.alpha = 1;
+    enabledPanel.transform.position = Vector3.zero;
     enabledPanel.alpha = 1;
-    UIButton[] enableButtons = GetComponentsInChildren<UIButton>();
+    UIButton[] enableButtons = enabledPanel.GetComponentsInChildren<UIButton>();
     foreach (var eb in enableButtons)
     {
       eb.isEnabled = true;

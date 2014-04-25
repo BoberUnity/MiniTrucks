@@ -10,7 +10,12 @@ public class RaceStart : MonoBehaviour
 
   public void ExitStation()
   {
-    stationPanel.enabled = false;
+    stationPanel.animation.Play();
+    UIButton[] disableButtons = stationPanel.GetComponentsInChildren<UIButton>();
+    foreach (var db in disableButtons)
+    {
+      db.isEnabled = false;
+    }
     gamePanel.alpha = 1;
     axisCarController.InStation = false;
   }
@@ -24,7 +29,12 @@ public class RaceStart : MonoBehaviour
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
-        stationPanel.enabled = true;
+        stationPanel.transform.position = Vector3.zero;
+        UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
+        foreach (var eb in enableButtons)
+        {
+          eb.isEnabled = true;
+        }
       }
     }
   }

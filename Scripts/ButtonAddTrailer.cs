@@ -57,6 +57,7 @@ public class ButtonAddTrailer : MonoBehaviour
         }
         else Debug.LogWarning("opp == null");
       }
+	    wayFinish.Activ = true;
       raceStart.ExitStation();
 	  }
 	}
@@ -66,6 +67,21 @@ public class ButtonAddTrailer : MonoBehaviour
     foreach (GameObject enemy in enemies)
     {
       Destroy(enemy);
+    }
+  }
+
+  public void ExitRace()//Из меню паузы
+  {
+    if (wayFinish.Activ)
+    {
+      DestroyEnemies();
+      CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
+      if (characterJoint != null)
+      {
+        Destroy(characterJoint.connectedBody.gameObject);
+        Destroy(characterJoint);
+      }
+      else Debug.LogWarning("CharacterJoint == null");
     }
   }
 }
