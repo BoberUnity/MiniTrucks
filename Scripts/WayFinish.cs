@@ -43,7 +43,7 @@ public class WayFinish : MonoBehaviour
         {
           axisCarController = other.gameObject.GetComponent<AxisCarController>();
           axisCarController.InStation = true;
-          finishPanel.enabled = true;
+          finishPanel.transform.position = Vector3.zero;
           gamePanel.alpha = 0;
           activ = false;
           if (prize == 1)
@@ -78,6 +78,7 @@ public class WayFinish : MonoBehaviour
         Destroy(characterJoint);
       }
       else Debug.LogWarning("CharacterJoint == null");
+      finishPanel.animation.Play();
       axisCarController = null;
     }
   }

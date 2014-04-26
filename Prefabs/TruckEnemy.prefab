@@ -2136,6 +2136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frailty: 1
+  ignoreCollision: 5
+  Condition: 100
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3187,7 +3190,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 25
     bounciness: 0
     spring: 0
     damper: 0

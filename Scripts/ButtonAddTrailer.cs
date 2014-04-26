@@ -9,8 +9,9 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private Transform characterPos = null;//Позиция на старте гонки
   [SerializeField] private string way = "Way0";
   [SerializeField] private WayFinish wayFinish = null;
+  //[SerializeField] private float f
+  [SerializeField] private BaggageLabel baggageLabel = null;
   private Transform truckCar = null;
-  [SerializeField]
   private GameObject[] enemies = null;
   
   public Transform TruckCar
@@ -40,9 +41,13 @@ public class ButtonAddTrailer : MonoBehaviour
       {
         tr.transform.position = truckCar.position;
         tr.transform.rotation = truckCar.rotation;
+        baggageLabel.BaggageController = tr.GetComponentInChildren<BlowController>();
         truckCar.gameObject.AddComponent<CharacterJoint>();
         truckCar.GetComponent<CharacterJoint>().connectedBody = tr.GetComponentInChildren<Rigidbody>();
         truckCar.GetComponent<CharacterJoint>().anchor = connectPosition;
+        SoftJointLimit softJointLimit = new SoftJointLimit();
+        softJointLimit.limit = 25;
+        truckCar.GetComponent<CharacterJoint>().highTwistLimit = softJointLimit;
       }
       Array.Resize(ref enemies, raceStart.EnemyiesPos.Length);
 	    int i = 0;

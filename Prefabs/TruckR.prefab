@@ -320,7 +320,6 @@ GameObject:
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400030}
   - 114: {fileID: 11400028}
-  - 114: {fileID: 11400034}
   - 114: {fileID: 11400048}
   - 65: {fileID: 6500004}
   m_Layer: 21
@@ -1732,7 +1731,6 @@ MonoBehaviour:
   ESPMinVelocity: 35
   reverse: 0
   ai: 0
-  way: Way0
   throttleAxis: Throttle
   brakeAxis: Brake
   steerAxis: Horizontal
@@ -1744,6 +1742,7 @@ MonoBehaviour:
   waypoints: []
   speeds: []
   InStation: 0
+  h: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1775,17 +1774,6 @@ MonoBehaviour:
   COGHelperStrength: 1
   torqueHelperStrength: 1
   gripHelperStrength: 1
---- !u!114 &11400034
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1

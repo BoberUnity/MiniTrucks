@@ -292,6 +292,7 @@ GameObject:
   - 114: {fileID: 11400014}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400022}
   m_Layer: 25
   m_Name: Scania TrailerMy
   m_TagString: Trailer
@@ -1580,8 +1581,8 @@ MonoBehaviour:
     brakeFrictionTorque: 80000
     handbrakeFrictionTorque: 0
     maxSteeringAngle: 0
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    forwardGripFactor: .5
+    sidewaysGripFactor: .5
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1605,8 +1606,8 @@ MonoBehaviour:
     brakeFrictionTorque: 80000
     handbrakeFrictionTorque: 0
     maxSteeringAngle: 0
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    forwardGripFactor: .5
+    sidewaysGripFactor: .5
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1614,6 +1615,20 @@ MonoBehaviour:
     tiresPressure: 0
     optimalTiresPressure: 800
   otherAxles: []
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frailty: .100000001
+  ignoreCollision: 10
+  Condition: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
