@@ -6,12 +6,12 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private GameObject trailer = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
   [SerializeField] private RaceStart raceStart = null;
+  [SerializeField] private RaceStart raceFinish = null;
   [SerializeField] private Transform characterPos = null;//Позиция на старте гонки
   [SerializeField] private string way = "Way0";
-  [SerializeField] private WayFinish wayFinish = null;
-  //[SerializeField] private float f
   [SerializeField] private BaggageLabel baggageLabel = null;
   private Transform truckCar = null;
+  [SerializeField]
   private GameObject[] enemies = null;
   
   public Transform TruckCar
@@ -21,12 +21,12 @@ public class ButtonAddTrailer : MonoBehaviour
 
   private void Start()
   {
-    wayFinish.Finish += DestroyEnemies;
+    raceFinish.Finish += DestroyEnemies;
   }
 
   private void OnDestroy()
   {
-    wayFinish.Finish -= DestroyEnemies;
+    raceFinish.Finish -= DestroyEnemies;
   }
 
 	protected virtual void OnPress(bool isPressed)
@@ -62,7 +62,7 @@ public class ButtonAddTrailer : MonoBehaviour
         }
         else Debug.LogWarning("opp == null");
       }
-	    wayFinish.Activ = true;
+      raceFinish.Activ = true;
       raceStart.ExitStation();
 	  }
 	}
@@ -77,7 +77,7 @@ public class ButtonAddTrailer : MonoBehaviour
 
   public void ExitRace()//Из меню паузы
   {
-    if (wayFinish.Activ)
+    if (raceStart.Activ)
     {
       DestroyEnemies();
       CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
