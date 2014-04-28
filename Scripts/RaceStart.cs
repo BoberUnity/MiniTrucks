@@ -4,6 +4,7 @@ using UnityEngine;
 public class RaceStart : MonoBehaviour
 {
   [SerializeField] private UIPanel stationPanel = null;
+  //[SerializeField] private UIPanel stationFinishPanel = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UILabel resultLabel = null;
@@ -79,7 +80,7 @@ public class RaceStart : MonoBehaviour
               axisCarController.InStation = true;
               finishPanel.transform.position = Vector3.zero;
               gamePanel.alpha = 0;
-              activ = false;
+              //activ = false;
               if (prize == 1)
                 resultLabel.text = "1-st";
               if (prize == 2)
@@ -99,14 +100,14 @@ public class RaceStart : MonoBehaviour
     }
   }
 
-  private void ExitFinishMenu()
+  private void ExitFinishMenu()//Нажатие кнопки ОК
   {
     if (axisCarController != null)//только для нужного пути
     {
       var handler = Finish;//Уничтожение соперников в ButtonAddTrailer
       if (handler != null)
         Finish();
-      axisCarController.InStation = false;
+      //axisCarController.InStation = false;
       //Удаление прицепа
       CharacterJoint characterJoint = axisCarController.GetComponent<CharacterJoint>();
       if (characterJoint != null)
@@ -116,7 +117,19 @@ public class RaceStart : MonoBehaviour
       }
       else Debug.LogWarning("CharacterJoint == null");
       finishPanel.animation.Play();
-      axisCarController = null;
+    }
+
+    if (activ)//выполняется для города-финиша, показать меню
+    {
+      activ = false;
+      axisCarController.InStation = true;
+      gamePanel.alpha = 0;
+      stationPanel.transform.position = Vector3.zero;
+      UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
+      foreach (var eb in enableButtons)
+      {
+        eb.isEnabled = true;
+      }
     }
   }
 

@@ -77,8 +77,10 @@ public class ButtonAddTrailer : MonoBehaviour
 
   public void ExitRace()//Из меню паузы
   {
-    if (raceStart.Activ)
+    Debug.LogWarning("ExitRace");
+    if (raceFinish.Activ)
     {
+      Debug.LogWarning("ExitRace active");
       DestroyEnemies();
       CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
       if (characterJoint != null)
