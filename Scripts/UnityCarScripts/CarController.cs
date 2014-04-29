@@ -136,7 +136,7 @@ public abstract class CarController : MonoBehaviour {
 		myTransform=transform;
 	}
 		
-	void Update(){
+	protected virtual void Update(){
 		int targetGear;
 			
 		GetInput(out throttleInput, out brakeInput, out steerInput, out handbrakeInput, out clutchInput, out startEngineInput, out targetGear);

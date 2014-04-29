@@ -236,7 +236,7 @@ public class Drivetrain : MonoBehaviour {
 
   [HideInInspector]
 	public float RPMAt130Kmh;
-		
+  
 	float Sqr (float x) { return x*x; }
 	
 	// // Fuel consumption in liters/100km. If fuel consumption == 0 ---> The engine doesn't consume any fuel at all

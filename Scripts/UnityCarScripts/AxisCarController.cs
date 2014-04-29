@@ -33,6 +33,8 @@ public class AxisCarController : CarController
   [SerializeField]
   private float h = 0;
 
+  private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
+
   public bool BrakeUsed
   {
     set { brakeUsed = value;}
@@ -181,31 +183,32 @@ public class AxisCarController : CarController
       if (drivetrain == null)
         Debug.LogWarning("drivetrain == null" + gameObject.name);
       targetGear = drivetrain.gear;
+      
     }
   }
 
-  /*protected override void Start()
+  //Возврат после зависания
+  protected override void Update()
   {
-    base.Start();
-    if (ai)
+    base.Update();
+    if (drivetrain != null)
     {
-      GameObject wayObject = GameObject.Find(way);
-      if (wayObject != null)
+      if (nitroUsed && drivetrain.velo < 2)
       {
-        Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
-        if (wayComponent != null)
+        buksTime += Time.deltaTime;
         {
-          waypoints = wayComponent.Waypoints;
-          speeds = wayComponent.MaxSpeeds;
+          if (buksTime > 10)
+          {
+            transform.position += Vector3.up * 4 + Vector3.right * 3;
+            buksTime = 0;
+          }
         }
-        else
-          Debug.LogWarning("Компонент Waypoint не найден на объекте" + way);
       }
-      else
-        Debug.LogWarning("Путь " + way + "не найден");
+      else 
+        buksTime = 0;
     }
-  }*/
-
+  }
+  
   public void SetWay(string wayText)
   {
     GameObject wayObject = GameObject.Find(wayText);
