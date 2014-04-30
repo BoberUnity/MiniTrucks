@@ -174,8 +174,10 @@ public class AxisCarController : CarController
       if (rigidbody.velocity.magnitude < speeds[currentWaypoint])
         throttleInput = 0.5f;
       else
-        throttleInput = 0.1f;
+        throttleInput = 0;
       brakeInput = 0;
+      if (rigidbody.velocity.magnitude > speeds[currentWaypoint]+5)
+        brakeInput = 0.25f;
       //steerInput = 0;
       handbrakeInput = 0;
       clutchInput = 0;

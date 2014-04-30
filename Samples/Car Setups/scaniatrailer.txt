@@ -1,5 +1,5 @@
 [body]
-weight=5000
+weight=10000
 weightRepartition=0.5
 centerOfMass=(0.0, 0.0, 0.0)
 inertiaFactor=1
@@ -55,15 +55,15 @@ frontRearHandBrakeBalance=0
 
 [tires-frontAxle]
 tireType=truck_rear
-forwardGripFactor=0.5
-sidewaysGripFactor=0.5
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_front
-forwardGripFactor=0.5
-sidewaysGripFactor=0.5
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=0
 optimalTiresPressure=800
 
