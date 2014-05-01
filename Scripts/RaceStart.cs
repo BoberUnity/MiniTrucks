@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class RaceStart : MonoBehaviour
 {
-  [SerializeField] private UIWidget stationPanel = null;
+  public UIWidget stationPanel = null;
   //[SerializeField] private UIPanel stationFinishPanel = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UILabel resultLabel = null;
+  [SerializeField] private SelectCarController selectCarController = null;
   [SerializeField] private ButtonHandler buttonOk = null;
-  private AxisCarController axisCarController = null;
+  [SerializeField] private Transform truckPos = null;
+  public AxisCarController axisCarController = null;
   public GameObject EnemyPref = null;
   public Transform[] EnemyiesPos = null;
   public int prize = 1;
@@ -20,6 +23,11 @@ public class RaceStart : MonoBehaviour
   {
     set { activ = value; }
     get { return activ; }
+  }
+
+  public AxisCarController TractorAxisCarController
+  {
+    set { axisCarController = value; }
   }
 
   private void Start()
@@ -41,7 +49,7 @@ public class RaceStart : MonoBehaviour
       db.isEnabled = false;
     }
     gamePanel.alpha = 1;
-    //axisCarController.InStation = false;
+    axisCarController.InStation = false;
   }
   
   private void OnTriggerEnter(Collider other)
@@ -54,14 +62,18 @@ public class RaceStart : MonoBehaviour
       }
     }
     
-    if (other.gameObject.name == "Traktor")
+    if (other.gameObject.name == "Traktor")//+ при переходе из гаража
     {
+      selectCarController.raceStart = this;
+      truckPos.position = other.transform.position;
       if (other.GetComponent<CharacterJoint>() == null)
       {
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
-        stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
+        //stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
+        //Debug.LogWarning("StPan");
+        StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
         UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
         foreach (var eb in enableButtons)
         {
@@ -72,28 +84,24 @@ public class RaceStart : MonoBehaviour
       { 
         if (activ)//finish
         {
-          if (other.gameObject.name == "Traktor")
+          if (other.gameObject.GetComponent<CharacterJoint>() != null)
           {
-            if (other.gameObject.GetComponent<CharacterJoint>() != null)
-            {
-              axisCarController = other.gameObject.GetComponent<AxisCarController>();
-              axisCarController.InStation = true;
-              finishPanel.transform.position = Vector3.zero;
-              gamePanel.alpha = 0;
-              //activ = false;
-              if (prize == 1)
-                resultLabel.text = "1-st";
-              if (prize == 2)
-                resultLabel.text = "2-nd";
-              if (prize == 3)
-                resultLabel.text = "3-rd";
-              if (prize == 4)
-                resultLabel.text = "4-th";
-              if (prize == 5)
-                resultLabel.text = "5-th";
-              prize = 1;
-              buttonOk.GetComponent<UIButton>().isEnabled = true;
-            }
+            axisCarController = other.gameObject.GetComponent<AxisCarController>();
+            axisCarController.InStation = true;
+            finishPanel.transform.position = Vector3.zero;
+            gamePanel.alpha = 0;
+            if (prize == 1)
+              resultLabel.text = "1-st";
+            if (prize == 2)
+              resultLabel.text = "2-nd";
+            if (prize == 3)
+              resultLabel.text = "3-rd";
+            if (prize == 4)
+              resultLabel.text = "4-th";
+            if (prize == 5)
+              resultLabel.text = "5-th";
+            prize = 1;
+            buttonOk.GetComponent<UIButton>().isEnabled = true;
           }
         }
       }
@@ -107,7 +115,6 @@ public class RaceStart : MonoBehaviour
       var handler = Finish;//Уничтожение соперников в ButtonAddTrailer
       if (handler != null)
         Finish();
-      //axisCarController.InStation = false;
       //Удаление прицепа
       CharacterJoint characterJoint = axisCarController.GetComponent<CharacterJoint>();
       if (characterJoint != null)
@@ -124,13 +131,19 @@ public class RaceStart : MonoBehaviour
       activ = false;
       axisCarController.InStation = true;
       gamePanel.alpha = 0;
-      stationPanel.transform.position = Vector3.zero;
+      StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
       UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
       foreach (var eb in enableButtons)
       {
         eb.isEnabled = true;
       }
     }
+  }
+
+  private IEnumerator ShowStationMenu(float time)
+  {
+    yield return new WaitForSeconds(time);
+    stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
   }
 
   void OnDrawGizmos()

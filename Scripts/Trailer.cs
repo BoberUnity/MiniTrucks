@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+//Используется на префабе
 
-public class Trailer : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public class Trailer : MonoBehaviour 
+{
+  void Start () 
+  {
 	
 	}
 }

@@ -72,7 +72,7 @@ handbrakeFrictionTorque=0
 
 [brakes-rearAxle]
 BrakeFrictionTorque=30000
-HandbrakeFrictionTorque=500
+HandbrakeFrictionTorque=300000
 
 [brakes]
 frontRearBrakeBalance=0.5
@@ -80,15 +80,15 @@ frontRearHandBrakeBalance=0
 
 [tires-frontAxle]
 tireType=truck_front
-forwardGripFactor=0.5
-sidewaysGripFactor=0.5
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
-forwardGripFactor=0.5
-sidewaysGripFactor=0.5
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=0
 optimalTiresPressure=800
 

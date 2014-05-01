@@ -1,91 +1,101 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SelectCarController : MonoBehaviour
 {
-  [SerializeField] private ButtonChangeCar buttonNextCar   = null;
-  [SerializeField] private ButtonChangeCar buttonPrevCar = null;
-  [SerializeField] private ButtonChangeCar buttonSelectCar = null;
+  [SerializeField] private ButtonHandler buttonNextCar = null;
+  [SerializeField] private ButtonHandler buttonPrevCar = null;
+  [SerializeField] private ButtonHandler buttonRace = null;
+  [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private CarCameras carcameras = null;
+  [SerializeField] private GameObject cameraGarage = null;
   [SerializeField] private Steer steer = null;
   [SerializeField] private ButtonThrottle buttonBrake = null;
   [SerializeField] private ButtonThrottle buttonNitro = null;
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
+  [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   [SerializeField] private Map map = null;
-
   [SerializeField] private GameObject[] cars = null;
   [SerializeField] private Transform carGaragePos = null;
   [SerializeField] private Transform podium = null;
   [SerializeField] private Transform carLevelPos = null;
-  [SerializeField] private ButtonHandler garageButton = null;//Кнопка перехода в гараж из меню станции
-  private GameObject car = null;
+  
+  private GameObject character = null;
   private int currentCar = 0;
-
-  private UIWidget stationPanel = null;//Запоминаем панель при переходе в гараж
-
-  public UIWidget StationPanel
-  {
-    set { stationPanel = value;}
-  }
+  public RaceStart raceStart = null;
 
   private void Start()
 	{
     buttonNextCar.Pressed += NextCar;
     buttonPrevCar.Pressed += PrevCar;
-    buttonSelectCar.Pressed += SelectCar;
-    garageButton.Pressed += GoToGarage;
+    buttonRace.Pressed += Race;
+    goToGarageButtons = FindObjectsOfType(typeof(ButtonGoToGarage)) as ButtonGoToGarage[];//Кнопки переходи в гараж
+    foreach (var butt in goToGarageButtons)
+    {
+      butt.Pressed += GoToGarage;
+    }
     buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-    car = Instantiate(cars[0], carGaragePos.position, Quaternion.identity) as GameObject;
-    if (car != null)
-      car.transform.parent = podium;
+    character = Instantiate(cars[0], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (character != null)
+      character.transform.parent = podium;
 	}
 
   private void OnDestroy()
   {
     buttonNextCar.Pressed -= NextCar;
     buttonPrevCar.Pressed -= PrevCar;
-    buttonSelectCar.Pressed -= SelectCar;
-    garageButton.Pressed -= GoToGarage;
+    buttonRace.Pressed -= Race;
+    foreach (var butt in goToGarageButtons)
+    {
+      butt.Pressed -= GoToGarage;
+    }
   }
 
   private void NextCar() 
   {
-	  Destroy(car);
+    Destroy(character);
 	  currentCar += 1;
     if (currentCar > cars.Length - 1)
       currentCar = 0;
-    car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
-    if (car != null)
+    character = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (character != null)
     {
-      car.transform.parent = podium;
-      car.GetComponentInChildren<AxisCarController>().InStation = true;
+      character.transform.parent = podium;
+      AxisCarController tractorACC = character.GetComponentInChildren<AxisCarController>();
+      tractorACC.InStation = true;
+      if (raceStart != null)//из меню станции
+        raceStart.axisCarController = tractorACC;
     }
 	}
 
   private void PrevCar()
   {
-    Destroy(car);
+    Destroy(character);
     currentCar -= 1;
     if (currentCar < 0)
       currentCar = cars.Length - 1;
-    car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
-    if (car != null)
+    character = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+    if (character != null)
     {
-      car.transform.parent = podium;
-      car.GetComponentInChildren<AxisCarController>().InStation = true;
+      character.transform.parent = podium;
+      AxisCarController tractorACC = character.GetComponentInChildren<AxisCarController>();
+      tractorACC.InStation = true;
+      if (raceStart != null)//из меню станции
+        raceStart.axisCarController = tractorACC;
     }
   }
 
-  private void SelectCar()//ButtonRace
+  private void Race()//ButtonRace
   {
-    car.transform.parent = null;
-    car.transform.position = carLevelPos.position;
-    car.transform.rotation = carLevelPos.rotation;
+    character.transform.parent = null;
+    character.transform.position = carLevelPos.position;
+    character.transform.rotation = carLevelPos.rotation;
     
     carcameras.gameObject.SetActive(true);
-    gameObject.SetActive(false);
-    CameraTarget tractor = car.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера
+    cameraGarage.SetActive(false);
+    CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера
     if (tractor != null)
     {
       carcameras.target = tractor.transform;
@@ -102,34 +112,57 @@ public class SelectCarController : MonoBehaviour
       buttonTuningHand.axles = tractor.GetComponent<Axles>();
       buttonTuningEng.setup = tractor.GetComponent<Setup>();
       map.Truck = tractor.transform;
-      aCC.InStation = false;
-      if (stationPanel != null)//Если заходили в гагаж и меню станции
+      
+      if (raceStart != null)//Если заходили в гагаж и меню станции
       {
-        stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
-        UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
-        foreach (var eb in enableButtons)
-        {
-          eb.isEnabled = true;
-        }
+        StartCoroutine(ShowStationMenu(gamePanel.animation.clip.length));//!!! Должно быть не gamePanel, a Upgrade Panel
         aCC.InStation = true;
-        stationPanel = null;
+        //Debug.LogWarning("STtcorr");
+        //raceStart = null;
+      }
+      else//При первом запуске активируем Game Menu
+      {
+        aCC.InStation = false;
+        StartCoroutine(ShowGameMenu(gamePanel.animation.clip.length));
       }
     }
-    
+  }
+
+  private IEnumerator ShowStationMenu(float time)
+  {
+    yield return new WaitForSeconds(time);
+    raceStart.stationPanel.transform.position = new Vector3(raceStart.stationPanel.transform.position.x, 0, 0);
+    Debug.LogWarning("STt in corr");
+    UIButton[] enableButtons = raceStart.stationPanel.GetComponentsInChildren<UIButton>();
+    foreach (var eb in enableButtons)
+    {
+      eb.isEnabled = true;
+    }
+  }
+
+  private IEnumerator ShowGameMenu(float time)
+  {
+    yield return new WaitForSeconds(time);
+    gamePanel.transform.position = Vector3.zero;
+    gamePanel.alpha = 1;
+    UIButton[] enableButtons = gamePanel.GetComponentsInChildren<UIButton>();
+    foreach (var eb in enableButtons)
+    {
+      eb.isEnabled = true;
+    }
   }
 
   private void GoToGarage()
   {
-    gameObject.SetActive(true);
+    cameraGarage.SetActive(true);
     carcameras.gameObject.SetActive(false);
-    car.transform.position = carGaragePos.position;
-    car.transform.rotation = carGaragePos.rotation;
-    CameraTarget tractor = car.GetComponentInChildren<CameraTarget>();  //Находим грузовик
+    character.transform.position = carGaragePos.position;
+    character.transform.rotation = carGaragePos.rotation;
+    CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик
     if (tractor != null)
     {
       tractor.transform.localPosition = Vector3.zero;
     }
-    car.transform.parent = podium;
-    
+    character.transform.parent = podium;
   }
 }
