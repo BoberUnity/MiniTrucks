@@ -2,7 +2,7 @@
 weight=10000
 weightRepartition=0.5
 centerOfMass=(0.0, 0.0, 0.0)
-inertiaFactor=1
+inertiaFactor=0.3
 
 [suspensions-frontAxle]
 suspensionTravel=0.3
@@ -38,15 +38,15 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=80000
+brakeFrictionTorque=180000
 handbrakeFrictionTorque=0
 
 [brakes-rearAxle]
-BrakeFrictionTorque=80000
+BrakeFrictionTorque=180000
 HandbrakeFrictionTorque=0
 
 [brakes-otherAxle1]
-brakeFrictionTorque=80000
+brakeFrictionTorque=180000
 handbrakeFrictionTorque=0
 
 [brakes]
@@ -58,21 +58,21 @@ tireType=truck_rear
 forwardGripFactor=0.9
 sidewaysGripFactor=0.9
 tiresPressure=0
-optimalTiresPressure=800
+optimalTiresPressure=300
 
 [tires-rearAxle]
 tireType=truck_front
 forwardGripFactor=0.9
 sidewaysGripFactor=0.9
 tiresPressure=0
-optimalTiresPressure=800
+optimalTiresPressure=300
 
 [tires-otherAxle1]
 tireType=truck_front
 forwardGripFactor=1
 sidewaysGripFactor=1
 tiresPressure=0
-optimalTiresPressure=800
+optimalTiresPressure=300
 
 [wheels-frontAxle-left]
 mass=150

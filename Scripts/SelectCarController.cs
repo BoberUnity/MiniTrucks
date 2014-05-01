@@ -22,12 +22,20 @@ public class SelectCarController : MonoBehaviour
   private GameObject car = null;
   private int currentCar = 0;
 
+  private UIWidget stationPanel = null;//Запоминаем панель при переходе в гараж
+
+  public UIWidget StationPanel
+  {
+    set { stationPanel = value;}
+  }
+
   private void Start()
 	{
     buttonNextCar.Pressed += NextCar;
     buttonPrevCar.Pressed += PrevCar;
     buttonSelectCar.Pressed += SelectCar;
     garageButton.Pressed += GoToGarage;
+    buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
     car = Instantiate(cars[0], carGaragePos.position, Quaternion.identity) as GameObject;
     if (car != null)
       car.transform.parent = podium;
@@ -49,7 +57,10 @@ public class SelectCarController : MonoBehaviour
       currentCar = 0;
     car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
     if (car != null)
+    {
       car.transform.parent = podium;
+      car.GetComponentInChildren<AxisCarController>().InStation = true;
+    }
 	}
 
   private void PrevCar()
@@ -60,10 +71,13 @@ public class SelectCarController : MonoBehaviour
       currentCar = cars.Length - 1;
     car = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
     if (car != null)
+    {
       car.transform.parent = podium;
+      car.GetComponentInChildren<AxisCarController>().InStation = true;
+    }
   }
 
-  private void SelectCar()
+  private void SelectCar()//ButtonRace
   {
     car.transform.parent = null;
     car.transform.position = carLevelPos.position;
@@ -88,7 +102,20 @@ public class SelectCarController : MonoBehaviour
       buttonTuningHand.axles = tractor.GetComponent<Axles>();
       buttonTuningEng.setup = tractor.GetComponent<Setup>();
       map.Truck = tractor.transform;
+      aCC.InStation = false;
+      if (stationPanel != null)//Если заходили в гагаж и меню станции
+      {
+        stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
+        UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
+        foreach (var eb in enableButtons)
+        {
+          eb.isEnabled = true;
+        }
+        aCC.InStation = true;
+        stationPanel = null;
+      }
     }
+    
   }
 
   private void GoToGarage()
@@ -103,8 +130,6 @@ public class SelectCarController : MonoBehaviour
       tractor.transform.localPosition = Vector3.zero;
     }
     car.transform.parent = podium;
-
-    
     
   }
 }

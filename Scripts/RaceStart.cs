@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RaceStart : MonoBehaviour
 {
-  [SerializeField] private UIPanel stationPanel = null;
+  [SerializeField] private UIWidget stationPanel = null;
   //[SerializeField] private UIPanel stationFinishPanel = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
@@ -41,7 +41,7 @@ public class RaceStart : MonoBehaviour
       db.isEnabled = false;
     }
     gamePanel.alpha = 1;
-    axisCarController.InStation = false;
+    //axisCarController.InStation = false;
   }
   
   private void OnTriggerEnter(Collider other)
@@ -61,7 +61,7 @@ public class RaceStart : MonoBehaviour
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
-        stationPanel.transform.position = Vector3.zero;
+        stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
         UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
         foreach (var eb in enableButtons)
         {
@@ -69,7 +69,7 @@ public class RaceStart : MonoBehaviour
         }
       }
       else
-      {
+      { 
         if (activ)//finish
         {
           if (other.gameObject.name == "Traktor")

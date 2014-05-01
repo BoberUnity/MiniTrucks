@@ -10,6 +10,7 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private Transform characterPos = null;//Позиция на старте гонки
   [SerializeField] private string way = "Way0";
   [SerializeField] private BaggageLabel baggageLabel = null;
+
   private Transform truckCar = null;
   [SerializeField]
   private GameObject[] enemies = null;
@@ -31,7 +32,7 @@ public class ButtonAddTrailer : MonoBehaviour
 
 	protected virtual void OnPress(bool isPressed)
 	{
-	  if (!isPressed)
+    if (!isPressed)
 	  {
       truckCar.position = characterPos.position;
       truckCar.rotation = characterPos.rotation;
@@ -62,6 +63,7 @@ public class ButtonAddTrailer : MonoBehaviour
         }
         else Debug.LogWarning("opp == null");
       }
+	    truckCar.GetComponent<AxisCarController>().InStation = false;
       raceFinish.Activ = true;
       raceStart.ExitStation();
 	  }

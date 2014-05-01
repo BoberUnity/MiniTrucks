@@ -67,11 +67,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=6000
+brakeFrictionTorque=20000
 handbrakeFrictionTorque=0
 
 [brakes-rearAxle]
-BrakeFrictionTorque=4000
+BrakeFrictionTorque=30000
 HandbrakeFrictionTorque=500
 
 [brakes]
