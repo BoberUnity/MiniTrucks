@@ -35,7 +35,8 @@ public class Waypoint : MonoBehaviour
 
     for (int i = 0; i < points.Length; i++)
     {
-      Gizmos.DrawLine(points[i].position, points[Mathf.Min(i + 1, points.Length - 1)].position);
+      if (i > 0)
+        Gizmos.DrawLine(points[i].position, points[Mathf.Min(i + 1, points.Length - 1)].position);
     }
   }
 }

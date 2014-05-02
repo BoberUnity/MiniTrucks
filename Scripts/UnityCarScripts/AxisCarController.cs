@@ -68,7 +68,7 @@ public class AxisCarController : CarController
       
       if (InStation)
       {
-        handbrakeInput = Mathf.Min(1, h + Time.deltaTime);
+        handbrakeInput = Mathf.Min(1, h + Time.deltaTime * 4);
         h = handbrakeInput;
         throttleInput = 0;
         brakeInput = 0;
@@ -76,7 +76,7 @@ public class AxisCarController : CarController
       else
       {
         handbrakeInput = 0;
-        h = Mathf.Max(0, h - Time.deltaTime);
+        h = Mathf.Max(0, h - Time.deltaTime * 4);
         if (brakeUsed)
         {
           throttleInput = 0;
@@ -96,7 +96,7 @@ public class AxisCarController : CarController
           brakeInput = 0;
         }
       }
-      steerInput = steerUsed * 0.01f;//Input.GetAxisRaw(steerAxis);
+      steerInput = steerUsed * 0.005f;//Input.GetAxisRaw(steerAxis); SteerUsed [-200;200]
       //handbrakeInput = Input.GetAxisRaw(handbrakeAxis);
       clutchInput = Input.GetAxisRaw(clutchAxis);
       startEngineInput = Input.GetButton(startEngineButton);
@@ -165,7 +165,7 @@ public class AxisCarController : CarController
     {
       RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(waypoints[currentWaypoint].position.x, transform.position.y, waypoints[currentWaypoint].position.z));
       steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
-      if (RelativeWaypointPosition.magnitude < 5)
+      if (RelativeWaypointPosition.magnitude < 7)
       {
         currentWaypoint++;
         if (currentWaypoint == waypoints.Length)

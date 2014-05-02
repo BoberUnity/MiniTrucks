@@ -68,15 +68,15 @@ maxSteeringAngle=0
 
 [brakes-frontAxle]
 brakeFrictionTorque=20000
-handbrakeFrictionTorque=0
+handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
 BrakeFrictionTorque=30000
-HandbrakeFrictionTorque=300000
+HandbrakeFrictionTorque=30000
 
 [brakes]
 frontRearBrakeBalance=0.5
-frontRearHandBrakeBalance=0
+frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=truck_front

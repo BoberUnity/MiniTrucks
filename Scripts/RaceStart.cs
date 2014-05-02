@@ -12,9 +12,11 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private SelectCarController selectCarController = null;
   [SerializeField] private ButtonHandler buttonOk = null;
   [SerializeField] private Transform truckPos = null;
+  
   public AxisCarController axisCarController = null;
   public GameObject EnemyPref = null;
   public Transform[] EnemyiesPos = null;
+  public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;
   private bool activ = false;//true, когда едет эту гонку
