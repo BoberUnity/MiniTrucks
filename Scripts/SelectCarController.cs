@@ -1,12 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class SelectCarController : MonoBehaviour
 {
+  [Serializable] private class EnemyCar
+  {
+    [SerializeField] private GameObject carPrefab = null;
+    [SerializeField] private int price = 10000;
+    private bool hasBought = false;
+
+    public GameObject CarPrefab
+    {
+      get { return carPrefab;}
+    }
+
+    public int Price
+    {
+      get { return price;}
+    }
+
+    public bool HasBought
+    {
+      get { return hasBought;}
+      set { hasBought = value;}
+    }
+  }
+
+  
   [SerializeField] private ButtonHandler buttonNextCar = null;
   [SerializeField] private ButtonHandler buttonPrevCar = null;
+  [SerializeField] private ButtonHandler buttonBuyCar = null;
+  [SerializeField] private ButtonHandler buttonSelectCar = null;
   [SerializeField] private ButtonHandler buttonRace = null;
-  [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private CarCameras carcameras = null;
   [SerializeField] private GameObject cameraGarage = null;
   [SerializeField] private Steer steer = null;
@@ -15,12 +41,27 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
   [SerializeField] private UIPanel gamePanel = null;
-  [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   [SerializeField] private Map map = null;
-  [SerializeField] private GameObject[] cars = null;
+  [SerializeField] private EnemyCar[] enemyCar = null;
   [SerializeField] private Transform carGaragePos = null;
   [SerializeField] private Transform podium = null;
   [SerializeField] private Transform carLevelPos = null;
+  [SerializeField] private int gold = 50000;
+  [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
+  [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
+  public event Action<int> ChangeGold;
+
+  public int Gold
+  {
+    set
+    {
+      gold = value;
+      var handler = ChangeGold;
+      if (handler != null)
+        handler(gold);
+    }
+    get { return gold; }
+  }
   
   private GameObject character = null;
   private int currentCar = 0;
@@ -30,6 +71,8 @@ public class SelectCarController : MonoBehaviour
 	{
     buttonNextCar.Pressed += NextCar;
     buttonPrevCar.Pressed += PrevCar;
+    buttonBuyCar.Pressed += BuyCar;
+    buttonSelectCar.Pressed += SelectCar;
     buttonRace.Pressed += Race;
     goToGarageButtons = FindObjectsOfType(typeof(ButtonGoToGarage)) as ButtonGoToGarage[];//Кнопки переходи в гараж
     foreach (var butt in goToGarageButtons)
@@ -37,15 +80,19 @@ public class SelectCarController : MonoBehaviour
       butt.Pressed += GoToGarage;
     }
     buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-    character = Instantiate(cars[0], carGaragePos.position, Quaternion.identity) as GameObject;
+    character = Instantiate(enemyCar[0].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
       character.transform.parent = podium;
+    buttonSelectCar.gameObject.SetActive(false);
+    buttonBuyCar.gameObject.SetActive(true);
 	}
 
   private void OnDestroy()
   {
     buttonNextCar.Pressed -= NextCar;
     buttonPrevCar.Pressed -= PrevCar;
+    buttonBuyCar.Pressed -= BuyCar;
+    buttonSelectCar.Pressed -= SelectCar;
     buttonRace.Pressed -= Race;
     foreach (var butt in goToGarageButtons)
     {
@@ -57,9 +104,9 @@ public class SelectCarController : MonoBehaviour
   {
     Destroy(character);
 	  currentCar += 1;
-    if (currentCar > cars.Length - 1)
+    if (currentCar > enemyCar.Length - 1)
       currentCar = 0;
-    character = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+    character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
       character.transform.parent = podium;
@@ -68,6 +115,8 @@ public class SelectCarController : MonoBehaviour
       if (raceStart != null)//из меню станции
         raceStart.axisCarController = tractorACC;
     }
+    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
 	}
 
   private void PrevCar()
@@ -75,8 +124,8 @@ public class SelectCarController : MonoBehaviour
     Destroy(character);
     currentCar -= 1;
     if (currentCar < 0)
-      currentCar = cars.Length - 1;
-    character = Instantiate(cars[currentCar], carGaragePos.position, Quaternion.identity) as GameObject;
+      currentCar = enemyCar.Length - 1;
+    character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
       character.transform.parent = podium;
@@ -85,6 +134,24 @@ public class SelectCarController : MonoBehaviour
       if (raceStart != null)//из меню станции
         raceStart.axisCarController = tractorACC;
     }
+    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
+  }
+
+  private void BuyCar()
+  {
+    if (!enemyCar[currentCar].HasBought && gold > enemyCar[currentCar].Price)
+    {
+      enemyCar[currentCar].HasBought = true;
+      Gold -= enemyCar[currentCar].Price;
+      buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+      buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
+    }
+  }
+
+  private void SelectCar()//Выбор 
+  {
+    
   }
 
   private void Race()//ButtonRace

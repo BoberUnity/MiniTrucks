@@ -65,9 +65,10 @@ public class ButtonAddTrailer : MonoBehaviour
         }
         else Debug.LogWarning("opp == null");
       }
-	    truckCar.GetComponent<AxisCarController>().InStation = false;
+	    //truckCar.GetComponent<AxisCarController>().InStation = false;
       raceFinish.Activ = true;
       raceStart.ExitStation();
+      raceStart.ClockOn();
 	  }
 	}
 

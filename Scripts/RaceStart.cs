@@ -11,6 +11,7 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private UILabel resultLabel = null;
   [SerializeField] private SelectCarController selectCarController = null;
   [SerializeField] private ButtonHandler buttonOk = null;
+  [SerializeField] private StartClock startClock = null;
   [SerializeField] private Transform truckPos = null;
   
   public AxisCarController axisCarController = null;
@@ -51,7 +52,23 @@ public class RaceStart : MonoBehaviour
       db.isEnabled = false;
     }
     gamePanel.alpha = 1;
+  }
+
+  public void StartRace()
+  {
     axisCarController.InStation = false;
+  }
+
+  public void ClockOn()
+  {
+    startClock.ClockOn();
+    StartCoroutine(ClockOff(4));
+  }
+
+  private IEnumerator ClockOff(float time)//Часы убрали 0
+  {
+    yield return new WaitForSeconds(time);
+    StartRace();
   }
   
   private void OnTriggerEnter(Collider other)

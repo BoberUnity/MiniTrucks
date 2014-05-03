@@ -9,6 +9,7 @@ public class ButtonCancelStation : MonoBehaviour
 	  if (!isPressed)
 	  {
       raceStart.ExitStation();
+	    raceStart.StartRace();
 	  }
 	}
 }

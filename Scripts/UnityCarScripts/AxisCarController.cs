@@ -7,6 +7,7 @@
 //========================================================================================================================
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AxisCarController : CarController
@@ -15,7 +16,6 @@ public class AxisCarController : CarController
   private bool nitroUsed = false;
   private float steerUsed = 0.5f;
   [SerializeField] private bool ai = false;
-  //public string way = "Way0";
 	public string throttleAxis="Throttle";
 	public string brakeAxis="Brake";
 	public string steerAxis="Horizontal";
@@ -29,6 +29,7 @@ public class AxisCarController : CarController
   [SerializeField] private float[] speeds;//Max speed points
   private int currentWaypoint = 0;
   private bool on = false;
+  private bool oppWaitClock = true;
   public bool InStation = false;
   [SerializeField]
   private float h = 0;
@@ -53,6 +54,18 @@ public class AxisCarController : CarController
   public bool On
   {
     set { on = value;}
+  }
+
+  protected override void Start()
+  {
+    base.Start();
+    StartCoroutine(ClockOff(4));
+  }
+
+  private IEnumerator ClockOff(float time)
+  {
+    yield return new WaitForSeconds(time);
+    oppWaitClock = false;
   }
 
   protected override void GetInput(out float throttleInput,
@@ -171,7 +184,7 @@ public class AxisCarController : CarController
         if (currentWaypoint == waypoints.Length)
           currentWaypoint = 0;
       }
-      if (rigidbody.velocity.magnitude < speeds[currentWaypoint])
+      if (rigidbody.velocity.magnitude < speeds[currentWaypoint] && !oppWaitClock)
         throttleInput = 0.5f;
       else
         throttleInput = 0;
@@ -185,7 +198,6 @@ public class AxisCarController : CarController
       if (drivetrain == null)
         Debug.LogWarning("drivetrain == null" + gameObject.name);
       targetGear = drivetrain.gear;
-      
     }
   }
 
