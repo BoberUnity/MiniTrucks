@@ -18678,9 +18678,23 @@ MonoBehaviour:
   gamePanel: {fileID: 1630959111}
   map: {fileID: 2128933365}
   enemyCar:
-  - carPrefab: {fileID: 100012, guid: 74b273b514fdfe54ea9599424026701a, type: 2}
+  - carPrefab: {fileID: 100044, guid: 509aa0754320f5f4fb5ba89fc15dafb9, type: 2}
     price: 10000
+  - carPrefab: {fileID: 100044, guid: 66a3a2634caa25b429feafc614774013, type: 2}
+    price: 8000
+  - carPrefab: {fileID: 100012, guid: 74b273b514fdfe54ea9599424026701a, type: 2}
+    price: 15000
+  - carPrefab: {fileID: 100056, guid: c324d664932df1c43a33cece74887c7b, type: 2}
+    price: 18000
+  - carPrefab: {fileID: 100056, guid: c865db28fbcea6b49810a1898610b676, type: 2}
+    price: 15000
   - carPrefab: {fileID: 100050, guid: 4c194c3b326f6aa4088bb90eafe10971, type: 2}
+    price: 15000
+  - carPrefab: {fileID: 100044, guid: 741c74b3667276845b5f16cfeb92316e, type: 2}
+    price: 15000
+  - carPrefab: {fileID: 100044, guid: fe613f1fb3de8c74e96d379ee3ab2b92, type: 2}
+    price: 15000
+  - carPrefab: {fileID: 100068, guid: c5a38f6428fa14144bd8ce8ce5bffaa1, type: 2}
     price: 15000
   carGaragePos: {fileID: 1620258695}
   podium: {fileID: 147550638}
@@ -19440,7 +19454,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.1875
+  aspectRatio: 3.625
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: ac44b8a25154a9d40a172ab5851e0986, type: 2}
@@ -30050,7 +30064,6 @@ GameObject:
   - 114: {fileID: 730741828}
   - 114: {fileID: 730741827}
   - 114: {fileID: 730741826}
-  - 114: {fileID: 730741825}
   m_Layer: 28
   m_Name: ButtonBrake
   m_TagString: Untagged
@@ -30071,19 +30084,6 @@ Transform:
   - {fileID: 453655662}
   - {fileID: 1749119212}
   m_Father: {fileID: 1630959109}
---- !u!114 &730741825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 730741823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae5ecbcbaf00b1d4e94860f674b0f18a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axisCarController: {fileID: 0}
-  id: 0
 --- !u!114 &730741826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71987,10 +71987,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mycamera: 0
   target: {fileID: 0}
-  distance: 15
-  height: 10
+  distance: 20
+  height: 20
   yawAngle: -15
-  pitchAngle: -10.5
+  pitchAngle: -16.7999992
   rotationDamping: 3
   heightDamping: 2
   dampFixedCamera: 0
@@ -76804,7 +76804,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862649475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.558952034, y: 0, z: 0}
+  m_LocalPosition: {x: .439560473, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 187029934}
