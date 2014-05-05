@@ -4,12 +4,17 @@ public class GoldIndicator : MonoBehaviour
 {
   [SerializeField] private SelectCarController selectCarController = null;
   private UILabel uILabel = null;
+  private bool changing = false;
+  private float changTime = 0;
+  private int currentGold = 0;
+  private int oldGold = 0;
 
   private void Start()
   {
     selectCarController.ChangeGold += ChangeGold;
     uILabel = GetComponent<UILabel>();
     uILabel.text = selectCarController.Gold.ToString("f0");
+    oldGold = selectCarController.Gold;
   }
 
   private void OnDestroy()
@@ -19,10 +24,23 @@ public class GoldIndicator : MonoBehaviour
 	
   private void ChangeGold(int gold)
   {
-    uILabel.text = gold.ToString("f0");
+    changing = true;
+    currentGold = gold;
+    changTime = 0;
   }
-	// Update is called once per frame
-	void Update () {
-	
+
+  void Update () 
+  {
+	  if (changing)
+	  {
+	    changTime += Time.deltaTime;
+      uILabel.text = (currentGold + (oldGold - currentGold)*(1-changTime)).ToString("f0");
+      if (changTime > 1)
+      {
+        uILabel.text = currentGold.ToString("f0");
+        changing = false;
+        oldGold = currentGold;
+      }
+	  }
 	}
 }

@@ -26,7 +26,6 @@ public class SelectCarController : MonoBehaviour
       set { hasBought = value;}
     }
   }
-
   
   [SerializeField] private ButtonHandler buttonNextCar = null;
   [SerializeField] private ButtonHandler buttonPrevCar = null;
@@ -144,9 +143,15 @@ public class SelectCarController : MonoBehaviour
     {
       enemyCar[currentCar].HasBought = true;
       Gold -= enemyCar[currentCar].Price;
-      buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+      StartCoroutine(ActivateSelectButton(1));//Активируем кнопку Select через 1 сек после покупки
       buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
     }
+  }
+
+  private IEnumerator ActivateSelectButton(float time)
+  {
+    yield return new WaitForSeconds(time);
+    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
   }
 
   private void SelectCar()//Выбор 
