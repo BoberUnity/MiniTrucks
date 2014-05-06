@@ -7,6 +7,7 @@ public class SelectCarController : MonoBehaviour
   [Serializable] private class EnemyCar
   {
     [SerializeField] private GameObject carPrefab = null;
+    [SerializeField] private string truckName = "";
     [SerializeField] private int price = 10000;
     private bool hasBought = false;
 
@@ -25,13 +26,19 @@ public class SelectCarController : MonoBehaviour
       get { return hasBought;}
       set { hasBought = value;}
     }
+
+    public string TruckName
+    {
+      get { return truckName;}
+    }
   }
   
   [SerializeField] private ButtonHandler buttonNextCar = null;
   [SerializeField] private ButtonHandler buttonPrevCar = null;
   [SerializeField] private ButtonHandler buttonBuyCar = null;
-  [SerializeField] private ButtonHandler buttonSelectCar = null;
+  [SerializeField] private ButtonHandler buttonUpgradeCar = null;
   [SerializeField] private ButtonHandler buttonRace = null;
+  [SerializeField] private ButtonHandler buttonRace2 = null;
   [SerializeField] private CarCameras carcameras = null;
   [SerializeField] private GameObject cameraGarage = null;
   [SerializeField] private Steer steer = null;
@@ -46,6 +53,8 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private Transform podium = null;
   [SerializeField] private Transform carLevelPos = null;
   [SerializeField] private int gold = 50000;
+  [SerializeField] private UILabel priceIndicator = null;
+  [SerializeField] private UILabel nameIndicator = null;
   [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   public event Action<int> ChangeGold;
@@ -71,8 +80,9 @@ public class SelectCarController : MonoBehaviour
     buttonNextCar.Pressed += NextCar;
     buttonPrevCar.Pressed += PrevCar;
     buttonBuyCar.Pressed += BuyCar;
-    buttonSelectCar.Pressed += SelectCar;
+    buttonUpgradeCar.Pressed += SelectCar;
     buttonRace.Pressed += Race;
+    buttonRace2.Pressed += Race;
     goToGarageButtons = FindObjectsOfType(typeof(ButtonGoToGarage)) as ButtonGoToGarage[];//Кнопки переходи в гараж
     foreach (var butt in goToGarageButtons)
     {
@@ -82,8 +92,11 @@ public class SelectCarController : MonoBehaviour
     character = Instantiate(enemyCar[0].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
       character.transform.parent = podium;
-    buttonSelectCar.gameObject.SetActive(false);
+    buttonUpgradeCar.gameObject.SetActive(false);
+    buttonRace2.gameObject.SetActive(false);
     buttonBuyCar.gameObject.SetActive(true);
+    priceIndicator.text = enemyCar[0].Price.ToString("f0");
+    nameIndicator.text = enemyCar[0].TruckName;
 	}
 
   private void OnDestroy()
@@ -91,8 +104,9 @@ public class SelectCarController : MonoBehaviour
     buttonNextCar.Pressed -= NextCar;
     buttonPrevCar.Pressed -= PrevCar;
     buttonBuyCar.Pressed -= BuyCar;
-    buttonSelectCar.Pressed -= SelectCar;
+    buttonUpgradeCar.Pressed -= SelectCar;
     buttonRace.Pressed -= Race;
+    buttonRace2.Pressed -= Race;
     foreach (var butt in goToGarageButtons)
     {
       butt.Pressed -= GoToGarage;
@@ -101,29 +115,23 @@ public class SelectCarController : MonoBehaviour
 
   private void NextCar() 
   {
-    Destroy(character);
 	  currentCar += 1;
     if (currentCar > enemyCar.Length - 1)
       currentCar = 0;
-    character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
-    if (character != null)
-    {
-      character.transform.parent = podium;
-      AxisCarController tractorACC = character.GetComponentInChildren<AxisCarController>();
-      tractorACC.InStation = true;
-      if (raceStart != null)//из меню станции
-        raceStart.axisCarController = tractorACC;
-    }
-    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
-    buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
-	}
+    ChangeCar();
+  }
 
   private void PrevCar()
   {
-    Destroy(character);
     currentCar -= 1;
     if (currentCar < 0)
       currentCar = enemyCar.Length - 1;
+    ChangeCar();
+  }
+
+  private void ChangeCar()
+  {
+    Destroy(character);
     character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
@@ -133,8 +141,11 @@ public class SelectCarController : MonoBehaviour
       if (raceStart != null)//из меню станции
         raceStart.axisCarController = tractorACC;
     }
-    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonUpgradeCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonRace2.gameObject.SetActive(enemyCar[currentCar].HasBought);
     buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
+    priceIndicator.text = enemyCar[currentCar].Price.ToString("f0");
+    nameIndicator.text = enemyCar[currentCar].TruckName;
   }
 
   private void BuyCar()
@@ -151,7 +162,8 @@ public class SelectCarController : MonoBehaviour
   private IEnumerator ActivateSelectButton(float time)
   {
     yield return new WaitForSeconds(time);
-    buttonSelectCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonUpgradeCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
+    buttonRace2.gameObject.SetActive(enemyCar[currentCar].HasBought);
   }
 
   private void SelectCar()//Выбор 
@@ -189,8 +201,6 @@ public class SelectCarController : MonoBehaviour
       {
         StartCoroutine(ShowStationMenu(gamePanel.animation.clip.length));//!!! Должно быть не gamePanel, a Upgrade Panel
         aCC.InStation = true;
-        //Debug.LogWarning("STtcorr");
-        //raceStart = null;
       }
       else//При первом запуске активируем Game Menu
       {

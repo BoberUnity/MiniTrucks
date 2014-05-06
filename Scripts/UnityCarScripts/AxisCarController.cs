@@ -223,9 +223,9 @@ public class AxisCarController : CarController
     }
   }
   
-  public void SetWay(string wayText)
+  public void SetWay(Waypoint waypoint)
   {
-    GameObject wayObject = GameObject.Find(wayText);
+    GameObject wayObject = waypoint.gameObject;
     if (wayObject != null)
     {
       Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
@@ -235,9 +235,9 @@ public class AxisCarController : CarController
         speeds = wayComponent.MaxSpeeds;
       }
       else
-        Debug.LogWarning("Компонент Waypoint не найден на объекте" + wayText);
+        Debug.LogWarning("Компонент Waypoint не найден на объекте" + waypoint.gameObject.name);
     }
     else
-      Debug.LogWarning("Путь " + wayText + "не найден");
+      Debug.LogWarning("Путь " + waypoint.gameObject.name + "не найден");
   }
 }

@@ -8,7 +8,7 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private RaceStart raceStart = null;
   [SerializeField] private RaceStart raceFinish = null;
   //[SerializeField] private Transform characterPos = null;//Позиция на старте гонки
-  [SerializeField] private string way = "Way0";
+  [SerializeField] private Waypoint way = null;
   [SerializeField] private BaggageLabel baggageLabel = null;
 
   private Transform truckCar = null;
