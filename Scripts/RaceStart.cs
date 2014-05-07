@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class RaceStart : MonoBehaviour
 {
+  [Serializable] public class EnemiesPosition
+  {
+    [SerializeField] private GameObject enemyPref = null;
+    [SerializeField] private Transform enemyPos = null;
+
+    public GameObject EnemyPref
+    {
+      get { return enemyPref; }
+    }
+
+    public Transform EnemyPos
+    {
+      get { return enemyPos; }
+    }
+  }
+  
   public UIWidget stationPanel = null;
   //[SerializeField] private UIPanel stationFinishPanel = null;
   [SerializeField] private UIPanel gamePanel = null;
@@ -15,8 +31,9 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private Transform truckPos = null;
   
   public AxisCarController axisCarController = null;
-  public GameObject EnemyPref = null;
-  public Transform[] EnemyiesPos = null;
+  //public GameObject EnemyPref = null;
+  //public Transform[] EnemyiesPos = null;
+  public EnemiesPosition[] enemiesPos = null;
   public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;

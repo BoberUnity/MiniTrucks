@@ -3,8 +3,5 @@
 
 public class Trailer : MonoBehaviour 
 {
-  void Start () 
-  {
-	
-	}
+  public float Frailty = 0.1f;//1-стекло, 0.1 - дрова
 }

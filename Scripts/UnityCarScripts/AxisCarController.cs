@@ -31,6 +31,7 @@ public class AxisCarController : CarController
   private bool on = false;
   private bool oppWaitClock = true;
   public bool InStation = false;
+  [SerializeField] private float speedKoeff = 1;
   [SerializeField]
   private float h = 0;
 
@@ -109,7 +110,7 @@ public class AxisCarController : CarController
           brakeInput = 0;
         }
       }
-      steerInput = steerUsed * 0.005f;//Input.GetAxisRaw(steerAxis); SteerUsed [-200;200]
+      steerInput = steerUsed * 0.0025f;//Input.GetAxisRaw(steerAxis); SteerUsed [-400;400]
       //handbrakeInput = Input.GetAxisRaw(handbrakeAxis);
       clutchInput = Input.GetAxisRaw(clutchAxis);
       startEngineInput = Input.GetButton(startEngineButton);
@@ -184,7 +185,7 @@ public class AxisCarController : CarController
         if (currentWaypoint == waypoints.Length)
           currentWaypoint = 0;
       }
-      if (rigidbody.velocity.magnitude < speeds[currentWaypoint] && !oppWaitClock)
+      if (rigidbody.velocity.magnitude < speeds[currentWaypoint] * speedKoeff && !oppWaitClock)
         throttleInput = 0.5f;
       else
         throttleInput = 0;

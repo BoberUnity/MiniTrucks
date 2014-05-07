@@ -273,7 +273,6 @@ GameObject:
   - 114: {fileID: 11400012}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400010}
-  - 114: {fileID: 11400008}
   m_Layer: 25
   m_Name: Scania TrailerMy
   m_TagString: Trailer
@@ -1452,20 +1451,6 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frailty: .100000001
-  ignoreCollision: 10
-  Condition: 100
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1477,7 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41182e3ba7e4c4ea3df6296020fa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingSetup: 1
+  loadingSetup: 0
   savingSetup: 0
   filePath: Assets\Samples\Car Setups\scaniaTrailer.txt
   usePersistentDataPath: 0
@@ -1669,6 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df4d72c31144e1488da90ea59b5dfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Frailty: 0
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1

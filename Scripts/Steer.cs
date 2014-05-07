@@ -19,6 +19,6 @@ public class Steer : MonoBehaviour
       axisCarController.SteerUsed = realSteerSpeed;
     
 	  //rulSprite.transform.eulerAngles = new Vector3(0, 0, -(uISliderSteer.value - 0.5f) * 270);
-    rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed*2);
+    rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed*1);
 	}
 }

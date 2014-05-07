@@ -322,6 +322,7 @@ GameObject:
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400048}
   - 65: {fileID: 6500004}
+  - 114: {fileID: 11400002}
   m_Layer: 21
   m_Name: Traktor
   m_TagString: Car
@@ -1121,6 +1122,20 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frailty: .100000001
+  ignoreCollision: 10
+  Condition: 100
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

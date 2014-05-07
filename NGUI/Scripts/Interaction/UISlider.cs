@@ -104,7 +104,7 @@ public class UISlider : UIProgressBar
 		if (UICamera.currentScheme == UICamera.ControlScheme.Controller) return;
 		mCam = UICamera.currentCamera;
 		value = ScreenToValue(UICamera.lastTouchPosition);
-    SteerRot = Mathf.Clamp(SteerRot+delta.x, -200, 200);
+    SteerRot = Mathf.Clamp(SteerRot + delta.x, -400, 400);
 	}
 
 	/// <summary>
