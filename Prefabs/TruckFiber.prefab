@@ -2253,6 +2253,7 @@ MonoBehaviour:
   waypoints: []
   speeds: []
   InStation: 0
+  speedKoeff: 1
   h: 0
 --- !u!114 &11400020
 MonoBehaviour:
@@ -2471,7 +2472,7 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 2500
+  maxPower: 2770
   maxPowerRPM: 4000
   maxTorque: 5000
   maxTorqueRPM: 1700
@@ -2610,7 +2611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frailty: .100000001
+  Frailty: 0
   ignoreCollision: 10
   Condition: 100
 --- !u!1001 &100100000

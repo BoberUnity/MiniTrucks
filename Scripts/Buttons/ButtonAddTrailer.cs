@@ -10,6 +10,7 @@ public class ButtonAddTrailer : MonoBehaviour
   //[SerializeField] private Transform characterPos = null;//Позиция на старте гонки
   [SerializeField] private Waypoint way = null;
   [SerializeField] private BaggageLabel baggageLabel = null;
+  [SerializeField] private int price = 100;
   //[SerializeField] private UILabel fragilityLabel = null;
 
   private Transform truckCar = null;
@@ -74,6 +75,7 @@ public class ButtonAddTrailer : MonoBehaviour
       raceFinish.Activ = true;
       raceStart.ExitStation();
       raceStart.ClockOn();
+	    raceFinish.Price = price;
 	  }
 	}
 

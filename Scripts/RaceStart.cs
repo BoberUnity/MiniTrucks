@@ -22,6 +22,7 @@ public class RaceStart : MonoBehaviour
   
   public UIWidget stationPanel = null;
   //[SerializeField] private UIPanel stationFinishPanel = null;
+  [SerializeField] private int id = 0;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UILabel resultLabel = null;
@@ -31,13 +32,17 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private Transform truckPos = null;
   
   public AxisCarController axisCarController = null;
-  //public GameObject EnemyPref = null;
-  //public Transform[] EnemyiesPos = null;
   public EnemiesPosition[] enemiesPos = null;
   public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;
   private bool activ = false;//true, когда едет эту гонку
+  private int price = 0;
+  
+  public int Price
+  {
+    set { price = value; }
+  }
   
   public bool Activ
   {
@@ -100,6 +105,7 @@ public class RaceStart : MonoBehaviour
     
     if (other.gameObject.name == "Traktor")//+ при переходе из гаража
     {
+      PlayerPrefs.SetInt("StartCarPos", id);
       selectCarController.raceStart = this;
       truckPos.position = other.transform.position;
       if (other.GetComponent<CharacterJoint>() == null)
@@ -138,10 +144,17 @@ public class RaceStart : MonoBehaviour
               resultLabel.text = "5-th";
             prize = 1;
             buttonOk.GetComponent<UIButton>().isEnabled = true;
+            StartCoroutine(AddGold(1));
           }
         }
       }
     }
+  }
+
+  private IEnumerator AddGold(float time)
+  {
+    yield return new WaitForSeconds(time);
+    selectCarController.Gold += price;
   }
 
   private void ExitFinishMenu()//Нажатие кнопки ОК
