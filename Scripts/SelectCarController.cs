@@ -32,13 +32,15 @@ public class SelectCarController : MonoBehaviour
       get { return truckName;}
     }
   }
-  
+
+  [SerializeField] private ButtonHandler buttonContinue = null;
   [SerializeField] private ButtonHandler buttonNextCar = null;
   [SerializeField] private ButtonHandler buttonPrevCar = null;
   [SerializeField] private ButtonHandler buttonBuyCar = null;
   [SerializeField] private ButtonHandler buttonUpgradeCar = null;
   [SerializeField] private ButtonHandler buttonRace = null;
   [SerializeField] private ButtonHandler buttonRace2 = null;
+  [SerializeField] private ButtonHandler buttonRestart = null;
   [SerializeField] private CarCameras carcameras = null;
   [SerializeField] private GameObject cameraGarage = null;
   [SerializeField] private Steer steer = null;
@@ -58,6 +60,9 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private UILabel powerLabel = null;
   [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
+  private Vector3 beforeGaragePosition = Vector3.zero;
+  private Quaternion beforeGarageRotation = Quaternion.identity;
+  private bool first = true;//Первый запуск
   public event Action<int> ChangeGold;
 
   public int Gold
@@ -65,6 +70,7 @@ public class SelectCarController : MonoBehaviour
     set
     {
       gold = value;
+      PlayerPrefs.SetInt("Gold", gold);
       var handler = ChangeGold;
       if (handler != null)
         handler(gold);
@@ -84,6 +90,8 @@ public class SelectCarController : MonoBehaviour
     buttonUpgradeCar.Pressed += SelectCar;
     buttonRace.Pressed += Race;
     buttonRace2.Pressed += Race;
+    buttonContinue.Pressed += Continue;
+    buttonRestart.Pressed += Restart;
     goToGarageButtons = FindObjectsOfType(typeof(ButtonGoToGarage)) as ButtonGoToGarage[];//Кнопки переходи в гараж
     foreach (var butt in goToGarageButtons)
     {
@@ -111,6 +119,8 @@ public class SelectCarController : MonoBehaviour
     buttonUpgradeCar.Pressed -= SelectCar;
     buttonRace.Pressed -= Race;
     buttonRace2.Pressed -= Race;
+    buttonContinue.Pressed -= Continue;
+    buttonRestart.Pressed -= Restart;
     foreach (var butt in goToGarageButtons)
     {
       butt.Pressed -= GoToGarage;
@@ -155,12 +165,13 @@ public class SelectCarController : MonoBehaviour
 
   private void BuyCar()
   {
-    if (!enemyCar[currentCar].HasBought && gold > enemyCar[currentCar].Price)
+    if (!enemyCar[currentCar].HasBought && gold >= enemyCar[currentCar].Price)
     {
       enemyCar[currentCar].HasBought = true;
       Gold -= enemyCar[currentCar].Price;
       StartCoroutine(ActivateSelectButton(1));//Активируем кнопку Select через 1 сек после покупки
       buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
+      PlayerPrefs.SetInt("HasCar" + currentCar.ToString("f0"), 1);
     }
   }
 
@@ -171,19 +182,53 @@ public class SelectCarController : MonoBehaviour
     buttonRace2.gameObject.SetActive(enemyCar[currentCar].HasBought);
   }
 
-  private void SelectCar()//Выбор 
+  private void SelectCar()//Выбор Upgrade
   {
+
+  }
+
+  private void Continue()
+  {
+    int i = 0;
+    foreach (var ec in enemyCar)
+    {
+      if (PlayerPrefs.HasKey("HasCar" + i.ToString("f0")))
+        ec.HasBought = true;
+      i += 1;
+    }
     
+    if (PlayerPrefs.HasKey("CurrentCar"))
+    {
+      currentCar = PlayerPrefs.GetInt("CurrentCar");
+      ChangeCar();
+    }
+    else Debug.LogWarning("Key was not found");
+
+    if (PlayerPrefs.HasKey("Gold"))
+    {
+      Gold = PlayerPrefs.GetInt("Gold");
+    }
+    Race();
   }
 
   private void Race()//ButtonRace
   {
+    PlayerPrefs.SetInt("CurrentCar", currentCar);
     character.transform.parent = null;
     if (PlayerPrefs.HasKey("StartCarPos"))
     {
-      character.transform.position = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].position;
-      character.transform.rotation = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].rotation;
-      Debug.Log("Start from " + PlayerPrefs.GetInt("StartCarPos") + " town");
+      if (first)
+      {
+        character.transform.position = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].position;
+        character.transform.rotation = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].rotation;
+        Debug.Log("Start from " + PlayerPrefs.GetInt("StartCarPos") + " town");
+      }
+      else//Из гаража
+      {
+        character.transform.position = beforeGaragePosition;
+        character.transform.rotation = beforeGarageRotation;
+        Debug.Log("Start from Garage");
+      }
     }
     else//Первый запуск
     {
@@ -225,11 +270,41 @@ public class SelectCarController : MonoBehaviour
     }
   }
 
+  private void Restart()
+  {
+    CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик
+    if (tractor != null)
+    {
+      ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
+      foreach (var button in buttonsAddTrailer)
+      {
+        button.ExitRace();
+      }
+      if (PlayerPrefs.HasKey("StartCarPos"))
+      {
+        if (first)
+        {
+          tractor.transform.position = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].position;
+          tractor.transform.rotation = carLevelPos[PlayerPrefs.GetInt("StartCarPos")].rotation;
+        }
+        else//Из гаража
+        {
+          tractor.transform.position = beforeGaragePosition;
+          tractor.transform.rotation = beforeGarageRotation;
+        }
+      }
+      else//Первый запуск
+      {
+        tractor.transform.position = carLevelPos[0].position;
+        tractor.transform.rotation = carLevelPos[0].rotation;
+      }
+    }
+  }
+
   private IEnumerator ShowStationMenu(float time)
   {
     yield return new WaitForSeconds(time);
     raceStart.stationPanel.transform.position = new Vector3(raceStart.stationPanel.transform.position.x, 0, 0);
-    Debug.LogWarning("STt in corr");
     UIButton[] enableButtons = raceStart.stationPanel.GetComponentsInChildren<UIButton>();
     foreach (var eb in enableButtons)
     {
@@ -251,15 +326,18 @@ public class SelectCarController : MonoBehaviour
 
   private void GoToGarage()
   {
-    cameraGarage.SetActive(true);
-    carcameras.gameObject.SetActive(false);
-    character.transform.position = carGaragePos.position;
-    character.transform.rotation = carGaragePos.rotation;
     CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик
     if (tractor != null)
     {
+      beforeGaragePosition = tractor.transform.position;
+      beforeGarageRotation = tractor.transform.rotation;
+      first = false;
+      cameraGarage.SetActive(true);
+      carcameras.gameObject.SetActive(false);
+      character.transform.position = carGaragePos.position;
+      character.transform.rotation = carGaragePos.rotation;
       tractor.transform.localPosition = Vector3.zero;
+      character.transform.parent = podium;
     }
-    character.transform.parent = podium;
   }
 }

@@ -15182,7 +15182,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 330bf06dfdbf34d46874f04170b8f731, type: 2}
+  - {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -19113,12 +19113,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ba7de962487b441b609e548a29862c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonContinue: {fileID: 861222074}
   buttonNextCar: {fileID: 281633346}
   buttonPrevCar: {fileID: 589284913}
   buttonBuyCar: {fileID: 1999805345}
   buttonUpgradeCar: {fileID: 1555948569}
   buttonRace: {fileID: 1683763313}
   buttonRace2: {fileID: 1690133510}
+  buttonRestart: {fileID: 730741825}
   carcameras: {fileID: 1740132427}
   cameraGarage: {fileID: 1688507367}
   steer: {fileID: 1983385440}
@@ -19170,7 +19172,6 @@ MonoBehaviour:
   carLevelPos:
   - {fileID: 141530603}
   - {fileID: 982839391}
-  - {fileID: 1717030413}
   - {fileID: 1717030413}
   gold: 50000
   priceIndicator: {fileID: 895555766}
@@ -25971,6 +25972,7 @@ GameObject:
   - 114: {fileID: 619477029}
   - 114: {fileID: 619477028}
   - 114: {fileID: 619477027}
+  - 114: {fileID: 619477032}
   m_Layer: 28
   m_Name: ButtonStart
   m_TagString: Untagged
@@ -26072,6 +26074,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 350, y: 120, z: 0}
   m_Center: {x: 0, y: 1.90734863e-06, z: -2.25}
+--- !u!114 &619477032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 619477025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc48c3e923bcd3541a302228141e3e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  optionsPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
 --- !u!1 &622325818
 GameObject:
   m_ObjectHideFlags: 0
@@ -27105,7 +27121,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 330bf06dfdbf34d46874f04170b8f731, type: 2}
+  - {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -31241,6 +31257,7 @@ GameObject:
   - 114: {fileID: 730741828}
   - 114: {fileID: 730741827}
   - 114: {fileID: 730741826}
+  - 114: {fileID: 730741825}
   m_Layer: 28
   m_Name: ButtonRestart
   m_TagString: Untagged
@@ -31261,6 +31278,17 @@ Transform:
   - {fileID: 453655662}
   - {fileID: 1749119212}
   m_Father: {fileID: 1630959109}
+--- !u!114 &730741825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 730741823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9b0de901db63489e9f53c07703b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &730741826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37344,6 +37372,8 @@ GameObject:
   - 114: {fileID: 861222071}
   - 114: {fileID: 861222070}
   - 114: {fileID: 861222069}
+  - 114: {fileID: 861222074}
+  - 114: {fileID: 861222075}
   m_Layer: 28
   m_Name: ButtonContinue
   m_TagString: Untagged
@@ -37446,6 +37476,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 350, y: 120, z: 0}
   m_Center: {x: 0, y: 1.90734863e-06, z: -2.25}
+--- !u!114 &861222074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861222067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9b0de901db63489e9f53c07703b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &861222075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861222067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aefdd475bf2fff4485381600696d307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledPanel: {fileID: 580216594}
+  enabledPanel: {fileID: 0}
 --- !u!1 &861943314
 GameObject:
   m_ObjectHideFlags: 0
@@ -38714,7 +38768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d89cfad692c98e489b80a95f33d0f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceStart: {fileID: 0}
 --- !u!4 &877621688
 Transform:
   m_ObjectHideFlags: 0
@@ -55305,17 +55358,17 @@ MonoBehaviour:
     absolute: 0
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 94
+  mWidth: 164
   mHeight: 32
   mDepth: 8
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.9375
+  aspectRatio: 5.125
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: ac44b8a25154a9d40a172ab5851e0986, type: 2}
-  mText: START
+  mText: NEW GAME
   mFontSize: 32
   mFontStyle: 0
   mAlignment: 0
@@ -67998,6 +68051,18 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 1ad8f9da68b36fe48b5b64aef0044a74,
         type: 2}
+    - target: {fileID: 2300904, guid: 5754e0a74c0785141b2c92b48650204c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
+    - target: {fileID: 2300902, guid: 5754e0a74c0785141b2c92b48650204c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
+    - target: {fileID: 2300910, guid: 5754e0a74c0785141b2c92b48650204c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 5754e0a74c0785141b2c92b48650204c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 5754e0a74c0785141b2c92b48650204c, type: 3}
@@ -80272,7 +80337,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 330bf06dfdbf34d46874f04170b8f731, type: 2}
+  - {fileID: 2100000, guid: d3e55dd2b2e5297499af7af65454a653, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

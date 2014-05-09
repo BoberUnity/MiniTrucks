@@ -1,5 +1,5 @@
 [body]
-weight=10000
+weight=15000
 weightRepartition=0.5
 centerOfMass=(0.0, 0.0, 0.0)
 inertiaFactor=0.3
@@ -55,15 +55,15 @@ frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=truck_rear
-forwardGripFactor=0.9
-sidewaysGripFactor=0.9
+forwardGripFactor=1
+sidewaysGripFactor=1
 tiresPressure=0
 optimalTiresPressure=300
 
 [tires-rearAxle]
 tireType=truck_front
-forwardGripFactor=0.9
-sidewaysGripFactor=0.9
+forwardGripFactor=1
+sidewaysGripFactor=1
 tiresPressure=0
 optimalTiresPressure=300
 
@@ -78,25 +78,25 @@ optimalTiresPressure=300
 mass=150
 radius=0.59
 rimRadius=0.34
-width=0.45
+width=0.5
 
 [wheels-frontAxle-right]
 mass=150
 radius=0.59
 rimRadius=0.34
-width=0.45
+width=0.5
 
 [wheels-rearAxle-left]
 mass=150
 radius=0.59
 rimRadius=0.34
-width=0.45
+width=0.5
 
 [wheels-rearAxle-right]
 mass=150
 radius=0.59
 rimRadius=0.34
-width=0.45
+width=0.5
 
 [controllerType]
 controller=external

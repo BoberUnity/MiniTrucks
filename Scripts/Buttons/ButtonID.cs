@@ -10,7 +10,12 @@ public class ButtonID : MonoBehaviour
   private void Start()
   {
     if (id == 0)
-      GetComponent<UIButton>().isEnabled = false;
+    {
+      if (!PlayerPrefs.HasKey("StartCarPos"))
+      {
+        GetComponent<UIButton>().isEnabled = false;
+      }
+    }
   }
 
   protected virtual void OnPress(bool isPressed)
@@ -37,6 +42,11 @@ public class ButtonID : MonoBehaviour
         {
           button.ExitRace();
         }
+      }
+
+      if (id == 4)//ClearReg
+      {
+        PlayerPrefs.DeleteAll();
       }
     }
 	}

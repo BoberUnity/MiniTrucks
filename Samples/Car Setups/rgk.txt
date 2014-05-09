@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=2500
+maxPower=3400
 maxPowerRPM=4000
-maxTorque=5000
+maxTorque=6000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StartClock : MonoBehaviour
 {
-  [SerializeField] private RaceStart raceStart = null;
+  //[SerializeField] private RaceStart raceStart = null;
   private UILabel uILabel = null;
 	// Use this for initialization
 	void Start ()

@@ -12,9 +12,9 @@ public class Steer : MonoBehaviour
 	{
 	  realSteerSpeed = Mathf.Clamp(uISliderSteer.SteerRot, realSteerSpeed - Time.deltaTime*steerSpeed, realSteerSpeed + Time.deltaTime*steerSpeed);
     if (Input.GetKey("left"))
-      realSteerSpeed = -160; 
+      realSteerSpeed = -300; 
     if (Input.GetKey("right"))
-      realSteerSpeed = 160;
+      realSteerSpeed = 300;
     if (axisCarController != null)
       axisCarController.SteerUsed = realSteerSpeed;
     

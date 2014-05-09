@@ -155,6 +155,7 @@ public class RaceStart : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     selectCarController.Gold += price;
+    //PlayerPrefs.SetInt("Gold", selectCarController.Gold);
   }
 
   private void ExitFinishMenu()//Нажатие кнопки ОК
