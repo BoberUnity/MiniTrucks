@@ -776,7 +776,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14999998, y: -.450022638, z: -2.28615236}
+  m_LocalPosition: {x: 1.14999998, y: -.450022638, z: -2.42793226}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400020}
@@ -788,7 +788,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14999998, y: -.450022638, z: -.75}
+  m_LocalPosition: {x: 1.14999998, y: -.5, z: -.75}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400022}
@@ -800,7 +800,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.20000005, y: -.450022638, z: -.75}
+  m_LocalPosition: {x: -1.20000005, y: -.5, z: -.75}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400024}
@@ -860,7 +860,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.20000005, y: -.450022638, z: -2.28615236}
+  m_LocalPosition: {x: -1.20000005, y: -.450022638, z: -2.42793226}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400050}
@@ -958,7 +958,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1.21951222, y: 1.21951222, z: 1.21951222}
   m_Children:
   - {fileID: 400018}
@@ -2737,6 +2737,7 @@ MonoBehaviour:
   waypoints: []
   speeds: []
   InStation: 0
+  speedKoeff: 1
   h: 0
 --- !u!114 &11400024
 MonoBehaviour:
@@ -2983,9 +2984,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 2500
+  maxPower: 3000
   maxPowerRPM: 4000
-  maxTorque: 5000
+  maxTorque: 5500
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -3122,7 +3123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frailty: .100000001
+  Frailty: 0
   ignoreCollision: 10
   Condition: 100
 --- !u!1001 &100100000

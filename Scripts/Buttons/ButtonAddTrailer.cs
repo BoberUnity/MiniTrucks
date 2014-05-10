@@ -101,6 +101,7 @@ public class ButtonAddTrailer : MonoBehaviour
         Destroy(characterJoint);
       }
       else Debug.LogWarning("CharacterJoint == null");
+      baggageLabel.BaggageController = null;
     }
   }
 }

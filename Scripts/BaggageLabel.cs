@@ -7,7 +7,12 @@ public class BaggageLabel : MonoBehaviour
 
   public BlowController BaggageController
   {
-    set { baggageController = value; }
+    set
+    {
+      baggageController = value;
+      if (baggageController == null)
+        uILabel.text = "baggage condition - 0 %";
+    }
   }
 	
   void Start()

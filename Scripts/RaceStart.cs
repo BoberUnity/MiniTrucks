@@ -26,11 +26,12 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UILabel resultLabel = null;
+  [SerializeField] private UILabel addGoldLabel = null;
   [SerializeField] private SelectCarController selectCarController = null;
   [SerializeField] private ButtonHandler buttonOk = null;
   [SerializeField] private StartClock startClock = null;
   [SerializeField] private Transform truckPos = null;
-  
+
   public AxisCarController axisCarController = null;
   public EnemiesPosition[] enemiesPos = null;
   public Transform CharPos = null;
@@ -132,19 +133,36 @@ public class RaceStart : MonoBehaviour
             axisCarController.InStation = true;
             finishPanel.transform.position = Vector3.zero;
             gamePanel.alpha = 0;
+            price = (int)(price*other.gameObject.GetComponent<BlowController>().Condition/100);
             if (prize == 1)
+            {
               resultLabel.text = "1-st";
+            }
             if (prize == 2)
+            {
               resultLabel.text = "2-nd";
+              price = (int)(price*0.7f);
+            }
             if (prize == 3)
+            {
               resultLabel.text = "3-rd";
+              price = (int)(price * 0.6f);
+            }
             if (prize == 4)
+            {
               resultLabel.text = "4-th";
+              price = (int)(price * 0.5f);
+            }
             if (prize == 5)
+            {
               resultLabel.text = "5-th";
-            prize = 1;
+              price = (int)(price * 0.4f);
+            }
+            addGoldLabel.text = price.ToString("f0");
+            
             buttonOk.GetComponent<UIButton>().isEnabled = true;
             StartCoroutine(AddGold(1));
+            prize = 1;
           }
         }
       }
@@ -155,7 +173,7 @@ public class RaceStart : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     selectCarController.Gold += price;
-    //PlayerPrefs.SetInt("Gold", selectCarController.Gold);
+
   }
 
   private void ExitFinishMenu()//Нажатие кнопки ОК

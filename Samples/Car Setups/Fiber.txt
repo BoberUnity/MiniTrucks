@@ -1,15 +1,15 @@
 [body]
 weight=10000
-weightRepartition=0.64
+weightRepartition=0.66
 centerOfMass=(0.0, -1.0, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=3000
+maxPower=4000
 maxPowerRPM=4000
-maxTorque=5500
+maxTorque=10500
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -23,7 +23,7 @@ fuelConsumptionAtCostantSpeed=4.3
 fuelConsumptionSpeed=130
 
 [transmission]
-transmissionType=RWD
+transmissionType=AWD
 finalDriveRatio=6.09
 drivetrainInertia=0.02
 differentialLockCoefficient=50
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=7157
+clutchMaxTorque=15447
 autoClutch=True
 engageRPM=800
 disengageRPM=500
@@ -46,9 +46,9 @@ gear-ratio-4=1
 
 [suspensions-frontAxle]
 suspensionTravel=0.4
-suspensionRate=60000
-bumpRate=3000
-reboundRate=6000
+suspensionRate=60
+bumpRate=30
+reboundRate=60
 fastBumpFactor=1
 fastReboundFactor=1
 camber=0
@@ -57,9 +57,9 @@ maxSteeringAngle=33
 
 [suspensions-rearAxle]
 suspensionTravel=0.4
-suspensionRate=30000
-bumpRate=6000
-reboundRate=12000
+suspensionRate=30
+bumpRate=60
+reboundRate=120
 fastBumpFactor=1
 fastReboundFactor=1
 camber=0
@@ -68,9 +68,9 @@ maxSteeringAngle=0
 
 [suspensions-otherAxle1]
 suspensionTravel=0.4
-suspensionRate=30000
-bumpRate=6000
-reboundRate=12000
+suspensionRate=30
+bumpRate=60
+reboundRate=120
 fastBumpFactor=1
 fastReboundFactor=1
 camber=0
@@ -78,15 +78,15 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=20000
+brakeFrictionTorque=30000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=4000
+BrakeFrictionTorque=30000
 HandbrakeFrictionTorque=4000
 
 [brakes-otherAxle1]
-brakeFrictionTorque=4000
+brakeFrictionTorque=30000
 handbrakeFrictionTorque=4000
 
 [brakes]
@@ -95,35 +95,35 @@ frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=truck_front
-forwardGripFactor=0.9
-sidewaysGripFactor=0.9
+forwardGripFactor=1
+sidewaysGripFactor=1
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
-forwardGripFactor=0.9
-sidewaysGripFactor=0.9
+forwardGripFactor=1
+sidewaysGripFactor=1
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
-forwardGripFactor=0.9
-sidewaysGripFactor=0.9
+forwardGripFactor=1
+sidewaysGripFactor=1
 tiresPressure=0
 optimalTiresPressure=800
 
 [wheels-frontAxle-left]
 mass=80
-radius=0.55
-rimRadius=0.3
+radius=0.65
+rimRadius=0.4
 width=0.345
 
 [wheels-frontAxle-right]
 mass=80
-radius=0.55
-rimRadius=0.3
+radius=0.65
+rimRadius=0.4
 width=0.345
 
 [wheels-rearAxle-left]

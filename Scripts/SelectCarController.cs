@@ -101,6 +101,9 @@ public class SelectCarController : MonoBehaviour
     character = Instantiate(enemyCar[0].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
+      //Transform tractorTransform = character.GetComponentInChildren<CameraTarget>().transform;
+      //tractorTransform.position = carGaragePos.position;
+      //tractorTransform.parent = podium;
       character.transform.parent = podium;
       powerLabel.text = character.GetComponentInChildren<Drivetrain>().maxPower.ToString("f0");
     }
@@ -149,6 +152,9 @@ public class SelectCarController : MonoBehaviour
     character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
+      //Transform tractorTransform = character.GetComponentInChildren<CameraTarget>().transform;
+      //tractorTransform.position = carGaragePos.position;
+      //tractorTransform.parent = podium;
       character.transform.parent = podium;
       AxisCarController tractorACC = character.GetComponentInChildren<AxisCarController>();
       tractorACC.InStation = true;
@@ -236,7 +242,11 @@ public class SelectCarController : MonoBehaviour
       character.transform.rotation = carLevelPos[0].rotation;
       Debug.Log("First town");
     }
-    
+    //Следы
+    Skidmarks skids = character.GetComponentInChildren<Skidmarks>();
+    skids.gameObject.SetActive(true);
+    skids.transform.position = Vector3.zero;
+    skids.transform.rotation = Quaternion.identity;
     carcameras.gameObject.SetActive(true);
     cameraGarage.SetActive(false);
     CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик, на который будет нацелена камера
