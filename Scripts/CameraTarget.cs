@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
 //Используется на префабе
-public class CameraTarget : MonoBehaviour 
+public class CameraTarget : MonoBehaviour
 {
-	void Start () 
+  public Renderer BodyRenderer = null;
+  
+  void Start () 
   {
 	
 	}

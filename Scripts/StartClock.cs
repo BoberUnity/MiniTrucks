@@ -6,10 +6,20 @@ public class StartClock : MonoBehaviour
   //[SerializeField] private RaceStart raceStart = null;
   private UILabel uILabel = null;
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 	  uILabel = GetComponent<UILabel>();
 	}
+
+  private void OnEnable()
+  {
+    if (uILabel != null)
+    {
+      //Если была нажата пауза
+      uILabel.text = "";
+    }
+  }
+
 	
 	public void ClockOn()
 	{

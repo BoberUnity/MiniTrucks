@@ -1231,7 +1231,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 7a11b0e72d0eabb4c9f162d89a0160a7, type: 2}
+  - {fileID: 2100000, guid: 6b808478ac512e64284132ad9404c72e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1384,7 +1384,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
   serializedVersion: 2
-  m_Mass: 10000
+  m_Mass: 2500
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -2177,8 +2177,8 @@ MonoBehaviour:
   onGroundDown: 0
   originalMass: 0
   mass: 80
-  radius: .550000012
-  rimRadius: .300000012
+  radius: .649999976
+  rimRadius: .400000006
   width: .344999999
   suspensionTravel: .400000006
   suspensionRate: 20000
@@ -2307,8 +2307,8 @@ MonoBehaviour:
   onGroundDown: 0
   originalMass: 0
   mass: 80
-  radius: .550000012
-  rimRadius: .300000012
+  radius: .649999976
+  rimRadius: .400000006
   width: .344999999
   suspensionTravel: .400000006
   suspensionRate: 20000
@@ -2676,6 +2676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6259fb68eda601841889ec68e5c8469a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BodyRenderer: {fileID: 2300016}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2829,18 +2830,18 @@ MonoBehaviour:
     - {fileID: 11400014}
     - {fileID: 11400012}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 60000
-    bumpRate: 3000
-    reboundRate: 6000
+    suspensionTravel: .200000003
+    suspensionRate: 60
+    bumpRate: 30
+    reboundRate: 60
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 20000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2854,18 +2855,18 @@ MonoBehaviour:
     - {fileID: 11400010}
     - {fileID: 11400008}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 30000
-    bumpRate: 6000
-    reboundRate: 12000
+    suspensionTravel: .200000003
+    suspensionRate: 30
+    bumpRate: 60
+    reboundRate: 120
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2879,18 +2880,18 @@ MonoBehaviour:
     - {fileID: 11400018}
     - {fileID: 11400016}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 30000
-    bumpRate: 6000
-    reboundRate: 12000
+    suspensionTravel: .200000003
+    suspensionRate: 30
+    bumpRate: 60
+    reboundRate: 120
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2913,8 +2914,8 @@ MonoBehaviour:
     brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 17
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2984,9 +2985,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 2500
+  maxPower: 300
   maxPowerRPM: 4000
-  maxTorque: 5000
+  maxTorque: 2500
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -3009,9 +3010,9 @@ MonoBehaviour:
   engineOrientation: {x: 0, y: 0, z: 1}
   transmission: 0
   gearRatios:
-  - -2.66000009
+  - -2.8599999
   - 0
-  - 2.66000009
+  - 2.8599999
   - 1.90999997
   - 1.38999999
   - 1
@@ -3026,7 +3027,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 7157
+  clutchMaxTorque: 15447
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -3082,7 +3083,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400062}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .639999986
+  frontRearWeightRepartition: .5
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0

@@ -1,11 +1,11 @@
 [body]
-weight=15000
+weight=3000
 weightRepartition=0.5
-centerOfMass=(0.0, 0.0, 0.0)
-inertiaFactor=0.3
+centerOfMass=(0.0, -1.0, 0.0)
+inertiaFactor=0.1
 
 [suspensions-frontAxle]
-suspensionTravel=0.3
+suspensionTravel=0.2
 suspensionRate=50000
 bumpRate=10000
 reboundRate=10000
@@ -57,21 +57,21 @@ frontRearHandBrakeBalance=0.5
 tireType=truck_rear
 forwardGripFactor=1
 sidewaysGripFactor=1
-tiresPressure=0
+tiresPressure=250
 optimalTiresPressure=300
 
 [tires-rearAxle]
 tireType=truck_front
 forwardGripFactor=1
 sidewaysGripFactor=1
-tiresPressure=0
+tiresPressure=250
 optimalTiresPressure=300
 
 [tires-otherAxle1]
 tireType=truck_front
 forwardGripFactor=1
 sidewaysGripFactor=1
-tiresPressure=0
+tiresPressure=250
 optimalTiresPressure=300
 
 [wheels-frontAxle-left]

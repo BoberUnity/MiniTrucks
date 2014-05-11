@@ -97,7 +97,7 @@ public class ButtonAddTrailer : MonoBehaviour
       CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
       if (characterJoint != null)
       {
-        Destroy(characterJoint.connectedBody.gameObject);
+        Destroy(characterJoint.connectedBody.gameObject.transform.parent.parent.gameObject);
         Destroy(characterJoint);
       }
       else Debug.LogWarning("CharacterJoint == null");

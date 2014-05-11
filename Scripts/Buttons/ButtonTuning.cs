@@ -15,8 +15,8 @@ public class ButtonTuning : MonoBehaviour
     {
       if (id == 0)
       {
-        drivetrain.maxPower += 1000;
-        drivetrain.maxTorque += 1000;
+        drivetrain.maxPower += 100;
+        drivetrain.maxTorque += 300;
       }
 
       if (id == 1)

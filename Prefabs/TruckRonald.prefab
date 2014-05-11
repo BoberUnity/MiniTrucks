@@ -936,7 +936,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100076}
   serializedVersion: 2
-  m_Mass: 10000
+  m_Mass: 2000
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -1841,24 +1841,24 @@ MonoBehaviour:
     - {fileID: 11400012}
     - {fileID: 11400004}
     powered: 0
-    suspensionTravel: .400000006
+    suspensionTravel: .100000001
     suspensionRate: 60000
     bumpRate: 3000
     reboundRate: 6000
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 20000
+    brakeFrictionTorque: 200000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
-    tires: 10
+    tires: 2
     tiresPressure: 0
-    optimalTiresPressure: 800
+    optimalTiresPressure: 100
   rearAxle:
     leftWheel: {fileID: 11400000}
     rightWheel: {fileID: 11400024}
@@ -1866,7 +1866,7 @@ MonoBehaviour:
     - {fileID: 11400000}
     - {fileID: 11400024}
     powered: 0
-    suspensionTravel: .400000006
+    suspensionTravel: .100000001
     suspensionRate: 30000
     bumpRate: 6000
     reboundRate: 12000
@@ -1876,14 +1876,14 @@ MonoBehaviour:
     brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: 1
+    sidewaysGripFactor: 1
     camber: 0
     deltaCamber: 0
     oldCamber: 0
-    tires: 11
+    tires: 3
     tiresPressure: 0
-    optimalTiresPressure: 800
+    optimalTiresPressure: 100
   otherAxles: []
 --- !u!114 &11400040
 MonoBehaviour:
@@ -1948,9 +1948,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 2500
+  maxPower: 300
   maxPowerRPM: 4000
-  maxTorque: 5000
+  maxTorque: 1700
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 5892
+  clutchMaxTorque: 2618
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400028}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .529999971
+  frontRearWeightRepartition: .340000004
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
@@ -2087,6 +2087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6259fb68eda601841889ec68e5c8469a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BodyRenderer: {fileID: 2300010}
 --- !u!114 &11400052
 MonoBehaviour:
   m_ObjectHideFlags: 1

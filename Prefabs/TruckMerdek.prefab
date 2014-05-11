@@ -119,22 +119,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100014
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400014}
-  - 95: {fileID: 9500000}
-  m_Layer: 0
-  m_Name: Merdek
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100016
 GameObject:
   m_ObjectHideFlags: 1
@@ -556,17 +540,6 @@ Transform:
   m_LocalScale: {x: 3.59999967, y: 3.5999999, z: 3.59999967}
   m_Children: []
   m_Father: {fileID: 400054}
---- !u!4 &400014
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100014}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 6.46646043e-08, y: -1.20000005, z: .74000001}
-  m_LocalScale: {x: 3.5999999, y: 3.5999999, z: 3.5999999}
-  m_Children: []
-  m_Father: {fileID: 400054}
 --- !u!4 &400016
 Transform:
   m_ObjectHideFlags: 1
@@ -807,7 +780,6 @@ Transform:
   m_Children:
   - {fileID: 400050}
   - {fileID: 400048}
-  - {fileID: 400014}
   - {fileID: 400012}
   - {fileID: 400046}
   - {fileID: 400044}
@@ -1021,7 +993,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cd343e507ba072c4da246f8d554ddc39, type: 2}
+  - {fileID: 2100000, guid: 6b808478ac512e64284132ad9404c72e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1160,7 +1132,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   serializedVersion: 2
-  m_Mass: 10000
+  m_Mass: 2500
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -1204,20 +1176,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: .600000024, z: 6.69999981}
   m_Center: {x: 0, y: -.100000001, z: .200000003}
---- !u!95 &9500000
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100014}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 877a1911427005d4aa3df970e017d757, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
-  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1695,8 +1653,8 @@ MonoBehaviour:
   onGroundDown: 0
   originalMass: 0
   mass: 80
-  radius: .550000012
-  rimRadius: .300000012
+  radius: .649999976
+  rimRadius: .400000006
   width: .344999999
   suspensionTravel: .400000006
   suspensionRate: 20000
@@ -1825,8 +1783,8 @@ MonoBehaviour:
   onGroundDown: 0
   originalMass: 0
   mass: 80
-  radius: .550000012
-  rimRadius: .300000012
+  radius: .649999976
+  rimRadius: .400000006
   width: .344999999
   suspensionTravel: .400000006
   suspensionRate: 20000
@@ -2194,6 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6259fb68eda601841889ec68e5c8469a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BodyRenderer: {fileID: 2300012}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2343,18 +2302,18 @@ MonoBehaviour:
     - {fileID: 11400010}
     - {fileID: 11400008}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 60000
-    bumpRate: 3000
-    reboundRate: 6000
+    suspensionTravel: .200000003
+    suspensionRate: 60
+    bumpRate: 30
+    reboundRate: 60
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 20000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: .00999999978
+    sidewaysGripFactor: .00999999978
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2368,18 +2327,18 @@ MonoBehaviour:
     - {fileID: 11400006}
     - {fileID: 11400004}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 30000
-    bumpRate: 6000
-    reboundRate: 12000
+    suspensionTravel: .200000003
+    suspensionRate: 30
+    bumpRate: 60
+    reboundRate: 120
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: .00999999978
+    sidewaysGripFactor: .00999999978
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2393,18 +2352,18 @@ MonoBehaviour:
     - {fileID: 11400014}
     - {fileID: 11400012}
     powered: 0
-    suspensionTravel: .400000006
-    suspensionRate: 30000
-    bumpRate: 6000
-    reboundRate: 12000
+    suspensionTravel: .200000003
+    suspensionRate: 30
+    bumpRate: 60
+    reboundRate: 120
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
+    brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: .00999999978
+    sidewaysGripFactor: .00999999978
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2474,9 +2433,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 2500
+  maxPower: 300
   maxPowerRPM: 4000
-  maxTorque: 5000
+  maxTorque: 2500
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2499,9 +2458,9 @@ MonoBehaviour:
   engineOrientation: {x: 0, y: 0, z: 1}
   transmission: 0
   gearRatios:
-  - -2.66000009
+  - -2.8599999
   - 0
-  - 2.66000009
+  - 2.8599999
   - 1.90999997
   - 1.38999999
   - 1
@@ -2516,7 +2475,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 7157
+  clutchMaxTorque: 15447
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2572,7 +2531,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400050}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .639999986
+  frontRearWeightRepartition: .5
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
