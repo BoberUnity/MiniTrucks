@@ -35,6 +35,7 @@ public class UISlider : UIProgressBar
 	[System.Obsolete("Use 'fillDirection' instead")]
 	public bool inverted { get { return isInverted; } set { } }
 
+  public float Angle = 0;
 	/// <summary>
 	/// Upgrade from legacy functionality.
 	/// </summary>
@@ -93,6 +94,17 @@ public class UISlider : UIProgressBar
 		value = ScreenToValue(UICamera.lastTouchPosition);
 		if (!isPressed && onDragFinished != null) onDragFinished();
     SteerRot = 0;
+	  Angle = Vector2.Angle(Vector2.right,
+	                        new Vector2(Screen.width/2 - Screen.height/2 - UICamera.lastTouchPosition.x,
+	                                    Screen.height*0.125f - UICamera.lastTouchPosition.y));
+    if (UICamera.lastTouchPosition.y < Screen.height * 0.125f)
+      Angle = -Angle;               
+    Debug.LogWarning("Angle = " + Angle);
+    //Debug.LogWarning("TouchPosition.x = " + UICamera.lastTouchPosition.x);
+    //Debug.LogWarning("TouchPosition.y = " + UICamera.lastTouchPosition.y);
+    //Debug.LogWarning("x = " + (Screen.width / 2 - Screen.height / 2));
+    //Debug.LogWarning("y = " + Screen.height * 0.125f);
+    //Debug.LogWarning("value = " + value);
 	}
 
 	/// <summary>
@@ -105,6 +117,8 @@ public class UISlider : UIProgressBar
 		mCam = UICamera.currentCamera;
 		value = ScreenToValue(UICamera.lastTouchPosition);
     SteerRot = Mathf.Clamp(SteerRot + delta.x, -400, 400);
+    //Angle = Vector2.Angle(new Vector2(transform.position.x, transform.position.y),new Vector2(delta.x, delta.y));
+    //Debug.LogWarning("Angle = " + Angle);
 	}
 
 	/// <summary>
@@ -122,6 +136,7 @@ public class UISlider : UIProgressBar
 		}
 		else if (onDragFinished != null) onDragFinished();
     SteerRot = 0;
+	  //Angle = 0;
 	}
 
 	/// <summary>
@@ -134,6 +149,7 @@ public class UISlider : UIProgressBar
 		mCam = UICamera.currentCamera;
 		value = mOffset + ScreenToValue(UICamera.lastTouchPosition);
     SteerRot = Mathf.Clamp(SteerRot + delta.x, -100, 100);
+    
 	}
 
 	/// <summary>
