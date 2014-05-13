@@ -8,20 +8,56 @@ public class Steer : MonoBehaviour
   [SerializeField] private float steerSpeed = 90;
   private float realSteerSpeed = 0;
   [SerializeField] private float angle = 0;
-
+  [SerializeField] private float anglePrev = 0;
+  [SerializeField] private float a2 = 0;//(-180;180)
+  //[SerializeField] private float a3 = 0;
+  [SerializeField] private int round = 0;
 	void Update ()
 	{
-	  realSteerSpeed = Mathf.Clamp(uISliderSteer.SteerRot, realSteerSpeed - Time.deltaTime*steerSpeed, realSteerSpeed + Time.deltaTime*steerSpeed);
-    if (Input.GetKey("left"))
-      realSteerSpeed = -300; 
-    if (Input.GetKey("right"))
-      realSteerSpeed = 300;
-    if (axisCarController != null)
-      axisCarController.SteerUsed = realSteerSpeed;
+    //realSteerSpeed = Mathf.Clamp(uISliderSteer.SteerRot, realSteerSpeed - Time.deltaTime*steerSpeed, realSteerSpeed + Time.deltaTime*steerSpeed);
     
-	  //rulSprite.transform.eulerAngles = new Vector3(0, 0, -(uISliderSteer.value - 0.5f) * 270);
-    rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed*1);
+	  //realSteerSpeed = 300;
+    //if (axisCarController != null)
+    //  axisCarController.SteerUsed = realSteerSpeed;
 
-	  angle = uISliderSteer.Angle;
+    if (axisCarController != null)
+    {
+      anglePrev = angle;
+      angle = uISliderSteer.AngleFactor;
+      
+      if (angle > anglePrev + 300 )
+        round -= 1;
+
+      if (angle < anglePrev - 300 )
+        round += 1;
+
+      a2 = angle + round * 360;
+      
+      if (a2 > 540)
+      {
+        a2 -= 360; 
+        round -= 1;
+      }
+      if (a2 < -540)
+      {
+        a2 += 360; 
+        round += 1;
+      }
+      a2 = Mathf.Clamp(a2, -170, 170);
+      
+      if (a2 > 180)
+        axisCarController.SteerUsed = -a2/180 + 2 ;
+      else
+        axisCarController.SteerUsed = -a2/180;
+    }
+    
+    if (Input.GetKey("left"))
+      axisCarController.SteerUsed = -0.7f;
+      //realSteerSpeed = -300; 
+    if (Input.GetKey("right"))
+      axisCarController.SteerUsed = 0.7f;
+    
+	  //rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed*1);
+    rulSprite.transform.eulerAngles = new Vector3(0, 0, a2);
 	}
 }

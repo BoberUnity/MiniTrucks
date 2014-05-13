@@ -1,11 +1,11 @@
 [body]
-weight=3000
+weight=999.9998
 weightRepartition=0.5
 centerOfMass=(0.0, -1.0, 0.0)
 inertiaFactor=0.1
 
 [suspensions-frontAxle]
-suspensionTravel=0.2
+suspensionTravel=0.4
 suspensionRate=50000
 bumpRate=10000
 reboundRate=10000
@@ -16,18 +16,7 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [suspensions-rearAxle]
-suspensionTravel=0.3
-suspensionRate=50000
-bumpRate=10000
-reboundRate=10000
-fastBumpFactor=1
-fastReboundFactor=1
-camber=0
-antiRollBarRate=0
-maxSteeringAngle=0
-
-[suspensions-otherAxle1]
-suspensionTravel=0.3
+suspensionTravel=0.4
 suspensionRate=50000
 bumpRate=10000
 reboundRate=10000
@@ -42,35 +31,24 @@ brakeFrictionTorque=18000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=18000
+BrakeFrictionTorque=180000
 HandbrakeFrictionTorque=30000
-
-[brakes-otherAxle1]
-brakeFrictionTorque=180000
-handbrakeFrictionTorque=30000
 
 [brakes]
 frontRearBrakeBalance=0.5
 frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
-tireType=truck_rear
-forwardGripFactor=1
-sidewaysGripFactor=1
+tireType=truck_front
+forwardGripFactor=3
+sidewaysGripFactor=3
 tiresPressure=250
 optimalTiresPressure=300
 
 [tires-rearAxle]
-tireType=truck_front
-forwardGripFactor=1
-sidewaysGripFactor=1
-tiresPressure=250
-optimalTiresPressure=300
-
-[tires-otherAxle1]
-tireType=truck_front
-forwardGripFactor=1
-sidewaysGripFactor=1
+tireType=truck_rear
+forwardGripFactor=3
+sidewaysGripFactor=3
 tiresPressure=250
 optimalTiresPressure=300
 

@@ -35,7 +35,9 @@ public class UISlider : UIProgressBar
 	[System.Obsolete("Use 'fillDirection' instead")]
 	public bool inverted { get { return isInverted; } set { } }
 
-  public float Angle = 0;
+  private float angle = 0;
+  public float AngleFactor = 0;//На сколько повернут руль
+  private float angleMem = 0;//запомним на угол точки касания
 	/// <summary>
 	/// Upgrade from legacy functionality.
 	/// </summary>
@@ -94,19 +96,18 @@ public class UISlider : UIProgressBar
 		value = ScreenToValue(UICamera.lastTouchPosition);
 		if (!isPressed && onDragFinished != null) onDragFinished();
     SteerRot = 0;
-	  Angle = Vector2.Angle(Vector2.right,
-	                        new Vector2(Screen.width/2 - Screen.height/2 - UICamera.lastTouchPosition.x,
-	                                    Screen.height*0.125f - UICamera.lastTouchPosition.y));
-    if (UICamera.lastTouchPosition.y < Screen.height * 0.125f)
-      Angle = -Angle;               
-    Debug.LogWarning("Angle = " + Angle);
-    //Debug.LogWarning("TouchPosition.x = " + UICamera.lastTouchPosition.x);
-    //Debug.LogWarning("TouchPosition.y = " + UICamera.lastTouchPosition.y);
-    //Debug.LogWarning("x = " + (Screen.width / 2 - Screen.height / 2));
-    //Debug.LogWarning("y = " + Screen.height * 0.125f);
-    //Debug.LogWarning("value = " + value);
+	  angleMem = GetTouchAngle();
+	  AngleFactor = 0;
+
 	}
 
+  private float GetTouchAngle()
+  {
+    float a = Vector2.Angle(Vector2.right, new Vector2(Screen.width * 0.5f + Screen.height * transform.position.x * 0.5f - UICamera.lastTouchPosition.x, Screen.height * (transform.position.y * 0.5f + 0.5f) - UICamera.lastTouchPosition.y));
+    if (UICamera.lastTouchPosition.y > Screen.height * (transform.position.y * 0.5f + 0.5f))
+      a = -a;
+    return a;
+  }
 	/// <summary>
 	/// Position the scroll bar to be under the current touch.
 	/// </summary>
@@ -117,8 +118,11 @@ public class UISlider : UIProgressBar
 		mCam = UICamera.currentCamera;
 		value = ScreenToValue(UICamera.lastTouchPosition);
     SteerRot = Mathf.Clamp(SteerRot + delta.x, -400, 400);
-    //Angle = Vector2.Angle(new Vector2(transform.position.x, transform.position.y),new Vector2(delta.x, delta.y));
-    //Debug.LogWarning("Angle = " + Angle);
+
+    angle = GetTouchAngle();
+	  AngleFactor = angle - angleMem;
+    if (AngleFactor < 0)
+      AngleFactor += 360;
 	}
 
 	/// <summary>

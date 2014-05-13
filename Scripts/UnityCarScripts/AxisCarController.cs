@@ -110,7 +110,7 @@ public class AxisCarController : CarController
           brakeInput = 0;
         }
       }
-      steerInput = steerUsed * 0.0025f;//Input.GetAxisRaw(steerAxis); SteerUsed [-400;400]
+      steerInput = steerUsed; /* 0.0025f;*///Input.GetAxisRaw(steerAxis); SteerUsed [-400;400]
       //handbrakeInput = Input.GetAxisRaw(handbrakeAxis);
       clutchInput = Input.GetAxisRaw(clutchAxis);
       startEngineInput = Input.GetButton(startEngineButton);

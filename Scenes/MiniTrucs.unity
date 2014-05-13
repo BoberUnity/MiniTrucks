@@ -2339,7 +2339,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
   mSize: .743624151
   mScroll: .600000024
   mDir: 2
@@ -6106,7 +6106,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
 --- !u!65 &141547255
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19598,10 +19598,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 463404174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -400, y: -264.890015, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1630959109}
+  m_Father: {fileID: 1983385437}
 --- !u!114 &463404176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34948,7 +34948,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
   mSize: .743624151
   mScroll: .600000024
   mDir: 2
@@ -44414,7 +44414,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
   mSize: .743624151
   mScroll: .600000024
   mDir: 2
@@ -61456,7 +61456,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
 --- !u!65 &1404493423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70695,7 +70695,6 @@ Transform:
   - {fileID: 641097548}
   - {fileID: 1242425595}
   - {fileID: 877621688}
-  - {fileID: 463404175}
   - {fileID: 1983385437}
   m_Father: {fileID: 1862649477}
 --- !u!54 &1630959110
@@ -86126,6 +86125,7 @@ Transform:
   m_LocalPosition: {x: -400, y: -300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 463404175}
   - {fileID: 401788619}
   - {fileID: 739566632}
   - {fileID: 895776486}
@@ -86154,7 +86154,7 @@ MonoBehaviour:
   direction: 2
   mInverted: 0
   SteerRot: 0
-  Angle: 0
+  AngleFactor: 0
 --- !u!65 &1983385439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86166,7 +86166,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 220, z: 0}
+  m_Size: {x: 400, y: 400, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1983385440
 MonoBehaviour:
@@ -86184,6 +86184,9 @@ MonoBehaviour:
   rulSprite: {fileID: 463404176}
   steerSpeed: 500
   angle: 0
+  anglePrev: 0
+  a2: 0
+  round: 0
 --- !u!1 &1984008464
 GameObject:
   m_ObjectHideFlags: 0
