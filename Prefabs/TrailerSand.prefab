@@ -441,7 +441,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: .850000024, y: .638404846, z: .784631848}
+  m_LocalPosition: {x: .850000083, y: 1.01037598, z: .784631729}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400028}
@@ -452,7 +452,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: -.850000024, y: .638427734, z: .801633835}
+  m_LocalPosition: {x: -.850000024, y: 1.01037598, z: .801633835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400028}
@@ -833,9 +833,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
   serializedVersion: 2
-  m_Mass: 999.999878
+  m_Mass: 1500
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 500
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400030}
   dampAbsRoadVelo: 8
   inertiaFactor: .100000001
-  frontRearWeightRepartition: .5
+  frontRearWeightRepartition: .100000001
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
@@ -1591,7 +1591,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 18000
+    brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
     forwardGripFactor: 3
@@ -1616,7 +1616,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 180000
+    brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
     forwardGripFactor: 3

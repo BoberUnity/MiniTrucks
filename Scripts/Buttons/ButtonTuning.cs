@@ -27,8 +27,8 @@ public class ButtonTuning : MonoBehaviour
 
       if (id == 2)
       {
-        axles.frontAxle.brakeFrictionTorque = 7000;
-        axles.rearAxle.brakeFrictionTorque = 7000;
+        //axles.frontAxle.brakeFrictionTorque = 7000;
+        //axles.rearAxle.brakeFrictionTorque = 7000;
       }
 
       if (setup != null)

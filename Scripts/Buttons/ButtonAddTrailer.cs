@@ -58,6 +58,7 @@ public class ButtonAddTrailer : MonoBehaviour
         truckCar.GetComponent<CharacterJoint>().swing1Limit = softJointLimit;//горизонтальный сустав
         truckCar.GetComponent<BlowController>().Frailty = tr.Frailty;//Передаем хрупкость на тягач
         truckCar.GetComponent<BlowController>().Condition = 100;
+        truckCar.GetComponent<AxisCarController>().Trailer = tr.GetComponentInChildren<Rigidbody>();
       }
       Array.Resize(ref enemies, raceStart.enemiesPos.Length);
 	    int i = 0;

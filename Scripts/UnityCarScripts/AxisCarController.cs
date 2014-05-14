@@ -6,7 +6,6 @@
 // See README.txt for more info.
 //========================================================================================================================
 
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -31,9 +30,12 @@ public class AxisCarController : CarController
   private bool on = false;
   private bool oppWaitClock = true;
   public bool InStation = false;
-  [SerializeField] private float speedKoeff = 1;
-  [SerializeField]
+  [SerializeField] private float speedKoeff = 1;//для сопёрника
+  [SerializeField] private float trailerdragFree = 0.2f;//для гг
+  [SerializeField] private float trailerdragBrake = 1f;
   private float h = 0;
+
+  private Rigidbody trailerRigidbody = null;
 
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
 
@@ -55,6 +57,11 @@ public class AxisCarController : CarController
   public bool On
   {
     set { on = value;}
+  }
+
+  public Rigidbody Trailer
+  {
+    set { trailerRigidbody = value; }
   }
 
   protected override void Start()
@@ -95,6 +102,8 @@ public class AxisCarController : CarController
         {
           throttleInput = 0;
           brakeInput = 1;
+          if (trailerRigidbody != null)
+            trailerRigidbody.drag = trailerdragBrake;
         }
         else
         {
@@ -108,6 +117,8 @@ public class AxisCarController : CarController
           else
             throttleInput = 0;
           brakeInput = 0;
+          if (trailerRigidbody != null)
+            trailerRigidbody.drag = trailerdragFree;
         }
       }
       steerInput = steerUsed; /* 0.0025f;*///Input.GetAxisRaw(steerAxis); SteerUsed [-400;400]

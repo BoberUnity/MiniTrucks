@@ -5,14 +5,15 @@ public class Steer : MonoBehaviour
   [SerializeField] private UISlider uISliderSteer = null;
   public AxisCarController axisCarController = null;
   [SerializeField] private UISprite rulSprite = null;
-  [SerializeField] private float steerSpeed = 90;
-  private float realSteerSpeed = 0;
-  [SerializeField] private float angle = 0;
-  [SerializeField] private float anglePrev = 0;
-  [SerializeField] private float a2 = 0;//(-180;180)
-  //[SerializeField] private float a3 = 0;
-  [SerializeField] private int round = 0;
-	void Update ()
+  [SerializeField] private float steerSpeed = 600;
+  //private float realSteerSpeed = 0;
+  private float angle = 0;
+  private float anglePrev = 0;
+  private float angleNormalize = 0;//(-180;180)
+  private int round = 0;
+  private float spriteAngle = 0;
+	
+  private void Update ()
 	{
     //realSteerSpeed = Mathf.Clamp(uISliderSteer.SteerRot, realSteerSpeed - Time.deltaTime*steerSpeed, realSteerSpeed + Time.deltaTime*steerSpeed);
     
@@ -24,6 +25,11 @@ public class Steer : MonoBehaviour
     {
       anglePrev = angle;
       angle = uISliderSteer.AngleFactor;
+      if (angle < 0.1f && angle > -0.1f)//отпускание тача
+      {
+        angleNormalize = 0;
+        round = 0;
+      }
       
       if (angle > anglePrev + 300 )
         round -= 1;
@@ -31,33 +37,42 @@ public class Steer : MonoBehaviour
       if (angle < anglePrev - 300 )
         round += 1;
 
-      a2 = angle + round * 360;
-      
-      if (a2 > 540)
+      angleNormalize = angle + round * 360;
+
+      if (angleNormalize > 540)
       {
-        a2 -= 360; 
+        angleNormalize -= 360; 
         round -= 1;
       }
-      if (a2 < -540)
+      if (angleNormalize < -540)
       {
-        a2 += 360; 
+        angleNormalize += 360; 
         round += 1;
       }
-      a2 = Mathf.Clamp(a2, -170, 170);
-      
-      if (a2 > 180)
-        axisCarController.SteerUsed = -a2/180 + 2 ;
+      angleNormalize = Mathf.Clamp(angleNormalize, -170, 170);
+
+      if (angleNormalize > 180)
+        axisCarController.SteerUsed = -angleNormalize / 180 + 2;
       else
-        axisCarController.SteerUsed = -a2/180;
+        axisCarController.SteerUsed = -angleNormalize / 180;
+    
+      if (Input.GetKey("left"))
+      {
+        angleNormalize = 170;
+        axisCarController.SteerUsed = -0.7f;
+      }
+
+      if (Input.GetKey("right"))
+      {
+        angleNormalize = -170;
+        axisCarController.SteerUsed = 0.7f;
+      }
     }
     
-    if (Input.GetKey("left"))
-      axisCarController.SteerUsed = -0.7f;
-      //realSteerSpeed = -300; 
-    if (Input.GetKey("right"))
-      axisCarController.SteerUsed = 0.7f;
-    
 	  //rulSprite.transform.eulerAngles = new Vector3(0, 0, -realSteerSpeed*1);
-    rulSprite.transform.eulerAngles = new Vector3(0, 0, a2);
+    //Скорость вращения руля, возврат
+    spriteAngle = Mathf.Clamp(angleNormalize, spriteAngle - Time.deltaTime * steerSpeed, spriteAngle + Time.deltaTime * steerSpeed);
+
+    rulSprite.transform.eulerAngles = new Vector3(0, 0, spriteAngle);
 	}
 }

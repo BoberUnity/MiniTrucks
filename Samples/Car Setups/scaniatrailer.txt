@@ -1,6 +1,6 @@
 [body]
-weight=999.9998
-weightRepartition=0.5
+weight=1500
+weightRepartition=0.1
 centerOfMass=(0.0, -1.0, 0.0)
 inertiaFactor=0.1
 
@@ -27,11 +27,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=18000
+brakeFrictionTorque=300000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=180000
+BrakeFrictionTorque=300000
 HandbrakeFrictionTorque=30000
 
 [brakes]

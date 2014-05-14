@@ -1,6 +1,6 @@
 [body]
 weight=2000
-weightRepartition=0.34
+weightRepartition=0.75
 centerOfMass=(0.0, -0.9, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
@@ -45,7 +45,7 @@ gear-ratio-3=1.39
 gear-ratio-4=1
 
 [suspensions-frontAxle]
-suspensionTravel=0.1
+suspensionTravel=0.4
 suspensionRate=60000
 bumpRate=3000
 reboundRate=6000
@@ -56,7 +56,7 @@ antiRollBarRate=0
 maxSteeringAngle=33
 
 [suspensions-rearAxle]
-suspensionTravel=0.1
+suspensionTravel=0.4
 suspensionRate=30000
 bumpRate=6000
 reboundRate=12000
@@ -81,14 +81,14 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=supersport_front
 forwardGripFactor=1
-sidewaysGripFactor=1
+sidewaysGripFactor=1.5
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
 forwardGripFactor=1
-sidewaysGripFactor=1
+sidewaysGripFactor=1.5
 tiresPressure=0
 optimalTiresPressure=100
 

@@ -209,25 +209,30 @@ public class CarDynamics : MonoBehaviour {
 		ylocalPosition=centerOfMass.localPosition.y;
 		zlocalPosition=centerOfMass.localPosition.z;
 	}
-	
-	public void SetBrakes(){
-		frontRearBrakeBalance=Mathf.Clamp01(frontRearBrakeBalance);
-		frontRearHandBrakeBalance=Mathf.Clamp01(frontRearHandBrakeBalance);
-		foreach(Wheel w in axles.frontAxle.wheels){
-			w.brakeFrictionTorque=axles.frontAxle.brakeFrictionTorque*Mathf.Min(frontRearBrakeBalance,0.5f)*2;
-			w.handbrakeFrictionTorque=axles.frontAxle.handbrakeFrictionTorque*Mathf.Min(frontRearHandBrakeBalance,0.5f)*2;
-		}
-		foreach(Wheel w in axles.rearAxle.wheels){
-			w.brakeFrictionTorque=axles.rearAxle.brakeFrictionTorque*Mathf.Min(1-frontRearBrakeBalance,0.5f)*2;
-			w.handbrakeFrictionTorque=axles.rearAxle.handbrakeFrictionTorque*Mathf.Min(1-frontRearHandBrakeBalance,0.5f)*2;
-		}
-		foreach(Axle axle in axles.otherAxles){
-			foreach(Wheel w in axle.wheels){
-				w.brakeFrictionTorque=axle.brakeFrictionTorque;
-				w.handbrakeFrictionTorque=axle.handbrakeFrictionTorque;
-			}
-		}
-	}
+
+  public void SetBrakes()
+  {
+    frontRearBrakeBalance = Mathf.Clamp01(frontRearBrakeBalance);
+    frontRearHandBrakeBalance = Mathf.Clamp01(frontRearHandBrakeBalance);
+    foreach (Wheel w in axles.frontAxle.wheels)
+    {
+      w.brakeFrictionTorque = axles.frontAxle.brakeFrictionTorque * Mathf.Min(frontRearBrakeBalance, 0.5f) * 2;
+      w.handbrakeFrictionTorque = axles.frontAxle.handbrakeFrictionTorque * Mathf.Min(frontRearHandBrakeBalance, 0.5f) * 2;
+    }
+    foreach (Wheel w in axles.rearAxle.wheels)
+    {
+      w.brakeFrictionTorque = axles.rearAxle.brakeFrictionTorque * Mathf.Min(1 - frontRearBrakeBalance, 0.5f) * 2;
+      w.handbrakeFrictionTorque = axles.rearAxle.handbrakeFrictionTorque * Mathf.Min(1 - frontRearHandBrakeBalance, 0.5f) * 2;
+    }
+    foreach (Axle axle in axles.otherAxles)
+    {
+      foreach (Wheel w in axle.wheels)
+      {
+        w.brakeFrictionTorque = axle.brakeFrictionTorque;
+        w.handbrakeFrictionTorque = axle.handbrakeFrictionTorque;
+      }
+    }
+  }
 	
 	public void SetWheelsParams(){
 		foreach(Wheel w in axles.frontAxle.wheels){
