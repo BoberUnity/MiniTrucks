@@ -4,10 +4,11 @@ public class ButtonTuning : MonoBehaviour
 {
   [SerializeField] private int id = 0;//0-enhine; 1-handling; 2-brakes
   public Drivetrain drivetrain = null;
+  [SerializeField] private UILabel powerIndicator = null;
   public Axles axles = null;
-  public Axles axlesTrailer = null;
+  //public Axles axlesTrailer = null;
   public Setup setup = null;
-  public Setup setupTrailer = null;
+  //public Setup setupTrailer = null;
 
   protected virtual void OnPress(bool isPressed)
   {
@@ -16,6 +17,7 @@ public class ButtonTuning : MonoBehaviour
       if (id == 0)
       {
         drivetrain.maxPower += 100;
+        powerIndicator.text = drivetrain.maxPower.ToString("f0");
         drivetrain.maxTorque += 300;
       }
 

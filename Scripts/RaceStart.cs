@@ -187,7 +187,7 @@ public class RaceStart : MonoBehaviour
       CharacterJoint characterJoint = axisCarController.GetComponent<CharacterJoint>();
       if (characterJoint != null)
       {
-        Destroy(characterJoint.connectedBody.gameObject);
+        Destroy(characterJoint.connectedBody.gameObject.transform.parent.parent.gameObject);
         Destroy(characterJoint);
       }
       else Debug.LogWarning("CharacterJoint == null");

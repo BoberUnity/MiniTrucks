@@ -1175,6 +1175,30 @@ ModelImporter:
     102338: wr_right_1 1
     102340: wr_right_1 2
     102342: wr_right_1 3
+    102344: Bridge_1_colider_invis
+    102346: FT_Bt_colider_invis
+    102348: Ft_colider_1
+    102350: Ft_colider_2_invis
+    102352: Ftown_Btown_side_block
+    102354: Ftown_LakeT_side_block
+    102356: Object227
+    102358: Object228
+    102360: Object229
+    102362: Object230
+    102364: Object231
+    102366: Object232
+    102368: OilT_Highway_colider_invis
+    102370: Oilt_Westf_block_side
+    102372: OilT_WestF_colider_invis
+    102374: polySurface003
+    102376: polySurface1
+    102378: polySurface132
+    102380: polySurface133
+    102382: polySurface134
+    102384: polySurface135
+    102386: Rock6_LP:polySurface021
+    102388: Rock6_LP:polySurface022
+    102390: Rock6_LP:polySurface023
     400000: Beach
     400002: Birth 001
     400004: Birth 002
@@ -2347,6 +2371,30 @@ ModelImporter:
     402338: wr_right_1 1
     402340: wr_right_1 2
     402342: wr_right_1 3
+    402344: Bridge_1_colider_invis
+    402346: FT_Bt_colider_invis
+    402348: Ft_colider_1
+    402350: Ft_colider_2_invis
+    402352: Ftown_Btown_side_block
+    402354: Ftown_LakeT_side_block
+    402356: Object227
+    402358: Object228
+    402360: Object229
+    402362: Object230
+    402364: Object231
+    402366: Object232
+    402368: OilT_Highway_colider_invis
+    402370: Oilt_Westf_block_side
+    402372: OilT_WestF_colider_invis
+    402374: polySurface003
+    402376: polySurface1
+    402378: polySurface132
+    402380: polySurface133
+    402382: polySurface134
+    402384: polySurface135
+    402386: Rock6_LP:polySurface021
+    402388: Rock6_LP:polySurface022
+    402390: Rock6_LP:polySurface023
     2300000: Beach
     2300002: Box003
     2300004: Bridge_background
@@ -3412,6 +3460,30 @@ ModelImporter:
     2302124: wr_right_1 1
     2302126: wr_right_1 2
     2302128: wr_right_1 3
+    2302130: Bridge_1_colider_invis
+    2302132: FT_Bt_colider_invis
+    2302134: Ft_colider_1
+    2302136: Ft_colider_2_invis
+    2302138: Ftown_Btown_side_block
+    2302140: Ftown_LakeT_side_block
+    2302142: Object227
+    2302144: Object228
+    2302146: Object229
+    2302148: Object230
+    2302150: Object231
+    2302152: Object232
+    2302154: OilT_Highway_colider_invis
+    2302156: Oilt_Westf_block_side
+    2302158: OilT_WestF_colider_invis
+    2302160: polySurface003
+    2302162: polySurface1
+    2302164: polySurface132
+    2302166: polySurface133
+    2302168: polySurface134
+    2302170: polySurface135
+    2302172: Rock6_LP:polySurface021
+    2302174: Rock6_LP:polySurface022
+    2302176: Rock6_LP:polySurface023
     3300000: Beach
     3300002: Box003
     3300004: Bridge_background
@@ -4477,6 +4549,30 @@ ModelImporter:
     3302124: wr_right_1 1
     3302126: wr_right_1 2
     3302128: wr_right_1 3
+    3302130: Bridge_1_colider_invis
+    3302132: FT_Bt_colider_invis
+    3302134: Ft_colider_1
+    3302136: Ft_colider_2_invis
+    3302138: Ftown_Btown_side_block
+    3302140: Ftown_LakeT_side_block
+    3302142: Object227
+    3302144: Object228
+    3302146: Object229
+    3302148: Object230
+    3302150: Object231
+    3302152: Object232
+    3302154: OilT_Highway_colider_invis
+    3302156: Oilt_Westf_block_side
+    3302158: OilT_WestF_colider_invis
+    3302160: polySurface003
+    3302162: polySurface1
+    3302164: polySurface132
+    3302166: polySurface133
+    3302168: polySurface134
+    3302170: polySurface135
+    3302172: Rock6_LP:polySurface021
+    3302174: Rock6_LP:polySurface022
+    3302176: Rock6_LP:polySurface023
     4300000: grass_1
     4300002: sand_1
     4300004: Lighthouse
@@ -5542,6 +5638,30 @@ ModelImporter:
     4302124: wf_left058
     4302126: BT_BT_Colider_invis
     4302128: Bridge_colider_invis
+    4302130: Ftown_LakeT_side_block
+    4302132: polySurface1
+    4302134: polySurface003
+    4302136: Ftown_Btown_side_block
+    4302138: Ft_colider_1
+    4302140: polySurface132
+    4302142: polySurface133
+    4302144: polySurface134
+    4302146: polySurface135
+    4302148: Rock6_LP:polySurface021
+    4302150: Rock6_LP:polySurface022
+    4302152: OilT_Highway_colider_invis
+    4302154: OilT_WestF_colider_invis
+    4302156: Object227
+    4302158: Object228
+    4302160: Oilt_Westf_block_side
+    4302162: Rock6_LP:polySurface023
+    4302164: FT_Bt_colider_invis
+    4302166: Object229
+    4302168: Object230
+    4302170: Object231
+    4302172: Object232
+    4302174: Bridge_1_colider_invis
+    4302176: Ft_colider_2_invis
     6400000: Beach
     6400002: Box003
     6400004: Bridge_background
@@ -6607,6 +6727,30 @@ ModelImporter:
     6402124: wr_right_1 1
     6402126: wr_right_1 2
     6402128: wr_right_1 3
+    6402130: Bridge_1_colider_invis
+    6402132: FT_Bt_colider_invis
+    6402134: Ft_colider_1
+    6402136: Ft_colider_2_invis
+    6402138: Ftown_Btown_side_block
+    6402140: Ftown_LakeT_side_block
+    6402142: Object227
+    6402144: Object228
+    6402146: Object229
+    6402148: Object230
+    6402150: Object231
+    6402152: Object232
+    6402154: OilT_Highway_colider_invis
+    6402156: Oilt_Westf_block_side
+    6402158: OilT_WestF_colider_invis
+    6402160: polySurface003
+    6402162: polySurface1
+    6402164: polySurface132
+    6402166: polySurface133
+    6402168: polySurface134
+    6402170: polySurface135
+    6402172: Rock6_LP:polySurface021
+    6402174: Rock6_LP:polySurface022
+    6402176: Rock6_LP:polySurface023
     7400000: Take 001
     9500000: //RootNode
   materials:

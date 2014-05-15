@@ -1769,8 +1769,8 @@ MonoBehaviour:
     brakeFrictionTorque: 200000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1.5
+    forwardGripFactor: 1.5
+    sidewaysGripFactor: 3
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1794,8 +1794,8 @@ MonoBehaviour:
     brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1.5
+    forwardGripFactor: 1.5
+    sidewaysGripFactor: 3
     camber: 0
     deltaCamber: 0
     oldCamber: 0
