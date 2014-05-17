@@ -1,7 +1,7 @@
 [body]
 weight=1500
 weightRepartition=0.1
-centerOfMass=(0.0, 1.5, 0.0)
+centerOfMass=(0.0, 1.0, -0.5)
 inertiaFactor=0.1
 
 [suspensions-frontAxle]
@@ -31,7 +31,7 @@ brakeFrictionTorque=300000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=300000
+BrakeFrictionTorque=180000
 HandbrakeFrictionTorque=30000
 
 [brakes]
@@ -40,15 +40,15 @@ frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=truck_front
-forwardGripFactor=3
-sidewaysGripFactor=3
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=250
 optimalTiresPressure=300
 
 [tires-rearAxle]
 tireType=truck_rear
-forwardGripFactor=3
-sidewaysGripFactor=3
+forwardGripFactor=0.9
+sidewaysGripFactor=0.9
 tiresPressure=250
 optimalTiresPressure=300
 

@@ -480,7 +480,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: 1.00000012, y: .638427734, z: .177143633}
+  m_LocalPosition: {x: 1.00000072, y: .638391972, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400028}
@@ -491,7 +491,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: -1.00000167, y: .638427734, z: .194142759}
+  m_LocalPosition: {x: -1.00000179, y: .638391972, z: -.152999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400028}
@@ -590,7 +590,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400032}
@@ -629,7 +629,7 @@ Transform:
   m_GameObject: {fileID: 100038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.21951222, y: 1.21951222, z: 1.21951222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
   m_Father: {fileID: 400040}
@@ -970,8 +970,8 @@ Rigidbody:
   m_GameObject: {fileID: 100032}
   serializedVersion: 2
   m_Mass: 1500
-  m_Drag: 0
-  m_AngularDrag: 300
+  m_Drag: .200000003
+  m_AngularDrag: 40
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -987,7 +987,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .759808779, y: 1.72514737, z: .709999979}
+  m_Size: {x: .759808779, y: 1.5, z: .709999979}
   m_Center: {x: -.0677090511, y: .0802158862, z: 0}
 --- !u!65 &6500002
 BoxCollider:
@@ -1677,9 +1677,9 @@ MonoBehaviour:
   skidmarks: {fileID: 11400022}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: 0
+  zlocalPosition: -.5
   zlocalPosition_orig: 0
-  ylocalPosition: -1
+  ylocalPosition: 1
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -1717,8 +1717,8 @@ MonoBehaviour:
     brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: 3
-    sidewaysGripFactor: 3
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1742,8 +1742,8 @@ MonoBehaviour:
     brakeFrictionTorque: 180000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: 3
-    sidewaysGripFactor: 3
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0

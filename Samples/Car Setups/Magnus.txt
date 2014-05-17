@@ -1,15 +1,15 @@
 [body]
-weight=2500
-weightRepartition=1
+weight=3000
+weightRepartition=0.34
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=300
+maxPower=1500
 maxPowerRPM=4000
-maxTorque=2500
+maxTorque=8100
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -23,7 +23,7 @@ fuelConsumptionAtCostantSpeed=4.3
 fuelConsumptionSpeed=130
 
 [transmission]
-transmissionType=AWD
+transmissionType=RWD
 finalDriveRatio=6.09
 drivetrainInertia=0.02
 differentialLockCoefficient=50
@@ -33,22 +33,22 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=3898
+clutchMaxTorque=2618
 autoClutch=True
 engageRPM=800
 disengageRPM=500
 gears=4
-gear-ratio-r=-2.86
-gear-ratio-1=2.86
+gear-ratio-r=-2.66
+gear-ratio-1=2.66
 gear-ratio-2=1.91
 gear-ratio-3=1.39
 gear-ratio-4=1
 
 [suspensions-frontAxle]
-suspensionTravel=0.2
-suspensionRate=60
-bumpRate=30
-reboundRate=60
+suspensionTravel=0.1
+suspensionRate=60000
+bumpRate=3000
+reboundRate=6000
 fastBumpFactor=1
 fastReboundFactor=1
 camber=0
@@ -56,21 +56,10 @@ antiRollBarRate=0
 maxSteeringAngle=33
 
 [suspensions-rearAxle]
-suspensionTravel=0.2
-suspensionRate=30
-bumpRate=60
-reboundRate=120
-fastBumpFactor=1
-fastReboundFactor=1
-camber=0
-antiRollBarRate=0
-maxSteeringAngle=0
-
-[suspensions-otherAxle1]
-suspensionTravel=0.2
-suspensionRate=30
-bumpRate=60
-reboundRate=120
+suspensionTravel=0.1
+suspensionRate=30000
+bumpRate=6000
+reboundRate=12000
 fastBumpFactor=1
 fastReboundFactor=1
 camber=0
@@ -78,52 +67,41 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=30000
-handbrakeFrictionTorque=30000
+brakeFrictionTorque=20000
+handbrakeFrictionTorque=20000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=30000
-HandbrakeFrictionTorque=4000
-
-[brakes-otherAxle1]
-brakeFrictionTorque=30000
-handbrakeFrictionTorque=4000
+BrakeFrictionTorque=20000
+HandbrakeFrictionTorque=20000
 
 [brakes]
 frontRearBrakeBalance=0.5
 frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
-tireType=truck_front
+tireType=supersport_front
 forwardGripFactor=4
 sidewaysGripFactor=4
 tiresPressure=0
-optimalTiresPressure=800
+optimalTiresPressure=100
 
 [tires-rearAxle]
-tireType=truck_rear
+tireType=supersport_rear
 forwardGripFactor=4
 sidewaysGripFactor=4
 tiresPressure=0
-optimalTiresPressure=800
-
-[tires-otherAxle1]
-tireType=truck_rear
-forwardGripFactor=4
-sidewaysGripFactor=4
-tiresPressure=0
-optimalTiresPressure=800
+optimalTiresPressure=100
 
 [wheels-frontAxle-left]
 mass=80
-radius=0.65
-rimRadius=0.4
+radius=0.55
+rimRadius=0.3
 width=0.345
 
 [wheels-frontAxle-right]
 mass=80
-radius=0.65
-rimRadius=0.4
+radius=0.55
+rimRadius=0.3
 width=0.345
 
 [wheels-rearAxle-left]
@@ -133,18 +111,6 @@ rimRadius=0.4
 width=0.345
 
 [wheels-rearAxle-right]
-mass=80
-radius=0.65
-rimRadius=0.4
-width=0.345
-
-[wheels-otherAxle1-left]
-mass=80
-radius=0.65
-rimRadius=0.4
-width=0.345
-
-[wheels-otherAxle1-right]
 mass=80
 radius=0.65
 rimRadius=0.4

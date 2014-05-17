@@ -56,6 +56,8 @@ public class ButtonAddTrailer : MonoBehaviour
         truckCar.GetComponent<CharacterJoint>().highTwistLimit = softJointLimit;//вертикальный сустав
         softJointLimit.limit = 110;
         truckCar.GetComponent<CharacterJoint>().swing1Limit = softJointLimit;//горизонтальный сустав
+        //softJointLimit.limit = 5;
+        //truckCar.GetComponent<CharacterJoint>().swing2Limit = softJointLimit;//left/right
         truckCar.GetComponent<BlowController>().Frailty = tr.Frailty;//Передаем хрупкость на тягач
         truckCar.GetComponent<BlowController>().Condition = 100;
         truckCar.GetComponent<AxisCarController>().Trailer = tr.GetComponentInChildren<Rigidbody>();

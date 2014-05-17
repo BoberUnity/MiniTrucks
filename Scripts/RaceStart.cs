@@ -197,7 +197,9 @@ public class RaceStart : MonoBehaviour
     if (activ)//выполняется для города-финиша, показать меню
     {
       activ = false;
+      if (axisCarController != null)
       axisCarController.InStation = true;
+      else Debug.LogError("axisCarController == null");
       gamePanel.alpha = 0;
       StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
       UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();

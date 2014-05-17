@@ -779,7 +779,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -.100000001}
+  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400054}
@@ -2255,7 +2255,8 @@ MonoBehaviour:
   speeds: []
   InStation: 0
   speedKoeff: 1
-  h: 0
+  trailerdragFree: .200000003
+  trailerdragBrake: 1
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2269,7 +2270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSetup: 0
   savingSetup: 0
-  filePath: Assets\Samples\Car Setups\Fiber.txt
+  filePath: Assets\Samples\Car Setups\rgk.txt
   usePersistentDataPath: 0
 --- !u!114 &11400022
 MonoBehaviour:
@@ -2515,7 +2516,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 15447
+  clutchMaxTorque: 3898
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2571,7 +2572,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400050}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .5
+  frontRearWeightRepartition: 1
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
@@ -2583,7 +2584,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -1
+  ylocalPosition: 0
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0

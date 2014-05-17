@@ -324,39 +324,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100040
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400046}
-  - 65: {fileID: 6500002}
-  m_Layer: 0
-  m_Name: ColliderPlatform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &100042
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400048}
-  - 54: {fileID: 5400000}
-  - 65: {fileID: 6500004}
-  m_Layer: 0
-  m_Name: DummyTrailer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100044
 GameObject:
   m_ObjectHideFlags: 1
@@ -750,28 +717,6 @@ Transform:
   - {fileID: 400030}
   - {fileID: 400002}
   m_Father: {fileID: 400054}
---- !u!4 &400046
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100040}
-  m_LocalRotation: {x: .707106829, y: -2.06736517e-15, z: -2.06736517e-15, w: -.707106829}
-  m_LocalPosition: {x: -.0302245412, y: -.151564434, z: .482870907}
-  m_LocalScale: {x: 1.21951246, y: 1.2195121, z: 1.2195121}
-  m_Children: []
-  m_Father: {fileID: 400054}
---- !u!4 &400048
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100042}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400054}
 --- !u!4 &400050
 Transform:
   m_ObjectHideFlags: 1
@@ -779,7 +724,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -.100000001}
+  m_LocalPosition: {x: 0, y: -.400000006, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400054}
@@ -806,9 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400050}
-  - {fileID: 400048}
   - {fileID: 400020}
-  - {fileID: 400046}
   - {fileID: 400044}
   - {fileID: 400042}
   - {fileID: 400040}
@@ -1138,21 +1081,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   m_Mesh: {fileID: 0}
---- !u!54 &5400000
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100042}
-  serializedVersion: 2
-  m_Mass: 9.99999975e-05
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!54 &5400002
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1178,32 +1106,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0999999, y: 2.68000007, z: 2.8599999}
-  m_Center: {x: 0, y: 1.20000005, z: -.200000003}
---- !u!65 &6500002
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.92999995, y: 4.75, z: .370000005}
-  m_Center: {x: 0, y: .310000002, z: 0}
---- !u!65 &6500004
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100042}
-  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .100000001}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.0999999, y: 2, z: 2.8599999}
+  m_Center: {x: 0, y: .699999988, z: -.200000003}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1214,8 +1118,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: .600000024, z: 5.80000019}
-  m_Center: {x: 0, y: -.100000001, z: .100000001}
+  m_Size: {x: 2.5, y: .800000012, z: 5.80000019}
+  m_Center: {x: 0, y: -.400000006, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2255,7 +2159,8 @@ MonoBehaviour:
   speeds: []
   InStation: 0
   speedKoeff: 1
-  h: 0
+  trailerdragFree: .100000001
+  trailerdragBrake: 2
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2352,8 +2257,8 @@ MonoBehaviour:
     brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    forwardGripFactor: 4
+    sidewaysGripFactor: 4
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2377,8 +2282,8 @@ MonoBehaviour:
     brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    forwardGripFactor: 4
+    sidewaysGripFactor: 4
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2402,8 +2307,8 @@ MonoBehaviour:
     brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    forwardGripFactor: 4
+    sidewaysGripFactor: 4
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2496,7 +2401,7 @@ MonoBehaviour:
   drivetrainInertia: .0199999996
   engineFrictionFactor: .300000012
   engineOrientation: {x: 0, y: 0, z: 1}
-  transmission: 0
+  transmission: 2
   gearRatios:
   - -2.8599999
   - 0
@@ -2515,7 +2420,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 15447
+  clutchMaxTorque: 3898
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2571,7 +2476,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400050}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .5
+  frontRearWeightRepartition: 1
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
@@ -2583,7 +2488,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -1
+  ylocalPosition: -.400000006
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0

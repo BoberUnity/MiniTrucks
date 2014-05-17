@@ -575,7 +575,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: .800000012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400032}
@@ -613,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 100038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.21951222, y: 1.21951222, z: 1.21951222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
   m_Father: {fileID: 400040}
@@ -941,9 +941,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   serializedVersion: 2
-  m_Mass: 10000
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Mass: 1500
+  m_Drag: .200000003
+  m_AngularDrag: 40
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   mass: 150
   radius: .589999974
   rimRadius: .340000004
-  width: .449999988
+  width: .5
   suspensionTravel: .200000003
   suspensionRate: 20000
   bumpRate: 4000
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   mass: 150
   radius: .589999974
   rimRadius: .340000004
-  width: .449999988
+  width: .5
   suspensionTravel: .200000003
   suspensionRate: 20000
   bumpRate: 4000
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   mass: 150
   radius: .589999974
   rimRadius: .340000004
-  width: .449999988
+  width: .5
   suspensionTravel: .200000003
   suspensionRate: 20000
   bumpRate: 4000
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   mass: 150
   radius: .589999974
   rimRadius: .340000004
-  width: .449999988
+  width: .5
   suspensionTravel: .200000003
   suspensionRate: 20000
   bumpRate: 4000
@@ -1624,8 +1624,8 @@ MonoBehaviour:
   transitionDamperVelo: .300000012
   centerOfMass: {fileID: 400030}
   dampAbsRoadVelo: 8
-  inertiaFactor: .300000012
-  frontRearWeightRepartition: .5
+  inertiaFactor: .100000001
+  frontRearWeightRepartition: .100000001
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0
@@ -1635,9 +1635,9 @@ MonoBehaviour:
   skidmarks: {fileID: 11400022}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: 0
+  zlocalPosition: .800000012
   zlocalPosition_orig: 0
-  ylocalPosition: 0
+  ylocalPosition: 1
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -1665,23 +1665,23 @@ MonoBehaviour:
     - {fileID: 11400006}
     - {fileID: 11400004}
     powered: 0
-    suspensionTravel: .300000012
+    suspensionTravel: .400000006
     suspensionRate: 50000
     bumpRate: 10000
     reboundRate: 10000
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 18000
+    brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: .5
+    sidewaysGripFactor: .5
     camber: 0
     deltaCamber: 0
     oldCamber: 0
     tires: 10
-    tiresPressure: 0
+    tiresPressure: 250
     optimalTiresPressure: 300
   rearAxle:
     leftWheel: {fileID: 11400002}
@@ -1690,7 +1690,7 @@ MonoBehaviour:
     - {fileID: 11400002}
     - {fileID: 11400000}
     powered: 0
-    suspensionTravel: .300000012
+    suspensionTravel: .400000006
     suspensionRate: 50000
     bumpRate: 10000
     reboundRate: 10000
@@ -1700,13 +1700,13 @@ MonoBehaviour:
     brakeFrictionTorque: 180000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
-    sidewaysGripFactor: .899999976
+    forwardGripFactor: .5
+    sidewaysGripFactor: .5
     camber: 0
     deltaCamber: 0
     oldCamber: 0
     tires: 11
-    tiresPressure: 0
+    tiresPressure: 250
     optimalTiresPressure: 300
   otherAxles: []
 --- !u!114 &11400020
