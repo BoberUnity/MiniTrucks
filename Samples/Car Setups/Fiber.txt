@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=500
+maxPower=300
 maxPowerRPM=4000
-maxTorque=3100
+maxTorque=1700
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -96,21 +96,21 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=4
-sidewaysGripFactor=0.5
+sidewaysGripFactor=4
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=0.5
+sidewaysGripFactor=4
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=0.5
+sidewaysGripFactor=4
 tiresPressure=0
 optimalTiresPressure=800
 
