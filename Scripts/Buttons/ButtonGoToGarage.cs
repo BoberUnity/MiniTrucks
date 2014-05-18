@@ -6,6 +6,7 @@ public class ButtonGoToGarage : MonoBehaviour
 {
   [SerializeField] private UIWidget disabledPanel = null;
   [SerializeField] private UIPanel enabledPanel = null;
+  [SerializeField] private UIPanel infoPanel = null;
   [SerializeField] private SelectCarController selectCarController = null;
   public event Action Pressed;
 
@@ -42,6 +43,7 @@ public class ButtonGoToGarage : MonoBehaviour
     {
       eb.isEnabled = true;
     }
+    infoPanel.transform.position = Vector3.zero;
   }
 }
 

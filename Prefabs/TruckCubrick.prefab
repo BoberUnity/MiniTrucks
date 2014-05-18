@@ -1766,7 +1766,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 200000
+    brakeFrictionTorque: 10000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
     forwardGripFactor: 1.5
@@ -1791,8 +1791,8 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
-    handbrakeFrictionTorque: 4000
+    brakeFrictionTorque: 10000
+    handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
     forwardGripFactor: 1.5
     sidewaysGripFactor: 3

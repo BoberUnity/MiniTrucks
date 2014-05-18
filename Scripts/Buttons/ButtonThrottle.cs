@@ -35,6 +35,11 @@ public class ButtonThrottle : MonoBehaviour
       nitroUsing = false;
     }
   }
+
+  private void Start()
+  {
+    nitroLabel.text = nitroFuel.ToString("f0");
+  }
   
   private void Update()
   {

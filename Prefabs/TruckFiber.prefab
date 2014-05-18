@@ -1088,7 +1088,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   serializedVersion: 2
-  m_Mass: 2500
+  m_Mass: 3000
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -2378,9 +2378,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 300
+  maxPower: 1500
   maxPowerRPM: 4000
-  maxTorque: 2500
+  maxTorque: 8100
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
