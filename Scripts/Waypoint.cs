@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour 
 {
+  [SerializeField] private Color wayColor = new Color(1,1,1,1);
   public Transform[] Waypoints;
   public float[] MaxSpeeds;
 
@@ -29,7 +30,7 @@ public class Waypoint : MonoBehaviour
 
     foreach (Transform point in points)
     {
-      Gizmos.color = Color.white; 
+      Gizmos.color = wayColor; 
       Gizmos.DrawSphere(point.position, 1.0f );
     }
 

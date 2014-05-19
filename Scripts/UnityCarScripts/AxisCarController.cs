@@ -35,7 +35,7 @@ public class AxisCarController : CarController
   [SerializeField] private float trailerdragBrake = 1f;
   private float h = 0;
 
-  private Rigidbody trailerRigidbody = null;
+  [SerializeField] private Rigidbody trailerRigidbody = null;//”станавливаетс€ в редакторе дл€ соперников
 
   private float buksTime = 0;//¬рем€ зависани€ авто при нажатом нитро и скорость меньше 1
 
@@ -186,7 +186,7 @@ public class AxisCarController : CarController
         }
       }
     }
-    else
+    else//AI
     {
       RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(waypoints[currentWaypoint].position.x, transform.position.y, waypoints[currentWaypoint].position.z));
       steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
@@ -200,9 +200,17 @@ public class AxisCarController : CarController
         throttleInput = 0.5f;
       else
         throttleInput = 0;
-      brakeInput = 0;
+      
       if (rigidbody.velocity.magnitude > speeds[currentWaypoint]+5)
+      {
         brakeInput = 0.25f;
+        trailerRigidbody.drag = trailerdragBrake;
+      }
+      else
+      {
+        brakeInput = 0;
+        trailerRigidbody.drag = trailerdragFree;
+      }
       //steerInput = 0;
       handbrakeInput = 0;
       clutchInput = 0;
