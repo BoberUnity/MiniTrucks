@@ -65,7 +65,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private EnemyCar[] enemyCar = null;
   [SerializeField] private Transform carGaragePos = null;
   [SerializeField] private Transform podium = null;
-  [SerializeField] private Transform[] carLevelPos = null;
+  [SerializeField] private Transform[] carLevelPos = null;//0-busy; 1-fish; 2-oil; 3-west
   [SerializeField] private int gold = 50000;
   [SerializeField] private UILabel priceIndicator = null;
   [SerializeField] private UILabel nameIndicator = null;

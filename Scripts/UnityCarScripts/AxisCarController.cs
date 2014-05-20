@@ -203,7 +203,7 @@ public class AxisCarController : CarController
       
       if (rigidbody.velocity.magnitude > speeds[currentWaypoint]+5)
       {
-        brakeInput = 0.25f;
+        brakeInput = 0.5f;
         trailerRigidbody.drag = trailerdragBrake;
       }
       else
