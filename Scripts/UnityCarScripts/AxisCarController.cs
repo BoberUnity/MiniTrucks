@@ -36,6 +36,8 @@ public class AxisCarController : CarController
   private float h = 0;
 
   [SerializeField] private Rigidbody trailerRigidbody = null;//Устанавливается в редакторе для соперников
+  [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
+  [SerializeField] private MaxSpeed firstWaypoint = null;//точка с которой начать путь. Устанавливается только для машин трафика
 
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
 
@@ -67,7 +69,19 @@ public class AxisCarController : CarController
   protected override void Start()
   {
     base.Start();
-    StartCoroutine(ClockOff(4));
+    
+    if (waypoint != null)//для машин трафика
+      StartCoroutine(SetTrafikPath(0.1f));
+    else
+      StartCoroutine(ClockOff(4));
+  }
+
+  private IEnumerator SetTrafikPath(float time)
+  {
+    yield return new WaitForSeconds(time);
+    SetWay(waypoint);
+    ai = true;
+    oppWaitClock = false;
   }
 
   private IEnumerator ClockOff(float time)
@@ -204,12 +218,14 @@ public class AxisCarController : CarController
       if (rigidbody.velocity.magnitude > speeds[currentWaypoint]+5)
       {
         brakeInput = 0.5f;
-        trailerRigidbody.drag = trailerdragBrake;
+        if (trailerRigidbody != null)
+          trailerRigidbody.drag = trailerdragBrake;
       }
       else
       {
         brakeInput = 0;
-        trailerRigidbody.drag = trailerdragFree;
+        if (trailerRigidbody != null) 
+          trailerRigidbody.drag = trailerdragFree;
       }
       //steerInput = 0;
       handbrakeInput = 0;
@@ -253,6 +269,21 @@ public class AxisCarController : CarController
       {
         waypoints = wayComponent.Waypoints;
         speeds = wayComponent.MaxSpeeds;
+        if (firstWaypoint != null)//Для машин трафика
+        {
+          int cw = 0;
+          foreach (Transform wp in waypoints)
+          {
+            if (wp != firstWaypoint.transform)
+              cw += 1;
+            else
+            {
+              Debug.LogWarning("CW= " + cw);
+              currentWaypoint = cw;
+            }
+          }
+          
+        }
       }
       else
         Debug.LogWarning("Компонент Waypoint не найден на объекте" + waypoint.gameObject.name);

@@ -31,7 +31,7 @@ public class Waypoint : MonoBehaviour
     foreach (Transform point in points)
     {
       Gizmos.color = wayColor; 
-      Gizmos.DrawSphere(point.position, 1.0f );
+      Gizmos.DrawSphere(point.position, 0.5f );
     }
 
     for (int i = 0; i < points.Length; i++)
