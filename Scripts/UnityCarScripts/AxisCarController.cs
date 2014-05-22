@@ -37,8 +37,9 @@ public class AxisCarController : CarController
 
   [SerializeField] private Rigidbody trailerRigidbody = null;//Устанавливается в редакторе для соперников
   [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
-  [SerializeField] private MaxSpeed firstWaypoint = null;//точка с которой начать путь. Устанавливается только для машин трафика
-
+  private Transform firstWaypoint = null;//точка с которой начать путь. 
+  [SerializeField] private bool trafic = false; //Устанавливается только для машин трафика
+  private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
 
   public bool BrakeUsed
@@ -82,6 +83,20 @@ public class AxisCarController : CarController
     SetWay(waypoint);
     ai = true;
     oppWaitClock = false;
+  }
+
+  private void SetFirstPoint()
+  {
+    float minDis = 1000;//дист до ближ точки пути
+    foreach (Transform wp in waypoints)
+    {
+      float disToWp = Vector3.Distance(transform.position, wp.position);
+      if (disToWp < minDis)
+      {
+        firstWaypoint = wp;
+        minDis = disToWp;
+      }
+    }
   }
 
   private IEnumerator ClockOff(float time)
@@ -210,12 +225,15 @@ public class AxisCarController : CarController
         if (currentWaypoint == waypoints.Length)
           currentWaypoint = 0;
       }
-      if (rigidbody.velocity.magnitude < speeds[currentWaypoint] * speedKoeff && !oppWaitClock)
+
+      float sp = rigidbody.velocity.magnitude;
+      if (sp < speeds[currentWaypoint] * speedKoeff && !oppWaitClock && !rayCar)
         throttleInput = 0.5f;
       else
         throttleInput = 0;
-      
-      if (rigidbody.velocity.magnitude > speeds[currentWaypoint]+5)
+
+
+      if (sp > speeds[currentWaypoint] + 5 || (rayCar && drivetrain.gear > 1))
       {
         brakeInput = 0.5f;
         if (trailerRigidbody != null)
@@ -258,10 +276,17 @@ public class AxisCarController : CarController
         buksTime = 0;
     }
   }
-  
-  public void SetWay(Waypoint waypoint)
+
+  protected override void FixedUpdate()
   {
-    GameObject wayObject = waypoint.gameObject;
+    base.FixedUpdate();
+    if (waypoint == null) //только для соперников
+      rayCar = Physics.Raycast(transform.position, transform.forward, 10, 1 << 17); //layer Car1
+  }
+
+  public void SetWay(Waypoint wpoint)
+  {
+    GameObject wayObject = wpoint.gameObject;
     if (wayObject != null)
     {
       Waypoint wayComponent = wayObject.GetComponent<Waypoint>();
@@ -269,12 +294,13 @@ public class AxisCarController : CarController
       {
         waypoints = wayComponent.Waypoints;
         speeds = wayComponent.MaxSpeeds;
-        if (firstWaypoint != null)//Для машин трафика
+        if (trafic)//Для машин трафика
         {
+          SetFirstPoint();
           int cw = 0;
           foreach (Transform wp in waypoints)
           {
-            if (wp != firstWaypoint.transform)
+            if (wp != firstWaypoint)
               cw += 1;
             else
             {
@@ -282,7 +308,6 @@ public class AxisCarController : CarController
               currentWaypoint = cw;
             }
           }
-          
         }
       }
       else

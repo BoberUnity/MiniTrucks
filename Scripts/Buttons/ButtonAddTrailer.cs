@@ -81,6 +81,12 @@ public class ButtonAddTrailer : MonoBehaviour
       raceStart.ClockOn();
 	    raceFinish.Price = price;
 	    buttonThrottle.NitroFuel = 100;
+      //
+	    CarZona[] carZones = FindObjectsOfType<CarZona>();
+	    foreach (var carZone in carZones)
+	    {
+	      carZone.Enemies = enemies;
+	    }
 	  }
 	}
 

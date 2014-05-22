@@ -169,8 +169,9 @@ public abstract class CarController : MonoBehaviour {
 		brakeKey = brakeInput>0;
 		accelKey = throttleInput>0;
 	}
-		
-	void FixedUpdate(){
+
+  protected virtual void FixedUpdate()
+  {
 		maxThrottle=1;
 		oldSteering=steering;
 		velo = cardynamics.velo;

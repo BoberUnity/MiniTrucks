@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: wr_left_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400000}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: WheelRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400018}
   - 114: {fileID: 11400004}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: WheelFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400020}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400024}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Wheels
   m_TagString: COG
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400028}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: COG
   m_TagString: COG
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400032}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400034}
   - 114: {fileID: 11400008}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: DashBoard
   m_TagString: Dashboard
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400038}
   - 114: {fileID: 11400012}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: WheelFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400042}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - 4: {fileID: 400050}
   - 33: {fileID: 3300010}
   - 23: {fileID: 2300010}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: Ronald_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400052}
   - 65: {fileID: 6500008}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: ColliderCabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400054}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - 4: {fileID: 400056}
   - 33: {fileID: 3300012}
   - 23: {fileID: 2300012}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: wf_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400066}
   - 114: {fileID: 11400024}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: WheelRR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - 4: {fileID: 400072}
   - 33: {fileID: 3300016}
   - 23: {fileID: 2300016}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: wr_right_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - 114: {fileID: 11400048}
   - 65: {fileID: 6500004}
   - 114: {fileID: 11400002}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: Traktor
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - 4: {fileID: 400078}
   - 33: {fileID: 3300018}
   - 23: {fileID: 2300018}
-  m_Layer: 21
+  m_Layer: 17
   m_Name: wf_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1664,6 +1664,10 @@ MonoBehaviour:
   speedKoeff: 1
   trailerdragFree: .200000003
   trailerdragBrake: 1
+  trailerRigidbody: {fileID: 0}
+  waypoint: {fileID: 0}
+  firstWaypoint: {fileID: 0}
+  rayCar: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
