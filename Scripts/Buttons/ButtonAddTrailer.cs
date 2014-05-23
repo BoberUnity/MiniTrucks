@@ -92,16 +92,20 @@ public class ButtonAddTrailer : MonoBehaviour
 
   private void DestroyEnemies()
   {
-    foreach (GameObject enemy in enemies)
+    if (enemies.Length > 1)
     {
-      Destroy(enemy);
+      foreach (GameObject enemy in enemies)
+      {
+        Destroy(enemy);
+      }
+      raceFinish.Activ = false;
     }
   }
 
   public void ExitRace()//Из меню паузы
   {
     Debug.LogWarning("ExitRace");
-    if (raceFinish.Activ)
+    if (raceFinish.Activ)//выполняется для всех кнопок с финишем в указанном городе
     {
       Debug.LogWarning("ExitRace active");
       DestroyEnemies();
@@ -113,6 +117,7 @@ public class ButtonAddTrailer : MonoBehaviour
       }
       else Debug.LogWarning("CharacterJoint == null");
       baggageLabel.BaggageController = null;
+      //raceFinish.Activ = false;
     }
   }
 }

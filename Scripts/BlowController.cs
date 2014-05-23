@@ -7,12 +7,12 @@ public class BlowController : MonoBehaviour
   public float Condition = 100;
   //[SerializeField] private float ray = 0;
   //[SerializeField] private bool rayCar = false;
-  private Transform thisTransform = null;
+  //private Transform thisTransform = null;
   
-  void Start()
-  {
-    thisTransform = transform;
-  }
+  //void Start()
+  //{
+  //  thisTransform = transform;
+  //}
 
   private void OnCollisionEnter(Collision collision)
   {

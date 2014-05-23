@@ -39,6 +39,7 @@ public class AxisCarController : CarController
   [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
   private Transform firstWaypoint = null;//точка с которой начать путь. 
   [SerializeField] private bool trafic = false; //Устанавливается только для машин трафика
+  [SerializeField]
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
 
@@ -282,6 +283,8 @@ public class AxisCarController : CarController
     base.FixedUpdate();
     if (waypoint == null) //только для соперников
       rayCar = Physics.Raycast(transform.position, transform.forward, 10, 1 << 17); //layer Car1
+    if (trafic)
+      rayCar = Physics.Raycast(transform.position + transform.forward, transform.forward, 15, 1 << 17); //layer Car1
   }
 
   public void SetWay(Waypoint wpoint)

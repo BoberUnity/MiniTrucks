@@ -37,6 +37,7 @@ public class RaceStart : MonoBehaviour
   public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;
+  [SerializeField]
   private bool activ = false;//true, когда едет эту гонку
   private int price = 0;
   
@@ -51,10 +52,10 @@ public class RaceStart : MonoBehaviour
     get { return activ; }
   }
 
-  public AxisCarController TractorAxisCarController
-  {
-    set { axisCarController = value; }
-  }
+  //public AxisCarController TractorAxisCarController
+  //{
+  //  set { axisCarController = value; }
+  //}
 
   private void Start()
   {

@@ -5739,6 +5739,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &90834226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15614,6 +15615,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &248723551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20965,6 +20967,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &324700444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39288,6 +39291,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &607589499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53833,6 +53837,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &793987708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67747,6 +67752,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &998484380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71949,6 +71955,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &1053282293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77465,6 +77472,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &1121421270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82451,6 +82459,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &1203640869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100889,6 +100898,7 @@ MonoBehaviour:
     enemyPos: {fileID: 748702593}
   CharPos: {fileID: 1930551207}
   prize: 1
+  activ: 0
 --- !u!65 &1495864539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -104027,6 +104037,7 @@ MonoBehaviour:
     enemyPos: {fileID: 598653097}
   CharPos: {fileID: 1325756347}
   prize: 1
+  activ: 0
 --- !u!65 &1540312963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110411,6 +110422,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 1690751120}
   trafic: 1
+  rayCar: 0
 --- !u!114 &1642040001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120992,6 +121004,7 @@ MonoBehaviour:
     enemyPos: {fileID: 2123356713}
   CharPos: {fileID: 1077547006}
   prize: 1
+  activ: 0
 --- !u!65 &1799786844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124751,7 +124764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862649475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .439560413, y: 0, z: 0}
+  m_LocalPosition: {x: .439560473, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1859736814}
@@ -139460,6 +139473,7 @@ MonoBehaviour:
     enemyPos: {fileID: 1822519946}
   CharPos: {fileID: 660940708}
   prize: 1
+  activ: 0
 --- !u!65 &2080058494
 BoxCollider:
   m_ObjectHideFlags: 0
