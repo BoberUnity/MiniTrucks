@@ -9,6 +9,7 @@ public class SelectCarController : MonoBehaviour
     [SerializeField] private GameObject carPrefab = null;
     [SerializeField] private string truckName = "";
     [SerializeField] private int price = 10000;
+    [SerializeField] private int maxSpeed = 80;
     public Material[] Materials = null;
 
     private int currentMaterial = 0;
@@ -40,6 +41,11 @@ public class SelectCarController : MonoBehaviour
       get { return currentMaterial; }
       set { currentMaterial = value; }
     }
+
+    public int MaxSpeed
+    {
+      get { return maxSpeed; }
+    }
   }
 
   [SerializeField] private ButtonHandler buttonStart = null;
@@ -60,6 +66,8 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
   [SerializeField] private ButtonTuning buttonTuningBrake = null;
+  [SerializeField] private ButtonTuning buttonTuningMaxSpeed = null;
+  [SerializeField] private UILabel maxSpeedIndicator = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private Map map = null;
   [SerializeField] private EnemyCar[] enemyCar = null;
@@ -72,6 +80,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private UILabel powerLabel = null;
   [SerializeField] private UILabel handlingLabel = null;
   [SerializeField] private UILabel brakeLabel = null;
+  //[SerializeField] private UILabel maxSpeedLabel = null;
   [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   private Vector3 beforeGaragePosition = Vector3.zero;
@@ -94,6 +103,10 @@ public class SelectCarController : MonoBehaviour
   
   private GameObject character = null;
   private int currentCar = 0;
+  //public int CurrentCar
+  //{
+  //  get { return currentCar; }//isp Tunning max speed
+  //}
   public RaceStart raceStart = null;
 
   private void Start()
@@ -158,17 +171,14 @@ public class SelectCarController : MonoBehaviour
     {
       character.transform.parent = podium;
       StartCoroutine(ShowInfoMenu(0.05f));
-      if (PlayerPrefs.HasKey("MaterialCar" + currentCar.ToString("f0")))//Если есть запись в реестре ставим материал
-      {
-        CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
-        tractor.BodyRenderer.material = enemyCar[currentCar].Materials[PlayerPrefs.GetInt("MaterialCar" + currentCar.ToString("f0"))];
-      }
+      ReadRegParam();
     }
     buttonUpgradeCar.gameObject.SetActive(false);
     buttonRace2.gameObject.SetActive(false);
     buttonBuyCar.gameObject.SetActive(true);
     priceIndicator.text = enemyCar[0].Price.ToString("f0");
     nameIndicator.text = enemyCar[0].TruckName;
+    maxSpeedIndicator.text = enemyCar[0].MaxSpeed.ToString("f0");
   }
 
   private IEnumerator ShowInfoMenu(float time)
@@ -195,13 +205,9 @@ public class SelectCarController : MonoBehaviour
       tractorACC.InStation = true;
       if (raceStart != null)//из меню станции
         raceStart.axisCarController = tractorACC;
-      StartCoroutine(ShowInfoMenu(0.05f)); 
-
-      if (PlayerPrefs.HasKey("MaterialCar" + currentCar.ToString("f0")))//Если есть запись в реестре ставим материал
-      {
-        CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
-        tractor.BodyRenderer.material = enemyCar[currentCar].Materials[PlayerPrefs.GetInt("MaterialCar" + currentCar.ToString("f0"))];
-      }
+      StartCoroutine(ShowInfoMenu(0.05f));
+      ReadRegParam();
+      
       SetTunningButtons(character.GetComponentInChildren<CameraTarget>());
     }
     buttonUpgradeCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
@@ -209,6 +215,36 @@ public class SelectCarController : MonoBehaviour
     buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
     priceIndicator.text = enemyCar[currentCar].Price.ToString("f0");
     nameIndicator.text = enemyCar[currentCar].TruckName;
+    //maxSpeedIndicator.text = enemyCar[currentCar].MaxSpeed.ToString("f0");
+  }
+
+  private void ReadRegParam()
+  {
+    if (PlayerPrefs.HasKey("MaterialCar" + currentCar.ToString("f0")))//Если есть запись в реестре ставим материал
+    {
+      CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
+      tractor.BodyRenderer.material = enemyCar[currentCar].Materials[PlayerPrefs.GetInt("MaterialCar" + currentCar.ToString("f0"))];
+    }
+    if (PlayerPrefs.HasKey("MaxSpeed" + currentCar.ToString("f0")))//Если есть запись в реестре ставим speed
+    {
+      CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
+      tractor.GetComponent<AxisCarController>().MaxSpeed = PlayerPrefs.GetInt("MaxSpeed" + currentCar.ToString("f0"));
+      maxSpeedIndicator.text = tractor.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
+    }
+    else
+    {
+      CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
+      tractor.GetComponent<AxisCarController>().MaxSpeed = enemyCar[currentCar].MaxSpeed;
+      maxSpeedIndicator.text = enemyCar[currentCar].MaxSpeed.ToString("f0");
+    }
+  }
+
+  public void TunningMaxSpeed()
+  {
+    AxisCarController tractorACC = character.GetComponentInChildren<AxisCarController>();
+    tractorACC.MaxSpeed += 5;
+
+    PlayerPrefs.SetInt("MaxSpeed" + currentCar.ToString("f0"), tractorACC.MaxSpeed);
   }
 
   private void BuyCar()
@@ -335,7 +371,9 @@ public class SelectCarController : MonoBehaviour
     buttonTuningBrake.axles = tractor.GetComponent<Axles>();
     buttonTuningBrake.carDynamics = tractor.GetComponent<CarDynamics>();
     buttonTuningBrake.setup = tractor.GetComponent<Setup>();
+    buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
   }
+
   private void Restart()
   {
     CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик

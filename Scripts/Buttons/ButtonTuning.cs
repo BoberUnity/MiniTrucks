@@ -7,7 +7,9 @@ public class ButtonTuning : MonoBehaviour
   [SerializeField] private UILabel powerIndicator = null;
   [SerializeField] private UILabel handlingIndicator = null;
   [SerializeField] private UILabel brakesIndicator = null;
+  [SerializeField] private UILabel maxSpeedIndicator = null;
 
+  [SerializeField] private SelectCarController selectCarController = null;
   public Drivetrain drivetrain = null;
   public Axles axles = null;
   //public Axles axlesTrailer = null;
@@ -56,6 +58,12 @@ public class ButtonTuning : MonoBehaviour
         {
           setup.SaveSetup();
         }
+      }
+
+      if (id == 3)
+      {
+        selectCarController.TunningMaxSpeed();
+        maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
       }
     }
 	}

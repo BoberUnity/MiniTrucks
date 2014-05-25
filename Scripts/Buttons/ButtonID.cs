@@ -5,7 +5,6 @@ public class ButtonID : MonoBehaviour
   [SerializeField] private int id = 0;
   [SerializeField] private UIPanel optionsPanel = null;
   [SerializeField] private UIPanel pausePanel = null;
-  //[SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   
   private void Start()
   {
@@ -41,6 +40,7 @@ public class ButtonID : MonoBehaviour
         foreach (var button in buttonsAddTrailer)
         {
           button.ExitRace();
+          //button.ResetRace();
         }
       }
 

@@ -42,7 +42,7 @@ public class AxisCarController : CarController
   [SerializeField]
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
-
+  [SerializeField] private int maxSpeed = 0;
   public bool BrakeUsed
   {
     set { brakeUsed = value;}
@@ -66,6 +66,12 @@ public class AxisCarController : CarController
   public Rigidbody Trailer
   {
     set { trailerRigidbody = value; }
+  }
+
+  public int MaxSpeed
+  {
+    get { return maxSpeed; }//Tunning Button
+    set { maxSpeed = value; }
   }
 
   protected override void Start()
@@ -142,7 +148,12 @@ public class AxisCarController : CarController
             if (nitroUsed)
               throttleInput = 1;
             else
-              throttleInput = 0.3f;
+            {
+              if (drivetrain.velo*2.2f < maxSpeed)//Ограничитель скорости
+                throttleInput = 0.3f;
+              else 
+                throttleInput = 0;
+            }
           }
           else
             throttleInput = 0;
@@ -307,7 +318,7 @@ public class AxisCarController : CarController
               cw += 1;
             else
             {
-              Debug.LogWarning("CW= " + cw);
+              //Debug.LogWarning("CW= " + cw);
               currentWaypoint = cw;
             }
           }

@@ -55,7 +55,7 @@ public class ButtonAddTrailer : MonoBehaviour
         SoftJointLimit softJointLimit = new SoftJointLimit();
         softJointLimit.limit = 25;
         truckCar.GetComponent<CharacterJoint>().highTwistLimit = softJointLimit;//вертикальный сустав
-        softJointLimit.limit = 110;
+        softJointLimit.limit = 105;
         truckCar.GetComponent<CharacterJoint>().swing1Limit = softJointLimit;//горизонтальный сустав
         //softJointLimit.limit = 5;
         //truckCar.GetComponent<CharacterJoint>().swing2Limit = softJointLimit;//left/right
@@ -92,32 +92,41 @@ public class ButtonAddTrailer : MonoBehaviour
 
   private void DestroyEnemies()
   {
-    if (enemies.Length > 1)
-    {
+    //if (enemies.Length > 1)
+    //{
       foreach (GameObject enemy in enemies)
       {
         Destroy(enemy);
       }
-      raceFinish.Activ = false;
-    }
+      //
+    //}
   }
 
-  public void ExitRace()//Из меню паузы
+  public void ExitRace()//Из меню паузы && Restart
   {
     Debug.LogWarning("ExitRace");
     if (raceFinish.Activ)//выполняется для всех кнопок с финишем в указанном городе
     {
       Debug.LogWarning("ExitRace active");
-      DestroyEnemies();
-      CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
-      if (characterJoint != null)
+      if (enemies.Length > 1)//для 1-й кнопки
       {
-        Destroy(characterJoint.connectedBody.gameObject.transform.parent.parent.gameObject);
-        Destroy(characterJoint);
+        raceFinish.Activ = false;
+        DestroyEnemies();
+        CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
+        if (characterJoint != null)
+        {
+          Destroy(characterJoint.connectedBody.gameObject.transform.parent.parent.gameObject);
+          Destroy(characterJoint);
+        }
+        else Debug.LogWarning("CharacterJoint == null");
+        baggageLabel.BaggageController = null;
       }
-      else Debug.LogWarning("CharacterJoint == null");
-      baggageLabel.BaggageController = null;
-      //raceFinish.Activ = false;
     }
   }
+
+  //public void ResetRace()//Из меню паузы ExitRace
+  //{
+  //  raceFinish.Activ = false;
+  //  baggageLabel.BaggageController = null;
+  //}
 }
