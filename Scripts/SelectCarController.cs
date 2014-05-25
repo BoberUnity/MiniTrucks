@@ -58,6 +58,8 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonHandler buttonRace2 = null;
   [SerializeField] private ButtonHandler buttonRestart = null;
   [SerializeField] private ButtonHandler buttonPaint = null;
+  [SerializeField] private ButtonRul buttonRulRight = null;
+  [SerializeField] private ButtonRul buttonRulLeft = null;
   [SerializeField] private CarCameras carcameras = null;
   [SerializeField] private GameObject cameraGarage = null;
   [SerializeField] private Steer steer = null;
@@ -80,12 +82,13 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private UILabel powerLabel = null;
   [SerializeField] private UILabel handlingLabel = null;
   [SerializeField] private UILabel brakeLabel = null;
-  //[SerializeField] private UILabel maxSpeedLabel = null;
   [SerializeField] private ButtonGoToGarage[] goToGarageButtons = null;//Кнопка перехода в гараж из меню станции
   [SerializeField] private ButtonAddTrailer[] buttonsAddTrailer = null;
   private Vector3 beforeGaragePosition = Vector3.zero;
   private Quaternion beforeGarageRotation = Quaternion.identity;
   private bool first = true;//Первый запуск
+  public float VolumeEffects = 0.5f;
+  public float VolumeMusic = 0.5f;
   public event Action<int> ChangeGold;
 
   public int Gold
@@ -103,10 +106,6 @@ public class SelectCarController : MonoBehaviour
   
   private GameObject character = null;
   private int currentCar = 0;
-  //public int CurrentCar
-  //{
-  //  get { return currentCar; }//isp Tunning max speed
-  //}
   public RaceStart raceStart = null;
 
   private void Start()
@@ -114,7 +113,6 @@ public class SelectCarController : MonoBehaviour
     buttonNextCar.Pressed += NextCar;
     buttonPrevCar.Pressed += PrevCar;
     buttonBuyCar.Pressed += BuyCar;
-    //buttonUpgradeCar.Pressed += SelectCar;
     buttonRace.Pressed += Race;
     buttonRace2.Pressed += Race;
     buttonContinue.Pressed += Continue;
@@ -135,7 +133,6 @@ public class SelectCarController : MonoBehaviour
     buttonNextCar.Pressed -= NextCar;
     buttonPrevCar.Pressed -= PrevCar;
     buttonBuyCar.Pressed -= BuyCar;
-    //buttonUpgradeCar.Pressed -= SelectCar;
     buttonRace.Pressed -= Race;
     buttonRace2.Pressed -= Race;
     buttonContinue.Pressed -= Continue;
@@ -215,7 +212,6 @@ public class SelectCarController : MonoBehaviour
     buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
     priceIndicator.text = enemyCar[currentCar].Price.ToString("f0");
     nameIndicator.text = enemyCar[currentCar].TruckName;
-    //maxSpeedIndicator.text = enemyCar[currentCar].MaxSpeed.ToString("f0");
   }
 
   private void ReadRegParam()
@@ -343,6 +339,8 @@ public class SelectCarController : MonoBehaviour
       AxisCarController aCC = tractor.GetComponent<AxisCarController>();
       aCC.On = true;
       steer.axisCarController = aCC;
+      buttonRulRight.axisCarController = aCC;
+      buttonRulLeft.axisCarController = aCC;
       buttonBrake.axisCarController = aCC;
       buttonNitro.axisCarController = aCC;
       SetTunningButtons(tractor);

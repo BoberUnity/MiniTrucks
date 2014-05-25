@@ -10,7 +10,8 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-  [SerializeField] private UISlider soundVolume = null;
+  //[SerializeField] private UISlider soundVolume = null;
+  [SerializeField] private SelectCarController selectCarController = null;
   public AudioClip engineThrottle;
 	public float engineThrottleVolume=0.35f;
 	public float engineThrottlePitchFactor=1f;
@@ -93,7 +94,8 @@ public class SoundController : MonoBehaviour
 	
 	void Start ()
 	{
-	  soundVolume = GameObject.Find("SoundVolume").GetComponent<UISlider>();
+	  //soundVolume = GameObject.Find("SoundVolume").GetComponent<UISlider>();
+    selectCarController = GameObject.Find("Controller").GetComponent<SelectCarController>();
     carController = GetComponent<CarController>();
 		cardynamics = GetComponent<CarDynamics>();
 		drivetrain= GetComponent<Drivetrain>();
@@ -107,7 +109,7 @@ public class SoundController : MonoBehaviour
 		transmissionSource = CreateAudioSource(transmission, true, true,Vector3.zero);
 		brakeNoiseSource = CreateAudioSource(brakeNoise, true, true,Vector3.zero);
 		startEngineSource= CreateAudioSource(startEngine, true, false,enginePositionV);
-    startEngineSource.volume = startEngineVolume * soundVolume.value;//b
+    startEngineSource.volume = startEngineVolume * selectCarController.VolumeEffects;//b
 		startEngineSource.pitch=startEnginePitch;
 		
 		System.Array.Resize(ref skidSource,axles.allWheels.Length);
@@ -139,7 +141,7 @@ public class SoundController : MonoBehaviour
 	void Update(){
 		if (carController!=null) {
 			if (carController.ABSTriggered) ABSTriggerSource.PlayOneShot(ABSTrigger);
-      brakeNoiseSource.volume = Mathf.Clamp01(carController.brake * Mathf.Abs(AverageWheelVelo()) * 0.1f) * brakeNoiseVolume * soundVolume.value;//b;
+      brakeNoiseSource.volume = Mathf.Clamp01(carController.brake * Mathf.Abs(AverageWheelVelo()) * 0.1f) * brakeNoiseVolume * selectCarController.VolumeEffects;//b;
 		}	
 		if (drivetrain!=null) {		
 			if (drivetrain.startEngine && drivetrain.rpm<drivetrain.minRPM) {if (!startEngineSource.isPlaying) startEngineSource.Play();}
@@ -161,15 +163,15 @@ public class SoundController : MonoBehaviour
 		}
 
 		if (Application.isEditor){
-      if (shiftTriggerSource != null) shiftTriggerSource.volume = shiftTriggerVolume * soundVolume.value;//b
-			if (ABSTriggerSource!=null) ABSTriggerSource.volume=ABSTriggerVolume* soundVolume.value;//b
+      if (shiftTriggerSource != null) shiftTriggerSource.volume = shiftTriggerVolume * selectCarController.VolumeEffects;//b
+      if (ABSTriggerSource != null) ABSTriggerSource.volume = ABSTriggerVolume * selectCarController.VolumeEffects;//b
 		}
 		if (drivetrain){
 			float factor=drivetrain.rpm/drivetrain.maxRPM;
-      engineNoThrottleSource.volume = Mathf.Clamp01((1 - drivetrain.throttle) * engineNoThrottleVolume * factor) * soundVolume.value;//b
+      engineNoThrottleSource.volume = Mathf.Clamp01((1 - drivetrain.throttle) * engineNoThrottleVolume * factor) * selectCarController.VolumeEffects;//b
 			engineNoThrottleSource.pitch = 0.5f + engineNoThrottlePitchFactor*factor;
-			
-			engineThrottleSource.volume = Mathf.Clamp01(drivetrain.throttle*engineThrottleVolume*factor + engineThrottleVolume*0.2f*factor)* soundVolume.value;//b
+
+      engineThrottleSource.volume = Mathf.Clamp01(drivetrain.throttle * engineThrottleVolume * factor + engineThrottleVolume * 0.2f * factor) * selectCarController.VolumeEffects;//b
 			engineThrottleSource.pitch = 0.5f + engineThrottlePitchFactor*factor;
 			
 			if (drivetrain.clutch!=null){
@@ -178,7 +180,7 @@ public class SoundController : MonoBehaviour
 					float factor1=Mathf.Abs(drivetrain.ratio/drivetrain.lastGearRatio);
 					float mtransmissionVolume=transmissionVolume;
 					if (drivetrain.ratio<0) {mtransmissionVolume=transmissionVolumeReverse;}
-					transmissionSource.volume = Mathf.Clamp01((mtransmissionVolume - (1-drivetrain.throttle)*mtransmissionVolume*0.25f)/factor1)* soundVolume.value;//b
+          transmissionSource.volume = Mathf.Clamp01((mtransmissionVolume - (1 - drivetrain.throttle) * mtransmissionVolume * 0.25f) / factor1) * selectCarController.VolumeEffects;//b
 					transmissionSource.pitch = differentialSpeed*transmissionSourcePitch*factor1;
 							
 					//transmissionSource.volume= mtransmissionVolume+ factor*drivetrain.throttle;
@@ -191,14 +193,14 @@ public class SoundController : MonoBehaviour
 			if (drivetrain.shiftTriggered) {shiftTriggerSource.PlayOneShot(shiftTrigger);drivetrain.shiftTriggered=false;}
 		}
 
-    if (windSource != null) windSource.volume = Mathf.Clamp01(Mathf.Abs(cardynamics.velo) * windVolume * 0.006f * soundVolume.value);//b
+    if (windSource != null) windSource.volume = Mathf.Clamp01(Mathf.Abs(cardynamics.velo) * windVolume * 0.006f * selectCarController.VolumeEffects);//b
 		
 		k=0;
 		rimScraping=false;
 		foreach(Wheel w in axles.allWheels){
 			if (skidSource[k]!=null){
 				skidSource[k].pitch=skidPitchFactor;
-        skidSource[k].volume = Mathf.Clamp(Mathf.Abs(w.slipVelo) * 0.00875f, 0f, skidVolume) * soundVolume.value;//b
+        skidSource[k].volume = Mathf.Clamp(Mathf.Abs(w.slipVelo) * 0.00875f, 0f, skidVolume) * selectCarController.VolumeEffects;//b
 				if (skidSource[k].volume <=0.01f) skidSource[k].volume=0;
 				
 				if (w.rimScraping==true){
@@ -216,21 +218,21 @@ public class SoundController : MonoBehaviour
 					}
 					else if (w.physicMaterial==physicMaterials.grass) {
 						rollingNoiseSource[k].clip=rollingNoiseGrass;
-            rollingNoiseSource[k].volume = Mathf.Clamp01(Mathf.Abs(w.angularVelocity) * 0.01f + Mathf.Abs(w.slipVelo) * 0.035f) * soundVolume.value;//b
+            rollingNoiseSource[k].volume = Mathf.Clamp01(Mathf.Abs(w.angularVelocity) * 0.01f + Mathf.Abs(w.slipVelo) * 0.035f) * selectCarController.VolumeEffects;//b
 						if (!rollingNoiseSource[k].isPlaying) rollingNoiseSource[k].Play();
 						if (rollingNoiseSource[k].volume <=0.01f || !w.onGroundDown) rollingNoiseSource[k].volume =0;
 						skidSource[k].volume=0;
 					}
 					else if (w.physicMaterial ==physicMaterials.sand){
 						rollingNoiseSource[k].clip=rollingNoiseSand;
-            rollingNoiseSource[k].volume = Mathf.Clamp01(Mathf.Abs(w.angularVelocity) * 0.01f + Mathf.Abs(w.slipVelo) * 0.035f) * soundVolume.value;//b;
+            rollingNoiseSource[k].volume = Mathf.Clamp01(Mathf.Abs(w.angularVelocity) * 0.01f + Mathf.Abs(w.slipVelo) * 0.035f) * selectCarController.VolumeEffects;//b;
 						if (!rollingNoiseSource[k].isPlaying) rollingNoiseSource[k].Play();
 						if (rollingNoiseSource[k].volume <=0.01f || !w.onGroundDown) rollingNoiseSource[k].volume =0;
 						skidSource[k].volume=0;
 					}
 					else if (w.physicMaterial ==physicMaterials.offRoad){
 						rollingNoiseSource[k].clip=rollingNoiseOffroad;
-						rollingNoiseSource[k].volume=Mathf.Clamp01(Mathf.Abs(w.angularVelocity)*0.01f + Mathf.Abs(w.slipVelo)*0.035f)* soundVolume.value;//* soundVolume.value
+            rollingNoiseSource[k].volume = Mathf.Clamp01(Mathf.Abs(w.angularVelocity) * 0.01f + Mathf.Abs(w.slipVelo) * 0.035f) * selectCarController.VolumeEffects;//* soundVolume.value
 						if (!rollingNoiseSource[k].isPlaying) rollingNoiseSource[k].Play();
 						if (rollingNoiseSource[k].volume <=0.01f || !w.onGroundDown) rollingNoiseSource[k].volume =0;
 						skidSource[k].volume=0;
@@ -250,15 +252,15 @@ public class SoundController : MonoBehaviour
 				volumeFactor *= Mathf.Clamp01(0.3f + Mathf.Abs(Vector3.Dot(collInfo.relativeVelocity.normalized, collInfo.contacts[0].normal)));
 				//volumeFactor = volumeFactor*0.5f + 0.5f;
 				if(volumeFactor > 0.9f && !crashHiSpeedSource.isPlaying){
-          crashHiSpeedSource.volume = Mathf.Clamp01(volumeFactor * crashHighVolume) * soundVolume.value;//b
+          crashHiSpeedSource.volume = Mathf.Clamp01(volumeFactor * crashHighVolume) * selectCarController.VolumeEffects;//b
 					crashHiSpeedSource.Play();
 				}
 				if (!crashLowSpeedSource.isPlaying){
-          crashLowSpeedSource.volume = Mathf.Clamp01(volumeFactor * crashLowVolume) * soundVolume.value;//b;
+          crashLowSpeedSource.volume = Mathf.Clamp01(volumeFactor * crashLowVolume) * selectCarController.VolumeEffects;//b;
 					crashLowSpeedSource.Play();
 				}
 				if (!scrapeNoiseSource.isPlaying){
-					scrapeNoiseSource.volume=SetScrapeNoiseVolume(collInfo,1)* soundVolume.value;//b
+          scrapeNoiseSource.volume = SetScrapeNoiseVolume(collInfo, 1) * selectCarController.VolumeEffects;//b
 					scrapeNoiseSource.loop=false;
 					scrapeNoiseSource.Play();
 				}
@@ -275,7 +277,7 @@ public class SoundController : MonoBehaviour
 	
 		
 	void OnCollisionStay(Collision collInfo){
-    scrapeNoiseSource.volume = SetScrapeNoiseVolume(collInfo, 10) * soundVolume.value;//b
+    scrapeNoiseSource.volume = SetScrapeNoiseVolume(collInfo, 10) * selectCarController.VolumeEffects;//b
 		scrapeNoiseSource.loop=true;
 		if (!scrapeNoiseSource.isPlaying) scrapeNoiseSource.Play();
 	}

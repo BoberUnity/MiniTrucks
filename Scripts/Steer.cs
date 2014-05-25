@@ -55,17 +55,17 @@ public class Steer : MonoBehaviour
         axisCarController.SteerUsed = -angleNormalize / 180 + 2;
       else
         axisCarController.SteerUsed = -angleNormalize / 180;
-    
+
       if (Input.GetKey("left"))
       {
         angleNormalize = 170;
-        axisCarController.SteerUsed = -0.7f;
+        axisCarController.SteerUsed = -0.9f;
       }
 
       if (Input.GetKey("right"))
       {
         angleNormalize = -170;
-        axisCarController.SteerUsed = 0.7f;
+        axisCarController.SteerUsed = 0.9f;
       }
     }
     

@@ -1199,6 +1199,9 @@ ModelImporter:
     102386: Rock6_LP:polySurface021
     102388: Rock6_LP:polySurface022
     102390: Rock6_LP:polySurface023
+    102392: Gas_station004
+    102394: Line136
+    102396: road_block_invis
     400000: Beach
     400002: Birth 001
     400004: Birth 002
@@ -2395,6 +2398,9 @@ ModelImporter:
     402386: Rock6_LP:polySurface021
     402388: Rock6_LP:polySurface022
     402390: Rock6_LP:polySurface023
+    402392: Gas_station004
+    402394: Line136
+    402396: road_block_invis
     2300000: Beach
     2300002: Box003
     2300004: Bridge_background
@@ -3484,6 +3490,9 @@ ModelImporter:
     2302172: Rock6_LP:polySurface021
     2302174: Rock6_LP:polySurface022
     2302176: Rock6_LP:polySurface023
+    2302178: Gas_station004
+    2302180: Line136
+    2302182: road_block_invis
     3300000: Beach
     3300002: Box003
     3300004: Bridge_background
@@ -4573,6 +4582,9 @@ ModelImporter:
     3302172: Rock6_LP:polySurface021
     3302174: Rock6_LP:polySurface022
     3302176: Rock6_LP:polySurface023
+    3302178: Gas_station004
+    3302180: Line136
+    3302182: road_block_invis
     4300000: grass_1
     4300002: sand_1
     4300004: Lighthouse
@@ -5662,6 +5674,9 @@ ModelImporter:
     4302172: Object232
     4302174: Bridge_1_colider_invis
     4302176: Ft_colider_2_invis
+    4302178: road_block_invis
+    4302180: Gas_station004
+    4302182: Line136
     6400000: Beach
     6400002: Box003
     6400004: Bridge_background
@@ -6751,6 +6766,9 @@ ModelImporter:
     6402172: Rock6_LP:polySurface021
     6402174: Rock6_LP:polySurface022
     6402176: Rock6_LP:polySurface023
+    6402178: Gas_station004
+    6402180: Line136
+    6402182: road_block_invis
     7400000: Take 001
     9500000: //RootNode
   materials:

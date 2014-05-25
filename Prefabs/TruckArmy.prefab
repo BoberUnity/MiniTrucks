@@ -1679,8 +1679,9 @@ MonoBehaviour:
   trailerdragBrake: 1
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
-  firstWaypoint: {fileID: 0}
+  trafic: 0
   rayCar: 0
+  maxSpeed: 0
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1818,7 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: {fileID: 0}
+  selectCarController: {fileID: 0}
   engineThrottle: {fileID: 8300000, guid: 300cea8b51b78724e83b9bc1e375cf2b, type: 3}
   engineThrottleVolume: 1
   engineThrottlePitchFactor: 1.5
@@ -1870,9 +1871,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 200
+  maxPower: 100
   maxPowerRPM: 4000
-  maxTorque: 1100
+  maxTorque: 550
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0

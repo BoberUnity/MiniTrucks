@@ -2647,8 +2647,9 @@ MonoBehaviour:
   trailerdragBrake: 1
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
-  firstWaypoint: {fileID: 0}
+  trafic: 0
   rayCar: 0
+  maxSpeed: 0
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2748,7 +2749,7 @@ MonoBehaviour:
     antiRollBarRate: 0
     brakeFrictionTorque: 30000
     handbrakeFrictionTorque: 30000
-    maxSteeringAngle: 33
+    maxSteeringAngle: 50
     forwardGripFactor: 4
     sidewaysGripFactor: 4
     camber: 0
@@ -2822,7 +2823,7 @@ MonoBehaviour:
     antiRollBarRate: 0
     brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
-    maxSteeringAngle: 17
+    maxSteeringAngle: 25
     forwardGripFactor: 1
     sidewaysGripFactor: 1
     camber: 0
@@ -2842,7 +2843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: {fileID: 0}
+  selectCarController: {fileID: 0}
   engineThrottle: {fileID: 8300000, guid: 300cea8b51b78724e83b9bc1e375cf2b, type: 3}
   engineThrottleVolume: 1
   engineThrottlePitchFactor: 1.5
