@@ -11,6 +11,7 @@ public class SelectCarController : MonoBehaviour
     [SerializeField] private int price = 10000;
     [SerializeField] private int maxSpeed = 80;
     public Material[] Materials = null;
+    [SerializeField] private int tunSpeed = 0;
 
     private int currentMaterial = 0;
     private bool hasBought = false;
@@ -45,6 +46,12 @@ public class SelectCarController : MonoBehaviour
     public int MaxSpeed
     {
       get { return maxSpeed; }
+    }
+
+    public int TunSpeed
+    {
+      get { return tunSpeed; }
+      set { tunSpeed = value; }
     }
   }
 
@@ -169,6 +176,7 @@ public class SelectCarController : MonoBehaviour
       character.transform.parent = podium;
       StartCoroutine(ShowInfoMenu(0.05f));
       ReadRegParam();
+      SetTunningButtons(character.GetComponentInChildren<CameraTarget>());
     }
     buttonUpgradeCar.gameObject.SetActive(false);
     buttonRace2.gameObject.SetActive(false);
@@ -233,6 +241,18 @@ public class SelectCarController : MonoBehaviour
       tractor.GetComponent<AxisCarController>().MaxSpeed = enemyCar[currentCar].MaxSpeed;
       maxSpeedIndicator.text = enemyCar[currentCar].MaxSpeed.ToString("f0");
     }
+
+    if (PlayerPrefs.HasKey("TunSpeed" + currentCar.ToString("f0")))
+    {
+      enemyCar[currentCar].TunSpeed = PlayerPrefs.GetInt("TunSpeed" + currentCar.ToString("f0"));
+      buttonTuningMaxSpeed.TunStep = enemyCar[currentCar].TunSpeed;
+    }
+  }
+
+  public void SetRegParam()//Tunning
+  {
+    enemyCar[currentCar].TunSpeed += 1;
+    PlayerPrefs.SetInt("TunSpeed" + currentCar.ToString("f0"), enemyCar[currentCar].TunSpeed);
   }
 
   public void TunningMaxSpeed()
@@ -370,6 +390,7 @@ public class SelectCarController : MonoBehaviour
     buttonTuningBrake.carDynamics = tractor.GetComponent<CarDynamics>();
     buttonTuningBrake.setup = tractor.GetComponent<Setup>();
     buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
+    buttonTuningMaxSpeed.TunStep = enemyCar[currentCar].TunSpeed;
   }
 
   private void Restart()

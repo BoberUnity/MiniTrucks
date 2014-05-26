@@ -16,11 +16,13 @@ public class ButtonTuning : MonoBehaviour
   public Setup setup = null;
   public CarDynamics carDynamics = null;
   //public Setup setupTrailer = null;
-  
+  public int TunStep = 0;
+
   protected virtual void OnPress(bool isPressed)
   {
-    if (!isPressed)
+    if (!isPressed && TunStep < 5)
     {
+      TunStep += 1;
       if (id == 0)
       {
         drivetrain.maxPower += 100;
@@ -64,6 +66,7 @@ public class ButtonTuning : MonoBehaviour
       {
         selectCarController.TunningMaxSpeed();
         maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
+        selectCarController.SetRegParam();
       }
     }
 	}
