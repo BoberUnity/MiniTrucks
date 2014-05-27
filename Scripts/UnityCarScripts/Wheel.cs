@@ -891,10 +891,16 @@ public class Wheel : MonoBehaviour {
 			}
  			
 			longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
+      //Debug.LogWarning("longitunalSlipVelo= " + longitunalSlipVelo);
 			lateralSlipVelo = Vector3.Dot(wheelVelo, trs.right);//wheelRoadVeloLat;
+      //Debug.LogWarning("lateralSlipVelo= " + lateralSlipVelo);
 			float longSquare=longitunalSlipVelo*longitunalSlipVelo;
 			float latSquare=lateralSlipVelo*lateralSlipVelo;
-			slipVelo = Mathf.Sqrt(longSquare + latSquare);
+      //float sw = Mathf.Sqrt(longSquare + latSquare);//b
+      //if (sw < 6)//b
+      //  slipVelo = sw;//b
+			slipVelo = Mathf.Sqrt(longSquare + latSquare);//bilo tak
+      //Debug.LogWarning("slipVelo= " + slipVelo);
 			slipVeloSmoke=Mathf.Sqrt(longSquare + Mathf.Abs(lateralSlipVelo)*0.001f);
 			
 			if (skidmarks!=null) CalcSkidmarks();
@@ -976,8 +982,10 @@ public class Wheel : MonoBehaviour {
 		return repart*body.mass;
 	}
 	
-	void CalcSkidmarks(){
-		if (slipVelo>slipVeloThreshold){
+	void CalcSkidmarks()
+  {
+		if (slipVelo>slipVeloThreshold)
+    {
 			slipSkidAmount=(slipVelo - slipVeloThreshold)/15;
 			skidmarks.markWidth=width;
 			lastSkid = skidmarks.AddSkidMark(hitDown.point, hitDown.normal, slipSkidAmount,lastSkid);

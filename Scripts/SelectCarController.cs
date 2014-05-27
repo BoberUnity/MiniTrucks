@@ -12,6 +12,12 @@ public class SelectCarController : MonoBehaviour
     [SerializeField] private int maxSpeed = 80;
     public Material[] Materials = null;
     [SerializeField] private int tunSpeed = 0;
+    [SerializeField] private int tunBrake = 0;
+    [SerializeField] private int tunHandling = 0;
+    [SerializeField] private float maxPower = 100;
+    [SerializeField] private float maxTorque = 300;
+    [SerializeField] private float brake = 2500;
+    [SerializeField] private float sideways = 1;
 
     private int currentMaterial = 0;
     private bool hasBought = false;
@@ -53,6 +59,38 @@ public class SelectCarController : MonoBehaviour
       get { return tunSpeed; }
       set { tunSpeed = value; }
     }
+
+    public int TunBrake
+    {
+      get { return tunBrake; }
+      set { tunBrake = value; }
+    }
+
+    public int TunHandling
+    {
+      get { return tunHandling; }
+      set { tunHandling = value; }
+    }
+
+    public float MaxPower
+    {
+      get { return maxPower; }
+    }
+
+    public float MaxTorque
+    {
+      get { return maxTorque; }
+    }
+
+    public float Brake
+    {
+      get { return brake; }
+    }
+
+    public float Sideways
+    {
+      get { return sideways; }
+    }
   }
 
   [SerializeField] private ButtonHandler buttonStart = null;
@@ -75,7 +113,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private ButtonTuning buttonTuningEng = null;
   [SerializeField] private ButtonTuning buttonTuningHand = null;
   [SerializeField] private ButtonTuning buttonTuningBrake = null;
-  [SerializeField] private ButtonTuning buttonTuningMaxSpeed = null;
+  //[SerializeField] private ButtonTuning buttonTuningMaxSpeed = null;
   [SerializeField] private UILabel maxSpeedIndicator = null;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private Map map = null;
@@ -181,9 +219,33 @@ public class SelectCarController : MonoBehaviour
     buttonUpgradeCar.gameObject.SetActive(false);
     buttonRace2.gameObject.SetActive(false);
     buttonBuyCar.gameObject.SetActive(true);
+    if (!enemyCar[currentCar].HasBought)
+    {
+      ResetTunning();
+    }
     priceIndicator.text = enemyCar[0].Price.ToString("f0");
     nameIndicator.text = enemyCar[0].TruckName;
     maxSpeedIndicator.text = enemyCar[0].MaxSpeed.ToString("f0");
+  }
+
+  private void ResetTunning()
+  {
+    CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();
+    Drivetrain drivetrain = tractor.GetComponent<Drivetrain>();
+    drivetrain.maxPower = enemyCar[currentCar].MaxPower;
+    drivetrain.maxTorque = enemyCar[currentCar].MaxTorque;
+    drivetrain.maxPower = enemyCar[currentCar].MaxPower;
+    Axles axles = tractor.GetComponent<Axles>();
+    axles.frontAxle.sidewaysGripFactor = enemyCar[currentCar].Sideways;
+    axles.rearAxle.sidewaysGripFactor = enemyCar[currentCar].Sideways;
+    axles.frontAxle.brakeFrictionTorque = enemyCar[currentCar].Brake;
+    axles.rearAxle.brakeFrictionTorque = enemyCar[currentCar].Brake;
+    foreach (Axle axle in axles.otherAxles)
+    {
+      axle.sidewaysGripFactor = enemyCar[currentCar].Sideways;
+      axle.brakeFrictionTorque = enemyCar[currentCar].Brake;
+    }
+    tractor.GetComponent<Setup>().SaveSetup();
   }
 
   private IEnumerator ShowInfoMenu(float time)
@@ -212,7 +274,6 @@ public class SelectCarController : MonoBehaviour
         raceStart.axisCarController = tractorACC;
       StartCoroutine(ShowInfoMenu(0.05f));
       ReadRegParam();
-      
       SetTunningButtons(character.GetComponentInChildren<CameraTarget>());
     }
     buttonUpgradeCar.gameObject.SetActive(enemyCar[currentCar].HasBought);
@@ -220,6 +281,10 @@ public class SelectCarController : MonoBehaviour
     buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
     priceIndicator.text = enemyCar[currentCar].Price.ToString("f0");
     nameIndicator.text = enemyCar[currentCar].TruckName;
+    if (!enemyCar[currentCar].HasBought)
+    {
+      ResetTunning();
+    }
   }
 
   private void ReadRegParam()
@@ -245,14 +310,38 @@ public class SelectCarController : MonoBehaviour
     if (PlayerPrefs.HasKey("TunSpeed" + currentCar.ToString("f0")))
     {
       enemyCar[currentCar].TunSpeed = PlayerPrefs.GetInt("TunSpeed" + currentCar.ToString("f0"));
-      buttonTuningMaxSpeed.TunStep = enemyCar[currentCar].TunSpeed;
+      buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
+    }
+
+    if (PlayerPrefs.HasKey("TunBrake" + currentCar.ToString("f0")))
+    {
+      enemyCar[currentCar].TunBrake = PlayerPrefs.GetInt("TunBrake" + currentCar.ToString("f0"));
+      buttonTuningBrake.TunStep = enemyCar[currentCar].TunBrake;
+    }
+
+    if (PlayerPrefs.HasKey("TunHandling" + currentCar.ToString("f0")))
+    {
+      enemyCar[currentCar].TunHandling = PlayerPrefs.GetInt("TunHandling" + currentCar.ToString("f0"));
+      buttonTuningHand.TunStep = enemyCar[currentCar].TunHandling;
     }
   }
 
-  public void SetRegParam()//Tunning
+  public void SetRegParamSpeed()//Tunning
   {
     enemyCar[currentCar].TunSpeed += 1;
     PlayerPrefs.SetInt("TunSpeed" + currentCar.ToString("f0"), enemyCar[currentCar].TunSpeed);
+  }
+
+  public void SetRegParamBrake()//Tunning
+  {
+    enemyCar[currentCar].TunBrake += 1;
+    PlayerPrefs.SetInt("TunBrake" + currentCar.ToString("f0"), enemyCar[currentCar].TunBrake);
+  }
+
+  public void SetRegParamHandling()//Tunning
+  {
+    enemyCar[currentCar].TunHandling += 1;
+    PlayerPrefs.SetInt("TunHandling" + currentCar.ToString("f0"), enemyCar[currentCar].TunHandling);
   }
 
   public void TunningMaxSpeed()
@@ -363,7 +452,7 @@ public class SelectCarController : MonoBehaviour
       buttonRulLeft.axisCarController = aCC;
       buttonBrake.axisCarController = aCC;
       buttonNitro.axisCarController = aCC;
-      SetTunningButtons(tractor);
+      //SetTunningButtons(tractor);
       map.Truck = tractor.transform;
       
       if (raceStart != null)//Если заходили в гагаж и меню станции
@@ -389,8 +478,8 @@ public class SelectCarController : MonoBehaviour
     buttonTuningBrake.axles = tractor.GetComponent<Axles>();
     buttonTuningBrake.carDynamics = tractor.GetComponent<CarDynamics>();
     buttonTuningBrake.setup = tractor.GetComponent<Setup>();
-    buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
-    buttonTuningMaxSpeed.TunStep = enemyCar[currentCar].TunSpeed;
+    //buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
+    buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
   }
 
   private void Restart()

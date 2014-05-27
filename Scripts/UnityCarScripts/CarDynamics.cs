@@ -124,8 +124,9 @@ public class CarDynamics : MonoBehaviour {
 	
 	public float GetCentrifugalAccel(){
 		float val = 0f;
-		foreach(Wheel w in axles.allWheels){
-			val += w.Fy;
+		foreach(Wheel w in axles.allWheels)
+    {
+		  val += w.Fy;
 		}
 		return val*invAllWheelsLength/rigidbody.mass; // doesnt work with variable body
 	}
@@ -157,6 +158,7 @@ public class CarDynamics : MonoBehaviour {
 		//otherWheels=axles.otherWheels;
 		//axles.allWheels=axles.axles.allWheels;
 		invAllWheelsLength=1f/axles.allWheels.Length;
+    //Debug.LogWarning("inv= " + invAllWheelsLength);
 		fixedTimeStepScalar=0.02f/Time.fixedDeltaTime;
 		invFixedTimeStepScalar=1/fixedTimeStepScalar;		
 	}
@@ -573,14 +575,16 @@ public class CarDynamics : MonoBehaviour {
 			//forceFeedback = 0.5f*(axles.frontAxle[0].Mz  + axles.frontAxle[0].Mz);
 		}
 	}
-	
-	public float SlipVelo() {
-		float val = 0f;
-		foreach(Wheel w in axles.allWheels){
-			val += w.slipVelo;
-		}
-		return val*invAllWheelsLength;
-	}
+
+  public float SlipVelo()
+  {
+    float val = 0f;
+    foreach (Wheel w in axles.allWheels)
+    {
+      val += w.slipVelo;
+    }
+    return val * invAllWheelsLength;
+  }
 	
 	public bool AllWheelsOnGround(){
 		bool onGround=false;

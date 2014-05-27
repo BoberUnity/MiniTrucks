@@ -1,5 +1,5 @@
 [body]
-weight=2500
+weight=3000
 weightRepartition=1
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=300
+maxPower=400
 maxPowerRPM=4000
-maxTorque=2500
+maxTorque=2000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -53,7 +53,7 @@ fastBumpFactor=1
 fastReboundFactor=1
 camber=0
 antiRollBarRate=0
-maxSteeringAngle=50
+maxSteeringAngle=33
 
 [suspensions-rearAxle]
 suspensionTravel=0.2
@@ -77,31 +77,16 @@ camber=0
 antiRollBarRate=0
 maxSteeringAngle=0
 
-[suspensions-otherAxle2]
-suspensionTravel=0.4
-suspensionRate=30000
-bumpRate=6000
-reboundRate=12000
-fastBumpFactor=1
-fastReboundFactor=1
-camber=0
-antiRollBarRate=0
-maxSteeringAngle=25
-
 [brakes-frontAxle]
-brakeFrictionTorque=30000
+brakeFrictionTorque=5000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=30000
+BrakeFrictionTorque=5000
 HandbrakeFrictionTorque=4000
 
 [brakes-otherAxle1]
-brakeFrictionTorque=30000
-handbrakeFrictionTorque=4000
-
-[brakes-otherAxle2]
-brakeFrictionTorque=4000
+brakeFrictionTorque=5000
 handbrakeFrictionTorque=4000
 
 [brakes]
@@ -109,30 +94,23 @@ frontRearBrakeBalance=0.5
 frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
-tireType=truck_front
+tireType=supersport_front
 forwardGripFactor=4
-sidewaysGripFactor=4
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
-tireType=truck_rear
+tireType=supersport_rear
 forwardGripFactor=4
-sidewaysGripFactor=4
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
-tireType=truck_rear
+tireType=supersport_rear
 forwardGripFactor=4
-sidewaysGripFactor=4
-tiresPressure=0
-optimalTiresPressure=800
-
-[tires-otherAxle2]
-tireType=truck_rear
-forwardGripFactor=1
-sidewaysGripFactor=1
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 
@@ -170,18 +148,6 @@ width=0.345
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
-
-[wheels-otherAxle2-left]
-mass=80
-radius=0.55
-rimRadius=0.3
-width=0.345
-
-[wheels-otherAxle2-right]
-mass=80
-radius=0.55
-rimRadius=0.3
 width=0.345
 
 [controllerType]
