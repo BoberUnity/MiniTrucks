@@ -140,49 +140,49 @@ optimalTiresPressure=800
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-frontAxle-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-rearAxle-left]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-rearAxle-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-otherAxle1-left]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-otherAxle1-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.345
+width=0.6
 
 [wheels-otherAxle2-left]
 mass=80
 radius=0.55
 rimRadius=0.3
-width=0.345
+width=0.6
 
 [wheels-otherAxle2-right]
 mass=80
 radius=0.55
 rimRadius=0.3
-width=0.345
+width=0.6
 
 [controllerType]
 controller=axis

@@ -1231,6 +1231,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1361,6 +1362,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1676,6 +1678,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1806,6 +1809,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1936,6 +1940,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2066,6 +2071,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2259,11 +2265,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2284,11 +2290,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2309,11 +2315,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2383,9 +2389,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 1500
+  maxPower: 400
   maxPowerRPM: 4000
-  maxTorque: 8100
+  maxTorque: 2000
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0

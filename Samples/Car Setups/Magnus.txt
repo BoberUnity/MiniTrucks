@@ -1,6 +1,6 @@
 [body]
 weight=3000
-weightRepartition=0.34
+weightRepartition=0.57
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=2618
+clutchMaxTorque=1532
 autoClutch=True
 engageRPM=800
 disengageRPM=500
@@ -81,14 +81,14 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=supersport_front
 forwardGripFactor=4
-sidewaysGripFactor=1
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
 forwardGripFactor=4
-sidewaysGripFactor=1
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=100
 

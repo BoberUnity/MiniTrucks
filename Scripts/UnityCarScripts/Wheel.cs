@@ -189,7 +189,7 @@ public class Wheel : MonoBehaviour {
 	[HideInInspector]
 	public float slipVelo;
 	float slipVeloSmoke;
-	float slipVeloThreshold=4;
+	[SerializeField] private float slipVeloThreshold=10;
 	
 	[HideInInspector]
 	public float slipRatio;
@@ -707,7 +707,7 @@ public class Wheel : MonoBehaviour {
 		Debug.DrawRay(hitDown.point, latForce/1000,Color.blue);
 	}	
 	
-	void FixedUpdate() {
+  	void FixedUpdate() {
 		velo=cardynamics.velo*3.6f;
 		pos = myTransform.position;
 		
@@ -860,7 +860,7 @@ public class Wheel : MonoBehaviour {
 				float forceLateral=latGravityForce;
 				if (staticFrictionForce<Mathf.Abs(latGravityForce)) forceLateral=staticFrictionForce*Mathf.Sign(latGravityForce);
 				body.AddForceAtPosition(forceLateral*-rNormal, modelPosition);
-				Debug.DrawRay(modelPosition, forceLateral*-rNormal/1000,Color.white);
+				//Debug.DrawRay(modelPosition, forceLateral*-rNormal/1000,Color.white);
 
 				//longitudinal tire static friction
  				if (velocitySqrMagnitude<1 && (brake!=0 || handbrake!=0)){
@@ -886,7 +886,7 @@ public class Wheel : MonoBehaviour {
 					float forceForward=forwardGravityForce;
 					if (forwardFrictionForce<Mathf.Abs(forwardGravityForce)) forceForward=forwardFrictionForce*Mathf.Sign(forwardGravityForce);
 					body.AddForceAtPosition(forceForward*fNormal*Mathf.Max(brake,handbrake), modelPosition);
-					Debug.DrawRay(modelPosition, forceForward*fNormal*Mathf.Max(brake,handbrake)/1000,Color.yellow);
+					//Debug.DrawRay(modelPosition, forceForward*fNormal*Mathf.Max(brake,handbrake)/1000,Color.yellow);
 				}
 			}
  			
@@ -984,7 +984,9 @@ public class Wheel : MonoBehaviour {
 	
 	void CalcSkidmarks()
   {
-		if (slipVelo>slipVeloThreshold)
+    //Debug.LogWarning("SlipVelo " + slipVelo);
+    //Debug.LogWarning("slipVeloThreshold " + slipVeloThreshold);
+    if (slipVelo>slipVeloThreshold)
     {
 			slipSkidAmount=(slipVelo - slipVeloThreshold)/15;
 			skidmarks.markWidth=width;

@@ -1563,7 +1563,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -1640,6 +1640,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1693,7 +1694,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -1770,6 +1771,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1823,7 +1825,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -1900,6 +1902,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1953,7 +1956,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -2030,6 +2033,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2083,7 +2087,7 @@ MonoBehaviour:
   mass: 80
   radius: .550000012
   rimRadius: .300000012
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -2160,6 +2164,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2213,7 +2218,7 @@ MonoBehaviour:
   mass: 80
   radius: .550000012
   rimRadius: .300000012
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -2290,6 +2295,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2343,7 +2349,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -2420,6 +2426,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2473,7 +2480,7 @@ MonoBehaviour:
   mass: 80
   radius: .649999976
   rimRadius: .400000006
-  width: .344999999
+  width: .5
   suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
@@ -2550,6 +2557,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 16
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2747,11 +2755,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 50
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2772,11 +2780,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2797,11 +2805,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 30000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2821,11 +2829,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 4000
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 25
     forwardGripFactor: 1
-    sidewaysGripFactor: 1
+    sidewaysGripFactor: 2
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2895,7 +2903,7 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 300
+  maxPower: 500
   maxPowerRPM: 4000
   maxTorque: 2500
   maxTorqueRPM: 1700

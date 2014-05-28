@@ -657,6 +657,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100080
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400080}
+  - 33: {fileID: 3300020}
+  - 23: {fileID: 2300020}
+  - 114: {fileID: 11400048}
+  m_Layer: 0
+  m_Name: RenderContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100090
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +896,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.400000006, z: -.100000001}
+  m_LocalPosition: {x: 0, y: -.5, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -907,6 +925,7 @@ Transform:
   - {fileID: 400034}
   - {fileID: 400032}
   - {fileID: 400030}
+  - {fileID: 400080}
   - {fileID: 400028}
   - {fileID: 400026}
   m_Father: {fileID: 400090}
@@ -1130,7 +1149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -.5}
+  m_LocalPosition: {x: 0, y: .800000012, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400078}
@@ -1150,6 +1169,17 @@ Transform:
   - {fileID: 400070}
   - {fileID: 400068}
   m_Father: {fileID: 400090}
+--- !u!4 &400080
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_LocalRotation: {x: 0, y: -1, z: 1.33158053e-07, w: 0}
+  m_LocalPosition: {x: -2.43906188, y: 3.65853667, z: 3.86354876}
+  m_LocalScale: {x: 8.53658485, y: 8.53658581, z: 8.53658485}
+  m_Children: []
+  m_Father: {fileID: 400038}
 --- !u!4 &400090
 Transform:
   m_ObjectHideFlags: 1
@@ -1373,6 +1403,27 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
+--- !u!23 &2300020
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 8e52a0899819c124e91bf95d898e2ff6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1443,6 +1494,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100058}
   m_Mesh: {fileID: 4300000, guid: 5700a4acc8d0f1646b0783963e7b2cb2, type: 3}
+--- !u!33 &3300020
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_Mesh: {fileID: 4300000, guid: 0db898534fe792046bb70d4c78c6458e, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -2532,9 +2590,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 600
+  maxPower: 300
   maxPowerRPM: 4000
-  maxTorque: 3400
+  maxTorque: 1700
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2642,7 +2700,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -.400000006
+  ylocalPosition: -.5
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -3170,7 +3228,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.5
   zlocalPosition_orig: 0
-  ylocalPosition: 1
+  ylocalPosition: .800000012
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -3242,6 +3300,18 @@ MonoBehaviour:
     tiresPressure: 250
     optimalTiresPressure: 300
   otherAxles: []
+--- !u!114 &11400048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661616d56ce03ec46a962f10d34fd89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailer: {fileID: 5400004}
 --- !u!144 &14400000
 CharacterJoint:
   m_ObjectHideFlags: 1
