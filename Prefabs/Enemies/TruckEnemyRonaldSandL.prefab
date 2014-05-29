@@ -189,10 +189,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400022}
-  - 54: {fileID: 5400002}
   - 65: {fileID: 6500006}
-  m_Layer: 17
-  m_Name: DummyTrailer
+  m_Layer: 0
+  m_Name: BigCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +439,6 @@ GameObject:
   - 114: {fileID: 11400040}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400016}
-  - 114: {fileID: 11400012}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400008}
   m_Layer: 17
@@ -583,22 +581,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100070
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400070}
-  - 114: {fileID: 11400050}
-  m_Layer: 17
-  m_Name: DashBoard
-  m_TagString: Dashboard
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100072
 GameObject:
   m_ObjectHideFlags: 1
@@ -713,7 +695,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0604395568, y: .29193601, z: 1.58311796}
+  m_LocalPosition: {x: .0604395829, y: 1.51144826, z: 1.58311856}
   m_LocalScale: {x: 1.25397551, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -748,7 +730,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.23891223e-15, y: 2, z: -2.00000072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -805,7 +787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.74227766e-08, y: .370000005, z: -1}
+  m_LocalPosition: {x: 0, y: .370000035, z: -5.36000204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400020}
@@ -832,7 +814,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.21951222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -857,9 +839,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
-  m_LocalRotation: {x: 3.09086197e-08, y: -.707106829, z: -.707106829, w: -3.09086197e-08}
-  m_LocalPosition: {x: -.200000003, y: 2.79999995, z: .536774039}
-  m_LocalScale: {x: 3.5999999, y: 3.5999999, z: 3.5999999}
+  m_LocalRotation: {x: 3.12999617e-08, y: -.707106829, z: -.707106829, w: -3.12999617e-08}
+  m_LocalPosition: {x: -.199997887, y: 2.79999995, z: -3.82322717}
+  m_LocalScale: {x: 3.59999967, y: 3.60000014, z: 3.5999999}
   m_Children: []
   m_Father: {fileID: 400052}
 --- !u!4 &400042
@@ -882,16 +864,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .819999993, y: .819999993, z: .819999993}
   m_Children:
-  - {fileID: 400046}
   - {fileID: 400022}
+  - {fileID: 400046}
+  - {fileID: 400016}
   - {fileID: 400068}
   - {fileID: 400064}
   - {fileID: 400036}
-  - {fileID: 400016}
-  - {fileID: 400070}
   m_Father: {fileID: 400042}
 --- !u!4 &400046
 Transform:
@@ -900,7 +881,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: -.100000001}
+  m_LocalPosition: {x: 0, y: .5, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -911,7 +892,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -5.36000204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400066}
@@ -925,7 +906,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .800000012, z: -.5}
+  m_LocalPosition: {x: 0, y: .5, z: -3.4000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400052}
@@ -936,7 +917,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   m_LocalRotation: {x: 0, y: -2.5288108e-07, z: 0, w: -1}
-  m_LocalPosition: {x: -0, y: 0, z: -3.5751996}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: .819999993, y: .819999993, z: .819999993}
   m_Children:
   - {fileID: 400040}
@@ -1008,8 +989,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 1.63561786e-08, y: -.707106888, z: 1.63561786e-08, w: .707106769}
-  m_LocalPosition: {x: -0, y: 1.01334643, z: .121325985}
-  m_LocalScale: {x: 3.65853596, y: 3.65853667, z: 3.45680809}
+  m_LocalPosition: {x: -0, y: 2.23285866, z: .121326059}
+  m_LocalScale: {x: 3.65853643, y: 3.65853667, z: 3.45680833}
   m_Children: []
   m_Father: {fileID: 400044}
 --- !u!4 &400066
@@ -1030,19 +1011,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: -1, z: 1.33158053e-07, w: 0}
-  m_LocalPosition: {x: -2.4390626, y: -1217.07324, z: 3.86354995}
+  m_LocalPosition: {x: -2.43906426, y: 4.5, z: 3.86355257}
   m_LocalScale: {x: 8.53658485, y: 8.53658581, z: 8.53658485}
-  m_Children: []
-  m_Father: {fileID: 400044}
---- !u!4 &400070
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
 --- !u!4 &400072
@@ -1372,27 +1342,12 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   serializedVersion: 2
-  m_Mass: 1500
+  m_Mass: 999.999817
   m_Drag: .200000003
   m_AngularDrag: 80
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400002
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  serializedVersion: 2
-  m_Mass: 9.99999975e-05
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!54 &5400004
@@ -1445,18 +1400,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: .600000024, z: 5.80000019}
-  m_Center: {x: 0, y: -.100000001, z: .100000001}
+  m_Center: {x: 0, y: 1, z: .100000001}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
-  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .100000001}
+  m_Size: {x: 2.5, y: 3, z: 9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500008
 BoxCollider:
@@ -1619,6 +1574,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1749,6 +1705,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1879,6 +1836,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2009,6 +1967,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2041,7 +2000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSetup: 0
   savingSetup: 0
-  filePath: Assets\Samples\Car Setups\EnemyTrailer.txt
+  filePath: Assets\Samples\Car Setups\EnemyTrailerSand.txt
   usePersistentDataPath: 0
 --- !u!114 &11400010
 MonoBehaviour:
@@ -2154,6 +2113,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2173,53 +2133,6 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectCarController: {fileID: 0}
-  engineThrottle: {fileID: 0}
-  engineThrottleVolume: .349999994
-  engineThrottlePitchFactor: 1
-  engineNoThrottle: {fileID: 0}
-  engineNoThrottleVolume: .349999994
-  engineNoThrottlePitchFactor: 1
-  startEngine: {fileID: 0}
-  startEngineVolume: 1
-  startEnginePitch: 1
-  enginePosition: {fileID: 0}
-  transmission: {fileID: 0}
-  transmissionVolume: .5
-  transmissionVolumeReverse: .5
-  transmissionSourcePitch: 1
-  brakeNoise: {fileID: 8300000, guid: aa3819cf45121ff4e979ff6839114894, type: 3}
-  brakeNoiseVolume: .200000003
-  skid: {fileID: 8300000, guid: 3d588ef063fc6154e93dd8e62b759693, type: 3}
-  skidVolume: 1
-  skidPitchFactor: 1
-  crashHiSpeed: {fileID: 8300000, guid: a835cf62b1f2d8547afe15d7f5e0d273, type: 3}
-  crashHighVolume: .75
-  crashLowSpeed: {fileID: 8300000, guid: eb5ca72512e7def4cb575d9c61d89948, type: 3}
-  crashLowVolume: .699999988
-  scrapeNoise: {fileID: 8300000, guid: 07bc0f08e7dc453468f3db64061c1d25, type: 3}
-  scrapeNoiseVolume: 1
-  ABSTrigger: {fileID: 8300000, guid: f43a89fd4bd3f3e4daef090c81b32a38, type: 3}
-  ABSTriggerVolume: .200000003
-  shiftTrigger: {fileID: 8300000, guid: f54def1ccae9f2645bc4d2d427327fbe, type: 3}
-  shiftTriggerVolume: 1
-  wind: {fileID: 8300000, guid: 48515701a05463442ada2bcfd60a1234, type: 3}
-  windVolume: 1
-  rollingNoiseGrass: {fileID: 8300000, guid: a2d752e186492ed40965fc91a41f5ce7, type: 3}
-  rollingNoiseSand: {fileID: 8300000, guid: 5e587b5787f0f98408b244a71d2ad15d, type: 3}
-  rollingNoiseOffroad: {fileID: 8300000, guid: abe9263ffed737d47918bc41e55544f1, type: 3}
-  carController: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2331,6 +2244,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2466,7 +2380,7 @@ MonoBehaviour:
   InStation: 0
   speedKoeff: 1.10000002
   trailerdragFree: .200000003
-  trailerdragBrake: 3
+  trailerdragBrake: 4
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
   trafic: 0
@@ -2565,7 +2479,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
     forwardGripFactor: 2
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 6
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2590,7 +2504,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 2
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 6
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2627,9 +2541,9 @@ MonoBehaviour:
   skidmarks: {fileID: 0}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: -.5
+  zlocalPosition: -3.4000001
   zlocalPosition_orig: 0
-  ylocalPosition: .800000012
+  ylocalPosition: .5
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -2759,7 +2673,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -.5
+  ylocalPosition: .5
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -2857,6 +2771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailer: {fileID: 5400000}
+  bigCollider: {fileID: 6500006}
+  axisCarController: {fileID: 11400022}
+  connectPosition: {x: 0, y: .409999996, z: -1.70000005}
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2968,6 +2885,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -3098,6 +3016,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -3117,176 +3036,6 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
---- !u!114 &11400050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219b4e9f11fafbf45bf40d9fe030d37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depth: 2
-  tachoMeter: {fileID: 2800000, guid: 64b968257504965449dea9af7aceaa48, type: 3}
-  tachoMeterDisabled: 0
-  tachoMeterPosition: {x: -12.4045639, y: -46.2415047}
-  tachoMeterDocking: 0
-  tachoMeterDimension: 1
-  tachoMeterNeedle: {fileID: 2800000, guid: 192a08768c36952488c2036415ec89c9, type: 3}
-  tachoMeterNeedleSize: {x: 20, y: 182.006348}
-  tachoMeterNeedleAngle: 54.2804413
-  RPMFactor: .467999995
-  speedoMeter: {fileID: 2800000, guid: 3e23ac29bc4652640a3a2e8ce95ddb2c, type: 3}
-  speedoMeterDisabled: 0
-  speedoMeterPosition: {x: 0, y: -41.3397484}
-  speedoMeterDocking: 1
-  speedoMeterDimension: 1
-  speedoMeterNeedle: {fileID: 2800000, guid: 192a08768c36952488c2036415ec89c9, type: 3}
-  speedoMeterNeedleSize: {x: 20, y: 188.384262}
-  speedoMeterNeedleAngle: 43.8875237
-  speedoMeterFactor: 1.89999998
-  speedoMeterType: 0
-  digitalSpeedoUnit: 1
-  digitalSpeedoStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .968627453, g: .952941179, b: .968627453, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
-    m_FontStyle: 0
-    m_Alignment: 5
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  digitalSpeedoPosition: {x: 116.567719, y: 0}
-  digitalSpeedoDocking: 1
-  gearMonitorStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .968627453, g: .952941179, b: .968627453, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
-    m_FontStyle: 1
-    m_Alignment: 4
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  gearMonitorPosition: {x: 95.2057495, y: 66.9524536}
-  gearMonitorDocking: 0
-  clutchMonitor: {fileID: 2800000, guid: fec0c81f50324bd45b81d0372b2f5e49, type: 3}
-  throttleMonitor: {fileID: 2800000, guid: bd7a121f008155a4ca4815bf100fb37e, type: 3}
-  brakeMonitor: {fileID: 2800000, guid: 8dfa64ed093e9954e8a2e73be8e0a973, type: 3}
-  pedalsMonitorPosition: {x: 0, y: 0}
-  ABS: {fileID: 2800000, guid: 95a099b12d8ea184a8597d8cb7a6745c, type: 3}
-  TCS: {fileID: 2800000, guid: fcadd33bb9dbbca4686522b3e9149c6f, type: 3}
-  ESP: {fileID: 2800000, guid: 8d27c0f1018fdd941866d202878e7441, type: 3}
-  dashboardLightsPosition: {x: 74.0787354, y: 24.3450432}
-  dashboardLightsDocking: 0
-  dashboardLightsDimension: .767279446
-  digitalSpeedoOnBoard: {fileID: 0}
-  digitalGearOnBoard: {fileID: 0}
-  tachoMeterNeedleOnBoard: {fileID: 0}
-  speedoMeterNeedleOnBoard: {fileID: 0}
-  showGUIDashboard: 1
-  carController: {fileID: 0}
 --- !u!144 &14400000
 CharacterJoint:
   m_ObjectHideFlags: 1
@@ -3297,7 +3046,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: .400000006, z: -1.70000005}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.34532695e-06, y: 1.61951232, z: 2.65999913}
+  m_ConnectedAnchor: {x: 8.59795875e-07, y: .400000006, z: -1.70000041}
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_LowTwistLimit:
     limit: -20

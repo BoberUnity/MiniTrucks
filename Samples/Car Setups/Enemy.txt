@@ -1,7 +1,7 @@
 [body]
 weight=2000
 weightRepartition=0.75
-centerOfMass=(0.0, -0.5, -0.1)
+centerOfMass=(0.0, 0.5, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
@@ -81,14 +81,14 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=supersport_front
 forwardGripFactor=2
-sidewaysGripFactor=4
+sidewaysGripFactor=6
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
 forwardGripFactor=2
-sidewaysGripFactor=4
+sidewaysGripFactor=6
 tiresPressure=0
 optimalTiresPressure=100
 

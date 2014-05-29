@@ -40,9 +40,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  - 114: {fileID: 11400010}
   m_Layer: 17
-  m_Name: WheelFL
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,10 +188,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400022}
-  - 54: {fileID: 5400002}
-  - 65: {fileID: 6500006}
   m_Layer: 17
-  m_Name: DummyTrailer
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,9 +219,10 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400026}
+  - 4: {fileID: 400036}
+  - 114: {fileID: 11400010}
   m_Layer: 17
-  m_Name: Center
+  m_Name: WheelRR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,8 +250,8 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400030}
-  - 114: {fileID: 11400014}
+  - 4: {fileID: 400046}
+  - 114: {fileID: 11400012}
   m_Layer: 17
   m_Name: WheelRL
   m_TagString: Untagged
@@ -271,7 +269,7 @@ GameObject:
   - 4: {fileID: 400050}
   m_Layer: 17
   m_Name: COG
-  m_TagString: Untagged
+  m_TagString: COG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,10 +296,11 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400036}
+  - 4: {fileID: 400054}
+  - 114: {fileID: 11400014}
   m_Layer: 17
-  m_Name: Wheels
-  m_TagString: COG
+  m_Name: WheelFR
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +332,7 @@ GameObject:
   - 4: {fileID: 400032}
   m_Layer: 17
   m_Name: Wheels
-  m_TagString: Untagged
+  m_TagString: COG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,10 +387,11 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400046}
+  - 4: {fileID: 400026}
+  - 65: {fileID: 6500006}
   m_Layer: 17
-  m_Name: COG
-  m_TagString: COG
+  m_Name: collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +440,6 @@ GameObject:
   - 114: {fileID: 11400040}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400016}
-  - 114: {fileID: 11400012}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400008}
   m_Layer: 17
@@ -457,7 +456,7 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400054}
+  - 4: {fileID: 400030}
   - 65: {fileID: 6500008}
   m_Layer: 17
   m_Name: collider
@@ -490,10 +489,9 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400058}
-  - 114: {fileID: 11400044}
+  - 4: {fileID: 400062}
   m_Layer: 17
-  m_Name: WheelRR
+  m_Name: COG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,9 +505,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400060}
-  - 65: {fileID: 6500010}
   m_Layer: 17
-  m_Name: collider
+  m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,10 +519,10 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400062}
-  - 114: {fileID: 11400048}
+  - 4: {fileID: 400058}
+  - 114: {fileID: 11400044}
   m_Layer: 17
-  m_Name: WheelFR
+  m_Name: WheelFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,7 +571,6 @@ GameObject:
   - 4: {fileID: 400068}
   - 33: {fileID: 3300020}
   - 23: {fileID: 2300020}
-  - 95: {fileID: 9500000}
   - 114: {fileID: 11400042}
   m_Layer: 0
   m_Name: RenderContainer
@@ -591,24 +587,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400070}
-  - 114: {fileID: 11400050}
-  m_Layer: 17
-  m_Name: DashBoard
-  m_TagString: Dashboard
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &100072
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400072}
-  m_Layer: 17
-  m_Name: Center
+  - 65: {fileID: 6500010}
+  m_Layer: 0
+  m_Name: BigCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +605,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: -3.5999999, y: -3.5999999, z: -3.5999999}
   m_Children: []
-  m_Father: {fileID: 400012}
+  m_Father: {fileID: 400036}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -636,7 +617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400024}
-  m_Father: {fileID: 400030}
+  m_Father: {fileID: 400014}
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -644,11 +625,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -.550000012, z: 1.08000004}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400034}
-  m_Father: {fileID: 400036}
+  - {fileID: 400056}
+  m_Father: {fileID: 400018}
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -659,7 +640,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -2.43902445, y: -2.43902445, z: -2.30453873}
   m_Children: []
-  m_Father: {fileID: 400072}
+  m_Father: {fileID: 400034}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -670,7 +651,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5999999, y: 3.5999999, z: 3.5999999}
   m_Children: []
-  m_Father: {fileID: 400014}
+  m_Father: {fileID: 400046}
 --- !u!4 &400010
 Transform:
   m_ObjectHideFlags: 1
@@ -681,7 +662,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: -3.5999999, y: -3.5999999, z: -3.5999999}
   m_Children: []
-  m_Father: {fileID: 400018}
+  m_Father: {fileID: 400054}
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -689,10 +670,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .850001097, y: .378779292, z: -.0599999987}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: -.449999988, z: -1.70000005}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
-  - {fileID: 400000}
+  - {fileID: 400034}
   m_Father: {fileID: 400032}
 --- !u!4 &400014
 Transform:
@@ -701,10 +682,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.850000083, y: .378779292, z: -.0599999987}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.00000882, y: -.449999988, z: -1.70000005}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
-  - {fileID: 400008}
+  - {fileID: 400002}
   m_Father: {fileID: 400032}
 --- !u!4 &400016
 Transform:
@@ -713,7 +694,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0604395568, y: .29193601, z: 1.58311796}
+  m_LocalPosition: {x: .0604395829, y: 1.51144826, z: 1.58311856}
   m_LocalScale: {x: 1.25397551, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -724,10 +705,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .850002587, y: .378779292, z: 1.43839765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: -.550000012, z: 1.08000004}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
-  - {fileID: 400010}
+  - {fileID: 400004}
   m_Father: {fileID: 400032}
 --- !u!4 &400020
 Transform:
@@ -736,10 +717,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.850000083, y: .378779292, z: 1.45951843}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1, y: -.550000012, z: 1.08000004}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
-  - {fileID: 400028}
+  - {fileID: 400022}
   m_Father: {fileID: 400032}
 --- !u!4 &400022
 Transform:
@@ -750,8 +731,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400044}
+  m_Children:
+  - {fileID: 400038}
+  m_Father: {fileID: 400020}
 --- !u!4 &400024
 Transform:
   m_ObjectHideFlags: 1
@@ -768,13 +750,12 @@ Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 100046}
+  m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: .638404846, z: .801633716}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400056}
-  m_Father: {fileID: 400062}
+  m_Children: []
+  m_Father: {fileID: 400048}
 --- !u!4 &400028
 Transform:
   m_ObjectHideFlags: 1
@@ -785,19 +766,18 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 3.5999999, y: 3.5999999, z: 3.5999999}
   m_Children: []
-  m_Father: {fileID: 400020}
+  m_Father: {fileID: 400058}
 --- !u!4 &400030
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.00000882, y: -.449999988, z: -1.70000005}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_Children:
-  - {fileID: 400002}
-  m_Father: {fileID: 400036}
+  m_GameObject: {fileID: 100054}
+  m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
+  m_LocalPosition: {x: 1.23155663e-13, y: 2.53999996, z: 1.69999981}
+  m_LocalScale: {x: 2, y: 2, z: 5.80000019}
+  m_Children: []
+  m_Father: {fileID: 400048}
 --- !u!4 &400032
 Transform:
   m_ObjectHideFlags: 1
@@ -805,14 +785,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.74227766e-08, y: .370000005, z: -1}
+  m_LocalPosition: {x: 0, y: 1.21951222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400020}
   - {fileID: 400018}
   - {fileID: 400014}
   - {fileID: 400012}
-  m_Father: {fileID: 400052}
+  m_Father: {fileID: 400044}
 --- !u!4 &400034
 Transform:
   m_ObjectHideFlags: 1
@@ -823,23 +803,20 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400038}
-  m_Father: {fileID: 400004}
+  - {fileID: 400006}
+  m_Father: {fileID: 400012}
 --- !u!4 &400036
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100036}
+  m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: .850001097, y: .378779292, z: -.0599999987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400004}
-  - {fileID: 400062}
-  - {fileID: 400030}
-  - {fileID: 400058}
-  m_Father: {fileID: 400044}
+  - {fileID: 400000}
+  m_Father: {fileID: 400060}
 --- !u!4 &400038
 Transform:
   m_ObjectHideFlags: 1
@@ -850,16 +827,16 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.43902445, y: 2.43902445, z: 2.30453873}
   m_Children: []
-  m_Father: {fileID: 400034}
+  m_Father: {fileID: 400022}
 --- !u!4 &400040
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
-  m_LocalRotation: {x: 3.09086197e-08, y: -.707106829, z: -.707106829, w: -3.09086197e-08}
-  m_LocalPosition: {x: -.200000003, y: 2.79999995, z: .536774039}
-  m_LocalScale: {x: 3.5999999, y: 3.5999999, z: 3.5999999}
+  m_LocalRotation: {x: 3.12999617e-08, y: -.707106829, z: -.707106829, w: -3.12999617e-08}
+  m_LocalPosition: {x: -.199997887, y: 2.79999995, z: -3.82322717}
+  m_LocalScale: {x: 3.59999967, y: 3.60000014, z: 3.5999999}
   m_Children: []
   m_Father: {fileID: 400052}
 --- !u!4 &400042
@@ -882,28 +859,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .819999993, y: .819999993, z: .819999993}
   m_Children:
-  - {fileID: 400046}
-  - {fileID: 400022}
+  - {fileID: 400070}
+  - {fileID: 400050}
+  - {fileID: 400016}
   - {fileID: 400068}
   - {fileID: 400064}
-  - {fileID: 400036}
-  - {fileID: 400016}
-  - {fileID: 400070}
+  - {fileID: 400032}
   m_Father: {fileID: 400042}
 --- !u!4 &400046
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
+  m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: -.100000001}
+  m_LocalPosition: {x: -.850000083, y: .378779292, z: -.0599999987}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400044}
+  m_Children:
+  - {fileID: 400008}
+  m_Father: {fileID: 400060}
 --- !u!4 &400048
 Transform:
   m_ObjectHideFlags: 1
@@ -911,12 +888,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -5.36000204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 400030}
+  - {fileID: 400026}
   - {fileID: 400066}
-  - {fileID: 400060}
-  - {fileID: 400054}
   m_Father: {fileID: 400052}
 --- !u!4 &400050
 Transform:
@@ -925,10 +902,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .800000012, z: -.5}
+  m_LocalPosition: {x: 0, y: .5, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400052}
+  m_Father: {fileID: 400044}
 --- !u!4 &400052
 Transform:
   m_ObjectHideFlags: 1
@@ -936,25 +913,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   m_LocalRotation: {x: 0, y: -2.5288108e-07, z: 0, w: -1}
-  m_LocalPosition: {x: -0, y: 0, z: -3.5751996}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: .819999993, y: .819999993, z: .819999993}
   m_Children:
   - {fileID: 400040}
-  - {fileID: 400050}
+  - {fileID: 400062}
   - {fileID: 400048}
-  - {fileID: 400032}
+  - {fileID: 400060}
   m_Father: {fileID: 400042}
 --- !u!4 &400054
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100054}
-  m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: .638404846, z: .784631848}
+  m_GameObject: {fileID: 100036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .850002587, y: .378779292, z: 1.43839765}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400048}
+  m_Children:
+  - {fileID: 400010}
+  m_Father: {fileID: 400060}
 --- !u!4 &400056
 Transform:
   m_ObjectHideFlags: 1
@@ -965,42 +943,45 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -2.43902445, y: -2.43902445, z: -2.30453873}
   m_Children: []
-  m_Father: {fileID: 400026}
+  m_Father: {fileID: 400004}
 --- !u!4 &400058
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -.449999988, z: -1.70000005}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_Children:
-  - {fileID: 400072}
-  m_Father: {fileID: 400036}
---- !u!4 &400060
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100060}
-  m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: .638404846, z: .801633716}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400048}
---- !u!4 &400062
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -.550000012, z: 1.08000004}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -.850000083, y: .378779292, z: 1.45951843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400026}
-  m_Father: {fileID: 400036}
+  - {fileID: 400028}
+  m_Father: {fileID: 400060}
+--- !u!4 &400060
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .370000035, z: -5.36000204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400058}
+  - {fileID: 400054}
+  - {fileID: 400046}
+  - {fileID: 400036}
+  m_Father: {fileID: 400052}
+--- !u!4 &400062
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .5, z: -3.4000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400052}
 --- !u!4 &400064
 Transform:
   m_ObjectHideFlags: 1
@@ -1008,8 +989,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 1.63561786e-08, y: -.707106888, z: 1.63561786e-08, w: .707106769}
-  m_LocalPosition: {x: -0, y: 1.01334643, z: .121325985}
-  m_LocalScale: {x: 3.65853596, y: 3.65853667, z: 3.45680809}
+  m_LocalPosition: {x: -0, y: 2.23285866, z: .121326059}
+  m_LocalScale: {x: 3.65853643, y: 3.65853667, z: 3.45680833}
   m_Children: []
   m_Father: {fileID: 400044}
 --- !u!4 &400066
@@ -1019,8 +1000,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: 1.23155663e-13, y: 2.53999996, z: 1.69999981}
-  m_LocalScale: {x: 2, y: 2, z: 5.80000019}
+  m_LocalPosition: {x: 1, y: .638404846, z: .784631848}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400048}
 --- !u!4 &400068
@@ -1030,7 +1011,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: -1, z: 1.33158053e-07, w: 0}
-  m_LocalPosition: {x: -2.43906188, y: -1217.07324, z: 3.86354876}
+  m_LocalPosition: {x: -2.43906569, y: 4.6712389, z: 4.09216166}
   m_LocalScale: {x: 8.53658485, y: 8.53658581, z: 8.53658485}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -1041,22 +1022,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
---- !u!4 &400072
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400006}
-  m_Father: {fileID: 400058}
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -1372,27 +1341,12 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   serializedVersion: 2
-  m_Mass: 1500
+  m_Mass: 999.999817
   m_Drag: .200000003
   m_AngularDrag: 80
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400002
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  serializedVersion: 2
-  m_Mass: 9.99999975e-05
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!54 &5400004
@@ -1445,18 +1399,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: .600000024, z: 5.80000019}
-  m_Center: {x: 0, y: -.100000001, z: .100000001}
+  m_Center: {x: 0, y: 1, z: .100000001}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
+  m_GameObject: {fileID: 100046}
   m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .100000001}
+  m_Size: {x: .200000003, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500008
 BoxCollider:
@@ -1464,23 +1418,23 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
-  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .200000003, y: 1, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500010
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100060}
-  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
+  m_GameObject: {fileID: 100070}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .200000003, y: 1, z: 2}
+  m_Size: {x: 2.5, y: 3, z: 9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500012
 BoxCollider:
@@ -1488,26 +1442,12 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: .200000003, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &9500000
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100068}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0db898534fe792046bb70d4c78c6458e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
-  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1521,7 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelPos: 3
   physicMaterial: {fileID: 0}
-  model: {fileID: 100000}
+  model: {fileID: 100034}
   caliperModel: {fileID: 0}
   showForces: 0
   isPowered: 0
@@ -1539,11 +1479,11 @@ MonoBehaviour:
   maxMz: 0
   onGroundDown: 0
   originalMass: 0
-  mass: 150
-  radius: .589999974
-  rimRadius: .340000004
-  width: .5
-  suspensionTravel: .200000003
+  mass: 80
+  radius: .649999976
+  rimRadius: .400000006
+  width: .344999999
+  suspensionTravel: .400000006
   suspensionRate: 20000
   bumpRate: 4000
   reboundRate: 4000
@@ -1551,8 +1491,8 @@ MonoBehaviour:
   fastReboundFactor: .300000012
   rotationalInertia: 0
   totalRotationalInertia: 0
-  brakeFrictionTorque: 1500
-  handbrakeFrictionTorque: 0
+  brakeFrictionTorque: 4000
+  handbrakeFrictionTorque: 4000
   rollingFrictionCoefficient: .0179999992
   gripMaterial: 1
   sidewaysGripFactor: 1
@@ -1619,6 +1559,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1644,588 +1585,6 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPos: 2
-  physicMaterial: {fileID: 0}
-  model: {fileID: 100010}
-  caliperModel: {fileID: 0}
-  showForces: 0
-  isPowered: 0
-  pressure: 200
-  optimalPressure: 200
-  tirePuncture: 0
-  rimScraping: 0
-  tirePressureEnabled: 1
-  pos: {x: 0, y: 0, z: 0}
-  Fx: 0
-  maxFx: 0
-  Fy: 0
-  maxFy: 0
-  Mz: 0
-  maxMz: 0
-  onGroundDown: 0
-  originalMass: 0
-  mass: 150
-  radius: .589999974
-  rimRadius: .340000004
-  width: .5
-  suspensionTravel: .200000003
-  suspensionRate: 20000
-  bumpRate: 4000
-  reboundRate: 4000
-  fastBumpFactor: .300000012
-  fastReboundFactor: .300000012
-  rotationalInertia: 0
-  totalRotationalInertia: 0
-  brakeFrictionTorque: 1500
-  handbrakeFrictionTorque: 0
-  rollingFrictionCoefficient: .0179999992
-  gripMaterial: 1
-  sidewaysGripFactor: 1
-  forwardGripFactor: 1
-  gripPressure: 1
-  gripSlip: 0
-  gripVelo: 0
-  maxSteeringAngle: 0
-  a:
-  - 1.5
-  - -40
-  - 1600
-  - 2600
-  - 8.69999981
-  - .0140000004
-  - -.239999995
-  - 1
-  - -.0299999993
-  - -.0013
-  - -.0599999987
-  - -8.5
-  - -.289999992
-  - 17.7999992
-  - -2.4000001
-  b:
-  - 1.5
-  - -80
-  - 1950
-  - 23.2999992
-  - 390
-  - .0500000007
-  - 0
-  - .0549999997
-  - -.0240000002
-  - .0140000004
-  - .25999999
-  c:
-  - 2.20000005
-  - -3.9000001
-  - -3.9000001
-  - -1.25999999
-  - -8.19999981
-  - .0250000004
-  - 0
-  - .0439999998
-  - -.579999983
-  - .180000007
-  - .0430000015
-  - .0480000004
-  - -.00350000011
-  - -.180000007
-  - .140000001
-  - -1.02900004
-  - .270000011
-  - -1.10000002
-  lockingTorqueImpulse: 0
-  roadTorqueImpulse: 0
-  drivetrainInertia: 0
-  brake: 0
-  handbrake: 0
-  steering: 0
-  deltaSteering: 0
-  antiRollBarForce: 0
-  wheelImpulse: 0
-  angularVelocity: 0
-  slipVelo: 0
-  slipRatio: 0
-  slipAngle: 0
-  longitudinalSlip: 0
-  lateralSlip: 0
-  idealSlipRatio: 0
-  idealSlipAngle: 0
-  compression: 0
-  wheelTireVelo: 0
-  wheelRoadVelo: 0
-  absRoadVelo: 0
-  dampAbsRoadVelo: 0
-  wheelRoadVeloLat: 0
-  wheelVelo: {x: 0, y: 0, z: 0}
-  groundNormal: {x: 0, y: 0, z: 0}
-  normalForce: 0
-  camber: 0
-  deltaCamber: 0
-  axleWheelsLength: 0
-  axlesNumber: 0
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPos: 1
-  physicMaterial: {fileID: 0}
-  model: {fileID: 100014}
-  caliperModel: {fileID: 0}
-  showForces: 0
-  isPowered: 0
-  pressure: 200
-  optimalPressure: 200
-  tirePuncture: 0
-  rimScraping: 0
-  tirePressureEnabled: 1
-  pos: {x: 0, y: 0, z: 0}
-  Fx: 0
-  maxFx: 0
-  Fy: 0
-  maxFy: 0
-  Mz: 0
-  maxMz: 0
-  onGroundDown: 0
-  originalMass: 0
-  mass: 150
-  radius: .589999974
-  rimRadius: .340000004
-  width: .5
-  suspensionTravel: .200000003
-  suspensionRate: 20000
-  bumpRate: 4000
-  reboundRate: 4000
-  fastBumpFactor: .300000012
-  fastReboundFactor: .300000012
-  rotationalInertia: 0
-  totalRotationalInertia: 0
-  brakeFrictionTorque: 1500
-  handbrakeFrictionTorque: 0
-  rollingFrictionCoefficient: .0179999992
-  gripMaterial: 1
-  sidewaysGripFactor: 1
-  forwardGripFactor: 1
-  gripPressure: 1
-  gripSlip: 0
-  gripVelo: 0
-  maxSteeringAngle: 0
-  a:
-  - 1.5
-  - -40
-  - 1600
-  - 2600
-  - 8.69999981
-  - .0140000004
-  - -.239999995
-  - 1
-  - -.0299999993
-  - -.0013
-  - -.0599999987
-  - -8.5
-  - -.289999992
-  - 17.7999992
-  - -2.4000001
-  b:
-  - 1.5
-  - -80
-  - 1950
-  - 23.2999992
-  - 390
-  - .0500000007
-  - 0
-  - .0549999997
-  - -.0240000002
-  - .0140000004
-  - .25999999
-  c:
-  - 2.20000005
-  - -3.9000001
-  - -3.9000001
-  - -1.25999999
-  - -8.19999981
-  - .0250000004
-  - 0
-  - .0439999998
-  - -.579999983
-  - .180000007
-  - .0430000015
-  - .0480000004
-  - -.00350000011
-  - -.180000007
-  - .140000001
-  - -1.02900004
-  - .270000011
-  - -1.10000002
-  lockingTorqueImpulse: 0
-  roadTorqueImpulse: 0
-  drivetrainInertia: 0
-  brake: 0
-  handbrake: 0
-  steering: 0
-  deltaSteering: 0
-  antiRollBarForce: 0
-  wheelImpulse: 0
-  angularVelocity: 0
-  slipVelo: 0
-  slipRatio: 0
-  slipAngle: 0
-  longitudinalSlip: 0
-  lateralSlip: 0
-  idealSlipRatio: 0
-  idealSlipAngle: 0
-  compression: 0
-  wheelTireVelo: 0
-  wheelRoadVelo: 0
-  absRoadVelo: 0
-  dampAbsRoadVelo: 0
-  wheelRoadVeloLat: 0
-  wheelVelo: {x: 0, y: 0, z: 0}
-  groundNormal: {x: 0, y: 0, z: 0}
-  normalForce: 0
-  camber: 0
-  deltaCamber: 0
-  axleWheelsLength: 0
-  axlesNumber: 0
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPos: 0
-  physicMaterial: {fileID: 0}
-  model: {fileID: 100048}
-  caliperModel: {fileID: 0}
-  showForces: 0
-  isPowered: 0
-  pressure: 200
-  optimalPressure: 200
-  tirePuncture: 0
-  rimScraping: 0
-  tirePressureEnabled: 1
-  pos: {x: 0, y: 0, z: 0}
-  Fx: 0
-  maxFx: 0
-  Fy: 0
-  maxFy: 0
-  Mz: 0
-  maxMz: 0
-  onGroundDown: 0
-  originalMass: 0
-  mass: 150
-  radius: .589999974
-  rimRadius: .340000004
-  width: .5
-  suspensionTravel: .200000003
-  suspensionRate: 20000
-  bumpRate: 4000
-  reboundRate: 4000
-  fastBumpFactor: .300000012
-  fastReboundFactor: .300000012
-  rotationalInertia: 0
-  totalRotationalInertia: 0
-  brakeFrictionTorque: 1500
-  handbrakeFrictionTorque: 0
-  rollingFrictionCoefficient: .0179999992
-  gripMaterial: 1
-  sidewaysGripFactor: 1
-  forwardGripFactor: 1
-  gripPressure: 1
-  gripSlip: 0
-  gripVelo: 0
-  maxSteeringAngle: 0
-  a:
-  - 1.5
-  - -40
-  - 1600
-  - 2600
-  - 8.69999981
-  - .0140000004
-  - -.239999995
-  - 1
-  - -.0299999993
-  - -.0013
-  - -.0599999987
-  - -8.5
-  - -.289999992
-  - 17.7999992
-  - -2.4000001
-  b:
-  - 1.5
-  - -80
-  - 1950
-  - 23.2999992
-  - 390
-  - .0500000007
-  - 0
-  - .0549999997
-  - -.0240000002
-  - .0140000004
-  - .25999999
-  c:
-  - 2.20000005
-  - -3.9000001
-  - -3.9000001
-  - -1.25999999
-  - -8.19999981
-  - .0250000004
-  - 0
-  - .0439999998
-  - -.579999983
-  - .180000007
-  - .0430000015
-  - .0480000004
-  - -.00350000011
-  - -.180000007
-  - .140000001
-  - -1.02900004
-  - .270000011
-  - -1.10000002
-  lockingTorqueImpulse: 0
-  roadTorqueImpulse: 0
-  drivetrainInertia: 0
-  brake: 0
-  handbrake: 0
-  steering: 0
-  deltaSteering: 0
-  antiRollBarForce: 0
-  wheelImpulse: 0
-  angularVelocity: 0
-  slipVelo: 0
-  slipRatio: 0
-  slipAngle: 0
-  longitudinalSlip: 0
-  lateralSlip: 0
-  idealSlipRatio: 0
-  idealSlipAngle: 0
-  compression: 0
-  wheelTireVelo: 0
-  wheelRoadVelo: 0
-  absRoadVelo: 0
-  dampAbsRoadVelo: 0
-  wheelRoadVeloLat: 0
-  wheelVelo: {x: 0, y: 0, z: 0}
-  groundNormal: {x: 0, y: 0, z: 0}
-  normalForce: 0
-  camber: 0
-  deltaCamber: 0
-  axleWheelsLength: 0
-  axlesNumber: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a41182e3ba7e4c4ea3df6296020fa19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingSetup: 0
-  savingSetup: 0
-  filePath: Assets\Samples\Car Setups\EnemyTrailer.txt
-  usePersistentDataPath: 0
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPos: 0
-  physicMaterial: {fileID: 0}
-  model: {fileID: 100034}
-  caliperModel: {fileID: 0}
-  showForces: 0
-  isPowered: 0
-  pressure: 200
-  optimalPressure: 200
-  tirePuncture: 0
-  rimScraping: 0
-  tirePressureEnabled: 1
-  pos: {x: 0, y: 0, z: 0}
-  Fx: 0
-  maxFx: 0
-  Fy: 0
-  maxFy: 0
-  Mz: 0
-  maxMz: 0
-  onGroundDown: 0
-  originalMass: 0
-  mass: 80
-  radius: .550000012
-  rimRadius: .300000012
-  width: .344999999
-  suspensionTravel: .400000006
-  suspensionRate: 20000
-  bumpRate: 4000
-  reboundRate: 4000
-  fastBumpFactor: .300000012
-  fastReboundFactor: .300000012
-  rotationalInertia: 0
-  totalRotationalInertia: 0
-  brakeFrictionTorque: 4000
-  handbrakeFrictionTorque: 0
-  rollingFrictionCoefficient: .0179999992
-  gripMaterial: 1
-  sidewaysGripFactor: 1
-  forwardGripFactor: 1
-  gripPressure: 1
-  gripSlip: 0
-  gripVelo: 0
-  maxSteeringAngle: 33
-  a:
-  - 1.5
-  - -40
-  - 1600
-  - 2600
-  - 8.69999981
-  - .0140000004
-  - -.239999995
-  - 1
-  - -.0299999993
-  - -.0013
-  - -.0599999987
-  - -8.5
-  - -.289999992
-  - 17.7999992
-  - -2.4000001
-  b:
-  - 1.5
-  - -80
-  - 1950
-  - 23.2999992
-  - 390
-  - .0500000007
-  - 0
-  - .0549999997
-  - -.0240000002
-  - .0140000004
-  - .25999999
-  c:
-  - 2.20000005
-  - -3.9000001
-  - -3.9000001
-  - -1.25999999
-  - -8.19999981
-  - .0250000004
-  - 0
-  - .0439999998
-  - -.579999983
-  - .180000007
-  - .0430000015
-  - .0480000004
-  - -.00350000011
-  - -.180000007
-  - .140000001
-  - -1.02900004
-  - .270000011
-  - -1.10000002
-  lockingTorqueImpulse: 0
-  roadTorqueImpulse: 0
-  drivetrainInertia: 0
-  brake: 0
-  handbrake: 0
-  steering: 0
-  deltaSteering: 0
-  antiRollBarForce: 0
-  wheelImpulse: 0
-  angularVelocity: 0
-  slipVelo: 0
-  slipRatio: 0
-  slipAngle: 0
-  longitudinalSlip: 0
-  lateralSlip: 0
-  idealSlipRatio: 0
-  idealSlipAngle: 0
-  compression: 0
-  wheelTireVelo: 0
-  wheelRoadVelo: 0
-  absRoadVelo: 0
-  dampAbsRoadVelo: 0
-  wheelRoadVeloLat: 0
-  wheelVelo: {x: 0, y: 0, z: 0}
-  groundNormal: {x: 0, y: 0, z: 0}
-  normalForce: 0
-  camber: 0
-  deltaCamber: 0
-  axleWheelsLength: 0
-  axlesNumber: 0
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectCarController: {fileID: 0}
-  engineThrottle: {fileID: 0}
-  engineThrottleVolume: .349999994
-  engineThrottlePitchFactor: 1
-  engineNoThrottle: {fileID: 0}
-  engineNoThrottleVolume: .349999994
-  engineNoThrottlePitchFactor: 1
-  startEngine: {fileID: 0}
-  startEngineVolume: 1
-  startEnginePitch: 1
-  enginePosition: {fileID: 0}
-  transmission: {fileID: 0}
-  transmissionVolume: .5
-  transmissionVolumeReverse: .5
-  transmissionSourcePitch: 1
-  brakeNoise: {fileID: 8300000, guid: aa3819cf45121ff4e979ff6839114894, type: 3}
-  brakeNoiseVolume: .200000003
-  skid: {fileID: 8300000, guid: 3d588ef063fc6154e93dd8e62b759693, type: 3}
-  skidVolume: 1
-  skidPitchFactor: 1
-  crashHiSpeed: {fileID: 8300000, guid: a835cf62b1f2d8547afe15d7f5e0d273, type: 3}
-  crashHighVolume: .75
-  crashLowSpeed: {fileID: 8300000, guid: eb5ca72512e7def4cb575d9c61d89948, type: 3}
-  crashLowVolume: .699999988
-  scrapeNoise: {fileID: 8300000, guid: 07bc0f08e7dc453468f3db64061c1d25, type: 3}
-  scrapeNoiseVolume: 1
-  ABSTrigger: {fileID: 8300000, guid: f43a89fd4bd3f3e4daef090c81b32a38, type: 3}
-  ABSTriggerVolume: .200000003
-  shiftTrigger: {fileID: 8300000, guid: f54def1ccae9f2645bc4d2d427327fbe, type: 3}
-  shiftTriggerVolume: 1
-  wind: {fileID: 8300000, guid: 48515701a05463442ada2bcfd60a1234, type: 3}
-  windVolume: 1
-  rollingNoiseGrass: {fileID: 8300000, guid: a2d752e186492ed40965fc91a41f5ce7, type: 3}
-  rollingNoiseSand: {fileID: 8300000, guid: 5e587b5787f0f98408b244a71d2ad15d, type: 3}
-  rollingNoiseOffroad: {fileID: 8300000, guid: abe9263ffed737d47918bc41e55544f1, type: 3}
-  carController: {fileID: 0}
---- !u!114 &11400014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100030}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
@@ -2331,6 +1690,677 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
+  slipRatio: 0
+  slipAngle: 0
+  longitudinalSlip: 0
+  lateralSlip: 0
+  idealSlipRatio: 0
+  idealSlipAngle: 0
+  compression: 0
+  wheelTireVelo: 0
+  wheelRoadVelo: 0
+  absRoadVelo: 0
+  dampAbsRoadVelo: 0
+  wheelRoadVeloLat: 0
+  wheelVelo: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 0, z: 0}
+  normalForce: 0
+  camber: 0
+  deltaCamber: 0
+  axleWheelsLength: 0
+  axlesNumber: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPos: 1
+  physicMaterial: {fileID: 0}
+  model: {fileID: 100004}
+  caliperModel: {fileID: 0}
+  showForces: 0
+  isPowered: 0
+  pressure: 200
+  optimalPressure: 200
+  tirePuncture: 0
+  rimScraping: 0
+  tirePressureEnabled: 1
+  pos: {x: 0, y: 0, z: 0}
+  Fx: 0
+  maxFx: 0
+  Fy: 0
+  maxFy: 0
+  Mz: 0
+  maxMz: 0
+  onGroundDown: 0
+  originalMass: 0
+  mass: 80
+  radius: .550000012
+  rimRadius: .300000012
+  width: .344999999
+  suspensionTravel: .400000006
+  suspensionRate: 20000
+  bumpRate: 4000
+  reboundRate: 4000
+  fastBumpFactor: .300000012
+  fastReboundFactor: .300000012
+  rotationalInertia: 0
+  totalRotationalInertia: 0
+  brakeFrictionTorque: 4000
+  handbrakeFrictionTorque: 0
+  rollingFrictionCoefficient: .0179999992
+  gripMaterial: 1
+  sidewaysGripFactor: 1
+  forwardGripFactor: 1
+  gripPressure: 1
+  gripSlip: 0
+  gripVelo: 0
+  maxSteeringAngle: 33
+  a:
+  - 1.5
+  - -40
+  - 1600
+  - 2600
+  - 8.69999981
+  - .0140000004
+  - -.239999995
+  - 1
+  - -.0299999993
+  - -.0013
+  - -.0599999987
+  - -8.5
+  - -.289999992
+  - 17.7999992
+  - -2.4000001
+  b:
+  - 1.5
+  - -80
+  - 1950
+  - 23.2999992
+  - 390
+  - .0500000007
+  - 0
+  - .0549999997
+  - -.0240000002
+  - .0140000004
+  - .25999999
+  c:
+  - 2.20000005
+  - -3.9000001
+  - -3.9000001
+  - -1.25999999
+  - -8.19999981
+  - .0250000004
+  - 0
+  - .0439999998
+  - -.579999983
+  - .180000007
+  - .0430000015
+  - .0480000004
+  - -.00350000011
+  - -.180000007
+  - .140000001
+  - -1.02900004
+  - .270000011
+  - -1.10000002
+  lockingTorqueImpulse: 0
+  roadTorqueImpulse: 0
+  drivetrainInertia: 0
+  brake: 0
+  handbrake: 0
+  steering: 0
+  deltaSteering: 0
+  antiRollBarForce: 0
+  wheelImpulse: 0
+  angularVelocity: 0
+  slipVelo: 0
+  slipVeloThreshold: 10
+  slipRatio: 0
+  slipAngle: 0
+  longitudinalSlip: 0
+  lateralSlip: 0
+  idealSlipRatio: 0
+  idealSlipAngle: 0
+  compression: 0
+  wheelTireVelo: 0
+  wheelRoadVelo: 0
+  absRoadVelo: 0
+  dampAbsRoadVelo: 0
+  wheelRoadVeloLat: 0
+  wheelVelo: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 0, z: 0}
+  normalForce: 0
+  camber: 0
+  deltaCamber: 0
+  axleWheelsLength: 0
+  axlesNumber: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPos: 0
+  physicMaterial: {fileID: 0}
+  model: {fileID: 100022}
+  caliperModel: {fileID: 0}
+  showForces: 0
+  isPowered: 0
+  pressure: 200
+  optimalPressure: 200
+  tirePuncture: 0
+  rimScraping: 0
+  tirePressureEnabled: 1
+  pos: {x: 0, y: 0, z: 0}
+  Fx: 0
+  maxFx: 0
+  Fy: 0
+  maxFy: 0
+  Mz: 0
+  maxMz: 0
+  onGroundDown: 0
+  originalMass: 0
+  mass: 80
+  radius: .550000012
+  rimRadius: .300000012
+  width: .344999999
+  suspensionTravel: .400000006
+  suspensionRate: 20000
+  bumpRate: 4000
+  reboundRate: 4000
+  fastBumpFactor: .300000012
+  fastReboundFactor: .300000012
+  rotationalInertia: 0
+  totalRotationalInertia: 0
+  brakeFrictionTorque: 4000
+  handbrakeFrictionTorque: 0
+  rollingFrictionCoefficient: .0179999992
+  gripMaterial: 1
+  sidewaysGripFactor: 1
+  forwardGripFactor: 1
+  gripPressure: 1
+  gripSlip: 0
+  gripVelo: 0
+  maxSteeringAngle: 33
+  a:
+  - 1.5
+  - -40
+  - 1600
+  - 2600
+  - 8.69999981
+  - .0140000004
+  - -.239999995
+  - 1
+  - -.0299999993
+  - -.0013
+  - -.0599999987
+  - -8.5
+  - -.289999992
+  - 17.7999992
+  - -2.4000001
+  b:
+  - 1.5
+  - -80
+  - 1950
+  - 23.2999992
+  - 390
+  - .0500000007
+  - 0
+  - .0549999997
+  - -.0240000002
+  - .0140000004
+  - .25999999
+  c:
+  - 2.20000005
+  - -3.9000001
+  - -3.9000001
+  - -1.25999999
+  - -8.19999981
+  - .0250000004
+  - 0
+  - .0439999998
+  - -.579999983
+  - .180000007
+  - .0430000015
+  - .0480000004
+  - -.00350000011
+  - -.180000007
+  - .140000001
+  - -1.02900004
+  - .270000011
+  - -1.10000002
+  lockingTorqueImpulse: 0
+  roadTorqueImpulse: 0
+  drivetrainInertia: 0
+  brake: 0
+  handbrake: 0
+  steering: 0
+  deltaSteering: 0
+  antiRollBarForce: 0
+  wheelImpulse: 0
+  angularVelocity: 0
+  slipVelo: 0
+  slipVeloThreshold: 10
+  slipRatio: 0
+  slipAngle: 0
+  longitudinalSlip: 0
+  lateralSlip: 0
+  idealSlipRatio: 0
+  idealSlipAngle: 0
+  compression: 0
+  wheelTireVelo: 0
+  wheelRoadVelo: 0
+  absRoadVelo: 0
+  dampAbsRoadVelo: 0
+  wheelRoadVeloLat: 0
+  wheelVelo: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 0, z: 0}
+  normalForce: 0
+  camber: 0
+  deltaCamber: 0
+  axleWheelsLength: 0
+  axlesNumber: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41182e3ba7e4c4ea3df6296020fa19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingSetup: 0
+  savingSetup: 0
+  filePath: Assets\Samples\Car Setups\EnemyTrailerSand.txt
+  usePersistentDataPath: 0
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPos: 3
+  physicMaterial: {fileID: 0}
+  model: {fileID: 100000}
+  caliperModel: {fileID: 0}
+  showForces: 0
+  isPowered: 0
+  pressure: 200
+  optimalPressure: 200
+  tirePuncture: 0
+  rimScraping: 0
+  tirePressureEnabled: 1
+  pos: {x: 0, y: 0, z: 0}
+  Fx: 0
+  maxFx: 0
+  Fy: 0
+  maxFy: 0
+  Mz: 0
+  maxMz: 0
+  onGroundDown: 0
+  originalMass: 0
+  mass: 150
+  radius: .589999974
+  rimRadius: .340000004
+  width: .5
+  suspensionTravel: .200000003
+  suspensionRate: 20000
+  bumpRate: 4000
+  reboundRate: 4000
+  fastBumpFactor: .300000012
+  fastReboundFactor: .300000012
+  rotationalInertia: 0
+  totalRotationalInertia: 0
+  brakeFrictionTorque: 1500
+  handbrakeFrictionTorque: 0
+  rollingFrictionCoefficient: .0179999992
+  gripMaterial: 1
+  sidewaysGripFactor: 1
+  forwardGripFactor: 1
+  gripPressure: 1
+  gripSlip: 0
+  gripVelo: 0
+  maxSteeringAngle: 0
+  a:
+  - 1.5
+  - -40
+  - 1600
+  - 2600
+  - 8.69999981
+  - .0140000004
+  - -.239999995
+  - 1
+  - -.0299999993
+  - -.0013
+  - -.0599999987
+  - -8.5
+  - -.289999992
+  - 17.7999992
+  - -2.4000001
+  b:
+  - 1.5
+  - -80
+  - 1950
+  - 23.2999992
+  - 390
+  - .0500000007
+  - 0
+  - .0549999997
+  - -.0240000002
+  - .0140000004
+  - .25999999
+  c:
+  - 2.20000005
+  - -3.9000001
+  - -3.9000001
+  - -1.25999999
+  - -8.19999981
+  - .0250000004
+  - 0
+  - .0439999998
+  - -.579999983
+  - .180000007
+  - .0430000015
+  - .0480000004
+  - -.00350000011
+  - -.180000007
+  - .140000001
+  - -1.02900004
+  - .270000011
+  - -1.10000002
+  lockingTorqueImpulse: 0
+  roadTorqueImpulse: 0
+  drivetrainInertia: 0
+  brake: 0
+  handbrake: 0
+  steering: 0
+  deltaSteering: 0
+  antiRollBarForce: 0
+  wheelImpulse: 0
+  angularVelocity: 0
+  slipVelo: 0
+  slipVeloThreshold: 10
+  slipRatio: 0
+  slipAngle: 0
+  longitudinalSlip: 0
+  lateralSlip: 0
+  idealSlipRatio: 0
+  idealSlipAngle: 0
+  compression: 0
+  wheelTireVelo: 0
+  wheelRoadVelo: 0
+  absRoadVelo: 0
+  dampAbsRoadVelo: 0
+  wheelRoadVeloLat: 0
+  wheelVelo: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 0, z: 0}
+  normalForce: 0
+  camber: 0
+  deltaCamber: 0
+  axleWheelsLength: 0
+  axlesNumber: 0
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPos: 2
+  physicMaterial: {fileID: 0}
+  model: {fileID: 100010}
+  caliperModel: {fileID: 0}
+  showForces: 0
+  isPowered: 0
+  pressure: 200
+  optimalPressure: 200
+  tirePuncture: 0
+  rimScraping: 0
+  tirePressureEnabled: 1
+  pos: {x: 0, y: 0, z: 0}
+  Fx: 0
+  maxFx: 0
+  Fy: 0
+  maxFy: 0
+  Mz: 0
+  maxMz: 0
+  onGroundDown: 0
+  originalMass: 0
+  mass: 150
+  radius: .589999974
+  rimRadius: .340000004
+  width: .5
+  suspensionTravel: .200000003
+  suspensionRate: 20000
+  bumpRate: 4000
+  reboundRate: 4000
+  fastBumpFactor: .300000012
+  fastReboundFactor: .300000012
+  rotationalInertia: 0
+  totalRotationalInertia: 0
+  brakeFrictionTorque: 1500
+  handbrakeFrictionTorque: 0
+  rollingFrictionCoefficient: .0179999992
+  gripMaterial: 1
+  sidewaysGripFactor: 1
+  forwardGripFactor: 1
+  gripPressure: 1
+  gripSlip: 0
+  gripVelo: 0
+  maxSteeringAngle: 0
+  a:
+  - 1.5
+  - -40
+  - 1600
+  - 2600
+  - 8.69999981
+  - .0140000004
+  - -.239999995
+  - 1
+  - -.0299999993
+  - -.0013
+  - -.0599999987
+  - -8.5
+  - -.289999992
+  - 17.7999992
+  - -2.4000001
+  b:
+  - 1.5
+  - -80
+  - 1950
+  - 23.2999992
+  - 390
+  - .0500000007
+  - 0
+  - .0549999997
+  - -.0240000002
+  - .0140000004
+  - .25999999
+  c:
+  - 2.20000005
+  - -3.9000001
+  - -3.9000001
+  - -1.25999999
+  - -8.19999981
+  - .0250000004
+  - 0
+  - .0439999998
+  - -.579999983
+  - .180000007
+  - .0430000015
+  - .0480000004
+  - -.00350000011
+  - -.180000007
+  - .140000001
+  - -1.02900004
+  - .270000011
+  - -1.10000002
+  lockingTorqueImpulse: 0
+  roadTorqueImpulse: 0
+  drivetrainInertia: 0
+  brake: 0
+  handbrake: 0
+  steering: 0
+  deltaSteering: 0
+  antiRollBarForce: 0
+  wheelImpulse: 0
+  angularVelocity: 0
+  slipVelo: 0
+  slipVeloThreshold: 10
+  slipRatio: 0
+  slipAngle: 0
+  longitudinalSlip: 0
+  lateralSlip: 0
+  idealSlipRatio: 0
+  idealSlipAngle: 0
+  compression: 0
+  wheelTireVelo: 0
+  wheelRoadVelo: 0
+  absRoadVelo: 0
+  dampAbsRoadVelo: 0
+  wheelRoadVeloLat: 0
+  wheelVelo: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 0, z: 0}
+  normalForce: 0
+  camber: 0
+  deltaCamber: 0
+  axleWheelsLength: 0
+  axlesNumber: 0
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPos: 1
+  physicMaterial: {fileID: 0}
+  model: {fileID: 100014}
+  caliperModel: {fileID: 0}
+  showForces: 0
+  isPowered: 0
+  pressure: 200
+  optimalPressure: 200
+  tirePuncture: 0
+  rimScraping: 0
+  tirePressureEnabled: 1
+  pos: {x: 0, y: 0, z: 0}
+  Fx: 0
+  maxFx: 0
+  Fy: 0
+  maxFy: 0
+  Mz: 0
+  maxMz: 0
+  onGroundDown: 0
+  originalMass: 0
+  mass: 150
+  radius: .589999974
+  rimRadius: .340000004
+  width: .5
+  suspensionTravel: .200000003
+  suspensionRate: 20000
+  bumpRate: 4000
+  reboundRate: 4000
+  fastBumpFactor: .300000012
+  fastReboundFactor: .300000012
+  rotationalInertia: 0
+  totalRotationalInertia: 0
+  brakeFrictionTorque: 1500
+  handbrakeFrictionTorque: 0
+  rollingFrictionCoefficient: .0179999992
+  gripMaterial: 1
+  sidewaysGripFactor: 1
+  forwardGripFactor: 1
+  gripPressure: 1
+  gripSlip: 0
+  gripVelo: 0
+  maxSteeringAngle: 0
+  a:
+  - 1.5
+  - -40
+  - 1600
+  - 2600
+  - 8.69999981
+  - .0140000004
+  - -.239999995
+  - 1
+  - -.0299999993
+  - -.0013
+  - -.0599999987
+  - -8.5
+  - -.289999992
+  - 17.7999992
+  - -2.4000001
+  b:
+  - 1.5
+  - -80
+  - 1950
+  - 23.2999992
+  - 390
+  - .0500000007
+  - 0
+  - .0549999997
+  - -.0240000002
+  - .0140000004
+  - .25999999
+  c:
+  - 2.20000005
+  - -3.9000001
+  - -3.9000001
+  - -1.25999999
+  - -8.19999981
+  - .0250000004
+  - 0
+  - .0439999998
+  - -.579999983
+  - .180000007
+  - .0430000015
+  - .0480000004
+  - -.00350000011
+  - -.180000007
+  - .140000001
+  - -1.02900004
+  - .270000011
+  - -1.10000002
+  lockingTorqueImpulse: 0
+  roadTorqueImpulse: 0
+  drivetrainInertia: 0
+  brake: 0
+  handbrake: 0
+  steering: 0
+  deltaSteering: 0
+  antiRollBarForce: 0
+  wheelImpulse: 0
+  angularVelocity: 0
+  slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2466,7 +2496,7 @@ MonoBehaviour:
   InStation: 0
   speedKoeff: 1.70000005
   trailerdragFree: .200000003
-  trailerdragBrake: 3
+  trailerdragBrake: 4
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
   trafic: 0
@@ -2543,16 +2573,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherWheels: []
   allWheels:
-  - {fileID: 11400010}
-  - {fileID: 11400048}
-  - {fileID: 11400014}
-  - {fileID: 11400044}
+  - {fileID: 11400006}
+  - {fileID: 11400004}
+  - {fileID: 11400002}
+  - {fileID: 11400000}
   frontAxle:
-    leftWheel: {fileID: 11400010}
-    rightWheel: {fileID: 11400048}
+    leftWheel: {fileID: 11400006}
+    rightWheel: {fileID: 11400004}
     wheels:
-    - {fileID: 11400010}
-    - {fileID: 11400048}
+    - {fileID: 11400006}
+    - {fileID: 11400004}
     powered: 0
     suspensionTravel: .400000006
     suspensionRate: 60000
@@ -2565,7 +2595,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
     forwardGripFactor: 2
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 6
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2573,11 +2603,11 @@ MonoBehaviour:
     tiresPressure: 0
     optimalTiresPressure: 100
   rearAxle:
-    leftWheel: {fileID: 11400014}
-    rightWheel: {fileID: 11400044}
+    leftWheel: {fileID: 11400002}
+    rightWheel: {fileID: 11400000}
     wheels:
-    - {fileID: 11400014}
-    - {fileID: 11400044}
+    - {fileID: 11400002}
+    - {fileID: 11400000}
     powered: 0
     suspensionTravel: .400000006
     suspensionRate: 30000
@@ -2590,7 +2620,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 2
-    sidewaysGripFactor: 4
+    sidewaysGripFactor: 6
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2614,7 +2644,7 @@ MonoBehaviour:
   controller: 3
   carController: {fileID: 0}
   transitionDamperVelo: .300000012
-  centerOfMass: {fileID: 400050}
+  centerOfMass: {fileID: 400062}
   dampAbsRoadVelo: 8
   inertiaFactor: .100000001
   frontRearWeightRepartition: .100000001
@@ -2627,9 +2657,9 @@ MonoBehaviour:
   skidmarks: {fileID: 0}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: -.5
+  zlocalPosition: -3.4000001
   zlocalPosition_orig: 0
-  ylocalPosition: .800000012
+  ylocalPosition: .5
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -2744,7 +2774,7 @@ MonoBehaviour:
   controller: 0
   carController: {fileID: 11400022}
   transitionDamperVelo: .300000012
-  centerOfMass: {fileID: 400046}
+  centerOfMass: {fileID: 400050}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
   frontRearWeightRepartition: .75
@@ -2759,7 +2789,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -.5
+  ylocalPosition: .5
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0
@@ -2790,16 +2820,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherWheels: []
   allWheels:
-  - {fileID: 11400006}
-  - {fileID: 11400004}
-  - {fileID: 11400002}
-  - {fileID: 11400000}
+  - {fileID: 11400044}
+  - {fileID: 11400014}
+  - {fileID: 11400012}
+  - {fileID: 11400010}
   frontAxle:
-    leftWheel: {fileID: 11400006}
-    rightWheel: {fileID: 11400004}
+    leftWheel: {fileID: 11400044}
+    rightWheel: {fileID: 11400014}
     wheels:
-    - {fileID: 11400006}
-    - {fileID: 11400004}
+    - {fileID: 11400044}
+    - {fileID: 11400014}
     powered: 0
     suspensionTravel: .400000006
     suspensionRate: 50000
@@ -2820,11 +2850,11 @@ MonoBehaviour:
     tiresPressure: 250
     optimalTiresPressure: 300
   rearAxle:
-    leftWheel: {fileID: 11400002}
-    rightWheel: {fileID: 11400000}
+    leftWheel: {fileID: 11400012}
+    rightWheel: {fileID: 11400010}
     wheels:
-    - {fileID: 11400002}
-    - {fileID: 11400000}
+    - {fileID: 11400012}
+    - {fileID: 11400010}
     powered: 0
     suspensionTravel: .400000006
     suspensionRate: 50000
@@ -2857,20 +2887,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailer: {fileID: 5400000}
+  bigCollider: {fileID: 6500010}
+  axisCarController: {fileID: 11400022}
+  connectPosition: {x: 0, y: .409999996, z: -1.70000005}
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100058}
+  m_GameObject: {fileID: 100062}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelPos: 3
+  wheelPos: 0
   physicMaterial: {fileID: 0}
-  model: {fileID: 100072}
+  model: {fileID: 100048}
   caliperModel: {fileID: 0}
   showForces: 0
   isPowered: 0
@@ -2888,11 +2921,11 @@ MonoBehaviour:
   maxMz: 0
   onGroundDown: 0
   originalMass: 0
-  mass: 80
-  radius: .649999976
-  rimRadius: .400000006
-  width: .344999999
-  suspensionTravel: .400000006
+  mass: 150
+  radius: .589999974
+  rimRadius: .340000004
+  width: .5
+  suspensionTravel: .200000003
   suspensionRate: 20000
   bumpRate: 4000
   reboundRate: 4000
@@ -2900,8 +2933,8 @@ MonoBehaviour:
   fastReboundFactor: .300000012
   rotationalInertia: 0
   totalRotationalInertia: 0
-  brakeFrictionTorque: 4000
-  handbrakeFrictionTorque: 4000
+  brakeFrictionTorque: 1500
+  handbrakeFrictionTorque: 0
   rollingFrictionCoefficient: .0179999992
   gripMaterial: 1
   sidewaysGripFactor: 1
@@ -2968,6 +3001,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2987,306 +3021,6 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
---- !u!114 &11400048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f08a0b93be72643998443739f75906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPos: 1
-  physicMaterial: {fileID: 0}
-  model: {fileID: 100026}
-  caliperModel: {fileID: 0}
-  showForces: 0
-  isPowered: 0
-  pressure: 200
-  optimalPressure: 200
-  tirePuncture: 0
-  rimScraping: 0
-  tirePressureEnabled: 1
-  pos: {x: 0, y: 0, z: 0}
-  Fx: 0
-  maxFx: 0
-  Fy: 0
-  maxFy: 0
-  Mz: 0
-  maxMz: 0
-  onGroundDown: 0
-  originalMass: 0
-  mass: 80
-  radius: .550000012
-  rimRadius: .300000012
-  width: .344999999
-  suspensionTravel: .400000006
-  suspensionRate: 20000
-  bumpRate: 4000
-  reboundRate: 4000
-  fastBumpFactor: .300000012
-  fastReboundFactor: .300000012
-  rotationalInertia: 0
-  totalRotationalInertia: 0
-  brakeFrictionTorque: 4000
-  handbrakeFrictionTorque: 0
-  rollingFrictionCoefficient: .0179999992
-  gripMaterial: 1
-  sidewaysGripFactor: 1
-  forwardGripFactor: 1
-  gripPressure: 1
-  gripSlip: 0
-  gripVelo: 0
-  maxSteeringAngle: 33
-  a:
-  - 1.5
-  - -40
-  - 1600
-  - 2600
-  - 8.69999981
-  - .0140000004
-  - -.239999995
-  - 1
-  - -.0299999993
-  - -.0013
-  - -.0599999987
-  - -8.5
-  - -.289999992
-  - 17.7999992
-  - -2.4000001
-  b:
-  - 1.5
-  - -80
-  - 1950
-  - 23.2999992
-  - 390
-  - .0500000007
-  - 0
-  - .0549999997
-  - -.0240000002
-  - .0140000004
-  - .25999999
-  c:
-  - 2.20000005
-  - -3.9000001
-  - -3.9000001
-  - -1.25999999
-  - -8.19999981
-  - .0250000004
-  - 0
-  - .0439999998
-  - -.579999983
-  - .180000007
-  - .0430000015
-  - .0480000004
-  - -.00350000011
-  - -.180000007
-  - .140000001
-  - -1.02900004
-  - .270000011
-  - -1.10000002
-  lockingTorqueImpulse: 0
-  roadTorqueImpulse: 0
-  drivetrainInertia: 0
-  brake: 0
-  handbrake: 0
-  steering: 0
-  deltaSteering: 0
-  antiRollBarForce: 0
-  wheelImpulse: 0
-  angularVelocity: 0
-  slipVelo: 0
-  slipRatio: 0
-  slipAngle: 0
-  longitudinalSlip: 0
-  lateralSlip: 0
-  idealSlipRatio: 0
-  idealSlipAngle: 0
-  compression: 0
-  wheelTireVelo: 0
-  wheelRoadVelo: 0
-  absRoadVelo: 0
-  dampAbsRoadVelo: 0
-  wheelRoadVeloLat: 0
-  wheelVelo: {x: 0, y: 0, z: 0}
-  groundNormal: {x: 0, y: 0, z: 0}
-  normalForce: 0
-  camber: 0
-  deltaCamber: 0
-  axleWheelsLength: 0
-  axlesNumber: 0
---- !u!114 &11400050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219b4e9f11fafbf45bf40d9fe030d37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depth: 2
-  tachoMeter: {fileID: 2800000, guid: 64b968257504965449dea9af7aceaa48, type: 3}
-  tachoMeterDisabled: 0
-  tachoMeterPosition: {x: -12.4045639, y: -46.2415047}
-  tachoMeterDocking: 0
-  tachoMeterDimension: 1
-  tachoMeterNeedle: {fileID: 2800000, guid: 192a08768c36952488c2036415ec89c9, type: 3}
-  tachoMeterNeedleSize: {x: 20, y: 182.006348}
-  tachoMeterNeedleAngle: 54.2804413
-  RPMFactor: .467999995
-  speedoMeter: {fileID: 2800000, guid: 3e23ac29bc4652640a3a2e8ce95ddb2c, type: 3}
-  speedoMeterDisabled: 0
-  speedoMeterPosition: {x: 0, y: -41.3397484}
-  speedoMeterDocking: 1
-  speedoMeterDimension: 1
-  speedoMeterNeedle: {fileID: 2800000, guid: 192a08768c36952488c2036415ec89c9, type: 3}
-  speedoMeterNeedleSize: {x: 20, y: 188.384262}
-  speedoMeterNeedleAngle: 43.8875237
-  speedoMeterFactor: 1.89999998
-  speedoMeterType: 0
-  digitalSpeedoUnit: 1
-  digitalSpeedoStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .968627453, g: .952941179, b: .968627453, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
-    m_FontStyle: 0
-    m_Alignment: 5
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  digitalSpeedoPosition: {x: 116.567719, y: 0}
-  digitalSpeedoDocking: 1
-  gearMonitorStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .968627453, g: .952941179, b: .968627453, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
-    m_FontStyle: 1
-    m_Alignment: 4
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  gearMonitorPosition: {x: 95.2057495, y: 66.9524536}
-  gearMonitorDocking: 0
-  clutchMonitor: {fileID: 2800000, guid: fec0c81f50324bd45b81d0372b2f5e49, type: 3}
-  throttleMonitor: {fileID: 2800000, guid: bd7a121f008155a4ca4815bf100fb37e, type: 3}
-  brakeMonitor: {fileID: 2800000, guid: 8dfa64ed093e9954e8a2e73be8e0a973, type: 3}
-  pedalsMonitorPosition: {x: 0, y: 0}
-  ABS: {fileID: 2800000, guid: 95a099b12d8ea184a8597d8cb7a6745c, type: 3}
-  TCS: {fileID: 2800000, guid: fcadd33bb9dbbca4686522b3e9149c6f, type: 3}
-  ESP: {fileID: 2800000, guid: 8d27c0f1018fdd941866d202878e7441, type: 3}
-  dashboardLightsPosition: {x: 74.0787354, y: 24.3450432}
-  dashboardLightsDocking: 0
-  dashboardLightsDimension: .767279446
-  digitalSpeedoOnBoard: {fileID: 0}
-  digitalGearOnBoard: {fileID: 0}
-  tachoMeterNeedleOnBoard: {fileID: 0}
-  speedoMeterNeedleOnBoard: {fileID: 0}
-  showGUIDashboard: 1
-  carController: {fileID: 0}
 --- !u!144 &14400000
 CharacterJoint:
   m_ObjectHideFlags: 1
@@ -3297,7 +3031,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: .400000006, z: -1.70000005}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.34532695e-06, y: 1.61951232, z: 2.65999913}
+  m_ConnectedAnchor: {x: 8.59795875e-07, y: .400000006, z: -1.70000041}
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_LowTwistLimit:
     limit: -20

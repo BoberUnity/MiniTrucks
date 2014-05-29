@@ -43,6 +43,8 @@ public class AxisCarController : CarController
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
   [SerializeField] private int maxSpeed = 0;
+  private bool isVisible = true;
+
   public bool BrakeUsed
   {
     set { brakeUsed = value;}
@@ -72,6 +74,11 @@ public class AxisCarController : CarController
   {
     get { return maxSpeed; }//Tunning Button
     set { maxSpeed = value; }
+  }
+
+  public bool IsVisible
+  {
+    set { isVisible = value; }
   }
 
   protected override void Start()
@@ -230,7 +237,14 @@ public class AxisCarController : CarController
     else//AI
     {
       RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(waypoints[currentWaypoint].position.x, transform.position.y, waypoints[currentWaypoint].position.z));
-      steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
+      steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;//Поворот сбившегося
+      if (Mathf.Abs(steering) > 0.4f && drivetrain.velo < 3 && !isVisible)
+      {
+        //transform.Rotate(Vector3.up * steering * Time.deltaTime * 40);
+        transform.localEulerAngles += new Vector3(0, steering*Time.deltaTime*40, 0);
+        Debug.LogWarning("Rotating");
+      }
+
       if (RelativeWaypointPosition.magnitude < 7)
       {
         currentWaypoint++;
