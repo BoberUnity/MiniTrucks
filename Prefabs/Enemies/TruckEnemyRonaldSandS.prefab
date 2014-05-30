@@ -2495,7 +2495,7 @@ MonoBehaviour:
   speeds: []
   InStation: 0
   speedKoeff: 1.70000005
-  trailerdragFree: .200000003
+  trailerdragFree: .400000006
   trailerdragBrake: 4
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
@@ -2847,8 +2847,8 @@ MonoBehaviour:
     deltaCamber: 0
     oldCamber: 0
     tires: 10
-    tiresPressure: 250
-    optimalTiresPressure: 300
+    tiresPressure: 0
+    optimalTiresPressure: 0
   rearAxle:
     leftWheel: {fileID: 11400012}
     rightWheel: {fileID: 11400010}
@@ -2872,8 +2872,8 @@ MonoBehaviour:
     deltaCamber: 0
     oldCamber: 0
     tires: 11
-    tiresPressure: 250
-    optimalTiresPressure: 300
+    tiresPressure: 0
+    optimalTiresPressure: 0
   otherAxles: []
 --- !u!114 &11400042
 MonoBehaviour:

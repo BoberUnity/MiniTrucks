@@ -42,8 +42,8 @@ frontRearHandBrakeBalance=0.5
 tireType=truck_front
 forwardGripFactor=4
 sidewaysGripFactor=4
-tiresPressure=250
-optimalTiresPressure=300
+tiresPressure=0
+optimalTiresPressure=0
 
 [tires-rearAxle]
 tireType=truck_rear

@@ -2300,7 +2300,7 @@ MonoBehaviour:
   speeds: []
   InStation: 0
   speedKoeff: .800000012
-  trailerdragFree: .200000003
+  trailerdragFree: .400000006
   trailerdragBrake: 3
   trailerRigidbody: {fileID: 5400004}
   waypoint: {fileID: 0}

@@ -86,7 +86,7 @@ public class RaceStart : MonoBehaviour
   public void ClockOn()
   {
     startClock.ClockOn();
-    StartCoroutine(ClockOff(4));
+    StartCoroutine(ClockOff(1));//Должно быть 4 сек!!!!!!!!!!!!!!!!!!!!
   }
 
   private IEnumerator ClockOff(float time)//Часы убрали 0
