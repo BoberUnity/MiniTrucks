@@ -31,6 +31,7 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private ButtonHandler buttonOk = null;
   [SerializeField] private StartClock startClock = null;
   [SerializeField] private Transform truckPos = null;
+  [SerializeField] private BaggageLabel baggageLabel = null;
 
   public AxisCarController axisCarController = null;
   public EnemiesPosition[] enemiesPos = null;
@@ -208,6 +209,7 @@ public class RaceStart : MonoBehaviour
       {
         eb.isEnabled = true;
       }
+      baggageLabel.BaggageController = null;
     }
   }
 

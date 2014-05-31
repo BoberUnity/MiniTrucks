@@ -242,7 +242,7 @@ public class AxisCarController : CarController
       {
         //transform.Rotate(Vector3.up * steering * Time.deltaTime * 40);
         transform.localEulerAngles += new Vector3(0, steering*Time.deltaTime*40, 0);
-        Debug.LogWarning("Rotating");
+        //Debug.LogWarning("Rotating");
       }
 
       if (RelativeWaypointPosition.magnitude < 7)

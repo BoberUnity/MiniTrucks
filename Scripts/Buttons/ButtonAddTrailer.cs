@@ -92,14 +92,10 @@ public class ButtonAddTrailer : MonoBehaviour
 
   private void DestroyEnemies()
   {
-    //if (enemies.Length > 1)
-    //{
-      foreach (GameObject enemy in enemies)
-      {
-        Destroy(enemy);
-      }
-      //
-    //}
+    foreach (GameObject enemy in enemies)
+    {
+      Destroy(enemy);
+    }
   }
 
   public void ExitRace()//Из меню паузы && Restart

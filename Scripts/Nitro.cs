@@ -12,15 +12,15 @@ public class Nitro : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "TraktorEnemy")
-    {
+    //if (other.gameObject.name == "TraktorEnemy")
+    //{
 
-    }
+    //}
 
     if (other.gameObject.name == "Traktor")
     {
       buttonThrottle.NitroFuel = Mathf.Min(100, buttonThrottle.NitroFuel + mass);
-      Destroy(gameObject);
+      //Destroy(gameObject);
     }
   }
 }

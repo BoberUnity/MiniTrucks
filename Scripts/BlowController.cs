@@ -22,7 +22,7 @@ public class BlowController : MonoBehaviour
       if (colRelVel.magnitude > ignoreCollision)
       {
         //Debug.LogWarning("Coll " + colRelVel.magnitude + " " + gameObject.name);
-        Condition = Mathf.Max(0, Condition - colRelVel.magnitude * Frailty/400);
+        Condition = Mathf.Max(0, Condition - colRelVel.magnitude * Frailty/200);
       }
     }
   }

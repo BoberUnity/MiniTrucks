@@ -1342,8 +1342,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   serializedVersion: 2
-  m_Mass: 999.999817
-  m_Drag: .200000003
+  m_Mass: 1500
+  m_Drag: .5
   m_AngularDrag: 80
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   speeds: []
   InStation: 0
   speedKoeff: 1.10000002
-  trailerdragFree: .400000006
+  trailerdragFree: .5
   trailerdragBrake: 4
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
