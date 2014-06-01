@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ButtonAddTrailer : MonoBehaviour
 {
+  [SerializeField] private int id = 0;
   [SerializeField] private GameObject trailer = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
   [SerializeField] private RaceStart raceStart = null;
@@ -12,8 +13,26 @@ public class ButtonAddTrailer : MonoBehaviour
   [SerializeField] private BaggageLabel baggageLabel = null;
   [SerializeField] private ButtonThrottle buttonThrottle = null;
   [SerializeField] private int price = 100;
+  [SerializeField] private UISprite[] medals = null;
   //[SerializeField] private UILabel fragilityLabel = null;
-
+  private int medal = 10;
+  public int Medal
+  {
+    get { return medal;}
+    set
+    {
+      if (value < medal)
+      {
+        foreach (var m in medals)
+        {
+          m.gameObject.SetActive(false);
+        }
+        medal = value;
+        medals[value].gameObject.SetActive(true);
+        PlayerPrefs.SetInt(id.ToString("f0"), medal);
+      }
+    }
+  }
   private Transform truckCar = null;
   [SerializeField]
   private GameObject[] enemies = null;
@@ -27,6 +46,8 @@ public class ButtonAddTrailer : MonoBehaviour
   {
     raceFinish.Finish += DestroyEnemies;
     //fragilityLabel.text = trailer.GetComponentInChildren<Trailer>().Frailty.ToString("f0");
+    if (PlayerPrefs.HasKey(id.ToString("f0")))
+      Medal = PlayerPrefs.GetInt(id.ToString("f0"));
   }
 
   private void OnDestroy()
@@ -80,6 +101,7 @@ public class ButtonAddTrailer : MonoBehaviour
       raceStart.ExitStation();
       raceStart.ClockOn();
 	    raceFinish.Price = price;
+	    raceFinish.buttonAddTrailer = this;
 	    buttonThrottle.NitroFuel = 100;
       //
 	    CarZona[] carZones = FindObjectsOfType<CarZona>();

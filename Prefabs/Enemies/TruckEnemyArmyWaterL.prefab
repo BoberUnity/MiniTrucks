@@ -1092,7 +1092,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: -.100000001}
+  m_LocalPosition: {x: 0, y: -.600000024, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   waypoints: []
   speeds: []
   InStation: 0
-  speedKoeff: .649999976
+  speedKoeff: .550000012
   trailerdragFree: .300000012
   trailerdragBrake: 3
   trailerRigidbody: {fileID: 5400004}
@@ -2490,7 +2490,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: -.100000001
   zlocalPosition_orig: 0
-  ylocalPosition: -.5
+  ylocalPosition: -.600000024
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0

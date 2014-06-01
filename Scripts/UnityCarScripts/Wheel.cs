@@ -701,10 +701,10 @@ public class Wheel : MonoBehaviour {
 		CalcWheelMovement();
 		
 		//Debug.DrawRay(modelPosition, suspensionForce/1000 ,Color.yellow);
-		Debug.DrawRay(hitDown.point, up*100,Color.red);
-		Debug.DrawRay(hitDown.point, groundNormal*100,Color.green);
-		Debug.DrawRay(hitDown.point, longForce/1000,Color.red);
-		Debug.DrawRay(hitDown.point, latForce/1000,Color.blue);
+    //Debug.DrawRay(hitDown.point, up*100,Color.red);
+    //Debug.DrawRay(hitDown.point, groundNormal*100,Color.green);
+    //Debug.DrawRay(hitDown.point, longForce/1000,Color.red);
+    //Debug.DrawRay(hitDown.point, latForce/1000,Color.blue);
 	}	
 	
   	void FixedUpdate() {

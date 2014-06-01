@@ -1,7 +1,7 @@
 [body]
 weight=2000
 weightRepartition=0.75
-centerOfMass=(0.0, -0.5, -0.1)
+centerOfMass=(0.0, -0.6, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858

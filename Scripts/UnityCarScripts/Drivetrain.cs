@@ -229,7 +229,7 @@ public class Drivetrain : MonoBehaviour {
 	[HideInInspector]	
 	public float drivetrainFraction;
 	
-	[HideInInspector]
+	/*[HideInInspector]*/
 	public float velo;
 	[HideInInspector]
 	bool fuel=true;

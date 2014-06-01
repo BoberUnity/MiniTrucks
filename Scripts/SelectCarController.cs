@@ -135,6 +135,7 @@ public class SelectCarController : MonoBehaviour
   public float VolumeEffects = 0.5f;
   public float VolumeMusic = 0.5f;
   public event Action<int> ChangeGold;
+  [SerializeField] private UILabel imeiLabel = null;
 
   public int Gold
   {
@@ -170,7 +171,11 @@ public class SelectCarController : MonoBehaviour
       butt.Pressed += GoToGarage;
     }
     buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-    
+//#if UNITY_ANDROID
+//    AndroidJavaObject TM = new AndroidJavaObject("android.telephony.TelephonyManager");
+//    string IMEI = TM.Call<string>("getDeviceId");
+//    imeiLabel.text = IMEI;
+//#endif
 	}
 
   private void OnDestroy()

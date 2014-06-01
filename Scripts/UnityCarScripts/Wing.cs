@@ -45,8 +45,8 @@ public class Wing : MonoBehaviour {
 				dragForce = 0.5f*dragCoefficient*area*cardynamics.airDensity*sqrMagnitude;
 				body.AddForceAtPosition(-downForce*myTransform.up, myTransform.position);
 				body.AddForceAtPosition(-dragForce*myTransform.forward, myTransform.position);
-				Debug.DrawRay(myTransform.position, -downForce*myTransform.up/1000,Color.white);
-				Debug.DrawRay(myTransform.position, -dragForce*myTransform.forward/1000,Color.white);
+        //Debug.DrawRay(myTransform.position, -downForce*myTransform.up/1000,Color.white);
+        //Debug.DrawRay(myTransform.position, -dragForce*myTransform.forward/1000,Color.white);
 			}
 		}
 	}	

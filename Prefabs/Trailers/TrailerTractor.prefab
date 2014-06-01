@@ -306,7 +306,7 @@ GameObject:
   - 15: {fileID: 1500000}
   - 12: {fileID: 1200000}
   - 26: {fileID: 2600000}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SkidSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - 23: {fileID: 2300010}
   - 33: {fileID: 3300010}
   - 114: {fileID: 11400022}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Skidmarks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400042}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TrailerTractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,6 +1150,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1280,6 +1281,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1410,6 +1412,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1540,6 +1543,7 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
+  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1585,7 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: {fileID: 0}
+  selectCarController: {fileID: 0}
   engineThrottle: {fileID: 0}
   engineThrottleVolume: .349999994
   engineThrottlePitchFactor: 1

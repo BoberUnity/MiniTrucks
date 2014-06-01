@@ -285,31 +285,31 @@ public class AxisCarController : CarController
   protected override void Update()
   {
     base.Update();
-    if (drivetrain != null)
-    {
-      if (nitroUsed && drivetrain.velo < 2)
-      {
-        buksTime += Time.deltaTime;
-        {
-          if (buksTime > 10)
-          {
-            transform.position += Vector3.up * 4 + Vector3.right * 3;
-            buksTime = 0;
-          }
-        }
-      }
-      else 
-        buksTime = 0;
-    }
+    //if (drivetrain != null)
+    //{
+    //  if (nitroUsed && drivetrain.velo < 2)
+    //  {
+    //    buksTime += Time.deltaTime;
+    //    {
+    //      if (buksTime > 10)
+    //      {
+    //        transform.position += Vector3.up * 4 + Vector3.right * 3;
+    //        buksTime = 0;
+    //      }
+    //    }
+    //  }
+    //  else 
+    //    buksTime = 0;
+    //}
   }
 
   protected override void FixedUpdate()
   {
     base.FixedUpdate();
     if (waypoint == null) //только для соперников
-      rayCar = Physics.Raycast(transform.position, transform.forward, 10, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward, transform.forward, 10, 1 << 17); //layer Car1
     if (trafic)
-      rayCar = Physics.Raycast(transform.position + transform.forward, transform.forward, 15, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward, transform.forward, 15, 1 << 17); //layer Car1
   }
 
   public void SetWay(Waypoint wpoint)
@@ -343,5 +343,11 @@ public class AxisCarController : CarController
     }
     else
       Debug.LogWarning("Путь " + waypoint.gameObject.name + "не найден");
+  }
+
+  void OnDrawGizmos ()
+  {
+    Gizmos.color = Color.white;
+    Gizmos.DrawLine(transform.position + Vector3.up, transform.position + Vector3.up + transform.forward * 10);
   }
 }
