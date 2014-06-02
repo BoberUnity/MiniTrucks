@@ -47,8 +47,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: e7ef61ebb5c25394c8706a7ea658349f, type: 2}
   mSprites:
   - name: Beveled Outline
-    x: 0
-    y: 24
+    x: 258
+    y: 793
     width: 17
     height: 17
     borderLeft: 5
@@ -60,8 +60,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Bright
-    x: 0
-    y: 6
+    x: 258
+    y: 775
     width: 17
     height: 17
     borderLeft: 5
@@ -73,8 +73,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Dark
-    x: 18
-    y: 24
+    x: 276
+    y: 793
     width: 17
     height: 17
     borderLeft: 5
@@ -86,8 +86,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Fantasy Font
-    x: 0
-    y: 42
+    x: 258
+    y: 811
     width: 256
     height: 212
     borderLeft: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 44
   - name: Flat Outline
-    x: 18
-    y: 6
+    x: 276
+    y: 775
     width: 17
     height: 17
     borderLeft: 5
@@ -112,8 +112,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Glow
-    x: 36
-    y: 8
+    x: 294
+    y: 777
     width: 17
     height: 15
     borderLeft: 4
@@ -124,9 +124,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Map
+    x: 0
+    y: 1024
+    width: 1022
+    height: 1024
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: Medal1
-    x: 258
-    y: 5
+    x: 700
+    y: 770
     width: 181
     height: 253
     borderLeft: 0
@@ -138,8 +151,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: Medal2
-    x: 443
-    y: 259
+    x: 0
+    y: 512
     width: 180
     height: 253
     borderLeft: 0
@@ -151,8 +164,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: Medal3
-    x: 258
-    y: 259
+    x: 515
+    y: 770
     width: 184
     height: 253
     borderLeft: 0
@@ -164,8 +177,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: NGUI
-    x: 624
-    y: 266
+    x: 436
+    y: 689
     width: 255
     height: 76
     borderLeft: 0
@@ -177,8 +190,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Orc Armor - Boots
-    x: 879
-    y: 384
+    x: 0
+    y: 383
     width: 96
     height: 128
     borderLeft: 0
@@ -190,8 +203,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Orc Armor - Bracers
-    x: 443
-    y: 16
+    x: 882
+    y: 781
     width: 123
     height: 113
     borderLeft: 0
@@ -203,8 +216,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: Orc Armor - Shoulders
-    x: 443
-    y: 130
+    x: 882
+    y: 895
     width: 128
     height: 128
     borderLeft: 0
@@ -217,7 +230,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Paper Background
     x: 0
-    y: 255
+    y: 766
     width: 257
     height: 257
     borderLeft: 1
@@ -229,8 +242,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Smooth
-    x: 36
-    y: 24
+    x: 294
+    y: 793
     width: 17
     height: 17
     borderLeft: 4
@@ -242,8 +255,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Window
-    x: 624
-    y: 343
+    x: 181
+    y: 596
     width: 254
     height: 169
     borderLeft: 8

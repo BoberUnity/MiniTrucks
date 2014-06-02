@@ -171,11 +171,12 @@ public class SelectCarController : MonoBehaviour
       butt.Pressed += GoToGarage;
     }
     buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-//#if UNITY_ANDROID
-//    AndroidJavaObject TM = new AndroidJavaObject("android.telephony.TelephonyManager");
-//    string IMEI = TM.Call<string>("getDeviceId");
-//    imeiLabel.text = IMEI;
-//#endif
+
+    if (Application.platform == RuntimePlatform.Android)
+    {
+      AndroidJavaObject TM = new AndroidJavaObject("android.telephony.TelephonyManager");
+      imeiLabel.text = "IMEI:"+TM.Call<string>("getDeviceId");
+    }
 	}
 
   private void OnDestroy()
