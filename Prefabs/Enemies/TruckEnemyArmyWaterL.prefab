@@ -283,16 +283,13 @@ GameObject:
   - 114: {fileID: 11400030}
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400026}
-  - 114: {fileID: 11400024}
   - 54: {fileID: 5400002}
   - 114: {fileID: 11400022}
   - 114: {fileID: 11400020}
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400014}
-  - 114: {fileID: 11400012}
   - 65: {fileID: 6500006}
-  - 114: {fileID: 11400002}
   - 144: {fileID: 14400000}
   m_Layer: 21
   m_Name: TraktorEnemy
@@ -1688,20 +1685,6 @@ MonoBehaviour:
   deltaCamber: 0
   axleWheelsLength: 0
   axlesNumber: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e17bf97a2f3982428e1776673755b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Frailty: 0
-  ignoreCollision: 10
-  Condition: 100
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2110,18 +2093,6 @@ MonoBehaviour:
   bigCollider: {fileID: 6500002}
   axisCarController: {fileID: 11400014}
   connectPosition: {x: 0, y: .409999996, z: -1.70000005}
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6259fb68eda601841889ec68e5c8469a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BodyRenderer: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2317,53 +2288,6 @@ MonoBehaviour:
     tiresPressure: 0
     optimalTiresPressure: 100
   otherAxles: []
---- !u!114 &11400024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectCarController: {fileID: 0}
-  engineThrottle: {fileID: 8300000, guid: 300cea8b51b78724e83b9bc1e375cf2b, type: 3}
-  engineThrottleVolume: 1
-  engineThrottlePitchFactor: 1.5
-  engineNoThrottle: {fileID: 8300000, guid: 300cea8b51b78724e83b9bc1e375cf2b, type: 3}
-  engineNoThrottleVolume: .400000006
-  engineNoThrottlePitchFactor: 1.5
-  startEngine: {fileID: 8300000, guid: 519be4efdc8d89640a867b1b6c1fb86e, type: 3}
-  startEngineVolume: .200000003
-  startEnginePitch: .899999976
-  enginePosition: {fileID: 0}
-  transmission: {fileID: 8300000, guid: 5adae0b6efa257241a50672c79c02706, type: 3}
-  transmissionVolume: .100000001
-  transmissionVolumeReverse: .5
-  transmissionSourcePitch: 1
-  brakeNoise: {fileID: 8300000, guid: aa3819cf45121ff4e979ff6839114894, type: 3}
-  brakeNoiseVolume: .200000003
-  skid: {fileID: 8300000, guid: 747ef069de90640e8b656c63e4295e2d, type: 3}
-  skidVolume: 1
-  skidPitchFactor: .699999988
-  crashHiSpeed: {fileID: 8300000, guid: a835cf62b1f2d8547afe15d7f5e0d273, type: 3}
-  crashHighVolume: .75
-  crashLowSpeed: {fileID: 8300000, guid: eb5ca72512e7def4cb575d9c61d89948, type: 3}
-  crashLowVolume: .699999988
-  scrapeNoise: {fileID: 8300000, guid: 07bc0f08e7dc453468f3db64061c1d25, type: 3}
-  scrapeNoiseVolume: 1
-  ABSTrigger: {fileID: 8300000, guid: f43a89fd4bd3f3e4daef090c81b32a38, type: 3}
-  ABSTriggerVolume: .200000003
-  shiftTrigger: {fileID: 8300000, guid: f54def1ccae9f2645bc4d2d427327fbe, type: 3}
-  shiftTriggerVolume: .5
-  wind: {fileID: 8300000, guid: 48515701a05463442ada2bcfd60a1234, type: 3}
-  windVolume: 1
-  rollingNoiseGrass: {fileID: 8300000, guid: a2d752e186492ed40965fc91a41f5ce7, type: 3}
-  rollingNoiseSand: {fileID: 8300000, guid: 5e587b5787f0f98408b244a71d2ad15d, type: 3}
-  rollingNoiseOffroad: {fileID: 8300000, guid: abe9263ffed737d47918bc41e55544f1, type: 3}
-  carController: {fileID: 0}
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1

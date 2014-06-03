@@ -254,7 +254,7 @@ public class AxisCarController : CarController
 
       float sp = rigidbody.velocity.magnitude;
       if (sp < speeds[currentWaypoint] * speedKoeff && !oppWaitClock && !rayCar)
-        throttleInput = 0.5f;
+        throttleInput = 0.95f;
       else
         throttleInput = 0;
 

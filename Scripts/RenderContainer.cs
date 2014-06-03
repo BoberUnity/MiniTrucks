@@ -7,7 +7,13 @@ public class RenderContainer : MonoBehaviour
   [SerializeField] private BoxCollider bigCollider = null;
   [SerializeField] private AxisCarController axisCarController = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
+  [SerializeField] private Vector3 locPosMem = Vector3.zero;
 
+  private void Start()
+  {
+    locPosMem = trailer.transform.localPosition;
+  }
+  
   private void OnBecameVisible()
   {
     //trailer.interpolation = RigidbodyInterpolation.Interpolate;
@@ -15,7 +21,7 @@ public class RenderContainer : MonoBehaviour
     transform.parent.rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
     bigCollider.enabled = false;
     trailer.gameObject.SetActive(true);
-    trailer.transform.position = transform.parent.position;// -transform.forward * locPosMem.z + Vector3.up * locPosMem.y;
+    trailer.transform.position = transform.parent.position - transform.forward * locPosMem.z + Vector3.up * locPosMem.y;
     trailer.transform.rotation = transform.parent.rotation;
     transform.parent.GetComponent<CharacterJoint>().connectedBody = trailer;
     transform.parent.GetComponent<CharacterJoint>().anchor = connectPosition;

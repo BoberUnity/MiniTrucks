@@ -30,6 +30,7 @@ public class ButtonAddTrailer : MonoBehaviour
         medal = value;
         medals[value].gameObject.SetActive(true);
         PlayerPrefs.SetInt(id.ToString("f0"), medal);
+        Debug.LogWarning("Key medal created");
       }
     }
   }

@@ -1,15 +1,15 @@
 [body]
 weight=2000
-weightRepartition=0.75
+weightRepartition=0.57
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=400
+maxPower=500
 maxPowerRPM=4000
-maxTorque=2000
+maxTorque=2300
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=2618
+clutchMaxTorque=3064
 autoClutch=True
 engageRPM=800
 disengageRPM=500
@@ -67,11 +67,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=3500
+brakeFrictionTorque=4000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=3500
+BrakeFrictionTorque=4000
 HandbrakeFrictionTorque=4000
 
 [brakes]
@@ -81,14 +81,14 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=supersport_front
 forwardGripFactor=1.5
-sidewaysGripFactor=1.8
+sidewaysGripFactor=2.2
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
 forwardGripFactor=1.5
-sidewaysGripFactor=1.8
+sidewaysGripFactor=2.2
 tiresPressure=0
 optimalTiresPressure=100
 

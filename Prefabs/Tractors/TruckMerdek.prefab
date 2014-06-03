@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSetup: 0
   savingSetup: 0
-  filePath: Assets\Samples\Car Setups\Merdekr.txt
+  filePath: Assets\Samples\Car Setups\Merdek.txt
   usePersistentDataPath: 0
 --- !u!114 &11400022
 MonoBehaviour:

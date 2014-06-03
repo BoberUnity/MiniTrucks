@@ -146,13 +146,13 @@ public class RaceStart : MonoBehaviour
             {
               resultLabel.text = "2-nd";
               price = (int)(price*0.7f);
-              buttonAddTrailer.Medal = Mathf.Max(1, buttonAddTrailer.Medal);
+              buttonAddTrailer.Medal = Mathf.Min(1, buttonAddTrailer.Medal);
             }
             if (prize == 3)
             {
               resultLabel.text = "3-rd";
               price = (int)(price * 0.6f);
-              buttonAddTrailer.Medal = Mathf.Max(2, buttonAddTrailer.Medal);
+              buttonAddTrailer.Medal = Mathf.Min(2, buttonAddTrailer.Medal);
             }
             if (prize == 4)
             {
