@@ -35,4 +35,12 @@ public class RenderContainer : MonoBehaviour
     trailer.gameObject.SetActive(false);
     bigCollider.enabled = true;
   }
+
+  void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.Z))
+      OnBecameVisible();
+    if (Input.GetKeyDown(KeyCode.X))
+      OnBecameInvisible();
+  }
 }
