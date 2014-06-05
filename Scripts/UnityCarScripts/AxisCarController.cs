@@ -47,6 +47,7 @@ public class AxisCarController : CarController
 
   public bool BrakeUsed
   {
+    get { return brakeUsed; }
     set { brakeUsed = value;}
   }
 

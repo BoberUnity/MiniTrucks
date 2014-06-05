@@ -161,6 +161,7 @@ public class Wheel : MonoBehaviour {
 	PhysicMaterials physicMaterials;
 	Axles axles;
 	Transform myTransform;
+  private AxisCarController axisCarController = null;
 	
 	//friction torque relative to the wheel, its used to stop the wheel when the car its upside down and the wheel its rotating
 	float wheelFrictionTorque=0.5f;
@@ -189,7 +190,7 @@ public class Wheel : MonoBehaviour {
 	[HideInInspector]
 	public float slipVelo;
 	float slipVeloSmoke;
-	[SerializeField] private float slipVeloThreshold=10;
+	private float slipVeloThreshold=4;
 	
 	[HideInInspector]
 	public float slipRatio;
@@ -548,6 +549,8 @@ public class Wheel : MonoBehaviour {
 		cardynamics = trs.GetComponent<CarDynamics>();
 		drivetrain = trs.GetComponent<Drivetrain>();
 		axles = trs.GetComponent<Axles>();
+    if (drivetrain != null)
+      axisCarController = drivetrain.GetComponent<AxisCarController>();
 		
 		localScale=1/(trs.localScale.y*myTransform.localScale.y);
 		
@@ -735,11 +738,11 @@ public class Wheel : MonoBehaviour {
 		
 		if (onGroundDown)
 		{
-			cos=Vector3.Dot(hitDown.normal, up);
-			
-			groundNormal = hitDown.normal;
+		  cos = Vector3.Dot(hitDown.normal, up);
 
-			float height=0;
+		  groundNormal = hitDown.normal;
+
+		  float height = 0;
 /* 			Renderer renderer  = hitDown.collider.renderer;
 			Texture2D tex = renderer.material.mainTexture as Texture2D;
 			if (tex){
@@ -750,149 +753,190 @@ public class Wheel : MonoBehaviour {
 				float ActualHeight = tex.GetPixel( (int)pixelUV.x, (int)pixelUV.y).grayscale * HeightOfHeightmap;
 				height=HeightOfHeightmap - ActualHeight;
 			}
- */			
-			roadDistance = hitDown.distance + height;
-   		if (cos>=0.99f) normalVelocity = -Vector3.Dot(wheelVelo, groundNormal)*cos;
-			else normalVelocity = -Vector3.Dot(wheelVelo, up);
-						
-			deltaVelocity=normalVelocity - oldNormalVelocity;
-			accel=deltaVelocity/Time.deltaTime;			
-			nextVelocity=normalVelocity + accel*Time.deltaTime;
-			
-			gripPressure=1;
-			pressureFactor=1;
-			if (tirePuncture==true) {
-				rimScraping=true;
-				radiusLoaded=radius - sidewallHeight;
-				gripPressure=0.1f;
-			}
-			else{
-				rimScraping=false;
-				if (pressure!=0 && tirePressureEnabled==true) {
-					pressureFactor=pressure/optimalPressure;
-					if (pressureFactor<0.5f) pressureFactor=0.5f;
-					gripPressure=Mathf.Sqrt(pressureFactor);
-					if (gripPressure>1) gripPressure=1;
-				}
-			}
-			
-			if (pressure==0 || tirePuncture==true || tirePressureEnabled==false) springLength=(roadDistance - radiusLoaded);
-			
-			compression =(suspensionTravel - springLength);
-			//compression =suspensionTravel - (hitDown.distance - radius);
-			nextCompression=compression + nextVelocity*Time.deltaTime;
-			overTravel=compression - suspensionTravel;
-			//normalCompression = compression/suspensionTravel;
-			compression = Mathf.Clamp(compression,0,suspensionTravel);
-			
- 			if (pressure!=0 && tirePressureEnabled==true && tirePuncture==false){
-				tireForce=TireForce();
-			}
-			else {
-				tireDeflection=0;
-				deflectionVelocity=0;
-				tireForce=0;
-				radiusLoaded=radius;
-				verticalTireStiffness=lateralTireStiffness=longitudinalTireStiffness=0;
-			}
-			
-			suspensionForce = SuspensionForce(compression);
-			
-			bumpStopForce=0;
-			if (overTravel>=0 || nextCompression>=suspensionTravel){ 
-				bumpStopForce=BumpStopForce(overTravel) - suspensionForce;
-				if (bumpStopForce<0) bumpStopForce=0;
-				body.AddForceAtPosition(bumpStopForce*up, pos);
-			}
-			
-			normalForce=suspensionForce + bumpStopForce;
-			
-			if (suspensionLineRenderer!=null){
-				if (showForces==true) {suspensionLineRenderer.enabled = true; suspensionLineRenderer.SetPosition(1, new Vector3(0,0.0005f*suspensionForce,0)); }
-				else suspensionLineRenderer.enabled=false;
-			}
-			
-			roadForce = RoadForce(normalForce, groundNormal);	
-			
-			//this code must be executed after RoadForce() function in order to avoid wheel oscillations
-			oldAngularVelocity=angularVelocity;
-			angularVelocity += (lockingTorqueImpulse - roadTorqueImpulse)/totalRotationalInertia;
-			if (Mathf.Abs(angularVelocity) > frictionAngularDelta){
-				angularVelocity -= frictionAngularDelta*Mathf.Sign(angularVelocity);
-			}
-			else
-				angularVelocity = 0;
+ */
+		  roadDistance = hitDown.distance + height;
+		  if (cos >= 0.99f) normalVelocity = -Vector3.Dot(wheelVelo, groundNormal)*cos;
+		  else normalVelocity = -Vector3.Dot(wheelVelo, up);
 
-			// damp low speed wheel oscillations
-			float deltaAngularVelocity=angularVelocity - oldAngularVelocity;
-			float delta=deltaAngularVelocity*0.85f*Mathf.Clamp01(cardynamics.invFixedTimeStepScalar);
-			angularVelocity-=delta;
-			
-			// lateral defletion and overturning moment
-			lateralTireDeflection=0;
-			if (pressure!=0 && tirePressureEnabled==true && lateralTireStiffness!=0){
-				lateralTireDeflection=Fy/lateralTireStiffness;
-				if (Mathf.Abs(lateralTireDeflection)<=0.0001f) lateralTireDeflection=0;
-				overTurningMoment=0;
-				if (lateralTireDeflection!=0){
-					overTurningMoment=-normalForce*lateralTireDeflection;
-					body.AddTorque(myTransform.forward*overTurningMoment);
-					
-					//incremental aligning torque due to longitudinal force
-					Mz+=Fx*lateralTireDeflection;
-				}
-			}
+		  deltaVelocity = normalVelocity - oldNormalVelocity;
+		  accel = deltaVelocity/Time.deltaTime;
+		  nextVelocity = normalVelocity + accel*Time.deltaTime;
 
-			body.AddForceAtPosition(roadForce + suspensionForce*groundNormal, modelPosition);
-									
-			//Tire static friction
- 			float velocitySqrMagnitude= body.velocity.sqrMagnitude;
- 			if (velocitySqrMagnitude<=4f){
-				float weightForce=CalculateFractionalMass()*-Physics.gravity.y;
-				//lateral tire static friction
-				Vector3 rightN=Vector3.Cross(myTransform.forward,groundNormal);
-				Vector3 rNormal=rightNormal;
-				if (velocitySqrMagnitude<1 && (brake!=0 || handbrake!=0)) rNormal=right*(1-Mathf.Max(brake,handbrake)) - rightN*Mathf.Max(brake,handbrake);
-				float cosRight=Vector3.Dot(-rNormal, Vector3.up);
-				float latGravityForce=weightForce*cosRight*cos;
-				
-				float staticFrictionForce=staticFrictionCoefficient*m_gripMaterial*sidewaysGripFactor*weightForce;
-				float forceLateral=latGravityForce;
-				if (staticFrictionForce<Mathf.Abs(latGravityForce)) forceLateral=staticFrictionForce*Mathf.Sign(latGravityForce);
-				body.AddForceAtPosition(forceLateral*-rNormal, modelPosition);
-				//Debug.DrawRay(modelPosition, forceLateral*-rNormal/1000,Color.white);
+		  gripPressure = 1;
+		  pressureFactor = 1;
+		  if (tirePuncture == true)
+		  {
+		    rimScraping = true;
+		    radiusLoaded = radius - sidewallHeight;
+		    gripPressure = 0.1f;
+		  }
+		  else
+		  {
+		    rimScraping = false;
+		    if (pressure != 0 && tirePressureEnabled == true)
+		    {
+		      pressureFactor = pressure/optimalPressure;
+		      if (pressureFactor < 0.5f) pressureFactor = 0.5f;
+		      gripPressure = Mathf.Sqrt(pressureFactor);
+		      if (gripPressure > 1) gripPressure = 1;
+		    }
+		  }
 
-				//longitudinal tire static friction
- 				if (velocitySqrMagnitude<1 && (brake!=0 || handbrake!=0)){
-					Vector3 fNormal=Vector3.Cross(myTransform.right,groundNormal);
-					float cosForward=Vector3.Dot(fNormal, Vector3.up);
-					float brakeFactor=1;
-					float handbrakeFactor=1;
-					if (wheelPos==WheelPos.FRONT_LEFT || wheelPos==WheelPos.FRONT_RIGHT){
-						if (cardynamics.frontRearBrakeBalance>=0.9f || cardynamics.frontRearBrakeBalance<=0.1f) brakeFactor=cardynamics.frontRearBrakeBalance*2*brake;
-						handbrakeFactor=cardynamics.frontRearHandBrakeBalance*2*handbrake;
-					}
-					else{
-						if (cardynamics.frontRearBrakeBalance>=0.9f || cardynamics.frontRearBrakeBalance<=0.1f) brakeFactor=(1-cardynamics.frontRearBrakeBalance)*2*brake;
-						handbrakeFactor=(1-cardynamics.frontRearHandBrakeBalance)*2*handbrake;
-						}
-						
-					if (brakeFactor<1) brakeFactor=1;
-					if (handbrakeFactor<1) handbrakeFactor=1;
-					
-					float forwardGravityForce=weightForce*cosForward*m_gripMaterial*forwardGripFactor*Mathf.Max(brakeFactor,handbrakeFactor);
-					
-					float forwardFrictionForce=totalFrictionTorque; //should be forwardFrictionForce=totalFrictionTorque/radiusLoaded;
-					float forceForward=forwardGravityForce;
-					if (forwardFrictionForce<Mathf.Abs(forwardGravityForce)) forceForward=forwardFrictionForce*Mathf.Sign(forwardGravityForce);
-					body.AddForceAtPosition(forceForward*fNormal*Mathf.Max(brake,handbrake), modelPosition);
-					//Debug.DrawRay(modelPosition, forceForward*fNormal*Mathf.Max(brake,handbrake)/1000,Color.yellow);
-				}
-			}
- 			
-			longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
-      //Debug.LogWarning("longitunalSlipVelo= " + longitunalSlipVelo);
-			lateralSlipVelo = Vector3.Dot(wheelVelo, trs.right);//wheelRoadVeloLat;
+		  if (pressure == 0 || tirePuncture == true || tirePressureEnabled == false)
+		    springLength = (roadDistance - radiusLoaded);
+
+		  compression = (suspensionTravel - springLength);
+		  //compression =suspensionTravel - (hitDown.distance - radius);
+		  nextCompression = compression + nextVelocity*Time.deltaTime;
+		  overTravel = compression - suspensionTravel;
+		  //normalCompression = compression/suspensionTravel;
+		  compression = Mathf.Clamp(compression, 0, suspensionTravel);
+
+		  if (pressure != 0 && tirePressureEnabled == true && tirePuncture == false)
+		  {
+		    tireForce = TireForce();
+		  }
+		  else
+		  {
+		    tireDeflection = 0;
+		    deflectionVelocity = 0;
+		    tireForce = 0;
+		    radiusLoaded = radius;
+		    verticalTireStiffness = lateralTireStiffness = longitudinalTireStiffness = 0;
+		  }
+
+		  suspensionForce = SuspensionForce(compression);
+
+		  bumpStopForce = 0;
+		  if (overTravel >= 0 || nextCompression >= suspensionTravel)
+		  {
+		    bumpStopForce = BumpStopForce(overTravel) - suspensionForce;
+		    if (bumpStopForce < 0) bumpStopForce = 0;
+		    body.AddForceAtPosition(bumpStopForce*up, pos);
+		  }
+
+		  normalForce = suspensionForce + bumpStopForce;
+
+		  if (suspensionLineRenderer != null)
+		  {
+		    if (showForces == true)
+		    {
+		      suspensionLineRenderer.enabled = true;
+		      suspensionLineRenderer.SetPosition(1, new Vector3(0, 0.0005f*suspensionForce, 0));
+		    }
+		    else suspensionLineRenderer.enabled = false;
+		  }
+
+		  roadForce = RoadForce(normalForce, groundNormal);
+
+		  //this code must be executed after RoadForce() function in order to avoid wheel oscillations
+		  oldAngularVelocity = angularVelocity;
+		  angularVelocity += (lockingTorqueImpulse - roadTorqueImpulse)/totalRotationalInertia;
+		  if (Mathf.Abs(angularVelocity) > frictionAngularDelta)
+		  {
+		    angularVelocity -= frictionAngularDelta*Mathf.Sign(angularVelocity);
+		  }
+		  else
+		    angularVelocity = 0;
+
+		  // damp low speed wheel oscillations
+		  float deltaAngularVelocity = angularVelocity - oldAngularVelocity;
+		  float delta = deltaAngularVelocity*0.85f*Mathf.Clamp01(cardynamics.invFixedTimeStepScalar);
+		  angularVelocity -= delta;
+
+		  // lateral defletion and overturning moment
+		  lateralTireDeflection = 0;
+		  if (pressure != 0 && tirePressureEnabled == true && lateralTireStiffness != 0)
+		  {
+		    lateralTireDeflection = Fy/lateralTireStiffness;
+		    if (Mathf.Abs(lateralTireDeflection) <= 0.0001f) lateralTireDeflection = 0;
+		    overTurningMoment = 0;
+		    if (lateralTireDeflection != 0)
+		    {
+		      overTurningMoment = -normalForce*lateralTireDeflection;
+		      body.AddTorque(myTransform.forward*overTurningMoment);
+
+		      //incremental aligning torque due to longitudinal force
+		      Mz += Fx*lateralTireDeflection;
+		    }
+		  }
+
+		  body.AddForceAtPosition(roadForce + suspensionForce*groundNormal, modelPosition);
+
+		  //Tire static friction
+		  float velocitySqrMagnitude = body.velocity.sqrMagnitude;
+		  if (velocitySqrMagnitude <= 4f)
+		  {
+		    float weightForce = CalculateFractionalMass()*-Physics.gravity.y;
+		    //lateral tire static friction
+		    Vector3 rightN = Vector3.Cross(myTransform.forward, groundNormal);
+		    Vector3 rNormal = rightNormal;
+		    if (velocitySqrMagnitude < 1 && (brake != 0 || handbrake != 0))
+		      rNormal = right*(1 - Mathf.Max(brake, handbrake)) - rightN*Mathf.Max(brake, handbrake);
+		    float cosRight = Vector3.Dot(-rNormal, Vector3.up);
+		    float latGravityForce = weightForce*cosRight*cos;
+
+		    float staticFrictionForce = staticFrictionCoefficient*m_gripMaterial*sidewaysGripFactor*weightForce;
+		    float forceLateral = latGravityForce;
+		    if (staticFrictionForce < Mathf.Abs(latGravityForce))
+		      forceLateral = staticFrictionForce*Mathf.Sign(latGravityForce);
+		    body.AddForceAtPosition(forceLateral*-rNormal, modelPosition);
+		    //Debug.DrawRay(modelPosition, forceLateral*-rNormal/1000,Color.white);
+
+		    //longitudinal tire static friction
+		    if (velocitySqrMagnitude < 1 && (brake != 0 || handbrake != 0))
+		    {
+		      Vector3 fNormal = Vector3.Cross(myTransform.right, groundNormal);
+		      float cosForward = Vector3.Dot(fNormal, Vector3.up);
+		      float brakeFactor = 1;
+		      float handbrakeFactor = 1;
+		      if (wheelPos == WheelPos.FRONT_LEFT || wheelPos == WheelPos.FRONT_RIGHT)
+		      {
+		        if (cardynamics.frontRearBrakeBalance >= 0.9f || cardynamics.frontRearBrakeBalance <= 0.1f)
+		          brakeFactor = cardynamics.frontRearBrakeBalance*2*brake;
+		        handbrakeFactor = cardynamics.frontRearHandBrakeBalance*2*handbrake;
+		      }
+		      else
+		      {
+		        if (cardynamics.frontRearBrakeBalance >= 0.9f || cardynamics.frontRearBrakeBalance <= 0.1f)
+		          brakeFactor = (1 - cardynamics.frontRearBrakeBalance)*2*brake;
+		        handbrakeFactor = (1 - cardynamics.frontRearHandBrakeBalance)*2*handbrake;
+		      }
+
+		      if (brakeFactor < 1) brakeFactor = 1;
+		      if (handbrakeFactor < 1) handbrakeFactor = 1;
+
+		      float forwardGravityForce = weightForce*cosForward*m_gripMaterial*forwardGripFactor*
+		                                  Mathf.Max(brakeFactor, handbrakeFactor);
+
+		      float forwardFrictionForce = totalFrictionTorque;
+		        //should be forwardFrictionForce=totalFrictionTorque/radiusLoaded;
+		      float forceForward = forwardGravityForce;
+		      if (forwardFrictionForce < Mathf.Abs(forwardGravityForce))
+		        forceForward = forwardFrictionForce*Mathf.Sign(forwardGravityForce);
+		      body.AddForceAtPosition(forceForward*fNormal*Mathf.Max(brake, handbrake), modelPosition);
+		      //Debug.DrawRay(modelPosition, forceForward*fNormal*Mathf.Max(brake,handbrake)/1000,Color.yellow);
+		    }
+		  }
+		  //bob
+		  if (axisCarController != null)
+		  {
+		    float skidIntensity = 0;
+
+		    if (axisCarController.BrakeUsed)
+		      skidIntensity = 1;
+		    else
+		    {
+		      if (drivetrain.velo < 15)
+		        skidIntensity = (15 - drivetrain.velo)/15;
+		    }
+		    longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo)*skidIntensity; //b
+		  }
+		  else//trailer
+		    longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
+		  
+  	  //Debug.LogWarning("longitunalSlipVelo= " + longitunalSlipVelo);
+			lateralSlipVelo = Vector3.Dot(wheelVelo, trs.right)*1.5f;//wheelRoadVeloLat;//b*2
       //Debug.LogWarning("lateralSlipVelo= " + lateralSlipVelo);
 			float longSquare=longitunalSlipVelo*longitunalSlipVelo;
 			float latSquare=lateralSlipVelo*lateralSlipVelo;
