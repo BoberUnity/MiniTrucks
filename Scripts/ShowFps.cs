@@ -19,13 +19,13 @@ public class ShowFps : MonoBehaviour
     timeleft -= Time.deltaTime;
     accum += Time.timeScale/Time.deltaTime;
     ++frames;
-    Step += 1;
+    //Step += 1;
     if( timeleft <= 0.0f )
     {
       fps = accum/frames;
       
-      //if (fps > LowFPS) {Step += 1;};
-      //if (fps < LowFPS) {Step -= 1;};
+      if (fps > LowFPS) {Step += 1;};
+      if (fps < LowFPS) {Step -= 1;};
 
       uILabel.text = "FPS: " + fps.ToString("f0");
 

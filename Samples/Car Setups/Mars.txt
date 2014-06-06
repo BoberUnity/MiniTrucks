@@ -1,15 +1,15 @@
 [body]
 weight=2500
-weightRepartition=0.4
+weightRepartition=0.37
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=800
+maxPower=900
 maxPowerRPM=4000
-maxTorque=4000
+maxTorque=4300
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -89,19 +89,19 @@ antiRollBarRate=0
 maxSteeringAngle=30
 
 [brakes-frontAxle]
-brakeFrictionTorque=7500
+brakeFrictionTorque=8500
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=7500
+BrakeFrictionTorque=8500
 HandbrakeFrictionTorque=4000
 
 [brakes-otherAxle1]
-brakeFrictionTorque=7500
+brakeFrictionTorque=8500
 handbrakeFrictionTorque=4000
 
 [brakes-otherAxle2]
-brakeFrictionTorque=7500
+brakeFrictionTorque=8500
 handbrakeFrictionTorque=4000
 
 [brakes]
@@ -111,28 +111,28 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle2]
 tireType=truck_rear
 forwardGripFactor=1
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3
 tiresPressure=0
 optimalTiresPressure=800
 

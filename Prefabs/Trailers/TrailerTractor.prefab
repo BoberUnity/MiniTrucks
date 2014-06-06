@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 33: {fileID: 3300008}
   - 23: {fileID: 2300008}
-  - 65: {fileID: 6500000}
+  - 64: {fileID: 6400000}
   m_Layer: 17
   m_Name: Body
   m_TagString: Untagged
@@ -602,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: .800000012}
+  m_LocalPosition: {x: 0, y: 1, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400034}
@@ -977,18 +977,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6500000
-BoxCollider:
+--- !u!64 &6400000
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ce0365ccfccf24b428dec92ad10642c2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .796177149, y: 1.58516192, z: 1}
-  m_Center: {x: 1.93715124e-07, y: -.34401989, z: .200000003}
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300008, guid: 93b89996c53faba4993a73b737739173, type: 3}
 --- !u!65 &6500002
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1150,7 +1151,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1281,7 +1281,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1412,7 +1411,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1543,7 +1541,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1681,7 +1678,7 @@ MonoBehaviour:
   skidmarks: {fileID: 11400022}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: .800000012
+  zlocalPosition: -.5
   zlocalPosition_orig: 0
   ylocalPosition: 1
   ylocalPosition_orig: 0
@@ -1721,8 +1718,8 @@ MonoBehaviour:
     brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .5
-    sidewaysGripFactor: .5
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1746,8 +1743,8 @@ MonoBehaviour:
     brakeFrictionTorque: 180000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .5
-    sidewaysGripFactor: .5
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0

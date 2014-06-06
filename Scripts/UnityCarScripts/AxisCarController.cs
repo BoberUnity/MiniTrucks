@@ -53,6 +53,7 @@ public class AxisCarController : CarController
 
   public bool NitroUsed
   {
+    get { return nitroUsed; }
     set { nitroUsed = value;}
   }
 
