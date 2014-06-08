@@ -57,8 +57,8 @@ public class Skidmarks : MonoBehaviour {
 	public int AddSkidMark(Vector3 pos, Vector3  normal, float intensity, int lastIndex)
 	{
 		if (skidmarks==null) InitSkidmarks();
-    if (intensity > 1)
-      intensity = 1.0f;
+    if (intensity > 0.3f)//b
+      intensity = 0.3f;//b
     if (intensity <= 0)
       return -1;
     
