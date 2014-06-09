@@ -726,7 +726,6 @@ GameObject:
   - 114: {fileID: 11400038}
   - 114: {fileID: 11400036}
   - 114: {fileID: 11400034}
-  - 114: {fileID: 11400032}
   - 65: {fileID: 6500010}
   - 114: {fileID: 11400030}
   - 144: {fileID: 14400000}
@@ -1807,9 +1806,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100088}
   serializedVersion: 2
-  m_Mass: 2500
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Mass: 2000
+  m_Drag: .100000001
+  m_AngularDrag: .100000001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -3351,18 +3350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brizgi: {fileID: 1500000}
---- !u!114 &11400032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6259fb68eda601841889ec68e5c8469a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BodyRenderer: {fileID: 2300022}
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3430,7 +3417,6 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
   trafic: 0
-  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400036
 MonoBehaviour:
@@ -3603,8 +3589,8 @@ MonoBehaviour:
   fuelTanks: []
   poweredWheels: []
   maxPower: 700
-  maxPowerRPM: 4000
-  maxTorque: 3500
+  maxPowerRPM: 5000
+  maxTorque: 4000
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0

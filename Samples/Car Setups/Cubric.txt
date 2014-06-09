@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=200
-maxPowerRPM=4000
-maxTorque=1000
+maxPower=350
+maxPowerRPM=5000
+maxTorque=2000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -67,11 +67,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=2500
+brakeFrictionTorque=2000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=2500
+BrakeFrictionTorque=2000
 HandbrakeFrictionTorque=30000
 
 [brakes]

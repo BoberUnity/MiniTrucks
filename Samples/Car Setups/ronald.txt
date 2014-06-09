@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=400
-maxPowerRPM=4000
-maxTorque=2000
+maxPower=500
+maxPowerRPM=5000
+maxTorque=2800
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -45,7 +45,7 @@ gear-ratio-3=1.39
 gear-ratio-4=1
 
 [suspensions-frontAxle]
-suspensionTravel=0.4
+suspensionTravel=0.2
 suspensionRate=60000
 bumpRate=3000
 reboundRate=6000
@@ -56,7 +56,7 @@ antiRollBarRate=0
 maxSteeringAngle=33
 
 [suspensions-rearAxle]
-suspensionTravel=0.4
+suspensionTravel=0.2
 suspensionRate=30000
 bumpRate=6000
 reboundRate=12000
@@ -67,11 +67,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=3500
-handbrakeFrictionTorque=30000
+brakeFrictionTorque=3000
+handbrakeFrictionTorque=4000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=3500
+BrakeFrictionTorque=3000
 HandbrakeFrictionTorque=4000
 
 [brakes]
@@ -80,15 +80,15 @@ frontRearHandBrakeBalance=0.5
 
 [tires-frontAxle]
 tireType=supersport_front
-forwardGripFactor=1.5
-sidewaysGripFactor=1.8
+forwardGripFactor=2
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
-forwardGripFactor=1.5
-sidewaysGripFactor=1.8
+forwardGripFactor=2
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=100
 

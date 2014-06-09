@@ -34,16 +34,15 @@ public class AxisCarController : CarController
   [SerializeField] private float trailerdragFree = 0.2f;//для гг
   [SerializeField] private float trailerdragBrake = 1f;
   private float h = 0;
-
   [SerializeField] private Rigidbody trailerRigidbody = null;//Устанавливается в редакторе для соперников
   [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
   private Transform firstWaypoint = null;//точка с которой начать путь. 
   [SerializeField] private bool trafic = false; //Устанавливается только для машин трафика
-  [SerializeField]
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
   [SerializeField] private int maxSpeed = 0;
   private bool isVisible = true;
+  private float acselKoeff = 0.4f;
 
   public bool BrakeUsed
   {
@@ -82,7 +81,10 @@ public class AxisCarController : CarController
   {
     set { isVisible = value; }
   }
-
+   public float AcselKoeff
+   {
+     set { acselKoeff = value; }
+   }
   protected override void Start()
   {
     base.Start();
@@ -159,7 +161,7 @@ public class AxisCarController : CarController
             else
             {
               if (drivetrain.velo*2.2f < maxSpeed)//Ограничитель скорости
-                throttleInput = 0.3f;
+                throttleInput = acselKoeff;
               else 
                 throttleInput = 0;
             }

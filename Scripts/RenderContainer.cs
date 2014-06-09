@@ -36,11 +36,11 @@ public class RenderContainer : MonoBehaviour
     bigCollider.enabled = true;
   }
 
-  void Update()
+  /*void Update()
   {
     if (Input.GetKeyDown(KeyCode.Z))
       OnBecameVisible();
     if (Input.GetKeyDown(KeyCode.X))
       OnBecameInvisible();
-  }
+  }*/
 }

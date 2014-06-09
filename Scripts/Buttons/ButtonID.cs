@@ -47,6 +47,12 @@ public class ButtonID : MonoBehaviour
       if (id == 4)//ClearReg
       {
         PlayerPrefs.DeleteAll();
+        //medals off
+        ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
+        foreach (var button in buttonsAddTrailer)
+        {
+          button.Medal = 10;
+        }
       }
     }
 	}

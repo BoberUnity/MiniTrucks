@@ -39,9 +39,9 @@ public class RaceStart : MonoBehaviour
   public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;
-  [SerializeField]
   private bool activ = false;//true, когда едет эту гонку
   private int price = 0;
+  [SerializeField] private string[] enemyNames = new string[4];
   
   public int Price
   {
@@ -103,7 +103,17 @@ public class RaceStart : MonoBehaviour
     {
       if (activ)//finish
       {
-        prize += 1;
+        bool first = true;//Чтобы один и тот же грузовик не въехал 2 раза на финиш
+        foreach (var nam in enemyNames)
+        {
+          if (other.transform.parent.gameObject.name == nam)
+            first = false;
+        }
+        if (first)
+        {
+          enemyNames[prize - 1] = other.transform.parent.gameObject.name;
+          prize += 1;
+        }
       }
     }
     
@@ -169,6 +179,10 @@ public class RaceStart : MonoBehaviour
             buttonOk.GetComponent<UIButton>().isEnabled = true;
             StartCoroutine(AddGold(1));
             prize = 1;
+            for (int i = 0; i < enemyNames.Length; i++)
+            {
+              enemyNames[i] = "";
+            }
           }
         }
       }

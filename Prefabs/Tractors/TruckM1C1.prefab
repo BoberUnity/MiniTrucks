@@ -984,8 +984,8 @@ Rigidbody:
   m_GameObject: {fileID: 100042}
   serializedVersion: 2
   m_Mass: 2000
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: .100000001
+  m_AngularDrag: .100000001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1311,7 +1311,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1442,7 +1441,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1573,7 +1571,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1704,7 +1701,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1803,7 +1799,6 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
-  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400016
 MonoBehaviour:
@@ -1894,11 +1889,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 3500
-    handbrakeFrictionTorque: 30000
+    brakeFrictionTorque: 2500
+    handbrakeFrictionTorque: 4000
     maxSteeringAngle: 33
     forwardGripFactor: 1.5
-    sidewaysGripFactor: 1.79999995
+    sidewaysGripFactor: 1.60000002
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1919,11 +1914,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 10000
-    handbrakeFrictionTorque: 30000
+    brakeFrictionTorque: 2500
+    handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 1.5
-    sidewaysGripFactor: 1.79999995
+    sidewaysGripFactor: 1.60000002
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1994,9 +1989,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 300
-  maxPowerRPM: 4000
-  maxTorque: 1500
+  maxPower: 400
+  maxPowerRPM: 5000
+  maxTorque: 2300
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0

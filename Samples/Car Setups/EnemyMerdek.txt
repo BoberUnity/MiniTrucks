@@ -1,5 +1,5 @@
 [body]
-weight=2500
+weight=2000
 weightRepartition=1
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
@@ -8,8 +8,8 @@ dragArea=1.858
 
 [engine]
 maxPower=700
-maxPowerRPM=4000
-maxTorque=3500
+maxPowerRPM=5000
+maxTorque=4000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000

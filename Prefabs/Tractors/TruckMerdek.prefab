@@ -1208,8 +1208,8 @@ Rigidbody:
   m_GameObject: {fileID: 100054}
   serializedVersion: 2
   m_Mass: 2500
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: .100000001
+  m_AngularDrag: .100000001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1535,7 +1535,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1666,7 +1665,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1797,7 +1795,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1928,7 +1925,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2059,7 +2055,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2190,7 +2185,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 20
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -2289,7 +2283,6 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
-  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400020
 MonoBehaviour:
@@ -2384,7 +2377,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 5000
+    brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
     forwardGripFactor: 4
@@ -2409,7 +2402,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 5000
+    brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
@@ -2434,7 +2427,7 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 5000
+    brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
@@ -2508,9 +2501,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 500
-  maxPowerRPM: 4000
-  maxTorque: 2500
+  maxPower: 600
+  maxPowerRPM: 5000
+  maxTorque: 3400
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0

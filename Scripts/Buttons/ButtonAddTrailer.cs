@@ -32,6 +32,14 @@ public class ButtonAddTrailer : MonoBehaviour
         PlayerPrefs.SetInt(id.ToString("f0"), medal);
         Debug.LogWarning("Key medal created");
       }
+      if (value > 3)//Отключение медалей при начале новой игры
+      {
+        foreach (var m in medals)
+        {
+          m.gameObject.SetActive(false);
+        }
+        medal = value;
+      }
     }
   }
   private Transform truckCar = null;

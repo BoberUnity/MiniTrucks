@@ -318,18 +318,24 @@ public class SelectCarController : MonoBehaviour
       enemyCar[currentCar].TunSpeed = PlayerPrefs.GetInt("TunSpeed" + currentCar.ToString("f0"));
       buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
     }
+    else 
+      buttonTuningEng.TunStep = 0;
 
     if (PlayerPrefs.HasKey("TunBrake" + currentCar.ToString("f0")))
     {
       enemyCar[currentCar].TunBrake = PlayerPrefs.GetInt("TunBrake" + currentCar.ToString("f0"));
       buttonTuningBrake.TunStep = enemyCar[currentCar].TunBrake;
     }
+    else
+      buttonTuningBrake.TunStep = 0;
 
     if (PlayerPrefs.HasKey("TunHandling" + currentCar.ToString("f0")))
     {
       enemyCar[currentCar].TunHandling = PlayerPrefs.GetInt("TunHandling" + currentCar.ToString("f0"));
       buttonTuningHand.TunStep = enemyCar[currentCar].TunHandling;
     }
+    else
+      buttonTuningHand.TunStep = 0;
   }
 
   public void SetRegParamSpeed()//Tunning
@@ -367,6 +373,10 @@ public class SelectCarController : MonoBehaviour
       StartCoroutine(ActivateSelectButton(1));//Активируем кнопку Select через 1 сек после покупки
       buttonBuyCar.gameObject.SetActive(!enemyCar[currentCar].HasBought);
       PlayerPrefs.SetInt("HasCar" + currentCar.ToString("f0"), 1);
+      //Tun buttons
+      //buttonTuningEng.TunStep = 0;
+      //buttonTuningBrake.TunStep = 0;
+      //buttonTuningHand.TunStep = 0;
     }
   }
 
@@ -486,6 +496,7 @@ public class SelectCarController : MonoBehaviour
     buttonTuningBrake.setup = tractor.GetComponent<Setup>();
     //buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
     buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
+    //ostalnie?
   }
 
   private void Restart()
