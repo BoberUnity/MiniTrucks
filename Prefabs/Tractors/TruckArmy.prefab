@@ -2448,7 +2448,7 @@ MonoBehaviour:
     brakeFrictionTorque: 1500
     handbrakeFrictionTorque: 10000
     maxSteeringAngle: 35
-    forwardGripFactor: .899999976
+    forwardGripFactor: 2
     sidewaysGripFactor: 1.20000005
     camber: 0
     deltaCamber: 0
@@ -2473,7 +2473,7 @@ MonoBehaviour:
     brakeFrictionTorque: 1500
     handbrakeFrictionTorque: 10000
     maxSteeringAngle: 0
-    forwardGripFactor: .899999976
+    forwardGripFactor: 2
     sidewaysGripFactor: 1.20000005
     camber: 0
     deltaCamber: 0
@@ -2545,9 +2545,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 200
+  maxPower: 400
   maxPowerRPM: 5000
-  maxTorque: 1200
+  maxTorque: 2400
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2576,6 +2576,7 @@ MonoBehaviour:
   - 1.90999997
   - 1.38999999
   - 1
+  - .75
   neutral: 1
   first: 0
   firstReverse: 0

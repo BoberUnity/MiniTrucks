@@ -2370,7 +2370,7 @@ MonoBehaviour:
     - {fileID: 11400010}
     - {fileID: 11400008}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 60
     bumpRate: 30
     reboundRate: 60
@@ -2395,7 +2395,7 @@ MonoBehaviour:
     - {fileID: 11400006}
     - {fileID: 11400004}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120
@@ -2420,7 +2420,7 @@ MonoBehaviour:
     - {fileID: 11400014}
     - {fileID: 11400012}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120
@@ -2501,9 +2501,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 600
+  maxPower: 1200
   maxPowerRPM: 5000
-  maxTorque: 3400
+  maxTorque: 6800
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2532,6 +2532,7 @@ MonoBehaviour:
   - 1.90999997
   - 1.38999999
   - 1
+  - .75
   neutral: 1
   first: 0
   firstReverse: 0

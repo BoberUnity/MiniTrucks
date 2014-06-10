@@ -42,7 +42,7 @@ public class AxisCarController : CarController
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
   [SerializeField] private int maxSpeed = 0;
   private bool isVisible = true;
-  private float acselKoeff = 0.4f;
+  private float acselKoeff = 0.2f;
 
   public bool BrakeUsed
   {
@@ -258,7 +258,7 @@ public class AxisCarController : CarController
 
       float sp = rigidbody.velocity.magnitude;
       if (sp < speeds[currentWaypoint] * speedKoeff && !oppWaitClock && !rayCar)
-        throttleInput = 0.95f;
+        throttleInput = 0.45f;
       else
         throttleInput = 0;
 

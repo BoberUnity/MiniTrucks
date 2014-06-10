@@ -3569,9 +3569,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 500
+  maxPower: 1000
   maxPowerRPM: 5000
-  maxTorque: 2500
+  maxTorque: 5600
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -3600,6 +3600,7 @@ MonoBehaviour:
   - 1.90999997
   - 1.38999999
   - 1
+  - 0
   neutral: 1
   first: 0
   firstReverse: 0

@@ -1793,7 +1793,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1500
   m_Drag: .400000006
-  m_AngularDrag: 80
+  m_AngularDrag: 40
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -3504,7 +3504,7 @@ MonoBehaviour:
     - {fileID: 11400024}
     - {fileID: 11400022}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 60
     bumpRate: 30
     reboundRate: 60
@@ -3529,7 +3529,7 @@ MonoBehaviour:
     - {fileID: 11400020}
     - {fileID: 11400018}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120
@@ -3554,7 +3554,7 @@ MonoBehaviour:
     - {fileID: 11400028}
     - {fileID: 11400026}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120
@@ -3588,9 +3588,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 700
+  maxPower: 1400
   maxPowerRPM: 5000
-  maxTorque: 4000
+  maxTorque: 8000
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -3619,6 +3619,7 @@ MonoBehaviour:
   - 1.90999997
   - 1.38999999
   - 1
+  - .75
   neutral: 1
   first: 0
   firstReverse: 0

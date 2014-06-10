@@ -175,7 +175,7 @@ public class SelectCarController : MonoBehaviour
     if (Application.platform == RuntimePlatform.Android)
     {
       AndroidJavaObject TM = new AndroidJavaObject("android.telephony.TelephonyManager");
-      imeiLabel.text = "IMEI:"+TM.Call<string>("getDeviceId");
+      imeiLabel.text = "IMEI:" + TM.Call<string>("getDeviceId");
     }
 	}
 

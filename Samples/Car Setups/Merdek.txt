@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=850
+maxPower=1200
 maxPowerRPM=5000
-maxTorque=4150
+maxTorque=6800
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -33,19 +33,20 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=5276
+clutchMaxTorque=3898
 autoClutch=True
 engageRPM=800
 disengageRPM=500
-gears=4
+gears=5
 gear-ratio-r=-2.86
 gear-ratio-1=2.86
 gear-ratio-2=1.91
 gear-ratio-3=1.39
 gear-ratio-4=1
+gear-ratio-5=0.75
 
 [suspensions-frontAxle]
-suspensionTravel=0.2
+suspensionTravel=0.4
 suspensionRate=60
 bumpRate=30
 reboundRate=60
@@ -56,7 +57,7 @@ antiRollBarRate=0
 maxSteeringAngle=33
 
 [suspensions-rearAxle]
-suspensionTravel=0.2
+suspensionTravel=0.4
 suspensionRate=30
 bumpRate=60
 reboundRate=120
@@ -67,7 +68,7 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [suspensions-otherAxle1]
-suspensionTravel=0.2
+suspensionTravel=0.4
 suspensionRate=30
 bumpRate=60
 reboundRate=120
@@ -78,15 +79,15 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=6500
+brakeFrictionTorque=4000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=6500
+BrakeFrictionTorque=4000
 HandbrakeFrictionTorque=4000
 
 [brakes-otherAxle1]
-brakeFrictionTorque=6500
+brakeFrictionTorque=4000
 handbrakeFrictionTorque=4000
 
 [brakes]
@@ -96,21 +97,21 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2
 tiresPressure=0
 optimalTiresPressure=800
 

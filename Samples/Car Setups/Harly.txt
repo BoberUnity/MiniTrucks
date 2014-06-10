@@ -7,9 +7,9 @@ dragCoefficent=0.4
 dragArea=1.858
 
 [engine]
-maxPower=350
+maxPower=700
 maxPowerRPM=5000
-maxTorque=2000
+maxTorque=4000
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -23,7 +23,7 @@ fuelConsumptionAtCostantSpeed=4.3
 fuelConsumptionSpeed=130
 
 [transmission]
-transmissionType=RWD
+transmissionType=AWD
 finalDriveRatio=6.09
 drivetrainInertia=0.02
 differentialLockCoefficient=50
@@ -37,12 +37,13 @@ clutchMaxTorque=2618
 autoClutch=True
 engageRPM=800
 disengageRPM=500
-gears=4
+gears=5
 gear-ratio-r=-2.66
 gear-ratio-1=2.66
 gear-ratio-2=1.91
 gear-ratio-3=1.39
 gear-ratio-4=1
+gear-ratio-5=0.75
 
 [suspensions-frontAxle]
 suspensionTravel=0.4
@@ -102,14 +103,14 @@ optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=truck_rear
-forwardGripFactor=1.5
+forwardGripFactor=2
 sidewaysGripFactor=1.6
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-otherAxle1]
 tireType=truck_rear
-forwardGripFactor=1
+forwardGripFactor=2
 sidewaysGripFactor=1.6
 tiresPressure=0
 optimalTiresPressure=800

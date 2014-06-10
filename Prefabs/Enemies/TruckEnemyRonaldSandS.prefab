@@ -632,7 +632,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: -1, z: 1.33158053e-07, w: 0}
-  m_LocalPosition: {x: -2.43906307, y: 1223.17078, z: 3.86355114}
+  m_LocalPosition: {x: -2.43906498, y: 3.42079735, z: 4.75671482}
   m_LocalScale: {x: 8.53658485, y: 8.53658581, z: 8.53658485}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -643,7 +643,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1220.51221, z: -6.30000257}
+  m_LocalPosition: {x: -0, y: 1, z: -6.30000257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1126,7 +1126,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8e52a0899819c124e91bf95d898e2ff6, type: 2}
+  - {fileID: 2100000, guid: ca07636c93409b54eb86166e77b0ce25, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1491,7 +1491,7 @@ BoxCollider:
   m_GameObject: {fileID: 100004}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 3.5, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2954,9 +2954,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 500
+  maxPower: 1000
   maxPowerRPM: 5000
-  maxTorque: 2800
+  maxTorque: 5600
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2985,6 +2985,7 @@ MonoBehaviour:
   - 1.90999997
   - 1.38999999
   - 1
+  - .75
   neutral: 1
   first: 0
   firstReverse: 0
