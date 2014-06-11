@@ -1,7 +1,7 @@
 [body]
 weight=2000
 weightRepartition=0.75
-centerOfMass=(0.0, -0.6, -0.1)
+centerOfMass=(0.0, -0.4, 0.6)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
@@ -68,11 +68,11 @@ antiRollBarRate=0
 maxSteeringAngle=0
 
 [brakes-frontAxle]
-brakeFrictionTorque=10000
+brakeFrictionTorque=2000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
-BrakeFrictionTorque=4000
+BrakeFrictionTorque=2000
 HandbrakeFrictionTorque=4000
 
 [brakes]

@@ -16,7 +16,6 @@ public class RenderContainer : MonoBehaviour
   
   private void OnBecameVisible()
   {
-    //trailer.interpolation = RigidbodyInterpolation.Interpolate;
     axisCarController.IsVisible = true;
     transform.parent.rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
     bigCollider.enabled = false;
@@ -29,7 +28,6 @@ public class RenderContainer : MonoBehaviour
 
   private void OnBecameInvisible()
   {
-    //trailer.interpolation = RigidbodyInterpolation.None;
     axisCarController.IsVisible = false;
     transform.parent.rigidbody.interpolation = RigidbodyInterpolation.None;
     trailer.gameObject.SetActive(false);

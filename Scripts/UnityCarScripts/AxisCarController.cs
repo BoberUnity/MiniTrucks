@@ -38,6 +38,7 @@ public class AxisCarController : CarController
   [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
   private Transform firstWaypoint = null;//точка с которой начать путь. 
   [SerializeField] private bool trafic = false; //Устанавливается только для машин трафика
+  [SerializeField]
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
   [SerializeField] private int maxSpeed = 0;
@@ -81,10 +82,12 @@ public class AxisCarController : CarController
   {
     set { isVisible = value; }
   }
-   public float AcselKoeff
-   {
-     set { acselKoeff = value; }
-   }
+
+  public float AcselKoeff
+  {
+    set { acselKoeff = value; }
+  }
+
   protected override void Start()
   {
     base.Start();
@@ -244,7 +247,6 @@ public class AxisCarController : CarController
       steerInput = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;//Поворот сбившегося
       if (Mathf.Abs(steering) > 0.4f && drivetrain.velo < 3 && !isVisible)
       {
-        //transform.Rotate(Vector3.up * steering * Time.deltaTime * 40);
         transform.localEulerAngles += new Vector3(0, steering*Time.deltaTime*40, 0);
         //Debug.LogWarning("Rotating");
       }
@@ -257,15 +259,33 @@ public class AxisCarController : CarController
       }
 
       float sp = rigidbody.velocity.magnitude;
-      if (sp < speeds[currentWaypoint] * speedKoeff && !oppWaitClock && !rayCar)
-        throttleInput = 0.45f;
-      else
+      if (!oppWaitClock && !rayCar)
+      {
         throttleInput = 0;
+        NitroUsed = false;
+        if (sp < speeds[currentWaypoint] * speedKoeff)
+        {
+          throttleInput = 0.45f;
+        }
+        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.05f)
+        {
+          throttleInput = 0.99f;
+          NitroUsed = true;
+        }
+        BrakeUsed = false;//only for particles
+      }
+      else
+      {
+        throttleInput = 0;
+        NitroUsed = false;
+        BrakeUsed = true;//only for particles
+      }
 
 
       if (sp > speeds[currentWaypoint] + 5 || (rayCar && drivetrain.gear > 1))
       {
         brakeInput = 0.5f;
+        BrakeUsed = true;//only for particles
         if (trailerRigidbody != null)
           trailerRigidbody.drag = trailerdragBrake;
       }
@@ -311,9 +331,9 @@ public class AxisCarController : CarController
   {
     base.FixedUpdate();
     if (waypoint == null) //только для соперников
-      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward, transform.forward, 10, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward*4, transform.forward, 10, 1 << 17); //layer Car1
     if (trafic)
-      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward, transform.forward, 15, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward*4, transform.forward, 15, 1 << 17); //layer Car1
   }
 
   public void SetWay(Waypoint wpoint)
@@ -352,6 +372,6 @@ public class AxisCarController : CarController
   void OnDrawGizmos ()
   {
     Gizmos.color = Color.white;
-    Gizmos.DrawLine(transform.position + Vector3.up, transform.position + Vector3.up + transform.forward * 10);
+    Gizmos.DrawLine(transform.position + Vector3.up + transform.forward * 4, transform.position + Vector3.up + transform.forward * 10);
   }
 }

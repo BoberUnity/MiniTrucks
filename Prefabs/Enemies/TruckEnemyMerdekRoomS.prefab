@@ -314,7 +314,6 @@ GameObject:
   - 114: {fileID: 11400050}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
-  - 114: {fileID: 11400010}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400008}
   m_Layer: 17
@@ -1793,7 +1792,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1500
   m_Drag: .400000006
-  m_AngularDrag: 80
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -2433,53 +2432,6 @@ MonoBehaviour:
   savingSetup: 0
   filePath: Assets\Samples\Car Setups\scaniaTrailer.txt
   usePersistentDataPath: 0
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45d8ceb2f6754c459eea4836a57373c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectCarController: {fileID: 0}
-  engineThrottle: {fileID: 0}
-  engineThrottleVolume: .349999994
-  engineThrottlePitchFactor: 1
-  engineNoThrottle: {fileID: 0}
-  engineNoThrottleVolume: .349999994
-  engineNoThrottlePitchFactor: 1
-  startEngine: {fileID: 0}
-  startEngineVolume: 1
-  startEnginePitch: 1
-  enginePosition: {fileID: 0}
-  transmission: {fileID: 0}
-  transmissionVolume: .5
-  transmissionVolumeReverse: .5
-  transmissionSourcePitch: 1
-  brakeNoise: {fileID: 8300000, guid: aa3819cf45121ff4e979ff6839114894, type: 3}
-  brakeNoiseVolume: .200000003
-  skid: {fileID: 8300000, guid: 3d588ef063fc6154e93dd8e62b759693, type: 3}
-  skidVolume: 1
-  skidPitchFactor: 1
-  crashHiSpeed: {fileID: 8300000, guid: a835cf62b1f2d8547afe15d7f5e0d273, type: 3}
-  crashHighVolume: .75
-  crashLowSpeed: {fileID: 8300000, guid: eb5ca72512e7def4cb575d9c61d89948, type: 3}
-  crashLowVolume: .699999988
-  scrapeNoise: {fileID: 8300000, guid: 07bc0f08e7dc453468f3db64061c1d25, type: 3}
-  scrapeNoiseVolume: 1
-  ABSTrigger: {fileID: 8300000, guid: f43a89fd4bd3f3e4daef090c81b32a38, type: 3}
-  ABSTriggerVolume: .200000003
-  shiftTrigger: {fileID: 8300000, guid: f54def1ccae9f2645bc4d2d427327fbe, type: 3}
-  shiftTriggerVolume: 1
-  wind: {fileID: 8300000, guid: 48515701a05463442ada2bcfd60a1234, type: 3}
-  windVolume: 1
-  rollingNoiseGrass: {fileID: 8300000, guid: a2d752e186492ed40965fc91a41f5ce7, type: 3}
-  rollingNoiseSand: {fileID: 8300000, guid: 5e587b5787f0f98408b244a71d2ad15d, type: 3}
-  rollingNoiseOffroad: {fileID: 8300000, guid: abe9263ffed737d47918bc41e55544f1, type: 3}
-  carController: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3417,6 +3369,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 5400000}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400036
 MonoBehaviour:

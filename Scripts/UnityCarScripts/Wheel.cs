@@ -554,7 +554,7 @@ public class Wheel : MonoBehaviour {
 		
 		localScale=1/(trs.localScale.y*myTransform.localScale.y);
 		
-		layerMask=1<<trs.gameObject.layer | 1<<myTransform.gameObject.layer;//LayerMask.NameToLayer("Wheel");
+		layerMask=1<<trs.gameObject.layer | 1<<myTransform.gameObject.layer | 1 << 29;//LayerMask.NameToLayer("Wheel");
 		layerMask=~layerMask;	
 		
 		radiusLoaded=radius;
@@ -733,8 +733,8 @@ public class Wheel : MonoBehaviour {
 		totalFrictionTorque = brakeFrictionTorque*2*brake + handbrakeFrictionTorque*2*handbrake + rollingResistanceTorque + wheelFrictionTorque;
 		totalFrictionTorqueImpulse = totalFrictionTorque*Time.deltaTime;
 		frictionAngularDelta = totalFrictionTorqueImpulse/totalRotationalInertia;
-		
-		onGroundDown=Physics.Raycast(pos, -up, out hitDown, suspensionTravel + radiusLoaded,  layerMask);
+
+    onGroundDown = Physics.Raycast(pos, -up, out hitDown, suspensionTravel + radiusLoaded, layerMask);
 		
 		if (onGroundDown)
 		{
