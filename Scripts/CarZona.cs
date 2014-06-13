@@ -5,7 +5,6 @@ public class CarZona : MonoBehaviour
 {
   [SerializeField] private GameObject carTrafik = null;
   [SerializeField] private GameObject[] enemies = null;
-  private bool carActive = false;
   private Transform[] enemiesTractors = new Transform[4];
   private Transform[] enemiesTrailers = new Transform[4];
 
@@ -25,9 +24,15 @@ public class CarZona : MonoBehaviour
     }
   }
   
+  private void Start()
+  {
+    carTrafik.SetActive(false);
+    enabled = false;
+  }
+
   private void OnBecameInvisible()
   {
-    if (carActive)
+    if (enabled)
       StartCoroutine(DisableCar(1));
   }
 
@@ -48,7 +53,7 @@ public class CarZona : MonoBehaviour
     if (minDis > 5)
     {
       carTrafik.SetActive(true);
-      carActive = true;
+      enabled = true;
       StopAllCoroutines();
       //Debug.LogWarning("Min dis = " + minDis);
     }
@@ -57,25 +62,22 @@ public class CarZona : MonoBehaviour
 
   private void Update()
   {
-    if (carActive)
-    {
-      transform.position = carTrafik.transform.position;
-      transform.rotation = carTrafik.transform.rotation;
-    }
+    transform.position = carTrafik.transform.position;
+    transform.rotation = carTrafik.transform.rotation;
   }
 
   private IEnumerator DisableCar(float time)
   {
     yield return new WaitForSeconds(time);
-    if (carActive)
+    if (enabled)
     {
       carTrafik.SetActive(false);
-      carActive = false;
+      enabled = false;
     }
   }
 
   private void OnApplicationQuit()
   {
-    carActive = false;
+    enabled = false;
   }
 }

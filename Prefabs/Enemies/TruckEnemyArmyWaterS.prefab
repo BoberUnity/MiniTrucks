@@ -849,7 +849,7 @@ Transform:
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
   m_LocalPosition: {x: 2.10040753e-07, y: 2.54003024, z: 1.3639195}
-  m_LocalScale: {x: 2, y: 2, z: 5.19999981}
+  m_LocalScale: {x: 2.5, y: 2, z: 5.19999981}
   m_Children: []
   m_Father: {fileID: 400074}
 --- !u!4 &400016
@@ -1195,7 +1195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.38642247e-16, y: -.349999994, z: .600000203}
+  m_LocalPosition: {x: 0, y: -.400000006, z: .600000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -1324,19 +1324,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 2825085795
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 3012398477
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 3302216659
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -1354,19 +1354,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 2724422499
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 2911735181
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 2949895123
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -1445,8 +1445,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 2
   maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1472,8 +1472,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 2
   maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1499,8 +1499,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.60000002, z: -1}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1526,8 +1526,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.60000002, z: -1}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: .600000024
   zlocalPosition_orig: 0
-  ylocalPosition: 0
+  ylocalPosition: -.400000006
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0

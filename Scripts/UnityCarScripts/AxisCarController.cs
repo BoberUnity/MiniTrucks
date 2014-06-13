@@ -267,7 +267,7 @@ public class AxisCarController : CarController
         {
           throttleInput = 0.45f;
         }
-        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.05f)
+        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.015f)
         {
           throttleInput = 0.99f;
           NitroUsed = true;

@@ -90,7 +90,7 @@ antiRollBarRate=0
 maxSteeringAngle=30
 
 [brakes-frontAxle]
-brakeFrictionTorque=8500
+brakeFrictionTorque=5000
 handbrakeFrictionTorque=30000
 
 [brakes-rearAxle]
@@ -112,28 +112,28 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2.6
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2.6
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=3
+sidewaysGripFactor=2.6
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle2]
 tireType=truck_rear
 forwardGripFactor=1
-sidewaysGripFactor=3
+sidewaysGripFactor=2.6
 tiresPressure=0
 optimalTiresPressure=800
 

@@ -62,6 +62,13 @@ public class RaceStart : MonoBehaviour
   private void Start()
   {
     buttonOk.Pressed += ExitFinishMenu;
+    StartCoroutine(DisableStationPanel(0.3f));
+  }
+
+  private IEnumerator DisableStationPanel(float time)//Часы убрали 0
+  {
+    yield return new WaitForSeconds(time);
+    stationPanel.gameObject.SetActive(false);
   }
 
   private void OnDestroy()
@@ -78,6 +85,7 @@ public class RaceStart : MonoBehaviour
       db.isEnabled = false;
     }
     gamePanel.alpha = 1;
+    gamePanel.enabled = true;
   }
 
   public void StartRace()
@@ -127,9 +135,11 @@ public class RaceStart : MonoBehaviour
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
+        gamePanel.enabled = false;
         //stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
         //Debug.LogWarning("StPan");
         StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
+        stationPanel.gameObject.SetActive(true);
         UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
         foreach (var eb in enableButtons)
         {
@@ -145,7 +155,9 @@ public class RaceStart : MonoBehaviour
             axisCarController = other.gameObject.GetComponent<AxisCarController>();
             axisCarController.InStation = true;
             finishPanel.transform.position = Vector3.zero;
+            finishPanel.enabled = true;
             gamePanel.alpha = 0;
+            gamePanel.enabled = false;
             price = (int)(price*other.gameObject.GetComponent<BlowController>().Condition/100);
             if (prize == 1)
             {
@@ -193,7 +205,6 @@ public class RaceStart : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     selectCarController.Gold += price;
-
   }
 
   private void ExitFinishMenu()//Нажатие кнопки ОК
@@ -221,6 +232,7 @@ public class RaceStart : MonoBehaviour
       axisCarController.InStation = true;
       else Debug.LogError("axisCarController == null");
       gamePanel.alpha = 0;
+      gamePanel.enabled = false;
       StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
       UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
       foreach (var eb in enableButtons)
@@ -234,6 +246,7 @@ public class RaceStart : MonoBehaviour
   private IEnumerator ShowStationMenu(float time)
   {
     yield return new WaitForSeconds(time);
+    stationPanel.gameObject.SetActive(true);
     stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
   }
 

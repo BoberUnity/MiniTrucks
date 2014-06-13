@@ -482,6 +482,7 @@ public class SelectCarController : MonoBehaviour
         StartCoroutine(ShowGameMenu(gamePanel.animation.clip.length));
       }
     }
+    gamePanel.enabled = true;
   }
 
   private void SetTunningButtons(CameraTarget tractor)
@@ -504,7 +505,7 @@ public class SelectCarController : MonoBehaviour
     CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик
     if (tractor != null)
     {
-      ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
+      //ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
       foreach (var button in buttonsAddTrailer)
       {
         button.ExitRace();

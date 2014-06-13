@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400026}
-  - 64: {fileID: 6400002}
+  - 65: {fileID: 6500000}
   m_Layer: 17
   m_Name: ColliderCabin
   m_TagString: Untagged
@@ -901,7 +901,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0604395717, y: .291926682, z: 1.52213681}
+  m_LocalPosition: {x: .0604396686, y: .830227017, z: 1.36832833}
   m_LocalScale: {x: 1.25397551, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -986,8 +986,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   m_LocalRotation: {x: 0, y: -4.37113883e-08, z: 0, w: 1}
-  m_LocalPosition: {x: 3.10940076e-13, y: 2.76739049, z: 1.69999957}
-  m_LocalScale: {x: 2, y: 2, z: 4.88999987}
+  m_LocalPosition: {x: 1.48673863e-07, y: 2.76742339, z: 1.462111}
+  m_LocalScale: {x: 2.70000005, y: 2, z: 4.88999987}
   m_Children: []
   m_Father: {fileID: 400066}
 --- !u!4 &400042
@@ -1212,7 +1212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .600000024}
+  m_LocalPosition: {x: 0, y: -.400000006, z: .600000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
@@ -1356,19 +1356,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 2539873123
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 2760740237
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 2765345747
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -1386,19 +1386,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 2657313635
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 2257423757
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 2832454611
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -1417,8 +1417,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1444,8 +1444,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1471,8 +1471,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 2
   maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1498,8 +1498,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 2
   maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1987,8 +1987,8 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300008, guid: f7f17151276da33458baa9ffaa039c47, type: 3}
---- !u!64 &6400002
-MeshCollider:
+--- !u!65 &6500000
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -1997,9 +1997,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 0}
+  m_Size: {x: 1.5, y: 2, z: 2.5999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500002
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3156,7 +3155,7 @@ MonoBehaviour:
   xlocalPosition_orig: 0
   zlocalPosition: .600000024
   zlocalPosition_orig: 0
-  ylocalPosition: 0
+  ylocalPosition: -.400000006
   ylocalPosition_orig: 0
   fixedTimeStepScalar: 0
   invFixedTimeStepScalar: 0

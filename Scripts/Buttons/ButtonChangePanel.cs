@@ -21,6 +21,7 @@ public class ButtonChangePanel : MonoBehaviour
         if (enabledPanel != null) 
           StartCoroutine(ChangePanel(0));
         disabledPanel.alpha = 0;
+
       }
       UIButton[] disableButtons = disabledPanel.GetComponentsInChildren<UIButton>();
       foreach (var db in disableButtons)
@@ -33,8 +34,9 @@ public class ButtonChangePanel : MonoBehaviour
   private IEnumerator ChangePanel(float time)
   {
     yield return new WaitForSeconds(time);
-
+    disabledPanel.enabled = false;
     enabledPanel.transform.position = Vector3.zero;
+    enabledPanel.enabled = true;
     enabledPanel.alpha = 1;
     UIButton[] enableButtons = enabledPanel.GetComponentsInChildren<UIButton>();
     foreach (var eb in enableButtons)

@@ -59,6 +59,58 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: C_ButLeft
+    x: 502
+    y: 575
+    width: 237
+    height: 73
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 14
+    paddingTop: 51
+    paddingBottom: 4
+  - name: C_ButMid
+    x: 257
+    y: 574
+    width: 244
+    height: 74
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 7
+    paddingTop: 51
+    paddingBottom: 3
+  - name: C_RulLeft
+    x: 257
+    y: 649
+    width: 242
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 14
+    paddingTop: 7
+    paddingBottom: 0
+  - name: C_RulRight
+    x: 500
+    y: 649
+    width: 238
+    height: 121
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 7
+    paddingBottom: 0
   - name: Dark
     x: 185
     y: 218
@@ -164,7 +216,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: NGUI
-    x: 257
+    x: 739
     y: 694
     width: 255
     height: 76

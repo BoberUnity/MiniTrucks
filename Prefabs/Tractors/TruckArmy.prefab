@@ -856,19 +856,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 1516462947
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 1686998413
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 852743123
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -946,19 +946,19 @@ ParticleAnimator:
     rgba: 1767134292
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1482908515
+    rgba: 1583571811
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 1619889549
+    rgba: 1686998413
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 601084883
+    rgba: 852743123
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 2105376
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 3
+  sizeGrow: 2
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -1027,8 +1027,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
+  minSize: .200000003
+  maxSize: .25
   minEnergy: 2
   maxEnergy: 2
   minEmission: 10
@@ -1058,8 +1058,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1085,8 +1085,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1108,8 +1108,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
+  minSize: .200000003
+  maxSize: .25
   minEnergy: 2
   maxEnergy: 2
   minEmission: 10
@@ -1517,7 +1517,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.70000005, y: 1, z: 5.5999999}
+  m_Size: {x: 2.70000005, y: 1.39999998, z: 5.5999999}
   m_Center: {x: 0, y: -.25, z: .100000001}
 --- !u!76 &7600000
 WorldParticleCollider:
@@ -2355,6 +2355,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400016
 MonoBehaviour:
@@ -2445,11 +2446,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 1500
+    brakeFrictionTorque: 4000
     handbrakeFrictionTorque: 10000
     maxSteeringAngle: 35
     forwardGripFactor: 2
-    sidewaysGripFactor: 1.20000005
+    sidewaysGripFactor: 1.70000005
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2474,7 +2475,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 10000
     maxSteeringAngle: 0
     forwardGripFactor: 2
-    sidewaysGripFactor: 1.20000005
+    sidewaysGripFactor: 1.70000005
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -2545,9 +2546,9 @@ MonoBehaviour:
   carController: {fileID: 0}
   fuelTanks: []
   poweredWheels: []
-  maxPower: 400
+  maxPower: 650
   maxPowerRPM: 5000
-  maxTorque: 2400
+  maxTorque: 3150
   maxTorqueRPM: 1700
   originalMaxPower: 210
   maxNetPower: 0
@@ -2588,7 +2589,7 @@ MonoBehaviour:
   shiftDownRPM: 1000
   shiftUpRPM: 4000
   shiftTime: .300000012
-  clutchMaxTorque: 1852
+  clutchMaxTorque: 3731
   autoClutch: 1
   engageRPM: 800
   disengageRPM: 500
@@ -2644,7 +2645,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 400038}
   dampAbsRoadVelo: 8
   inertiaFactor: 1
-  frontRearWeightRepartition: .430000007
+  frontRearWeightRepartition: .439999998
   frontRearBrakeBalance: .5
   frontRearHandBrakeBalance: .5
   enableForceFeedback: 0

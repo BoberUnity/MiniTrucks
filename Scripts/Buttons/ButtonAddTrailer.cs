@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class ButtonAddTrailer : MonoBehaviour
@@ -30,7 +31,7 @@ public class ButtonAddTrailer : MonoBehaviour
         medal = value;
         medals[value].gameObject.SetActive(true);
         PlayerPrefs.SetInt(id.ToString("f0"), medal);
-        Debug.LogWarning("Key medal created");
+        //Debug.LogWarning("Key medal created");
       }
       if (value > 3)//Отключение медалей при начале новой игры
       {
@@ -57,6 +58,7 @@ public class ButtonAddTrailer : MonoBehaviour
     //fragilityLabel.text = trailer.GetComponentInChildren<Trailer>().Frailty.ToString("f0");
     if (PlayerPrefs.HasKey(id.ToString("f0")))
       Medal = PlayerPrefs.GetInt(id.ToString("f0"));
+    Debug.LogWarning("Start is sucessfull");
   }
 
   private void OnDestroy()
@@ -118,8 +120,15 @@ public class ButtonAddTrailer : MonoBehaviour
 	    {
 	      carZone.Enemies = enemies;
 	    }
+	    StartCoroutine(DisablePanel(0.5f));
 	  }
 	}
+
+  private IEnumerator DisablePanel(float time)
+  {
+    yield return new WaitForSeconds(time);
+    transform.parent.parent.parent.gameObject.SetActive(false);
+  }
 
   private void DestroyEnemies()
   {

@@ -38,12 +38,14 @@ public class ButtonGoToGarage : MonoBehaviour
     yield return new WaitForSeconds(time);
     enabledPanel.transform.position = Vector3.zero;
     enabledPanel.alpha = 1;
+    enabledPanel.enabled = true;
     UIButton[] enableButtons = enabledPanel.GetComponentsInChildren<UIButton>();
     foreach (var eb in enableButtons)
     {
       eb.isEnabled = true;
     }
     infoPanel.transform.position = Vector3.zero;
+    infoPanel.enabled = true;
   }
 }
 
