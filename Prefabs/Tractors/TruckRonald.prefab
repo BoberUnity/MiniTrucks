@@ -1031,8 +1031,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: -1.39999998, y: 0, z: 0}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1058,8 +1058,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 1.39999998, y: 0, z: 0}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1081,12 +1081,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: -.699999988, y: 0, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1108,12 +1108,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: .699999988, y: 0, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -2371,6 +2371,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400030
 MonoBehaviour:

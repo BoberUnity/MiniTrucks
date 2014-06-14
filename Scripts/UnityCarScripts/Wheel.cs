@@ -935,16 +935,13 @@ public class Wheel : MonoBehaviour {
 		  else//trailer
 		    longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
 		  
-  	  //Debug.LogWarning("longitunalSlipVelo= " + longitunalSlipVelo);
 			lateralSlipVelo = Vector3.Dot(wheelVelo, trs.right)*1.5f;//wheelRoadVeloLat;//b*2
-      //Debug.LogWarning("lateralSlipVelo= " + lateralSlipVelo);
 			float longSquare=longitunalSlipVelo*longitunalSlipVelo;
 			float latSquare=lateralSlipVelo*lateralSlipVelo;
       //float sw = Mathf.Sqrt(longSquare + latSquare);//b
       //if (sw < 6)//b
       //  slipVelo = sw;//b
 			slipVelo = Mathf.Sqrt(longSquare + latSquare);//bilo tak
-      //Debug.LogWarning("slipVelo= " + slipVelo);
 			slipVeloSmoke=Mathf.Sqrt(longSquare + Mathf.Abs(lateralSlipVelo)*0.001f);
 			
 			if (skidmarks!=null) CalcSkidmarks();
@@ -1028,8 +1025,6 @@ public class Wheel : MonoBehaviour {
 	
 	void CalcSkidmarks()
   {
-    //Debug.LogWarning("SlipVelo " + slipVelo);
-    //Debug.LogWarning("slipVeloThreshold " + slipVeloThreshold);
     if (slipVelo>slipVeloThreshold)
     {
 			slipSkidAmount=(slipVelo - slipVeloThreshold)/15;
@@ -1041,7 +1036,8 @@ public class Wheel : MonoBehaviour {
 	}
 	
 	void CalcSkidSmoke(){
-		if (slipVeloSmoke>slipVeloThreshold && isSkidSmoke==true){
+		if (slipVeloSmoke > slipVeloThreshold*3 && isSkidSmoke)//b*3
+    {
 			slipSmokeAmount=(slipVeloSmoke - slipVeloThreshold)/15;
 			Vector3 staticVel = myTransform.TransformDirection(skidSmoke.localVelocity) + skidSmoke.worldVelocity;
 			skidSmoke.Emit(hitDown.point + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)), staticVel + (wheelVelo*0.05f), Random.Range(skidSmoke.minSize, skidSmoke.maxSize)*Mathf.Clamp(slipSmokeAmount*0.1f,0.5f,1), Random.Range(skidSmoke.minEnergy, skidSmoke.maxEnergy), Color.white);

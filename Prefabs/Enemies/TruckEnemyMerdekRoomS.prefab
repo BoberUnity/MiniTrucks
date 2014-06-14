@@ -1883,8 +1883,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: .600000024, z: 6.69999981}
-  m_Center: {x: 0, y: -.100000001, z: .200000003}
+  m_Size: {x: 2.5, y: 1, z: 6.69999981}
+  m_Center: {x: 0, y: -.300000012, z: .200000003}
 --- !u!65 &6500012
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3457,7 +3457,7 @@ MonoBehaviour:
     - {fileID: 11400024}
     - {fileID: 11400022}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 60
     bumpRate: 30
     reboundRate: 60
@@ -3467,8 +3467,8 @@ MonoBehaviour:
     brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 33
-    forwardGripFactor: 5
-    sidewaysGripFactor: 4
+    forwardGripFactor: 4
+    sidewaysGripFactor: 3
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -3482,7 +3482,7 @@ MonoBehaviour:
     - {fileID: 11400020}
     - {fileID: 11400018}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120
@@ -3492,8 +3492,8 @@ MonoBehaviour:
     brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
-    forwardGripFactor: 5
-    sidewaysGripFactor: 4
+    forwardGripFactor: 4
+    sidewaysGripFactor: 3
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -3507,7 +3507,7 @@ MonoBehaviour:
     - {fileID: 11400028}
     - {fileID: 11400026}
     powered: 0
-    suspensionTravel: .200000003
+    suspensionTravel: .400000006
     suspensionRate: 30
     bumpRate: 60
     reboundRate: 120

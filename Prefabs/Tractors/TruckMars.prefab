@@ -1363,12 +1363,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1, z: -.400000006}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1394,8 +1394,8 @@ EllipsoidParticleEmitter:
   maxSize: .25
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 2, z: -1}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1421,8 +1421,8 @@ EllipsoidParticleEmitter:
   maxSize: .25
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 2, z: -1}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1444,12 +1444,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1, z: -.400000006}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1965,8 +1965,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: .600000024, z: 8.5}
-  m_Center: {x: 0, y: -.100000001, z: .899999976}
+  m_Size: {x: 2.5, y: 1, z: 8.5}
+  m_Center: {x: 0, y: -.300000012, z: .899999976}
 --- !u!76 &7600000
 WorldParticleCollider:
   m_ObjectHideFlags: 1
@@ -3323,6 +3323,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400024
 MonoBehaviour:
@@ -3421,11 +3422,11 @@ MonoBehaviour:
     fastBumpFactor: 1
     fastReboundFactor: 1
     antiRollBarRate: 0
-    brakeFrictionTorque: 8500
+    brakeFrictionTorque: 5000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 60
     forwardGripFactor: 4
-    sidewaysGripFactor: 3
+    sidewaysGripFactor: 2.5999999
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -3450,7 +3451,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 3
+    sidewaysGripFactor: 2.5999999
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -3475,7 +3476,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 0
     forwardGripFactor: 4
-    sidewaysGripFactor: 3
+    sidewaysGripFactor: 2.5999999
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -3499,7 +3500,7 @@ MonoBehaviour:
     handbrakeFrictionTorque: 4000
     maxSteeringAngle: 30
     forwardGripFactor: 1
-    sidewaysGripFactor: 3
+    sidewaysGripFactor: 2.5999999
     camber: 0
     deltaCamber: 0
     oldCamber: 0

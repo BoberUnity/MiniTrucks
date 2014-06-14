@@ -33,7 +33,7 @@ public class CarZona : MonoBehaviour
   private void OnBecameInvisible()
   {
     if (enabled)
-      StartCoroutine(DisableCar(1));
+      StartCoroutine(DisableCar(2));
   }
 
   private void OnBecameVisible()
@@ -55,15 +55,14 @@ public class CarZona : MonoBehaviour
       carTrafik.SetActive(true);
       enabled = true;
       StopAllCoroutines();
-      //Debug.LogWarning("Min dis = " + minDis);
     }
     else Debug.LogWarning("Car was not activate, because enemy is nearest");
   }
 
   private void Update()
   {
-    transform.position = carTrafik.transform.position;
-    transform.rotation = carTrafik.transform.rotation;
+    transform.parent.position = carTrafik.transform.position;
+    transform.parent.rotation = carTrafik.transform.rotation;
   }
 
   private IEnumerator DisableCar(float time)
@@ -79,5 +78,11 @@ public class CarZona : MonoBehaviour
   private void OnApplicationQuit()
   {
     enabled = false;
+  }
+
+  void OnDrawGizmos()
+  {
+    Gizmos.color = new Color(1, 1, 0, 0.5f);
+    Gizmos.DrawSphere(transform.parent.position, 2.0f);
   }
 }

@@ -586,7 +586,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.400000006, z: -.100000001}
+  m_LocalPosition: {x: 0, y: -.400003582, z: .400000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400042}
@@ -1013,8 +1013,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: .600000024, z: 4.5999999}
-  m_Center: {x: 0, y: -.100000001, z: -.200000003}
+  m_Size: {x: 2.5, y: 1, z: 4.5999999}
+  m_Center: {x: 0, y: -.300000012, z: -.200000003}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1799,6 +1799,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400016
 MonoBehaviour:

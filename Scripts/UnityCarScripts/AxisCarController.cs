@@ -93,9 +93,9 @@ public class AxisCarController : CarController
     base.Start();
     
     if (waypoint != null)//дл€ машин трафика
-      StartCoroutine(SetTrafikPath(0.1f));
+      StartCoroutine(SetTrafikPath(0.01f));
     else
-      StartCoroutine(ClockOff(4));
+      StartCoroutine(ClockOff(1));//должно быть 4 сек!!!!!!!!!! —тарт соперников
   }
 
   private IEnumerator SetTrafikPath(float time)
@@ -331,9 +331,9 @@ public class AxisCarController : CarController
   {
     base.FixedUpdate();
     if (waypoint == null) //только дл€ соперников
-      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward*4, transform.forward, 10, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*4, transform.forward, 10, 1 << 17); //layer Car1
     if (trafic)
-      rayCar = Physics.Raycast(transform.position + Vector3.up + transform.forward*4, transform.forward, 15, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*4, transform.forward, 15, 1 << 17); //layer Car1
   }
 
   public void SetWay(Waypoint wpoint)
@@ -372,6 +372,6 @@ public class AxisCarController : CarController
   void OnDrawGizmos ()
   {
     Gizmos.color = Color.white;
-    Gizmos.DrawLine(transform.position + Vector3.up + transform.forward * 4, transform.position + Vector3.up + transform.forward * 10);
+    Gizmos.DrawLine(transform.position/* + Vector3.up*/ + transform.forward * 4, transform.position + Vector3.up + transform.forward * 15);
   }
 }

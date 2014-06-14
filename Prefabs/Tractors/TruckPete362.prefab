@@ -1195,12 +1195,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1226,8 +1226,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1253,8 +1253,8 @@ EllipsoidParticleEmitter:
   maxSize: .150000006
   minEnergy: 1
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 1.39999998, z: -1.39999998}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1276,12 +1276,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .100000001
-  maxSize: .150000006
-  minEnergy: 2
-  maxEnergy: 2
-  minEmission: 10
-  maxEmission: 10
+  minSize: .200000003
+  maxSize: .25
+  minEnergy: 1
+  maxEnergy: 1
+  minEmission: 5
+  maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .699999988, z: -.5}
   rndVelocity: {x: .300000012, y: .300000012, z: .300000012}
@@ -1729,8 +1729,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0999999, y: 2.68000007, z: 2.8599999}
-  m_Center: {x: 0, y: 1.20000005, z: -.200000003}
+  m_Size: {x: 2.0999999, y: 2.68000007, z: 2.54999995}
+  m_Center: {x: 0, y: 1.20000005, z: -0}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1741,8 +1741,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: .600000024, z: 6}
-  m_Center: {x: 0, y: -.100000001, z: -.150000006}
+  m_Size: {x: 2.5, y: 1, z: 6}
+  m_Center: {x: 0, y: -.300000012, z: -.150000006}
 --- !u!76 &7600000
 WorldParticleCollider:
   m_ObjectHideFlags: 1
@@ -2839,6 +2839,7 @@ MonoBehaviour:
   trailerRigidbody: {fileID: 0}
   waypoint: {fileID: 0}
   trafic: 0
+  rayCar: 0
   maxSpeed: 0
 --- !u!114 &11400020
 MonoBehaviour:
