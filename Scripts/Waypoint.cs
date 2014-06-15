@@ -27,11 +27,13 @@ public class Waypoint : MonoBehaviour
 	void OnDrawGizmos () 
   {
 	  var points = gameObject.GetComponentsInChildren<Transform>();
-
-    foreach (Transform point in points)
+    if (!Application.isPlaying)
     {
-      Gizmos.color = wayColor; 
-      Gizmos.DrawSphere(point.position, 0.5f );
+      foreach (Transform point in points)
+      {
+        Gizmos.color = wayColor; 
+        Gizmos.DrawSphere(point.position, 0.5f );
+      }
     }
 
     for (int i = 0; i < points.Length; i++)

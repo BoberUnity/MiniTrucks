@@ -25,9 +25,9 @@ public class ButtonTuning : MonoBehaviour
       selectCarController.Gold -= price;
       if (id == 0)
       {
-        drivetrain.maxPower += 50;
+        drivetrain.maxPower += 100;
         powerIndicator.text = drivetrain.maxPower.ToString("f0");
-        drivetrain.maxTorque += 150;
+        drivetrain.maxTorque += 550;
         selectCarController.TunningMaxSpeed();
         maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
         selectCarController.SetRegParamSpeed();

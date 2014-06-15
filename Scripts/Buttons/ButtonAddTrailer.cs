@@ -58,7 +58,6 @@ public class ButtonAddTrailer : MonoBehaviour
     //fragilityLabel.text = trailer.GetComponentInChildren<Trailer>().Frailty.ToString("f0");
     if (PlayerPrefs.HasKey(id.ToString("f0")))
       Medal = PlayerPrefs.GetInt(id.ToString("f0"));
-    Debug.LogWarning("Start is sucessfull");
   }
 
   private void OnDestroy()

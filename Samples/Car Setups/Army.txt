@@ -82,14 +82,14 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=supersport_front
 forwardGripFactor=2
-sidewaysGripFactor=0.9
+sidewaysGripFactor=0.7
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=supersport_rear
 forwardGripFactor=2
-sidewaysGripFactor=0.9
+sidewaysGripFactor=0.7
 tiresPressure=0
 optimalTiresPressure=100
 

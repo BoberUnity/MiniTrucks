@@ -7,6 +7,7 @@ public class CarZona : MonoBehaviour
   [SerializeField] private GameObject[] enemies = null;
   private Transform[] enemiesTractors = new Transform[4];
   private Transform[] enemiesTrailers = new Transform[4];
+  [SerializeField] private float vel;
 
 
   public GameObject[] Enemies
@@ -61,6 +62,7 @@ public class CarZona : MonoBehaviour
 
   private void Update()
   {
+    vel = Mathf.Max(vel, carTrafik.rigidbody.velocity.magnitude);
     transform.parent.position = carTrafik.transform.position;
     transform.parent.rotation = carTrafik.transform.rotation;
   }
