@@ -3,6 +3,7 @@
 public class Nitro : MonoBehaviour
 {
   [SerializeField] private float mass = 30;
+  [SerializeField] private bool destroyed = false;
   private ButtonThrottle buttonThrottle = null;
   
   private void Start()
@@ -20,7 +21,8 @@ public class Nitro : MonoBehaviour
     if (other.gameObject.name == "Traktor")
     {
       buttonThrottle.NitroFuel = Mathf.Min(100, buttonThrottle.NitroFuel + mass);
-      //Destroy(gameObject);
+      if (destroyed) 
+        Destroy(gameObject);
     }
   }
 }

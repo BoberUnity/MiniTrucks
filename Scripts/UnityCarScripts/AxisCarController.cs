@@ -15,6 +15,11 @@ public class AxisCarController : CarController
   private bool nitroUsed = false;
   private float steerUsed = 0.5f;
   [SerializeField] private bool ai = false;
+  [SerializeField] private LensFlare signalRearLeft = null;
+  [SerializeField] private LensFlare signalRearRight = null;
+  [SerializeField] private LensFlare signalTrailerLeft = null;//Уст для соперников
+  [SerializeField] private LensFlare signalTrailerRight = null;
+  //private bool avar = false;
 	public string throttleAxis="Throttle";
 	public string brakeAxis="Brake";
 	public string steerAxis="Horizontal";
@@ -38,17 +43,22 @@ public class AxisCarController : CarController
   [SerializeField] private Waypoint waypoint = null;//устанавливается для машин трафика
   private Transform firstWaypoint = null;//точка с которой начать путь. 
   [SerializeField] private bool trafic = false; //Устанавливается только для машин трафика
+  [SerializeField] private float acselKoeff = 0.4f;//Only enemies
   [SerializeField]
   private bool rayCar = false;//луч до впередиидущей машины трафика
   private float buksTime = 0;//Время зависания авто при нажатом нитро и скорость меньше 1
-  [SerializeField] private int maxSpeed = 0;
+  [SerializeField]
+  private int maxSpeed = 0;
   private bool isVisible = true;
-  private float acselKoeff = 0.2f;
+  
 
   public bool BrakeUsed
   {
     get { return brakeUsed; }
-    set { brakeUsed = value;}
+    set
+    {
+      brakeUsed = value;
+    }
   }
 
   public bool NitroUsed
@@ -86,6 +96,16 @@ public class AxisCarController : CarController
   public float AcselKoeff
   {
     set { acselKoeff = value; }
+  }
+
+  public LensFlare SignalTrailerLeft
+  {
+    set { signalTrailerLeft = value; }
+  }
+
+  public LensFlare SignalTrailerRight
+  {
+    set { signalTrailerRight = value; }
   }
 
   protected override void Start()
@@ -136,7 +156,6 @@ public class AxisCarController : CarController
   {
     if (!ai)
     {
-      
       if (InStation)
       {
         handbrakeInput = Mathf.Min(1, h + Time.deltaTime * 4);
@@ -152,6 +171,8 @@ public class AxisCarController : CarController
         {
           throttleInput = 0;
           brakeInput = 1;
+          if (drivetrain.velo * 2.2f > maxSpeed && drivetrain.gear == 0 && !NitroUsed)
+            brakeInput = 0;
           if (trailerRigidbody != null)
             trailerRigidbody.drag = trailerdragBrake;
         }
@@ -184,62 +205,6 @@ public class AxisCarController : CarController
 
       // Gear shift
       targetGear = drivetrain.gear;
-      if (Input.GetButtonDown(shiftUpButton))
-      {
-        ++targetGear;
-      }
-      if (Input.GetButtonDown(shiftDownButton))
-      {
-        --targetGear;
-      }
-
-      if (drivetrain.shifter == true)
-      {
-        if (Input.GetButton("reverse"))
-        {
-          targetGear = 0;
-        }
-
-        else if (Input.GetButton("neutral"))
-        {
-          targetGear = 1;
-        }
-
-        else if (Input.GetButton("first"))
-        {
-          targetGear = 2;
-        }
-
-        else if (Input.GetButton("second"))
-        {
-          targetGear = 3;
-        }
-
-        else if (Input.GetButton("third"))
-        {
-          targetGear = 4;
-        }
-
-        else if (Input.GetButton("fourth"))
-        {
-          targetGear = 5;
-        }
-
-        else if (Input.GetButton("fifth"))
-        {
-          targetGear = 6;
-        }
-
-        else if (Input.GetButton("sixth"))
-        {
-          targetGear = 7;
-        }
-
-        else
-        {
-          targetGear = 1;
-        }
-      }
     }
     else//AI
     {
@@ -265,9 +230,9 @@ public class AxisCarController : CarController
         NitroUsed = false;
         if (sp < speeds[currentWaypoint] * speedKoeff)
         {
-          throttleInput = 0.45f;
+          throttleInput = acselKoeff;//0.4f
         }
-        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.015f)
+        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.015f && !trafic)
         {
           throttleInput = 0.99f;
           NitroUsed = true;
@@ -309,6 +274,50 @@ public class AxisCarController : CarController
   protected override void Update()
   {
     base.Update();
+    if (brakeInput > 0 || drivetrain.gear == 0)
+    {
+      signalRearLeft.enabled = true;
+      signalRearRight.enabled = true;
+      if (trailerRigidbody != null)
+      {
+        signalTrailerLeft.enabled = true;
+        signalTrailerRight.enabled = true;
+      }
+      
+      if (drivetrain.gear == 0 && !trafic)
+        {
+          signalRearLeft.color = Color.grey;
+          signalRearRight.color = Color.grey;
+          if (trailerRigidbody != null)
+          {
+            signalTrailerLeft.color = Color.grey;
+            signalTrailerRight.color = Color.grey;
+          }
+        }
+
+        if (brakeInput > 0)
+        {
+          signalRearLeft.color = Color.red;
+          signalRearRight.color = Color.red;
+          if (trailerRigidbody != null)
+          {
+            signalTrailerLeft.color = Color.red;
+            signalTrailerRight.color = Color.red;
+          }
+        }
+    }
+    else
+    {
+      signalRearLeft.enabled = false;
+      signalRearRight.enabled = false;
+      if (trailerRigidbody != null)
+      {
+        signalTrailerLeft.enabled = false;
+        signalTrailerRight.enabled = false;
+      }
+    }
+
+    
     //if (drivetrain != null)
     //{
     //  if (nitroUsed && drivetrain.velo < 2)
@@ -331,9 +340,12 @@ public class AxisCarController : CarController
   {
     base.FixedUpdate();
     if (waypoint == null) //только для соперников
-      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*4, transform.forward, 10, 1 << 17); //layer Car1
+      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*3, transform.forward, 10, 1 << 17); //layer Car1
     if (trafic)
-      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*4, transform.forward, 15, 1 << 17); //layer Car1
+    {
+      rayCar = Physics.Raycast(transform.position/* + Vector3.up*/ + transform.forward*2, transform.forward, 15, 1 << 17); //layer Car1
+      //avar = /*rayCar && */drivetrain.velo < 1;
+    }
   }
 
   public void SetWay(Waypoint wpoint)

@@ -157,7 +157,6 @@ public class Setup : MonoBehaviour {
 	
 	public bool SaveSetup()
   {
-    Debug.LogWarning("isSaved2");
     bool saved=false;
 		message="";
 		SetComponent();
@@ -165,7 +164,6 @@ public class Setup : MonoBehaviour {
 		if (usePersistentDataPath==true) mfilePath=Application.persistentDataPath + "\\" + filePath;
 		if (filePath!="")
     {
-      Debug.LogWarning("isSaved1");
 			if (LoadFromFile(mfilePath,false)==true)
       {
 				setupFileText="";

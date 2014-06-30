@@ -16,7 +16,7 @@ public class ButtonGoToGarage : MonoBehaviour
     {
       var handler = Pressed;//SelectCarController
       if (handler != null)
-        Pressed();
+        handler();
       
       if (disabledPanel.animation != null)
       {

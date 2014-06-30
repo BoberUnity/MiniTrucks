@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class CarZona : MonoBehaviour
 {
   [SerializeField] private GameObject carTrafik = null;
+  [SerializeField] private Transform cameraTransform = null;
   [SerializeField] private GameObject[] enemies = null;
   private Transform[] enemiesTractors = new Transform[4];
   private Transform[] enemiesTrailers = new Transform[4];
-  [SerializeField] private float vel;
-
+  private TraficWay traficWay = null;
+  private int id = 0;
+  public int Id
+  {
+    set { id = value;}
+  }
 
   public GameObject[] Enemies
   {
@@ -29,15 +35,42 @@ public class CarZona : MonoBehaviour
   {
     carTrafik.SetActive(false);
     enabled = false;
+    traficWay = transform.parent.parent.parent.GetComponent<TraficWay>();
   }
 
   private void OnBecameInvisible()
   {
     if (enabled)
+    {
+      StopAllCoroutines();
       StartCoroutine(DisableCar(2));
+    }
   }
 
   private void OnBecameVisible()
+  {
+    Debug.LogWarning("I wisible");
+    StopAllCoroutines();
+    if (Vector3.Distance(transform.position, cameraTransform.position) < 170)
+      EnableCar();
+    else
+      StartCoroutine(CheckDistance(1));
+    
+  }
+
+  private IEnumerator CheckDistance(float time)
+  {
+    yield return new WaitForSeconds(time);
+    if (!enabled)
+    {
+      if (Vector3.Distance(transform.position, cameraTransform.position) < 170)
+        EnableCar();
+      else
+        StartCoroutine(CheckDistance(1));
+    }
+  }
+
+  private void EnableCar()
   {
     int i = 0;
     float minDis = 100;//Дистанция до ближайшего соперника/прицепа
@@ -50,19 +83,31 @@ public class CarZona : MonoBehaviour
         i += 1;
       }
     }
-    
     if (minDis > 5)
     {
-      carTrafik.SetActive(true);
-      enabled = true;
-      StopAllCoroutines();
+      float minDistoTraf = 100;
+      i = 0;
+      foreach (var ce in traficWay.CarsEnabled)
+      {
+        if (ce)
+        {
+          minDistoTraf = Mathf.Min(minDistoTraf, Vector3.Distance(transform.parent.position, traficWay.CarZones[i].transform.position));
+        }
+        i += 1;
+      }
+      if (minDistoTraf > 5)//Проверка до машинок трафика
+      {
+        traficWay.CarsEnabled[id] = true;
+        carTrafik.SetActive(true);
+        enabled = true;
+      }
+      else Debug.LogWarning("Car was not activate, because trafic is nearest");
     }
     else Debug.LogWarning("Car was not activate, because enemy is nearest");
   }
 
   private void Update()
   {
-    vel = Mathf.Max(vel, carTrafik.rigidbody.velocity.magnitude);
     transform.parent.position = carTrafik.transform.position;
     transform.parent.rotation = carTrafik.transform.rotation;
   }
@@ -72,8 +117,11 @@ public class CarZona : MonoBehaviour
     yield return new WaitForSeconds(time);
     if (enabled)
     {
+      if (carTrafik.transform.rotation.eulerAngles.z > 45 && carTrafik.transform.rotation.eulerAngles.z < 270)
+        carTrafik.transform.eulerAngles = new Vector3(carTrafik.transform.eulerAngles.x, carTrafik.transform.eulerAngles.y, 0);
       carTrafik.SetActive(false);
       enabled = false;
+      traficWay.CarsEnabled[id] = false;
     }
   }
 

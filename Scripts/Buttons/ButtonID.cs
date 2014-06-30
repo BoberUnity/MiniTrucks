@@ -5,8 +5,8 @@ public class ButtonID : MonoBehaviour
   [SerializeField] private int id = 0;
   [SerializeField] private UIPanel optionsPanel = null;
   [SerializeField] private UIPanel pausePanel = null;
-  //[SerializeField] private GameObject[] delObjs = null;
-  private ButtonAddTrailer[] buttonsAddTrailer = null;
+  [SerializeField] private SelectCarController selectCarController = null;
+  [SerializeField] private GameObject[] delObjs = null;
   
   private void Start()
   {
@@ -17,9 +17,6 @@ public class ButtonID : MonoBehaviour
         GetComponent<UIButton>().isEnabled = false;
       }
     }
-
-    if (id == 3)
-      buttonsAddTrailer = FindObjectsOfType(typeof (ButtonAddTrailer)) as ButtonAddTrailer[];
   }
 
   protected virtual void OnPress(bool isPressed)
@@ -40,34 +37,28 @@ public class ButtonID : MonoBehaviour
         }
       }
 
-      if (id == 3)//Exit Race
+      if (id == 3)//
       {
-        //ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-        foreach (var button in buttonsAddTrailer)
-        {
-          button.ExitRace();
-          //button.ResetRace();
-        }
+        
       }
 
       if (id == 4)//ClearReg
       {
         PlayerPrefs.DeleteAll();
         //medals off
-        ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
-        foreach (var button in buttonsAddTrailer)
+        foreach (var button in selectCarController.buttonsAddTrailer)
         {
           button.Medal = 10;
         }
       }
 
-      //if (id == 5)//ClearReg
-      //{
-      //  foreach (var delObj in delObjs)
-      //  {
-      //    delObj.SetActive(!delObj.activeSelf);
-      //  }
-      //}
+      if (id == 5)//ClearReg
+      {
+        foreach (var delObj in delObjs)
+        {
+          delObj.SetActive(!delObj.activeSelf);
+        }
+      }
     }
 	}
 }

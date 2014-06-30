@@ -8,7 +8,8 @@
 
 using UnityEngine;
 
-public class Wheel : MonoBehaviour {
+public class Wheel : MonoBehaviour 
+{
 	[HideInInspector]
 	public WheelPos wheelPos;
 	[HideInInspector]
@@ -86,6 +87,8 @@ public class Wheel : MonoBehaviour {
 	public float mass=50;
 	// Wheel radius in meters
 	public float radius = 0.34f;
+  private float radiusTrack = 0.34f;
+  private float radiusSnow = 0.34f;
 	// Rim radius in meters
 	public float rimRadius;
 	float sidewallHeight=0;
@@ -268,8 +271,20 @@ public class Wheel : MonoBehaviour {
 	Transform caliperModelTransform;
 		
 	Skidmarks skidmarks;
-	ParticleEmitter skidSmoke;
-	bool isSkidSmoke=true;
+
+  ParticleEmitter skidSmoke;
+
+  ParticleEmitter skidGrass;
+
+  ParticleEmitter skidSand;
+
+  ParticleEmitter skidSnow;
+	bool isSkidSmoke=false;
+  bool isSkidGrass = false;
+  bool isSkidSand = false;
+  bool isSkidSnow = false;
+  [SerializeField] private bool enableSkidParticles = false;
+
 	[HideInInspector]
 	public int axleWheelsLength;
 	[HideInInspector]
@@ -577,7 +592,16 @@ public class Wheel : MonoBehaviour {
 		if (caliperModel!=null) caliperModelTransform=caliperModel.transform;
 	
 		skidmarks = cardynamics.skidmarks;
-		if (skidmarks) skidSmoke = skidmarks.GetComponentInChildren(typeof(ParticleEmitter)) as ParticleEmitter;
+		//if (skidmarks) skidSmoke = skidmarks.GetComponentInChildren(typeof(ParticleEmitter)) as ParticleEmitter;//b
+    if (skidmarks && enableSkidParticles)
+    {
+      skidSmoke = skidmarks.SmokePe;
+      skidGrass = skidmarks.GrassPe;
+      skidSand = skidmarks.SandPe;
+      skidSnow = skidmarks.SnowPe;
+    }
+	  radiusTrack = radius;
+	  radiusSnow = radius*0.6f;//b
 		
 		suspensionLineRenderer=gameObject.GetComponent<LineRenderer>();
 		if (suspensionLineRenderer==null) suspensionLineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -616,29 +640,51 @@ public class Wheel : MonoBehaviour {
 		
 		Vector3 forces;
 		
-		isSkidSmoke=true;
-		if (physicMaterials){ 
+		//isSkidSmoke=true;
+	  //isSkidGrass = true;
+		if (physicMaterials)
+    { 
 			physicMaterial = hitDown.collider.sharedMaterial;
- 			if (physicMaterial ==physicMaterials.track || physicMaterial==null){
+ 			if (physicMaterial == physicMaterials.track || physicMaterial==null)
+      {
 				isSkidSmoke=true;
+        isSkidGrass = false;
+        isSkidSand = false;
+        isSkidSnow = false;
+        radius = radiusTrack;
 				gripMaterial=physicMaterials.trackGrip; 
 				rollingFrictionCoefficient=physicMaterials.trackRollingFriction;
 				staticFrictionCoefficient=physicMaterials.trackStaticFriction;
 			}
-			else if (physicMaterial ==physicMaterials.grass){
+			else if (physicMaterial == physicMaterials.grass)
+      {
 				isSkidSmoke=false;
+        isSkidGrass = true;
+        isSkidSand = false;
+        isSkidSnow = false;
+        radius = radiusTrack;
 				gripMaterial=physicMaterials.grassGrip; 
 				rollingFrictionCoefficient=physicMaterials.grassRollingFriction;
 				staticFrictionCoefficient=physicMaterials.grassStaticFriction;
 			}
-			else if (physicMaterial ==physicMaterials.sand){
+			else if (physicMaterial == physicMaterials.sand)
+      {
 				isSkidSmoke=false;
+        isSkidGrass = false;
+        isSkidSand = true;
+        isSkidSnow = false;
+        radius = radiusSnow;
 				gripMaterial=physicMaterials.sandGrip; 
 				rollingFrictionCoefficient=physicMaterials.sandRollingFriction;
 				staticFrictionCoefficient=physicMaterials.sandStaticFriction;
 			}
-			else if (physicMaterial ==physicMaterials.offRoad){
+			else if (physicMaterial == physicMaterials.offRoad)
+      {
 				isSkidSmoke=false;
+        isSkidGrass = false;
+        isSkidSand = false;
+        isSkidSnow = true;
+        radius = radiusSnow;
 				gripMaterial=physicMaterials.offRoadGrip; 
 				rollingFrictionCoefficient=physicMaterials.offRoadRollingFriction;
 				staticFrictionCoefficient=physicMaterials.offRoadStaticFriction;
@@ -698,8 +744,30 @@ public class Wheel : MonoBehaviour {
 		}
 	}
 	
-	void Update(){		
-		if (skidSmoke) CalcSkidSmoke();
+	void Update(){
+    if (enableSkidParticles)
+		{
+      if (skidSmoke != null) 
+        CalcSkidSmoke();
+      else
+        skidSmoke = skidmarks.SmokePe;
+      
+
+      if (skidGrass != null) 
+        CalcSkidGrass();
+      else
+        skidGrass = skidmarks.GrassPe;
+
+      if (skidSand != null) 
+        CalcSkidSand();
+      else
+        skidSand = skidmarks.SandPe;
+
+      if (skidSnow != null)
+        CalcSkidSnow();
+      else
+        skidSnow = skidmarks.SnowPe;
+    }
 		
 		CalcWheelMovement();
 		
@@ -933,7 +1001,7 @@ public class Wheel : MonoBehaviour {
 		    longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo)*skidIntensity; //b
 		  }
 		  else//trailer
-		    longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
+        longitunalSlipVelo = Mathf.Abs(wheelTireVelo - wheelRoadVelo);
 		  
 			lateralSlipVelo = Vector3.Dot(wheelVelo, trs.right)*1.5f;//wheelRoadVeloLat;//b*2
 			float longSquare=longitunalSlipVelo*longitunalSlipVelo;
@@ -1035,7 +1103,8 @@ public class Wheel : MonoBehaviour {
 			lastSkid = -1;
 	}
 	
-	void CalcSkidSmoke(){
+	void CalcSkidSmoke()
+  {
 		if (slipVeloSmoke > slipVeloThreshold*3 && isSkidSmoke)//b*3
     {
 			slipSmokeAmount=(slipVeloSmoke - slipVeloThreshold)/15;
@@ -1043,6 +1112,36 @@ public class Wheel : MonoBehaviour {
 			skidSmoke.Emit(hitDown.point + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)), staticVel + (wheelVelo*0.05f), Random.Range(skidSmoke.minSize, skidSmoke.maxSize)*Mathf.Clamp(slipSmokeAmount*0.1f,0.5f,1), Random.Range(skidSmoke.minEnergy, skidSmoke.maxEnergy), Color.white);
 		}
 	}
+
+  void CalcSkidGrass()
+  {
+    if (slipVeloSmoke > slipVeloThreshold * 3 && isSkidGrass)//b*3
+    {
+      slipSmokeAmount = (slipVeloSmoke - slipVeloThreshold) / 15;
+      Vector3 staticVel = myTransform.TransformDirection(skidGrass.localVelocity) + skidGrass.worldVelocity;
+      skidGrass.Emit(hitDown.point + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)), staticVel + (wheelVelo * 0.3f), Random.Range(skidGrass.minSize, skidGrass.maxSize) * Mathf.Clamp(slipSmokeAmount * 0.1f, 0.5f, 1), Random.Range(skidGrass.minEnergy, skidGrass.maxEnergy), Color.white);
+    }
+  }
+
+  void CalcSkidSand()
+  {
+    if (isSkidSand && (slipVeloSmoke > slipVeloThreshold * 3 || drivetrain.velo > 8))//b*3
+    {
+      slipSmokeAmount = (slipVeloSmoke - slipVeloThreshold) / 15;
+      Vector3 staticVel = myTransform.TransformDirection(skidSand.localVelocity) + skidSand.worldVelocity;
+      skidSand.Emit(hitDown.point + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)), staticVel + (wheelVelo * 0.05f), Random.Range(skidSand.minSize, skidSand.maxSize) * Mathf.Clamp(slipSmokeAmount * 0.1f, 0.5f, 1), Random.Range(skidSand.minEnergy, skidSand.maxEnergy), Color.white);
+    }
+  }
+
+  void CalcSkidSnow()
+  {
+    if (isSkidSnow && (slipVeloSmoke > slipVeloThreshold * 2 || drivetrain.velo > 8))//b*3
+    {
+      slipSmokeAmount = (slipVeloSmoke - slipVeloThreshold) / 15;
+      Vector3 staticVel = myTransform.TransformDirection(skidSnow.localVelocity) + skidSnow.worldVelocity;
+      skidSnow.Emit(hitDown.point + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)), staticVel + (wheelVelo * 0.05f), Random.Range(skidSnow.minSize, skidSnow.maxSize) * Mathf.Clamp(slipSmokeAmount * 0.1f, 0.5f, 1), Random.Range(skidSnow.minEnergy, skidSnow.maxEnergy), Color.white);
+    }
+  }
 
 	float SuspensionForce(float compression) {
 		springForce = suspensionRate*compression;

@@ -4,15 +4,21 @@ public class BlowController : MonoBehaviour
 {
   public float Frailty = 0;//0 - не хрупкоe 100 - стекло
   [SerializeField] private float ignoreCollision = 15;
+  [SerializeField] private Transform trailerTransform = null;
+  [SerializeField] private GameObject box = null;
   public float Condition = 100;
-  //[SerializeField] private float ray = 0;
-  //[SerializeField] private bool rayCar = false;
-  //private Transform thisTransform = null;
-  
-  //void Start()
-  //{
-  //  thisTransform = transform;
-  //}
+
+  public Transform TrailerTransform
+  {
+    set { trailerTransform = value; }
+    get { return trailerTransform; }
+  }
+
+  public GameObject Box
+  {
+    get { return box; }
+    set { box = value; }
+  }
 
   private void OnCollisionEnter(Collision collision)
   {
@@ -21,26 +27,24 @@ public class BlowController : MonoBehaviour
       Vector3 colRelVel = collision.relativeVelocity;
       if (colRelVel.magnitude > ignoreCollision)
       {
-        //Debug.LogWarning("Coll " + colRelVel.magnitude + " " + gameObject.name);
+        GameObject boxObj = null;
+        if (Condition > 0 && Box != null)
+        {
+          boxObj = Instantiate(Box, TrailerTransform.position + Vector3.up * 4, Quaternion.identity) as GameObject;
+          if (boxObj != null)
+            boxObj.GetComponent<Cargo>().AddCondition = colRelVel.magnitude*Frailty/100;
+        }
         Condition = Mathf.Max(0, Condition - colRelVel.magnitude * Frailty/100);
       }
     }
   }
 
-  //private void FixedUpdate()
-  //{
-  //  //Vector3 fwd = transform.TransformDirection(Vector3.forward);
-  //  //rayCar = Physics.Raycast(thisTransform.position, thisTransform.forward, 20, 1 << 17);//layer Car1
-  //  //RaycastHit[] hits;
-  //  //hits = Physics.RaycastAll(transform.position, fwd, 100.0F, 1 << 17);
-  //  //int i = 0;
-  //  //ray = 100;
-  //  //while (i < hits.Length)
-  //  //{
-  //  //  RaycastHit hit = hits[i];
-  //  //  //if (hit.transform.gameObject.layer == 17)//layer Car1
-  //  //  ray = Mathf.Min(ray, hit.distance);
-  //  //  i++;
-  //  //}
-  //}
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.gameObject.name == "Box(Clone)")
+    {
+      Condition = Mathf.Min(100, Condition + other.GetComponent<Cargo>().AddCondition);
+      Destroy(other.gameObject);
+    }
+  }
 }

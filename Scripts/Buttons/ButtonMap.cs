@@ -4,6 +4,7 @@ public class ButtonMap : MonoBehaviour
 {
   [SerializeField] private UIButton[] disableButtons = null;
   [SerializeField] private ButtonHandler map = null;
+  [SerializeField] private GameObject mapCamera = null;
   
   private void Start()
   {
@@ -23,17 +24,31 @@ public class ButtonMap : MonoBehaviour
       {
         button.isEnabled = false;
       }
-      map.gameObject.SetActive(true);
+      //map.gameObject.SetActive(true);
+      Transform[] mapObjs = mapCamera.GetComponentsInChildren<Transform>();
+      foreach (var mapObj in mapObjs)
+      {
+        mapObj.gameObject.layer = 28;
+      }
+      
+      mapCamera.SetActive(true);
+
     }
 	}
 
-  private void MapPressed()
+  private void MapPressed()//При нажатии на развернутую карту
   {
     foreach (var button in disableButtons)
     {
       button.isEnabled = true;
     }
-    map.gameObject.SetActive(false);
+    //map.gameObject.SetActive(false);
+    Transform[] mapObjs = mapCamera.GetComponentsInChildren<Transform>();
+    foreach (var mapObj in mapObjs)
+    {
+      mapObj.gameObject.layer = 30;
+    }
+    //mapCamera.SetActive(false);
   }
 }
 

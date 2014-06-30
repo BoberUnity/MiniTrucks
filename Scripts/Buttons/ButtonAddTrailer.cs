@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 public class ButtonAddTrailer : MonoBehaviour
 {
   [SerializeField] private int id = 0;
+  [SerializeField] private int cargoId = 0;
   [SerializeField] private GameObject trailer = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
   [SerializeField] private RaceStart raceStart = null;
   [SerializeField] private RaceStart raceFinish = null;
-  //[SerializeField] private Transform characterPos = null;//Позиция на старте гонки
   [SerializeField] private Waypoint way = null;
   [SerializeField] private BaggageLabel baggageLabel = null;
   [SerializeField] private ButtonThrottle buttonThrottle = null;
   [SerializeField] private int price = 100;
   [SerializeField] private UISprite[] medals = null;
-  //[SerializeField] private UILabel fragilityLabel = null;
+
   private int medal = 10;
   public int Medal
   {
@@ -55,7 +54,6 @@ public class ButtonAddTrailer : MonoBehaviour
   private void Start()
   {
     raceFinish.Finish += DestroyEnemies;
-    //fragilityLabel.text = trailer.GetComponentInChildren<Trailer>().Frailty.ToString("f0");
     if (PlayerPrefs.HasKey(id.ToString("f0")))
       Medal = PlayerPrefs.GetInt(id.ToString("f0"));
   }
@@ -73,6 +71,7 @@ public class ButtonAddTrailer : MonoBehaviour
       truckCar.rotation = raceStart.CharPos.rotation;
       
       baggageLabel.BaggageController = truckCar.GetComponentInChildren<BlowController>();
+
       GameObject t = Instantiate(trailer, Vector3.zero, Quaternion.identity) as GameObject;
       Trailer tr = t.GetComponentInChildren<Trailer>();  //Находим прицепа, 
       if (tr != null)
@@ -81,18 +80,25 @@ public class ButtonAddTrailer : MonoBehaviour
         tr.transform.rotation = truckCar.rotation;
         //baggageLabel.BaggageController = tr.GetComponentInChildren<BlowController>();
         truckCar.gameObject.AddComponent<CharacterJoint>();
-        truckCar.GetComponent<CharacterJoint>().connectedBody = tr.GetComponentInChildren<Rigidbody>();
-        truckCar.GetComponent<CharacterJoint>().anchor = connectPosition;
+        CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
+        characterJoint.connectedBody = tr.GetComponentInChildren<Rigidbody>();
+        characterJoint.anchor = connectPosition;
         SoftJointLimit softJointLimit = new SoftJointLimit();
+        //softJointLimit.limit = 0;
+        //characterJoint.lowTwistLimit = softJointLimit;
         softJointLimit.limit = 25;
-        truckCar.GetComponent<CharacterJoint>().highTwistLimit = softJointLimit;//вертикальный сустав
+        characterJoint.highTwistLimit = softJointLimit;//вертикальный сустав
         softJointLimit.limit = 105;
-        truckCar.GetComponent<CharacterJoint>().swing1Limit = softJointLimit;//горизонтальный сустав
+        characterJoint.swing1Limit = softJointLimit;//горизонтальный сустав
         //softJointLimit.limit = 5;
         //truckCar.GetComponent<CharacterJoint>().swing2Limit = softJointLimit;//left/right
         truckCar.GetComponent<BlowController>().Frailty = tr.Frailty;//Передаем хрупкость на тягач
         truckCar.GetComponent<BlowController>().Condition = 100;
         truckCar.GetComponent<AxisCarController>().Trailer = tr.GetComponentInChildren<Rigidbody>();
+        truckCar.GetComponent<AxisCarController>().SignalTrailerLeft = tr.SignalLeft;
+        truckCar.GetComponent<AxisCarController>().SignalTrailerRight = tr.SignalRight;
+        truckCar.GetComponentInChildren<BlowController>().TrailerTransform = tr.GetComponentInChildren<Rigidbody>().transform;
+        truckCar.GetComponentInChildren<BlowController>().Box = tr.Box;
       }
       Array.Resize(ref enemies, raceStart.enemiesPos.Length);
 	    int i = 0;
@@ -119,16 +125,12 @@ public class ButtonAddTrailer : MonoBehaviour
 	    {
 	      carZone.Enemies = enemies;
 	    }
-	    StartCoroutine(DisablePanel(0.5f));
+      //Создание бонусов
+      baggageLabel.bonusPosCtrl.CreateBonuses(cargoId);
+      raceStart.MapCamera.SetActive(true);
 	  }
 	}
-
-  private IEnumerator DisablePanel(float time)
-  {
-    yield return new WaitForSeconds(time);
-    transform.parent.parent.parent.gameObject.SetActive(false);
-  }
-
+  
   private void DestroyEnemies()
   {
     foreach (GameObject enemy in enemies)
@@ -154,14 +156,9 @@ public class ButtonAddTrailer : MonoBehaviour
           Destroy(characterJoint);
         }
         else Debug.LogWarning("CharacterJoint == null");
+        baggageLabel.bonusPosCtrl.DeleteBonuses();
         baggageLabel.BaggageController = null;
       }
     }
   }
-
-  //public void ResetRace()//Из меню паузы ExitRace
-  //{
-  //  raceFinish.Activ = false;
-  //  baggageLabel.BaggageController = null;
-  //}
 }

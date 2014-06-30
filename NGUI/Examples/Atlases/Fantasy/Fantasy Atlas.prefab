@@ -138,8 +138,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Medal1
-    x: 700
-    y: 770
+    x: 0
+    y: 512
     width: 181
     height: 253
     borderLeft: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: Medal2
     x: 0
-    y: 512
+    y: 258
     width: 180
     height: 253
     borderLeft: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: Medal3
-    x: 515
+    x: 765
     y: 770
     width: 184
     height: 253
@@ -176,8 +176,21 @@ MonoBehaviour:
     paddingRight: 9
     paddingTop: 0
     paddingBottom: 3
+  - name: NEEDLE_KMH
+    x: 950
+    y: 942
+    width: 4
+    height: 81
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 79
+    paddingBottom: 0
   - name: NGUI
-    x: 436
+    x: 437
     y: 689
     width: 255
     height: 76
@@ -190,8 +203,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Orc Armor - Boots
-    x: 0
-    y: 383
+    x: 693
+    y: 637
     width: 96
     height: 128
     borderLeft: 0
@@ -203,8 +216,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Orc Armor - Bracers
-    x: 882
-    y: 781
+    x: 0
+    y: 15
     width: 123
     height: 113
     borderLeft: 0
@@ -216,8 +229,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: Orc Armor - Shoulders
-    x: 882
-    y: 895
+    x: 0
+    y: 129
     width: 128
     height: 128
     borderLeft: 0
@@ -241,6 +254,45 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Rul0
+    x: 182
+    y: 222
+    width: 199
+    height: 197
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 5
+    paddingTop: 2
+    paddingBottom: 8
+  - name: S10speedo
+    x: 515
+    y: 829
+    width: 249
+    height: 194
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 17
+    paddingBottom: 45
+  - name: S10tacho
+    x: 182
+    y: 420
+    width: 245
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 1
+    paddingTop: 22
+    paddingBottom: 63
   - name: Smooth
     x: 294
     y: 793
@@ -255,7 +307,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Window
-    x: 181
+    x: 182
     y: 596
     width: 254
     height: 169

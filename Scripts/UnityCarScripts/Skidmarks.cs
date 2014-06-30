@@ -18,7 +18,14 @@ public class Skidmarks : MonoBehaviour {
 	public float markWidth = 0.275f;		// The width of the skidmarks. Should match the width of the wheel that it is used for. In meters.
 	public float groundOffset = 0.02f;	// The distance the skidmarks is places above the surface it is placed upon. In meters.
 	public float minDistance = 0.1f;		// The minimum distance between two marks places next to each other. 
-	
+  [HideInInspector] public ParticleEmitter SmokePe = null;
+  [HideInInspector] public ParticleEmitter GrassPe = null;
+  [HideInInspector] public ParticleEmitter SandPe = null;
+  [HideInInspector] public ParticleEmitter SnowPe = null;
+  public GameObject GrassPePref = null;
+  public GameObject SandPePref = null;
+  public GameObject SmokePePref = null;
+  public GameObject SnowPePref = null;
 	int indexShift;
 	int numMarks = 0;
 	
@@ -37,8 +44,13 @@ public class Skidmarks : MonoBehaviour {
 	
 	private bool updated = false;
 	
-	void Awake(){
+	void Awake()
+  {
 		InitSkidmarks();
+	  ReCreateGrassParticles();
+	  ReCreateSmokeParticles();
+	  ReCreateSandParticles();
+    ReCreateSnowParticles();
 	}
 	
 	// Initiallizes the array holding the skidmark sections.
@@ -89,6 +101,21 @@ public class Skidmarks : MonoBehaviour {
 		updated = true;
 		return numMarks -1;
 	}
+
+  void Update()
+  {
+    if (GrassPe == null)
+      ReCreateGrassParticles();
+
+    if (SandPe == null)
+      ReCreateSandParticles();
+
+    if (SmokePe == null)
+      ReCreateSmokeParticles();
+
+    if (SnowPe == null)
+      ReCreateSnowParticles();
+  }
 	
 	// If the mesh needs to be updated, i.e. a new section has been added,
 	// the current mesh is removed, and a new mesh for the skidmarks is generated.
@@ -161,4 +188,55 @@ public class Skidmarks : MonoBehaviour {
 		mesh.uv=uvs;
 	}
 
+  public void ReCreateGrassParticles()
+  {
+    if (GrassPePref != null)
+    {
+      GameObject grassPeObj = Instantiate(GrassPePref, transform.position, transform.rotation) as GameObject;
+      if (grassPeObj != null)
+      {
+        grassPeObj.transform.parent = transform;
+        GrassPe = grassPeObj.GetComponent<ParticleEmitter>();
+      }
+    }
+  }
+
+  public void ReCreateSmokeParticles()
+  {
+    if (SmokePePref != null)
+    {
+      GameObject smokePeObj = Instantiate(SmokePePref, transform.position, transform.rotation) as GameObject;
+      if (smokePeObj != null)
+      {
+        smokePeObj.transform.parent = transform;
+        SmokePe = smokePeObj.GetComponent<ParticleEmitter>();
+      }
+    }
+  }
+
+  public void ReCreateSandParticles()
+  {
+    if (SandPePref != null)
+    {
+      GameObject sandPeObj = Instantiate(SandPePref, transform.position, transform.rotation) as GameObject;
+      if (sandPeObj != null)
+      {
+        sandPeObj.transform.parent = transform;
+        SandPe = sandPeObj.GetComponent<ParticleEmitter>();
+      }
+    }
+  }
+
+  public void ReCreateSnowParticles()
+  {
+    if (SnowPePref != null)
+    {
+      GameObject snowPeObj = Instantiate(SnowPePref, transform.position, transform.rotation) as GameObject;
+      if (snowPeObj != null)
+      {
+        snowPeObj.transform.parent = transform;
+        SnowPe = snowPeObj.GetComponent<ParticleEmitter>();
+      }
+    }
+  }
 }

@@ -143,27 +143,32 @@ public abstract class CarController : MonoBehaviour {
 		
  		if (!drivetrain.changingGear && targetGear != drivetrain.gear){
 			drivetrain.Shift(targetGear);
-		} 
-		
-		if (drivetrain.automatic && drivetrain.autoReverse==true){
-			if (brakeInput>0 && (velo<=0.5f )){
-				reverse=true;
-				if (drivetrain.gear!=drivetrain.firstReverse) drivetrain.Shift(drivetrain.firstReverse);
-			}
-
-			if (throttleInput>0 && (velo<=0.5f )){
-				reverse=false;	
-				if (drivetrain.gear!=drivetrain.first) drivetrain.Shift(drivetrain.first);
-			}
-			
-			if (reverse==true){
-				float temp = throttleInput;
-				throttleInput = brakeInput;
-				brakeInput = temp;
-			} 
 		}
-		else{
-			reverse=false;
+
+    if (drivetrain.automatic && drivetrain.autoReverse == true)
+    {
+      if (brakeInput > 0 && (velo <= 0.5f))
+      {
+        reverse = true;
+        if (drivetrain.gear != drivetrain.firstReverse) drivetrain.Shift(drivetrain.firstReverse);
+      }
+
+      if (throttleInput > 0 && (velo <= 0.5f))
+      {
+        reverse = false;
+        if (drivetrain.gear != drivetrain.first) drivetrain.Shift(drivetrain.first);
+      }
+
+      if (reverse == true)
+      {
+        float temp = throttleInput;
+        throttleInput = brakeInput;
+        brakeInput = temp;
+      }
+    }
+    else
+    {
+      reverse = false;
 		}
 
 		brakeKey = brakeInput>0;

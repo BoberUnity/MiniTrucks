@@ -11,11 +11,59 @@ public class ButtonTuning : MonoBehaviour
   [SerializeField] private UILabel maxSpeedIndicator = null;
   public Drivetrain drivetrain = null;
   public Axles axles = null;
-  //public Axles axlesTrailer = null;
-  public Setup setup = null;
   public CarDynamics carDynamics = null;
-  //public Setup setupTrailer = null;
-  public int TunStep = 0;
+  
+  [SerializeField] private UILabel tunStepLab = null;
+  [SerializeField] private int tunStep = 0;
+
+  public int TunStep
+  {
+    get { return tunStep;}
+    set
+    {
+      tunStep = value;
+      if (tunStep > 0)
+      {
+        if (id == 0)
+        {
+          drivetrain.maxPower = selectCarController.enemyCar[selectCarController.currentCar].MaxPower + TunStep * 100;
+          powerIndicator.text = drivetrain.maxPower.ToString("f0");
+          drivetrain.maxTorque = selectCarController.enemyCar[selectCarController.currentCar].MaxTorque + TunStep * 550;
+          drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed = selectCarController.enemyCar[selectCarController.currentCar].MaxSpeed + TunStep*3;
+          maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
+          selectCarController.enemyCar[selectCarController.currentCar].TunSpeed = tunStep;
+          PlayerPrefs.SetInt("TunSpeed" + selectCarController.currentCar.ToString("f0"), tunStep);
+        }
+        if (id == 1)
+        {
+          axles.frontAxle.sidewaysGripFactor = selectCarController.enemyCar[selectCarController.currentCar].Sideways + TunStep * 0.2f;
+          axles.rearAxle.sidewaysGripFactor = selectCarController.enemyCar[selectCarController.currentCar].Sideways + TunStep * 0.2f;
+          foreach (Axle axle in axles.otherAxles)
+          {
+            axle.sidewaysGripFactor = selectCarController.enemyCar[selectCarController.currentCar].Sideways + TunStep * 0.2f;
+          }
+          carDynamics.SetWheelsParams();
+          handlingIndicator.text = axles.frontAxle.sidewaysGripFactor.ToString("f1");
+          selectCarController.enemyCar[selectCarController.currentCar].TunHandling = tunStep;
+          PlayerPrefs.SetInt("TunHandling" + selectCarController.currentCar.ToString("f0"), tunStep);
+        }
+
+        if (id == 2)
+        {
+          axles.frontAxle.brakeFrictionTorque = selectCarController.enemyCar[selectCarController.currentCar].Brake + TunStep * 500;
+          axles.rearAxle.brakeFrictionTorque = selectCarController.enemyCar[selectCarController.currentCar].Brake + TunStep * 500;
+          foreach (Axle axle in axles.otherAxles)
+          {
+            axle.brakeFrictionTorque = selectCarController.enemyCar[selectCarController.currentCar].Brake + TunStep * 500; 
+          }
+          carDynamics.SetBrakes();
+          brakesIndicator.text = axles.frontAxle.brakeFrictionTorque.ToString("f0");
+          selectCarController.enemyCar[selectCarController.currentCar].TunBrake = tunStep;
+          PlayerPrefs.SetInt("TunBrake" + selectCarController.currentCar.ToString("f0"), tunStep);
+        } 
+      }
+    }
+  }
 
   protected virtual void OnPress(bool isPressed)
   {
@@ -23,56 +71,6 @@ public class ButtonTuning : MonoBehaviour
     {
       TunStep += 1;
       selectCarController.Gold -= price;
-      if (id == 0)
-      {
-        drivetrain.maxPower += 100;
-        powerIndicator.text = drivetrain.maxPower.ToString("f0");
-        drivetrain.maxTorque += 550;
-        selectCarController.TunningMaxSpeed();
-        maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
-        selectCarController.SetRegParamSpeed();
-      }
-
-      if (id == 1)
-      {
-        axles.frontAxle.sidewaysGripFactor += 0.2f;
-        axles.rearAxle.sidewaysGripFactor += 0.2f;
-        foreach (Axle axle in axles.otherAxles)
-        {
-          axle.sidewaysGripFactor += 0.2f;
-        }
-        carDynamics.SetWheelsParams();
-        handlingIndicator.text = axles.frontAxle.sidewaysGripFactor.ToString("f1");
-        selectCarController.SetRegParamHandling();
-      }
-
-      if (id == 2)
-      {
-        axles.frontAxle.brakeFrictionTorque += 500;
-        axles.rearAxle.brakeFrictionTorque += 500;
-        foreach (Axle axle in axles.otherAxles)
-        {
-          axle.brakeFrictionTorque += 500;
-        }
-        carDynamics.SetBrakes();
-        brakesIndicator.text = axles.frontAxle.brakeFrictionTorque.ToString("f0");
-        selectCarController.SetRegParamBrake();
-      }
-
-      if (setup != null)
-      {
-        if (setup.SaveToFile(setup.filePath))
-        {
-          setup.SaveSetup();
-        }
-      }
-
-      //if (id == 3)
-      //{
-      //  selectCarController.TunningMaxSpeed();
-      //  maxSpeedIndicator.text = drivetrain.gameObject.GetComponent<AxisCarController>().MaxSpeed.ToString("f0");
-      //  selectCarController.SetRegParam();
-      //}
     }
 	}
 }

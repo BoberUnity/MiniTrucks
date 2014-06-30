@@ -21,7 +21,6 @@ public class RaceStart : MonoBehaviour
   }
   
   public UIWidget stationPanel = null;
-  //[SerializeField] private UIPanel stationFinishPanel = null;
   [SerializeField] private int id = 0;
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel finishPanel = null;
@@ -32,6 +31,7 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private StartClock startClock = null;
   [SerializeField] private Transform truckPos = null;
   [SerializeField] private BaggageLabel baggageLabel = null;
+  public GameObject MapCamera = null;
   public ButtonAddTrailer buttonAddTrailer = null;//Активная гонка
 
   public AxisCarController axisCarController = null;
@@ -54,11 +54,6 @@ public class RaceStart : MonoBehaviour
     get { return activ; }
   }
 
-  //public AxisCarController TractorAxisCarController
-  //{
-  //  set { axisCarController = value; }
-  //}
-
   private void Start()
   {
     buttonOk.Pressed += ExitFinishMenu;
@@ -68,7 +63,12 @@ public class RaceStart : MonoBehaviour
   private IEnumerator DisableStationPanel(float time)//Часы убрали 0
   {
     yield return new WaitForSeconds(time);
-    stationPanel.gameObject.SetActive(false);
+    SetPanelState(false);
+  }
+
+  private void SetPanelState(bool state)
+  {
+    stationPanel.gameObject.SetActive(state);
   }
 
   private void OnDestroy()
@@ -76,7 +76,7 @@ public class RaceStart : MonoBehaviour
     buttonOk.Pressed -= ExitFinishMenu;
   }
 
-  public void ExitStation()
+  public void ExitStation()//Нажатие кнопки гонки ButtonAddTrailer
   {
     stationPanel.animation.Play();
     UIButton[] disableButtons = stationPanel.GetComponentsInChildren<UIButton>();
@@ -86,6 +86,8 @@ public class RaceStart : MonoBehaviour
     }
     gamePanel.alpha = 1;
     gamePanel.enabled = true;
+    MapCamera.SetActive(true);
+    StartCoroutine(DisableStationPanel(stationPanel.animation.clip.length+0.2f));
   }
 
   public void StartRace()
@@ -130,16 +132,17 @@ public class RaceStart : MonoBehaviour
       PlayerPrefs.SetInt("StartCarPos", id);
       selectCarController.raceStart = this;
       truckPos.position = other.transform.position;
+      MapCamera.SetActive(false);
+      SetPanelState(true);
+      
       if (other.GetComponent<CharacterJoint>() == null)
       {
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
         gamePanel.enabled = false;
-        //stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
-        //Debug.LogWarning("StPan");
         StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
-        stationPanel.gameObject.SetActive(true);
+  
         UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
         foreach (var eb in enableButtons)
         {
@@ -195,6 +198,7 @@ public class RaceStart : MonoBehaviour
             {
               enemyNames[i] = "";
             }
+            baggageLabel.bonusPosCtrl.DeleteBonuses();
           }
         }
       }
@@ -213,7 +217,7 @@ public class RaceStart : MonoBehaviour
     {
       var handler = Finish;//Уничтожение соперников в ButtonAddTrailer
       if (handler != null)
-        Finish();
+        handler();
       //Удаление прицепа
       CharacterJoint characterJoint = axisCarController.GetComponent<CharacterJoint>();
       if (characterJoint != null)
@@ -233,6 +237,7 @@ public class RaceStart : MonoBehaviour
       else Debug.LogError("axisCarController == null");
       gamePanel.alpha = 0;
       gamePanel.enabled = false;
+      SetPanelState(true);
       StartCoroutine(ShowStationMenu(finishPanel.animation.clip.length));
       UIButton[] enableButtons = stationPanel.GetComponentsInChildren<UIButton>();
       foreach (var eb in enableButtons)
@@ -246,8 +251,8 @@ public class RaceStart : MonoBehaviour
   private IEnumerator ShowStationMenu(float time)
   {
     yield return new WaitForSeconds(time);
-    stationPanel.gameObject.SetActive(true);
     stationPanel.transform.position = new Vector3(stationPanel.transform.position.x, 0, 0);
+    finishPanel.enabled = false;
   }
 
   void OnDrawGizmos()

@@ -34,7 +34,7 @@ public static class UnityCar {
 	
 	//[MenuItem("GameObject/Create Other/UnityCar")]
 	public static GameObject CreateNewCar(){
-		
+		Debug.LogWarning("Create new car");
 		GameObject unityCarObj=new GameObject("UnityCar");
 						
 		if (unityCarObj.rigidbody==null){

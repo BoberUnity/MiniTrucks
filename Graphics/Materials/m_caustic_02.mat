@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 929758f6ceb1b73469875fa630977ee4, type: 3}
+          m_Texture: {fileID: 2800000, guid: b1c13af27e59625498c5daade640599a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -31,7 +31,7 @@ Material:
       data:
         first:
           name: _ReplaySpeed
-        second: 10
+        second: 5
       data:
         first:
           name: _ScrollX
@@ -56,7 +56,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: .420689583, b: 1, a: 1}
+        second: {r: 0, g: .501960754, b: 1, a: 1}
       data:
         first:
           name: _NumTexTiles

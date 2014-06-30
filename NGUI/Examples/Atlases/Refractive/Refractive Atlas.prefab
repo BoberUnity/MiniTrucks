@@ -47,8 +47,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: e76d0bdab6849b94aa507497bbb96687, type: 2}
   mSprites:
   - name: Button
-    x: 201
-    y: 220
+    x: 23
+    y: 30
     width: 13
     height: 13
     borderLeft: 4
@@ -60,8 +60,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: C_ButLeft
-    x: 502
-    y: 575
+    x: 1026
+    y: 164
     width: 237
     height: 73
     borderLeft: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
     paddingTop: 51
     paddingBottom: 4
   - name: C_ButMid
-    x: 257
-    y: 574
+    x: 1026
+    y: 238
     width: 244
     height: 74
     borderLeft: 0
@@ -86,8 +86,8 @@ MonoBehaviour:
     paddingTop: 51
     paddingBottom: 3
   - name: C_RulLeft
-    x: 257
-    y: 649
+    x: 694
+    y: 16
     width: 242
     height: 121
     borderLeft: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: C_RulRight
-    x: 500
-    y: 649
+    x: 1026
+    y: 390
     width: 238
     height: 121
     borderLeft: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: Dark
-    x: 185
-    y: 218
+    x: 23
+    y: 44
     width: 15
     height: 15
     borderLeft: 4
@@ -125,7 +125,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Header Font
-    x: 0
+    x: 1026
     y: 512
     width: 256
     height: 512
@@ -138,8 +138,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Highlight
-    x: 227
-    y: 239
+    x: 0
+    y: 4
     width: 17
     height: 15
     borderLeft: 3
@@ -151,8 +151,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Honeycomb
-    x: 820
-    y: 936
+    x: 513
+    y: 169
     width: 112
     height: 88
     borderLeft: 1
@@ -164,8 +164,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Light
-    x: 208
-    y: 236
+    x: 0
+    y: 20
     width: 18
     height: 18
     borderLeft: 2
@@ -178,7 +178,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Medal1
     x: 257
-    y: 771
+    y: 4
     width: 181
     height: 253
     borderLeft: 0
@@ -190,8 +190,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: Medal2
-    x: 439
-    y: 771
+    x: 513
+    y: 258
     width: 180
     height: 253
     borderLeft: 0
@@ -203,8 +203,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: Medal3
-    x: 0
-    y: 1
+    x: 257
+    y: 258
     width: 184
     height: 253
     borderLeft: 0
@@ -215,9 +215,22 @@ MonoBehaviour:
     paddingRight: 9
     paddingTop: 0
     paddingBottom: 3
+  - name: NEEDLE_KMH
+    x: 250
+    y: 173
+    width: 4
+    height: 81
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 79
+    paddingBottom: 0
   - name: NGUI
-    x: 739
-    y: 694
+    x: 1026
+    y: 313
     width: 255
     height: 76
     borderLeft: 0
@@ -241,9 +254,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Refractive Atlas - Bump
+    x: 513
+    y: 512
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Refractive Atlas - Masks
+    x: 0
+    y: 512
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Rul0
-    x: 620
-    y: 827
+    x: 694
+    y: 138
     width: 199
     height: 197
     borderLeft: 0
@@ -254,9 +293,35 @@ MonoBehaviour:
     paddingRight: 5
     paddingTop: 2
     paddingBottom: 8
+  - name: S10speedo
+    x: 0
+    y: 60
+    width: 249
+    height: 194
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 17
+    paddingBottom: 45
+  - name: S10tacho
+    x: 694
+    y: 336
+    width: 245
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 1
+    paddingTop: 22
+    paddingBottom: 63
   - name: X
-    x: 185
-    y: 234
+    x: 0
+    y: 39
     width: 22
     height: 20
     borderLeft: 0

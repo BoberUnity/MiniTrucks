@@ -347,6 +347,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400042}
+  - 123: {fileID: 12300000}
+  m_Layer: 0
+  m_Name: StopSignalLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100044
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400044}
+  - 123: {fileID: 12300002}
+  m_Layer: 0
+  m_Name: StopSignalRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -530,7 +562,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: .800000012}
+  m_LocalPosition: {x: 0, y: 1, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400032}
@@ -546,6 +578,8 @@ Transform:
   m_Children:
   - {fileID: 400030}
   - {fileID: 400028}
+  - {fileID: 400042}
+  - {fileID: 400044}
   - {fileID: 400026}
   - {fileID: 400010}
   - {fileID: 400008}
@@ -598,6 +632,28 @@ Transform:
   - {fileID: 400038}
   - {fileID: 400036}
   m_Father: {fileID: 0}
+--- !u!4 &400042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_LocalRotation: {x: 0, y: 2.7814184e-07, z: -0, w: -1}
+  m_LocalPosition: {x: -1.04414964, y: 1.20155299, z: -2.53466892}
+  m_LocalScale: {x: 1.21951222, y: 1.21951222, z: 1.21951222}
+  m_Children: []
+  m_Father: {fileID: 400032}
+--- !u!4 &400044
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_LocalRotation: {x: 0, y: 2.7814184e-07, z: -0, w: -1}
+  m_LocalPosition: {x: 1.02767837, y: 1.20155299, z: -2.53466797}
+  m_LocalScale: {x: 1.21951222, y: 1.21951222, z: 1.21951222}
+  m_Children: []
+  m_Father: {fileID: 400032}
 --- !u!12 &1200000
 ParticleAnimator:
   m_ObjectHideFlags: 1
@@ -1042,7 +1098,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1060,6 +1115,7 @@ MonoBehaviour:
   normalForce: 0
   camber: 0
   deltaCamber: 0
+  enableSkidParticles: 0
   axleWheelsLength: 0
   axlesNumber: 0
 --- !u!114 &11400002
@@ -1173,7 +1229,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1191,6 +1246,7 @@ MonoBehaviour:
   normalForce: 0
   camber: 0
   deltaCamber: 0
+  enableSkidParticles: 0
   axleWheelsLength: 0
   axlesNumber: 0
 --- !u!114 &11400004
@@ -1304,7 +1360,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1322,6 +1377,7 @@ MonoBehaviour:
   normalForce: 0
   camber: 0
   deltaCamber: 0
+  enableSkidParticles: 0
   axleWheelsLength: 0
   axlesNumber: 0
 --- !u!114 &11400006
@@ -1435,7 +1491,6 @@ MonoBehaviour:
   wheelImpulse: 0
   angularVelocity: 0
   slipVelo: 0
-  slipVeloThreshold: 10
   slipRatio: 0
   slipAngle: 0
   longitudinalSlip: 0
@@ -1453,6 +1508,7 @@ MonoBehaviour:
   normalForce: 0
   camber: 0
   deltaCamber: 0
+  enableSkidParticles: 0
   axleWheelsLength: 0
   axlesNumber: 0
 --- !u!114 &11400010
@@ -1573,7 +1629,7 @@ MonoBehaviour:
   skidmarks: {fileID: 11400022}
   xlocalPosition: 0
   xlocalPosition_orig: 0
-  zlocalPosition: .800000012
+  zlocalPosition: -.5
   zlocalPosition_orig: 0
   ylocalPosition: 1
   ylocalPosition_orig: 0
@@ -1613,8 +1669,8 @@ MonoBehaviour:
     brakeFrictionTorque: 300000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .5
-    sidewaysGripFactor: .5
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1638,8 +1694,8 @@ MonoBehaviour:
     brakeFrictionTorque: 180000
     handbrakeFrictionTorque: 30000
     maxSteeringAngle: 0
-    forwardGripFactor: .5
-    sidewaysGripFactor: .5
+    forwardGripFactor: .899999976
+    sidewaysGripFactor: .899999976
     camber: 0
     deltaCamber: 0
     oldCamber: 0
@@ -1659,6 +1715,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Frailty: 0
+  SignalLeft: {fileID: 12300000}
+  SignalRight: {fileID: 12300002}
+  Box: {fileID: 100000, guid: 44133a23bd93be44b9f116a97dd5cf2e, type: 2}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1674,6 +1733,44 @@ MonoBehaviour:
   markWidth: .449999988
   groundOffset: .0199999996
   minDistance: .100000001
+  SmokePe: {fileID: 0}
+  GrassPe: {fileID: 0}
+  SandPe: {fileID: 0}
+  SnowPe: {fileID: 0}
+  GrassPePref: {fileID: 0}
+  SandPePref: {fileID: 0}
+  SmokePePref: {fileID: 0}
+  SnowPePref: {fileID: 0}
+--- !u!123 &12300000
+LensFlare:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_Enabled: 0
+  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
+--- !u!123 &12300002
+LensFlare:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_Enabled: 0
+  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

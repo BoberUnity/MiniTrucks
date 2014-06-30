@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-public class BaggageLabel : MonoBehaviour 
+public class BaggageLabel : MonoBehaviour
 {
+  public BonusPosCtrl bonusPosCtrl = null;
   private BlowController baggageController = null;
   private UILabel uILabel = null;
 

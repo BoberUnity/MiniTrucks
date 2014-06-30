@@ -4,23 +4,22 @@ public class Brizgi : MonoBehaviour
 {
   [SerializeField] private ParticleEmitter brizgi = null;
   private Drivetrain drivetrain = null;
-  private bool inWater = false;
 
   private void Start()
   {
     drivetrain = GetComponent<Drivetrain>();
+    enabled = false;
   }
 
   private void Update()
   {
-    if (inWater)
-      brizgi.emit = drivetrain.velo > 5;
+    brizgi.emit = drivetrain.velo > 5;
   }
 
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.name == "Water")
-      inWater = true;
+      enabled = true;
     
   }
 
@@ -28,7 +27,7 @@ public class Brizgi : MonoBehaviour
   {
     if (other.gameObject.name == "Water")
     {
-      inWater = false;
+      enabled = false;
       brizgi.emit = false;
     }
   }

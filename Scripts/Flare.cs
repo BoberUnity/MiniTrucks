@@ -27,7 +27,9 @@ public class Flare : MonoBehaviour
     foreach (var smoke in smokes)
     {
       smoke.emit = (!axisCarController.BrakeUsed || drivetrain.gear == 0) && !axisCarController.NitroUsed;
-      smoke.localVelocity = new Vector3(smoke.localVelocity.x, smoke.localVelocity.y, velocityZ - drivetrain.velo*0.1f);
+      smoke.localVelocity = new Vector3(smoke.localVelocity.x, smoke.localVelocity.y, drivetrain.gear > 0 ? velocityZ - drivetrain.velo * 0.1f : velocityZ + drivetrain.velo * 0.1f);
+      smoke.minEmission = drivetrain.rpm*0.002f;
+      smoke.maxEmission = drivetrain.rpm * 0.002f;
     }
 	}
 }

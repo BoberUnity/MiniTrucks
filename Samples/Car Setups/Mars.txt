@@ -1,6 +1,6 @@
 [body]
 weight=2500
-weightRepartition=0.37
+weightRepartition=0
 centerOfMass=(0.0, -0.4, -0.1)
 inertiaFactor=1
 dragCoefficent=0.4
@@ -9,7 +9,7 @@ dragArea=1.858
 [engine]
 maxPower=1400
 maxPowerRPM=5000
-maxTorque=8000
+maxTorque=7800
 maxTorqueRPM=1700
 minRPM=500
 maxRPM=5000
@@ -33,7 +33,7 @@ autoReverse=True
 shiftDownRPM=1000
 shiftUpRPM=4000
 shiftTime=0.3
-clutchMaxTorque=6128
+clutchMaxTorque=12098
 autoClutch=True
 engageRPM=800
 disengageRPM=500
@@ -112,28 +112,28 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3.1
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3.1
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=4
-sidewaysGripFactor=2.6
+sidewaysGripFactor=3.1
 tiresPressure=0
 optimalTiresPressure=800
 
 [tires-otherAxle2]
 tireType=truck_rear
-forwardGripFactor=1
-sidewaysGripFactor=2.6
+forwardGripFactor=4
+sidewaysGripFactor=3.1
 tiresPressure=0
 optimalTiresPressure=800
 
@@ -141,49 +141,49 @@ optimalTiresPressure=800
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-frontAxle-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-rearAxle-left]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-rearAxle-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-otherAxle1-left]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-otherAxle1-right]
 mass=80
 radius=0.65
 rimRadius=0.4
-width=0.6
+width=0.5
 
 [wheels-otherAxle2-left]
 mass=80
 radius=0.55
 rimRadius=0.3
-width=0.6
+width=0.5
 
 [wheels-otherAxle2-right]
 mass=80
 radius=0.55
 rimRadius=0.3
-width=0.6
+width=0.5
 
 [controllerType]
 controller=axis

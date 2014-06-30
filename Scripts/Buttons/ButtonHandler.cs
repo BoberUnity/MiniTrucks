@@ -11,7 +11,7 @@ public class ButtonHandler : MonoBehaviour
     {
       var handler = Pressed;
       if (handler != null)
-        Pressed();
+        handler();
       //Debug.LogWarning("Pressed "+ gameObject.name);
     }
 	}

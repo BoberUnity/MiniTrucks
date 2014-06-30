@@ -1,7 +1,7 @@
 [body]
 weight=2000
 weightRepartition=0.75
-centerOfMass=(0.0, -0.4, -0.1)
+centerOfMass=(0.0, -0.4, 0.3)
 inertiaFactor=1
 dragCoefficent=0.4
 dragArea=1.858
@@ -97,21 +97,21 @@ frontRearHandBrakeBalance=0.5
 [tires-frontAxle]
 tireType=truck_front
 forwardGripFactor=1.5
-sidewaysGripFactor=1.6
+sidewaysGripFactor=2.1
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-rearAxle]
 tireType=truck_rear
 forwardGripFactor=2
-sidewaysGripFactor=1.6
+sidewaysGripFactor=2.1
 tiresPressure=0
 optimalTiresPressure=100
 
 [tires-otherAxle1]
 tireType=truck_rear
 forwardGripFactor=2
-sidewaysGripFactor=1.6
+sidewaysGripFactor=2.1
 tiresPressure=0
 optimalTiresPressure=800
 
