@@ -1092,7 +1092,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 1.5}
+  m_LocalPosition: {x: 0, y: -1, z: 1.49997616}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 400072}
@@ -1303,10 +1303,10 @@ ParticleAnimator:
   Does Animate Color?: 1
   colorAnimation[0]:
     serializedVersion: 2
-    rgba: 184549375
+    rgba: 4294967295
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 3036676095
+    rgba: 4294967295
   colorAnimation[2]:
     serializedVersion: 2
     rgba: 4294967295
@@ -1318,9 +1318,9 @@ ParticleAnimator:
     rgba: 184549375
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: 100
+  sizeGrow: 1.5
   rndForce: {x: 0, y: 0, z: 0}
-  force: {x: 0, y: -15, z: 0}
+  force: {x: 0, y: -5, z: 0}
   damping: 1
   stopSimulation: 0
   autodestruct: 0
@@ -1441,20 +1441,20 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .0500000007
-  maxSize: .100000001
-  minEnergy: .400000006
-  maxEnergy: .600000024
-  minEmission: 60
-  maxEmission: 100
+  minSize: .5
+  maxSize: 1
+  minEnergy: 1
+  maxEnergy: 1.5
+  minEmission: 15
+  maxEmission: 30
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 5, z: 0}
-  rndVelocity: {x: 12, y: 0, z: 0}
+  localVelocity: {x: 0, y: 4, z: 0}
+  rndVelocity: {x: 4, y: 0, z: 0}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
-  angularVelocity: 0
+  angularVelocity: 5
   rndAngularVelocity: 120
-  rndRotation: 0
+  rndRotation: 1
   Simulate in Worldspace?: 1
   m_OneShot: 0
   m_Ellipsoid: {x: 1, y: .200000003, z: 1}
@@ -3098,6 +3098,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Frailty: 0
   ignoreCollision: 10
+  trailerTransform: {fileID: 0}
+  box: {fileID: 0}
+  createdObjs: []
+  iskri: {fileID: 100000, guid: f18c22d6b7d20db49b6f966af6aae837, type: 2}
   Condition: 100
 --- !u!114 &11400026
 MonoBehaviour:

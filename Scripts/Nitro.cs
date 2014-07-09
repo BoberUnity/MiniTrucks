@@ -9,14 +9,16 @@ public class Nitro : MonoBehaviour
   private void Start()
   {
     buttonThrottle = GameObject.Find("ButtonNitro").GetComponent<ButtonThrottle>();
+    gameObject.layer = 1 << 1;
   }
 
   private void OnTriggerEnter(Collider other)
   {
-    //if (other.gameObject.name == "TraktorEnemy")
-    //{
-
-    //}
+    if (other.gameObject.name.Substring(0, 2) == "TE")
+    {
+      if (destroyed)
+        Destroy(gameObject);
+    }
 
     if (other.gameObject.name == "Traktor")
     {

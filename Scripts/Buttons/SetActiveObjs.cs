@@ -6,7 +6,7 @@ public class SetActiveObjs : MonoBehaviour
   [SerializeField] private GameObject[] deactivateObjs = null;
   [SerializeField] private bool acsel = false;
 
-  protected virtual void OnPress(bool isPressed)
+  /*protected virtual*/public void OnPress(bool isPressed)
   {
     if (!isPressed)
     {

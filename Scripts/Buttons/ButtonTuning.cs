@@ -65,6 +65,11 @@ public class ButtonTuning : MonoBehaviour
     }
   }
 
+  private void Update()
+  {
+    tunStepLab.text = tunStep.ToString("f0");
+  }
+
   protected virtual void OnPress(bool isPressed)
   {
     if (!isPressed && TunStep < 5 && selectCarController.Gold >= price)

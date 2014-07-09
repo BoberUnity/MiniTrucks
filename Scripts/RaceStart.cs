@@ -26,6 +26,7 @@ public class RaceStart : MonoBehaviour
   [SerializeField] private UIPanel finishPanel = null;
   [SerializeField] private UILabel resultLabel = null;
   [SerializeField] private UILabel addGoldLabel = null;
+  [SerializeField] private UILabel hasMoneyLabel = null;
   [SerializeField] private SelectCarController selectCarController = null;
   [SerializeField] private ButtonHandler buttonOk = null;
   [SerializeField] private StartClock startClock = null;
@@ -39,9 +40,11 @@ public class RaceStart : MonoBehaviour
   public Transform CharPos = null;
   public int prize = 1;
   public event Action Finish;
+  [SerializeField]
   private bool activ = false;//true, когда едет эту гонку
   private int price = 0;
   [SerializeField] private string[] enemyNames = new string[4];
+  public MapScroll mapScroll = null;
   
   public int Price
   {
@@ -50,7 +53,11 @@ public class RaceStart : MonoBehaviour
   
   public bool Activ
   {
-    set { activ = value; }
+    set
+    {
+      activ = value;
+      mapScroll.ActivFinis = activ ? id : -1;
+    }
     get { return activ; }
   }
 
@@ -93,6 +100,7 @@ public class RaceStart : MonoBehaviour
   public void StartRace()
   {
     axisCarController.InStation = false;
+    selectCarController.NitroToFuel();//Cancel
   }
 
   public void ClockOn()
@@ -109,19 +117,19 @@ public class RaceStart : MonoBehaviour
   
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "TraktorEnemy")
+    if (other.gameObject.name.Substring(0, 2) == "TE")
     {
       if (activ)//finish
       {
         bool first = true;//Чтобы один и тот же грузовик не въехал 2 раза на финиш
         foreach (var nam in enemyNames)
         {
-          if (other.transform.parent.gameObject.name == nam)
+          if (other.gameObject.name == nam)
             first = false;
         }
         if (first)
         {
-          enemyNames[prize - 1] = other.transform.parent.gameObject.name;
+          enemyNames[prize - 1] = other.gameObject.name;
           prize += 1;
         }
       }
@@ -130,13 +138,13 @@ public class RaceStart : MonoBehaviour
     if (other.gameObject.name == "Traktor")//+ при переходе из гаража
     {
       PlayerPrefs.SetInt("StartCarPos", id);
-      selectCarController.raceStart = this;
-      truckPos.position = other.transform.position;
-      MapCamera.SetActive(false);
-      SetPanelState(true);
-      
+      Debug.LogWarning("Tractor collider Enter");
       if (other.GetComponent<CharacterJoint>() == null)
       {
+        selectCarController.raceStart = this;
+        truckPos.position = other.transform.position;
+        MapCamera.SetActive(false);
+        SetPanelState(true);
         axisCarController = other.gameObject.GetComponent<AxisCarController>();
         axisCarController.InStation = true;
         gamePanel.alpha = 0;
@@ -155,6 +163,10 @@ public class RaceStart : MonoBehaviour
         {
           if (other.gameObject.GetComponent<CharacterJoint>() != null)
           {
+            selectCarController.raceStart = this;
+            truckPos.position = other.transform.position;
+            MapCamera.SetActive(false);
+            SetPanelState(true);
             axisCarController = other.gameObject.GetComponent<AxisCarController>();
             axisCarController.InStation = true;
             finishPanel.transform.position = Vector3.zero;
@@ -199,6 +211,11 @@ public class RaceStart : MonoBehaviour
               enemyNames[i] = "";
             }
             baggageLabel.bonusPosCtrl.DeleteBonuses();
+            BlowController blowController = other.gameObject.GetComponent<BlowController>();
+            blowController.DestroyBoxes();
+            hasMoneyLabel.text = blowController.HasMoney.ToString("f0");
+            StartCoroutine(AddGoldForMoney(blowController.HasMoney, 2.5f));
+            blowController.HasMoney = 0;
           }
         }
       }
@@ -209,6 +226,13 @@ public class RaceStart : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     selectCarController.Gold += price;
+  }
+
+  private IEnumerator AddGoldForMoney(int nums, float time)
+  {
+    yield return new WaitForSeconds(time);
+    selectCarController.Gold += nums*100;//Цена за 1 монетку
+    hasMoneyLabel.text = "0";
   }
 
   private void ExitFinishMenu()//Нажатие кнопки ОК
@@ -229,9 +253,9 @@ public class RaceStart : MonoBehaviour
       finishPanel.animation.Play();
     }
 
-    if (activ)//выполняется для города-финиша, показать меню
+    if (Activ)//выполняется для города-финиша, показать меню
     {
-      activ = false;
+      Activ = false;
       if (axisCarController != null)
       axisCarController.InStation = true;
       else Debug.LogError("axisCarController == null");

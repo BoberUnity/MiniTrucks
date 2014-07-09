@@ -78,7 +78,6 @@ public class ButtonAddTrailer : MonoBehaviour
       {
         tr.transform.position = truckCar.position;
         tr.transform.rotation = truckCar.rotation;
-        //baggageLabel.BaggageController = tr.GetComponentInChildren<BlowController>();
         truckCar.gameObject.AddComponent<CharacterJoint>();
         CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
         characterJoint.connectedBody = tr.GetComponentInChildren<Rigidbody>();
@@ -104,11 +103,29 @@ public class ButtonAddTrailer : MonoBehaviour
 	    int i = 0;
       foreach (var e in raceStart.enemiesPos)//Создаем соперников
       {
-        GameObject enemy = Instantiate(raceStart.enemiesPos[i].EnemyPref, e.EnemyPos.position, e.EnemyPos.rotation) as GameObject;
-        if (enemy != null)
+        GameObject enemyTractor = Instantiate(raceStart.enemiesPos[i].EnemyPref, e.EnemyPos.position, e.EnemyPos.rotation) as GameObject;
+        if (enemyTractor != null)
         {
-          enemy.GetComponentInChildren<AxisCarController>().SetWay(way);
-          enemies[i] = enemy;
+          raceStart.mapScroll.Enemies[i] = enemyTractor.transform;//b
+          enemyTractor.GetComponentInChildren<AxisCarController>().SetWay(way);
+          enemies[i] = enemyTractor;
+          GameObject ts = Instantiate(trailer, Vector3.zero, Quaternion.identity) as GameObject;
+          //Destroy(ts.GetComponentInChildren<Skidmarks>().gameObject);//Удалить следы у соперников
+          Trailer trs = ts.GetComponentInChildren<Trailer>();  //Находим прицепа soprnika, 
+          if (trs != null)
+          {
+            trs.transform.position = enemyTractor.transform.position;
+            trs.transform.rotation = enemyTractor.transform.rotation;
+            enemyTractor.GetComponent<CharacterJoint>().connectedBody = trs.GetComponentInChildren<Rigidbody>();
+            enemyTractor.GetComponent<AxisCarController>().Trailer = trs.GetComponentInChildren<Rigidbody>();
+            enemyTractor.GetComponent<AxisCarController>().SignalTrailerLeft = trs.GetComponent<Trailer>().SignalLeft;
+            enemyTractor.GetComponent<AxisCarController>().SignalTrailerRight = trs.GetComponent<Trailer>().SignalRight;
+            enemyTractor.GetComponentInChildren<RenderContainer>().trailer = trs.GetComponentInChildren<Rigidbody>();
+            enemyTractor.GetComponentInChildren<BlowController>().TrailerTransform = trs.GetComponentInChildren<Rigidbody>().transform;
+            enemyTractor.GetComponentInChildren<BlowController>().Box = trs.Box;
+            enemyTractor.GetComponent<BlowController>().Frailty = trs.Frailty;//Передаем хрупкость на тягач
+            enemyTractor.GetComponent<BlowController>().Condition = 100;
+          }
           i += 1;
         }
         else Debug.LogWarning("opp == null");
@@ -133,21 +150,31 @@ public class ButtonAddTrailer : MonoBehaviour
   
   private void DestroyEnemies()
   {
+    
     foreach (GameObject enemy in enemies)
     {
+      GameObject trailerDelObj = null;
+      if (enemy != null)
+        trailerDelObj = enemy.GetComponent<CharacterJoint>().connectedBody.transform.parent.parent.gameObject;
+      else
+        Debug.LogWarning("En == null");
+      
+      //GameObject trailerobj = enemy.GetComponent<CharacterJoint>().connectedBody.transform.parent.parent.gameObject;
+      if (trailerDelObj != null)
+        Destroy(trailerDelObj);
       Destroy(enemy);
+      Array.Resize(ref enemies, 0);
     }
   }
 
   public void ExitRace()//Из меню паузы && Restart
   {
-    Debug.LogWarning("ExitRace");
     if (raceFinish.Activ)//выполняется для всех кнопок с финишем в указанном городе
     {
-      Debug.LogWarning("ExitRace active");
       if (enemies.Length > 1)//для 1-й кнопки
       {
         raceFinish.Activ = false;
+        Debug.LogWarning("DestroyEnemies 1 raz");
         DestroyEnemies();
         CharacterJoint characterJoint = truckCar.GetComponent<CharacterJoint>();
         if (characterJoint != null)

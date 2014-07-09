@@ -120,6 +120,7 @@ public class SelectCarController : MonoBehaviour
   [SerializeField] private UIPanel gamePanel = null;
   [SerializeField] private UIPanel gragePanel = null;
   [SerializeField] private UIPanel infoPanel = null;
+  [SerializeField] private UIPanel upgradePanel = null;
   [SerializeField] private MapScroll map = null;
   [SerializeField] public EnemyCar[] enemyCar = null;
   [SerializeField] private Transform carGaragePos = null;
@@ -266,7 +267,7 @@ public class SelectCarController : MonoBehaviour
   private void ChangeCar()
   {
     Destroy(character);
-    Debug.LogWarning("Destroy(character); ChangeCar()");
+    //Debug.LogWarning("Destroy(character); ChangeCar()");
     character = Instantiate(enemyCar[currentCar].CarPrefab, carGaragePos.position, Quaternion.identity) as GameObject;
     if (character != null)
     {
@@ -451,17 +452,20 @@ public class SelectCarController : MonoBehaviour
       {
         StartCoroutine(ShowStationMenu(gamePanel.animation.clip.length));//!!! Должно быть не gamePanel, a Upgrade Panel
         aCC.InStation = true;
+        Debug.LogWarning("Continue: raceStart != null");
       }
       else//При первом запуске или перезапуск из гонки активируем Game Menu
       {
         aCC.InStation = false;
         StartCoroutine(ShowGameMenu(gamePanel.animation.clip.length));
+        Debug.LogWarning("Continue: raceStart == null");
       }
     }
     gamePanel.enabled = true;
     cameraMap.SetActive(true);
     gragePanel.enabled = false;
     infoPanel.enabled = false;
+    upgradePanel.enabled = false;
   }
 
   private void SetTunningButtons(CameraTarget tractor)
@@ -469,22 +473,22 @@ public class SelectCarController : MonoBehaviour
     buttonTuningEng.drivetrain = tractor.GetComponent<Drivetrain>();
     buttonTuningHand.axles = tractor.GetComponent<Axles>();
     buttonTuningHand.carDynamics = tractor.GetComponent<CarDynamics>();
-    //buttonTuningHand.setup = tractor.GetComponent<Setup>();
-    //buttonTuningEng.setup = tractor.GetComponent<Setup>();
     buttonTuningBrake.axles = tractor.GetComponent<Axles>();
     buttonTuningBrake.carDynamics = tractor.GetComponent<CarDynamics>();
-    //buttonTuningBrake.setup = tractor.GetComponent<Setup>();
-    //buttonTuningMaxSpeed.drivetrain = tractor.GetComponent<Drivetrain>();
-    //buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
-    //ostalnie?
+    buttonTuningEng.TunStep = enemyCar[currentCar].TunSpeed;
+    buttonTuningHand.TunStep = enemyCar[currentCar].TunHandling;
+    buttonTuningBrake.TunStep = enemyCar[currentCar].TunBrake;
   }
 
   private void Restart()
   {
     CameraTarget tractor = character.GetComponentInChildren<CameraTarget>();  //Находим грузовик
+    BlowController blowController = character.GetComponentInChildren<BlowController>();
+    blowController.DestroyBoxes();
+    blowController.HasMoney = 0;
+
     if (tractor != null)
     {
-      //ButtonAddTrailer[] buttonsAddTrailer = FindObjectsOfType(typeof(ButtonAddTrailer)) as ButtonAddTrailer[];
       foreach (var button in buttonsAddTrailer)
       {
         button.ExitRace();
@@ -555,5 +559,10 @@ public class SelectCarController : MonoBehaviour
     Destroy(character);
     currentCar = 0;
     raceStart = null;
+  }
+
+  public void NitroToFuel()
+  {
+    buttonNitro.NitroFuel = 100;
   }
 }

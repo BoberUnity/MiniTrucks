@@ -13,7 +13,8 @@ public class Brizgi : MonoBehaviour
 
   private void Update()
   {
-    brizgi.emit = drivetrain.velo > 5;
+    brizgi.emit = drivetrain.velo > 2;
+    brizgi.localVelocity = drivetrain.gear > 0 ? Vector3.forward * drivetrain.velo * 0.9f + Vector3.up * 4 : -Vector3.forward * drivetrain.velo * 0.9f + Vector3.up * 4;
   }
 
   private void OnTriggerEnter(Collider other)

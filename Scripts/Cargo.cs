@@ -5,14 +5,13 @@ public class Cargo : MonoBehaviour
 {
   private bool bonus = false;
   private float toBonusTime = 2.5f;
-  [HideInInspector] public float AddCondition = 5;//Изменяется из BlowController
-  private bool rayCar = false;
+  [HideInInspector] public float AddCondition = 5; //Изменяется из BlowController
 
-  void Start ()
-	{
+  private void Start()
+  {
     StartCoroutine(CheckChangeToBonus(toBonusTime));
-	}
-	
+  }
+
   private IEnumerator CheckChangeToBonus(float time)
   {
     yield return new WaitForSeconds(time);
@@ -30,18 +29,19 @@ public class Cargo : MonoBehaviour
     gameObject.layer = 1 << 1;
   }
 
-  private void OnBecameVisible()//On
+  private void OnBecameVisible() //On
   {
     if (bonus)
       StopAllCoroutines();
   }
-  
-  private void OnBecameInvisible()//Off
+
+  private void OnBecameInvisible() //Off
   {
-    if (bonus && gameObject.activeSelf)
+    if (bonus)
     {
       StopAllCoroutines();
-      StartCoroutine(DestroyMe(5));
+      if (gameObject.activeSelf)
+        StartCoroutine(DestroyMe(5));
     }
   }
 
@@ -49,5 +49,10 @@ public class Cargo : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     Destroy(gameObject);
+  }
+
+  private void OnApplicationQuit()
+  {
+    gameObject.SetActive(false);
   }
 }

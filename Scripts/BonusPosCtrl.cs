@@ -17,16 +17,20 @@ public class BonusPosCtrl : MonoBehaviour
 	{
     positions = GetComponentsInChildren<Transform>();
     Array.Resize(ref fulls, positions.Length);
-    for (int i = 0; i < boxNums; i++)//Создаем коробки
+    if (box[cargoId] != null)//Water && Sand
     {
-      var id = Mathf.Abs(UnityEngine.Random.Range(1, positions.Length));
-      if (!fulls[id])
+      for (int i = 0; i < boxNums; i++)//Создаем коробки
       {
-        Array.Resize(ref createdObjs, createdObjs.Length+1);
-        createdObjs[createdObjs.Length-1] = Instantiate(box[cargoId], positions[id].position, Quaternion.identity) as GameObject;
-        fulls[id] = true;
-      }
-	  }
+        var id = Mathf.Abs(UnityEngine.Random.Range(1, positions.Length));
+        if (!fulls[id])
+        {
+          Array.Resize(ref createdObjs, createdObjs.Length+1);
+          createdObjs[createdObjs.Length - 1] = Instantiate(box[cargoId], positions[id].position, Quaternion.identity) as GameObject;
+          createdObjs[createdObjs.Length - 1].transform.parent = transform;
+          fulls[id] = true;
+        }
+	    }
+    }
 
     for (int i = 0; i < moneyNums; i++)//Создаем money
     {
@@ -35,6 +39,7 @@ public class BonusPosCtrl : MonoBehaviour
       {
         Array.Resize(ref createdObjs, createdObjs.Length + 1);
         createdObjs[createdObjs.Length - 1] = Instantiate(money, positions[id].position, Quaternion.identity) as GameObject;
+        createdObjs[createdObjs.Length - 1].transform.parent = transform;
         fulls[id] = true;
       }
     }
@@ -46,6 +51,7 @@ public class BonusPosCtrl : MonoBehaviour
       {
         Array.Resize(ref createdObjs, createdObjs.Length + 1);
         createdObjs[createdObjs.Length - 1] = Instantiate(nitro, positions[id].position, Quaternion.identity) as GameObject;
+        createdObjs[createdObjs.Length - 1].transform.parent = transform;
         fulls[id] = true;
       }
     }

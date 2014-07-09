@@ -50,6 +50,8 @@ public class AxisCarController : CarController
   [SerializeField]
   private int maxSpeed = 0;
   private bool isVisible = true;
+  private float roteteTime = 0;//Перевернут
+  //private bool isRotating = false;
   
 
   public bool BrakeUsed
@@ -232,7 +234,7 @@ public class AxisCarController : CarController
         {
           throttleInput = acselKoeff;//0.4f
         }
-        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 18 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.015f && !trafic)
+        if (sp < speeds[currentWaypoint] * speedKoeff + 5 && sp > 16 * speedKoeff && sp < 25 * speedKoeff && Mathf.Abs(steerInput) < 0.015f && !trafic)
         {
           throttleInput = 0.99f;
           NitroUsed = true;
@@ -260,7 +262,6 @@ public class AxisCarController : CarController
         if (trailerRigidbody != null) 
           trailerRigidbody.drag = trailerdragFree;
       }
-      //steerInput = 0;
       handbrakeInput = 0;
       clutchInput = 0;
       startEngineInput = Input.GetButton("Fire1");
@@ -317,6 +318,21 @@ public class AxisCarController : CarController
       }
     }
 
+    if ((transform.eulerAngles.z > 70 && transform.eulerAngles.z < 180) || (transform.eulerAngles.z > 180 && transform.eulerAngles.z < 310))
+    {
+      if (drivetrain.velo < 2)
+      {
+        roteteTime += Time.deltaTime;
+        if (roteteTime > 5)
+        {
+          transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+          transform.position += Vector3.up*0.5f;
+          Debug.LogWarning("ReturnOnGround");
+        }
+      }
+    }
+    else
+      roteteTime = 0;
     
     //if (drivetrain != null)
     //{
@@ -367,10 +383,8 @@ public class AxisCarController : CarController
             if (wp != firstWaypoint)
               cw += 1;
             else
-            {
-              //Debug.LogWarning("CW= " + cw);
               currentWaypoint = cw;
-            }
+            
           }
         }
       }

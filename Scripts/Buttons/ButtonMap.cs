@@ -5,6 +5,7 @@ public class ButtonMap : MonoBehaviour
   [SerializeField] private UIButton[] disableButtons = null;
   [SerializeField] private ButtonHandler map = null;
   [SerializeField] private GameObject mapCamera = null;
+  [SerializeField] private MapScroll mapScroll = null;
   
   private void Start()
   {
@@ -24,14 +25,15 @@ public class ButtonMap : MonoBehaviour
       {
         button.isEnabled = false;
       }
-      //map.gameObject.SetActive(true);
       Transform[] mapObjs = mapCamera.GetComponentsInChildren<Transform>();
       foreach (var mapObj in mapObjs)
       {
         mapObj.gameObject.layer = 28;
       }
+      mapObjs[1].position = Vector3.zero;
       
       mapCamera.SetActive(true);
+      mapScroll.Big = true;
 
     }
 	}
@@ -42,13 +44,12 @@ public class ButtonMap : MonoBehaviour
     {
       button.isEnabled = true;
     }
-    //map.gameObject.SetActive(false);
     Transform[] mapObjs = mapCamera.GetComponentsInChildren<Transform>();
     foreach (var mapObj in mapObjs)
     {
       mapObj.gameObject.layer = 30;
     }
-    //mapCamera.SetActive(false);
+    mapScroll.Big = false;
   }
 }
 

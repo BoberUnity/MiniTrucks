@@ -98,6 +98,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 44
+  - name: Finish-flag
+    x: 822
+    y: 641
+    width: 112
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Flat Outline
     x: 276
     y: 775
@@ -120,6 +133,19 @@ MonoBehaviour:
     borderRight: 4
     borderTop: 4
     borderBottom: 4
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: gps_ramka
+    x: 0
+    y: 129
+    width: 128
+    height: 128
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -203,8 +229,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Orc Armor - Boots
-    x: 693
-    y: 637
+    x: 182
+    y: 93
     width: 96
     height: 128
     borderLeft: 0
@@ -229,8 +255,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: Orc Armor - Shoulders
-    x: 0
-    y: 129
+    x: 693
+    y: 637
     width: 128
     height: 128
     borderLeft: 0
@@ -252,6 +278,19 @@ MonoBehaviour:
     borderBottom: 1
     paddingLeft: 0
     paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: player
+    x: 312
+    y: 794
+    width: 15
+    height: 16
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
     paddingTop: 0
     paddingBottom: 0
   - name: Rul0

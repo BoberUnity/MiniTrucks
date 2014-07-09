@@ -283,6 +283,7 @@ public class Wheel : MonoBehaviour
   bool isSkidGrass = false;
   bool isSkidSand = false;
   bool isSkidSnow = false;
+  bool isSkidDno = false;
   [SerializeField] private bool enableSkidParticles = false;
 
 	[HideInInspector]
@@ -569,7 +570,7 @@ public class Wheel : MonoBehaviour
 		
 		localScale=1/(trs.localScale.y*myTransform.localScale.y);
 		
-		layerMask=1<<trs.gameObject.layer | 1<<myTransform.gameObject.layer | 1 << 29;//LayerMask.NameToLayer("Wheel");
+		layerMask=1<<trs.gameObject.layer | 1<<myTransform.gameObject.layer | 1 << 29 | 1 << 1 | 1 << 2;//LayerMask.NameToLayer("Wheel");
 		layerMask=~layerMask;	
 		
 		radiusLoaded=radius;
@@ -645,12 +646,13 @@ public class Wheel : MonoBehaviour
 		if (physicMaterials)
     { 
 			physicMaterial = hitDown.collider.sharedMaterial;
- 			if (physicMaterial == physicMaterials.track || physicMaterial==null)
+ 			if (physicMaterial == physicMaterials.track)
       {
 				isSkidSmoke=true;
         isSkidGrass = false;
         isSkidSand = false;
         isSkidSnow = false;
+        isSkidDno = false;
         radius = radiusTrack;
 				gripMaterial=physicMaterials.trackGrip; 
 				rollingFrictionCoefficient=physicMaterials.trackRollingFriction;
@@ -662,6 +664,7 @@ public class Wheel : MonoBehaviour
         isSkidGrass = true;
         isSkidSand = false;
         isSkidSnow = false;
+        isSkidDno = false;
         radius = radiusTrack;
 				gripMaterial=physicMaterials.grassGrip; 
 				rollingFrictionCoefficient=physicMaterials.grassRollingFriction;
@@ -673,6 +676,7 @@ public class Wheel : MonoBehaviour
         isSkidGrass = false;
         isSkidSand = true;
         isSkidSnow = false;
+        isSkidDno = false;
         radius = radiusSnow;
 				gripMaterial=physicMaterials.sandGrip; 
 				rollingFrictionCoefficient=physicMaterials.sandRollingFriction;
@@ -684,11 +688,23 @@ public class Wheel : MonoBehaviour
         isSkidGrass = false;
         isSkidSand = false;
         isSkidSnow = true;
+        isSkidDno = false;
         radius = radiusSnow;
 				gripMaterial=physicMaterials.offRoadGrip; 
 				rollingFrictionCoefficient=physicMaterials.offRoadRollingFriction;
 				staticFrictionCoefficient=physicMaterials.offRoadStaticFriction;
-			} 
+			} else if (physicMaterial==null)//Dno
+			{
+        isSkidSmoke = false;
+        isSkidGrass = false;
+        isSkidSand = false;
+        isSkidSnow = false;
+        isSkidDno = true;
+        radius = radiusTrack;
+        gripMaterial = physicMaterials.grassGrip;
+        rollingFrictionCoefficient = physicMaterials.grassRollingFriction;
+        staticFrictionCoefficient = physicMaterials.grassStaticFriction;
+			}
 		}
 		
 		float angle = maxSteeringAngle*steering;
@@ -1011,8 +1027,8 @@ public class Wheel : MonoBehaviour
       //  slipVelo = sw;//b
 			slipVelo = Mathf.Sqrt(longSquare + latSquare);//bilo tak
 			slipVeloSmoke=Mathf.Sqrt(longSquare + Mathf.Abs(lateralSlipVelo)*0.001f);
-			
-			if (skidmarks!=null) CalcSkidmarks();
+
+      if (skidmarks != null) CalcSkidmarks();
 			
 		}
 		else
@@ -1093,7 +1109,7 @@ public class Wheel : MonoBehaviour
 	
 	void CalcSkidmarks()
   {
-    if (slipVelo>slipVeloThreshold)
+    if (slipVelo > slipVeloThreshold && !isSkidDno)
     {
 			slipSkidAmount=(slipVelo - slipVeloThreshold)/15;
 			skidmarks.markWidth=width;

@@ -3,7 +3,7 @@
 public class RenderContainer : MonoBehaviour
 {
   //[SerializeField] private CharacterJoint characterJoint = null;
-  [SerializeField] private Rigidbody trailer = null;
+  public Rigidbody trailer = null;
   [SerializeField] private BoxCollider bigCollider = null;
   [SerializeField] private AxisCarController axisCarController = null;
   [SerializeField] private Vector3 connectPosition = new Vector3(0, 0.41f, -1.7f);
@@ -30,7 +30,8 @@ public class RenderContainer : MonoBehaviour
   {
     axisCarController.IsVisible = false;
     transform.parent.rigidbody.interpolation = RigidbodyInterpolation.None;
-    trailer.gameObject.SetActive(false);
+    if (trailer != null)
+      trailer.gameObject.SetActive(false);
     bigCollider.enabled = true;
   }
 
